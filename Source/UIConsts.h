@@ -24,7 +24,7 @@ public:
 
     static const int ampButtonsY = 8;
     
-    static const int ampButtonsWidth = AmpButtonBarW / 10; // 10 = Amount of buttons
+    static const int ampButtonsWidth = 62;//AmpButtonBarW / 10; // 10 = Amount of buttons
     static const int ampButtonsHeight = AmpButtonBarH;
     
     static const int ampCompInputX = 0;

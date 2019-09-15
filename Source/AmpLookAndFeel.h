@@ -37,7 +37,7 @@ public:
     {
         g.fillAll(Colours::red);
         
-        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob_rectob_00");
+        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob62_chknw_00");
         int dataSize;
         auto* data = BinaryData::getNamedResource (fileName.c_str(), dataSize);
         
