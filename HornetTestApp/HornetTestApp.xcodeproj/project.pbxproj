@@ -1,0 +1,371 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0C7935D5232EBC2C0098E3E4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C7935D4232EBC2C0098E3E4 /* main.cpp */; };
+		0C793604232EBC810098E3E4 /* DspFilter.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 0C7935DE232EBC800098E3E4 /* DspFilter.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0C7935CF232EBC2C0098E3E4 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0C7935D1232EBC2C0098E3E4 /* HornetTestApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HornetTestApp; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C7935D4232EBC2C0098E3E4 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		0C7935DB232EBC800098E3E4 /* 12ax7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 12ax7.h; path = tube_tables/12ax7.h; sourceTree = "<group>"; };
+		0C7935DC232EBC800098E3E4 /* tube_transfer.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = tube_transfer.py; sourceTree = "<group>"; };
+		0C7935DD232EBC800098E3E4 /* TDFII.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TDFII.h; sourceTree = "<group>"; };
+		0C7935DE232EBC800098E3E4 /* DspFilter.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DspFilter.cpp; sourceTree = "<group>"; };
+		0C7935DF232EBC800098E3E4 /* InputFilterMarshall.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFilterMarshall.h; sourceTree = "<group>"; };
+		0C7935E0232EBC800098E3E4 /* PreAmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PreAmp.h; sourceTree = "<group>"; };
+		0C7935E1232EBC800098E3E4 /* 12at7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 12at7.h; path = tube_tables/12at7.h; sourceTree = "<group>"; };
+		0C7935E2232EBC800098E3E4 /* KT66.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KT66.h; path = tube_tables/KT66.h; sourceTree = "<group>"; };
+		0C7935E3232EBC800098E3E4 /* 6550.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 6550.h; path = tube_tables/6550.h; sourceTree = "<group>"; };
+		0C7935E4232EBC800098E3E4 /* TubeAmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TubeAmp.h; sourceTree = "<group>"; };
+		0C7935E5232EBC800098E3E4 /* ECC83.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECC83.h; path = tube_tables/ECC83.h; sourceTree = "<group>"; };
+		0C7935E6232EBC800098E3E4 /* ECC81.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ECC81.h; path = tube_tables/ECC81.h; sourceTree = "<group>"; };
+		0C7935E7232EBC800098E3E4 /* ToneStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ToneStack.h; sourceTree = "<group>"; };
+		0C7935E8232EBC800098E3E4 /* 12ay7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 12ay7.h; path = tube_tables/12ay7.h; sourceTree = "<group>"; };
+		0C7935E9232EBC810098E3E4 /* InputFilterGuitarKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFilterGuitarKit.h; sourceTree = "<group>"; };
+		0C7935EA232EBC810098E3E4 /* InputFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFilter.h; sourceTree = "<group>"; };
+		0C7935EB232EBC810098E3E4 /* 7025.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 7025.h; path = tube_tables/7025.h; sourceTree = "<group>"; };
+		0C7935EC232EBC810098E3E4 /* EL34.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EL34.h; path = tube_tables/EL34.h; sourceTree = "<group>"; };
+		0C7935ED232EBC810098E3E4 /* AudioProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioProcessor.h; sourceTree = "<group>"; };
+		0C7935EE232EBC810098E3E4 /* TubeStage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TubeStage.h; sourceTree = "<group>"; };
+		0C7935EF232EBC810098E3E4 /* 6L6CG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = 6L6CG.h; path = tube_tables/6L6CG.h; sourceTree = "<group>"; };
+		0C7935F1232EBC810098E3E4 /* KT88.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KT88.h; sourceTree = "<group>"; };
+		0C7935F2232EBC810098E3E4 /* 6550.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 6550.h; sourceTree = "<group>"; };
+		0C7935F3232EBC810098E3E4 /* 6L6CG.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 6L6CG.h; sourceTree = "<group>"; };
+		0C7935F4232EBC810098E3E4 /* 12ax7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 12ax7.h; sourceTree = "<group>"; };
+		0C7935F5232EBC810098E3E4 /* KT66.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KT66.h; sourceTree = "<group>"; };
+		0C7935F6232EBC810098E3E4 /* 7025.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 7025.h; sourceTree = "<group>"; };
+		0C7935F7232EBC810098E3E4 /* ECC81.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECC81.h; sourceTree = "<group>"; };
+		0C7935F8232EBC810098E3E4 /* 12ay7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 12ay7.h; sourceTree = "<group>"; };
+		0C7935F9232EBC810098E3E4 /* EL84.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EL84.h; sourceTree = "<group>"; };
+		0C7935FA232EBC810098E3E4 /* 12at7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = 12at7.h; sourceTree = "<group>"; };
+		0C7935FB232EBC810098E3E4 /* ECC83.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECC83.h; sourceTree = "<group>"; };
+		0C7935FC232EBC810098E3E4 /* EL34.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EL34.h; sourceTree = "<group>"; };
+		0C7935FD232EBC810098E3E4 /* KT88.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KT88.h; path = tube_tables/KT88.h; sourceTree = "<group>"; };
+		0C7935FE232EBC810098E3E4 /* InputFilterMesa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFilterMesa.h; sourceTree = "<group>"; };
+		0C7935FF232EBC810098E3E4 /* rcFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rcFilter.h; sourceTree = "<group>"; };
+		0C793600232EBC810098E3E4 /* DspFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DspFilter.h; sourceTree = "<group>"; };
+		0C793601232EBC810098E3E4 /* InputFilterFender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputFilterFender.h; sourceTree = "<group>"; };
+		0C793602232EBC810098E3E4 /* EL84.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EL84.h; path = tube_tables/EL84.h; sourceTree = "<group>"; };
+		0C793603232EBC810098E3E4 /* valve.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = valve.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0C7935CE232EBC2C0098E3E4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0C7935C8232EBC2C0098E3E4 = {
+			isa = PBXGroup;
+			children = (
+				0C7935D3232EBC2C0098E3E4 /* HornetTestApp */,
+				0C7935D2232EBC2C0098E3E4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0C7935D2232EBC2C0098E3E4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0C7935D1232EBC2C0098E3E4 /* HornetTestApp */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0C7935D3232EBC2C0098E3E4 /* HornetTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				0C7935EF232EBC810098E3E4 /* 6L6CG.h */,
+				0C7935E1232EBC800098E3E4 /* 12at7.h */,
+				0C7935DB232EBC800098E3E4 /* 12ax7.h */,
+				0C7935E8232EBC800098E3E4 /* 12ay7.h */,
+				0C7935E3232EBC800098E3E4 /* 6550.h */,
+				0C7935EB232EBC810098E3E4 /* 7025.h */,
+				0C7935ED232EBC810098E3E4 /* AudioProcessor.h */,
+				0C7935DE232EBC800098E3E4 /* DspFilter.cpp */,
+				0C793600232EBC810098E3E4 /* DspFilter.h */,
+				0C7935E6232EBC800098E3E4 /* ECC81.h */,
+				0C7935E5232EBC800098E3E4 /* ECC83.h */,
+				0C7935EC232EBC810098E3E4 /* EL34.h */,
+				0C793602232EBC810098E3E4 /* EL84.h */,
+				0C7935EA232EBC810098E3E4 /* InputFilter.h */,
+				0C793601232EBC810098E3E4 /* InputFilterFender.h */,
+				0C7935E9232EBC810098E3E4 /* InputFilterGuitarKit.h */,
+				0C7935DF232EBC800098E3E4 /* InputFilterMarshall.h */,
+				0C7935FE232EBC810098E3E4 /* InputFilterMesa.h */,
+				0C7935E2232EBC800098E3E4 /* KT66.h */,
+				0C7935FD232EBC810098E3E4 /* KT88.h */,
+				0C7935E0232EBC800098E3E4 /* PreAmp.h */,
+				0C7935FF232EBC810098E3E4 /* rcFilter.h */,
+				0C7935DD232EBC800098E3E4 /* TDFII.h */,
+				0C7935E7232EBC800098E3E4 /* ToneStack.h */,
+				0C7935F0232EBC810098E3E4 /* tube_tables */,
+				0C7935DC232EBC800098E3E4 /* tube_transfer.py */,
+				0C7935E4232EBC800098E3E4 /* TubeAmp.h */,
+				0C7935EE232EBC810098E3E4 /* TubeStage.h */,
+				0C793603232EBC810098E3E4 /* valve.h */,
+				0C7935D4232EBC2C0098E3E4 /* main.cpp */,
+			);
+			path = HornetTestApp;
+			sourceTree = "<group>";
+		};
+		0C7935F0232EBC810098E3E4 /* tube_tables */ = {
+			isa = PBXGroup;
+			children = (
+				0C7935F1232EBC810098E3E4 /* KT88.h */,
+				0C7935F2232EBC810098E3E4 /* 6550.h */,
+				0C7935F3232EBC810098E3E4 /* 6L6CG.h */,
+				0C7935F4232EBC810098E3E4 /* 12ax7.h */,
+				0C7935F5232EBC810098E3E4 /* KT66.h */,
+				0C7935F6232EBC810098E3E4 /* 7025.h */,
+				0C7935F7232EBC810098E3E4 /* ECC81.h */,
+				0C7935F8232EBC810098E3E4 /* 12ay7.h */,
+				0C7935F9232EBC810098E3E4 /* EL84.h */,
+				0C7935FA232EBC810098E3E4 /* 12at7.h */,
+				0C7935FB232EBC810098E3E4 /* ECC83.h */,
+				0C7935FC232EBC810098E3E4 /* EL34.h */,
+			);
+			path = tube_tables;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0C7935D0232EBC2C0098E3E4 /* HornetTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0C7935D8232EBC2C0098E3E4 /* Build configuration list for PBXNativeTarget "HornetTestApp" */;
+			buildPhases = (
+				0C7935CD232EBC2C0098E3E4 /* Sources */,
+				0C7935CE232EBC2C0098E3E4 /* Frameworks */,
+				0C7935CF232EBC2C0098E3E4 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HornetTestApp;
+			productName = HornetTestApp;
+			productReference = 0C7935D1232EBC2C0098E3E4 /* HornetTestApp */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0C7935C9232EBC2C0098E3E4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = Oamk;
+				TargetAttributes = {
+					0C7935D0232EBC2C0098E3E4 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+				};
+			};
+			buildConfigurationList = 0C7935CC232EBC2C0098E3E4 /* Build configuration list for PBXProject "HornetTestApp" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 0C7935C8232EBC2C0098E3E4;
+			productRefGroup = 0C7935D2232EBC2C0098E3E4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0C7935D0232EBC2C0098E3E4 /* HornetTestApp */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0C7935CD232EBC2C0098E3E4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C7935D5232EBC2C0098E3E4 /* main.cpp in Sources */,
+				0C793604232EBC810098E3E4 /* DspFilter.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		0C7935D6232EBC2C0098E3E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		0C7935D7232EBC2C0098E3E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		0C7935D9232EBC2C0098E3E4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3J7RNQ7SY;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0C7935DA232EBC2C0098E3E4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = K3J7RNQ7SY;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0C7935CC232EBC2C0098E3E4 /* Build configuration list for PBXProject "HornetTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C7935D6232EBC2C0098E3E4 /* Debug */,
+				0C7935D7232EBC2C0098E3E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0C7935D8232EBC2C0098E3E4 /* Build configuration list for PBXNativeTarget "HornetTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0C7935D9232EBC2C0098E3E4 /* Debug */,
+				0C7935DA232EBC2C0098E3E4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0C7935C9232EBC2C0098E3E4 /* Project object */;
+}
