@@ -42,7 +42,7 @@ void MainComponent::paint (Graphics& g)
     
     g.setColour (Colours::white);
     g.setFont (14.0f);
-    g.drawText ("MainComponent", getLocalBounds(),
+    g.drawText ("This is the MainComponent", getLocalBounds(),
                 Justification::centred, true);   // draw some placeholder text
 }
 
