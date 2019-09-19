@@ -2,6 +2,9 @@
 
 <JUCERPROJECT id="pllKDb" name="Amped" projectType="audioplug" jucerVersion="5.4.4">
   <MAINGROUP id="H6VpyL" name="Amped">
+    <GROUP id="{DEEE0891-E3FA-3620-F858-1F386BF0782D}" name="original_hornet">
+      <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
+    </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
       <GROUP id="{6702B31C-D20E-AE2F-7470-FFB0D2A87347}" name="amped_knob62_chkn">
         <FILE id="GJvMKm" name="amped_knob62_chknw_0000.png" compile="0" resource="1"
@@ -1148,6 +1151,46 @@
       <FILE id="dFsuyk" name="full_bg.png" compile="0" resource="1" file="res/full_bg.png"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <GROUP id="{DD6A0A51-DAA2-6BC2-F492-69855662BCE4}" name="Hornet">
+        <FILE id="mRhkrQ" name="hornet_wrapper.h" compile="0" resource="0"
+              file="Source/original_hornet/hornet_wrapper.h"/>
+        <FILE id="k60jCg" name="DspFilter.h" compile="0" resource="0" file="Source/original_hornet/DspFilter.h"/>
+        <FILE id="ZBwp58" name="InputFilter.h" compile="0" resource="0" file="Source/original_hornet/InputFilter.h"/>
+        <FILE id="nBvXF5" name="DspFilter.cpp" compile="1" resource="0" file="Source/original_hornet/DspFilter.cpp"/>
+        <FILE id="xLBr9h" name="InputFilterFender.h" compile="0" resource="0"
+              file="Source/original_hornet/InputFilterFender.h"/>
+        <FILE id="cBcQG7" name="InputFilterGuitarKit.h" compile="0" resource="0"
+              file="Source/original_hornet/InputFilterGuitarKit.h"/>
+        <FILE id="dTctAB" name="InputFilterMarshall.h" compile="0" resource="0"
+              file="Source/original_hornet/InputFilterMarshall.h"/>
+        <FILE id="TPfJWy" name="InputFilterMesa.h" compile="0" resource="0"
+              file="Source/original_hornet/InputFilterMesa.h"/>
+        <FILE id="oeMwmh" name="PreAmp.h" compile="0" resource="0" file="Source/original_hornet/PreAmp.h"/>
+        <FILE id="CaIFIz" name="rcFilter.h" compile="0" resource="0" file="Source/original_hornet/rcFilter.h"/>
+        <FILE id="P9CiE0" name="TDFII.h" compile="0" resource="0" file="Source/original_hornet/TDFII.h"/>
+        <FILE id="GWkfqx" name="ToneStack.h" compile="0" resource="0" file="Source/original_hornet/ToneStack.h"/>
+        <FILE id="LAJPMB" name="tube_transfer.py" compile="0" resource="1"
+              file="Source/original_hornet/tube_transfer.py"/>
+        <FILE id="oTZylq" name="TubeAmp.h" compile="0" resource="0" file="Source/original_hornet/TubeAmp.h"/>
+        <FILE id="c0WbaW" name="TubeStage.h" compile="0" resource="0" file="Source/original_hornet/TubeStage.h"/>
+        <FILE id="hGzE6p" name="AudioProcessor.h" compile="0" resource="0"
+              file="Source/original_hornet/AudioProcessor.h"/>
+        <FILE id="hRe7cj" name="valve.h" compile="0" resource="0" file="Source/original_hornet/valve.h"/>
+        <GROUP id="{02527246-F4FB-27BE-A8D0-B2095E7AAC4D}" name="tube_tables">
+          <FILE id="qUnFrg" name="12at7.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/12at7.h"/>
+          <FILE id="PShhzF" name="6L6CG.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/6L6CG.h"/>
+          <FILE id="AKm8Dk" name="12ax7.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/12ax7.h"/>
+          <FILE id="hkGWoL" name="12ay7.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/12ay7.h"/>
+          <FILE id="vejkcN" name="6550.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/6550.h"/>
+          <FILE id="Aa4iRX" name="7025.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/7025.h"/>
+          <FILE id="Fi4vMZ" name="ECC81.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/ECC81.h"/>
+          <FILE id="gpHMmm" name="ECC83.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/ECC83.h"/>
+          <FILE id="yK4njO" name="EL34.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/EL34.h"/>
+          <FILE id="qRw92V" name="KT66.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/KT66.h"/>
+          <FILE id="HPEha5" name="KT88.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/KT88.h"/>
+          <FILE id="eTnGaH" name="EL84.h" compile="0" resource="0" file="Source/original_hornet/tube_tables/EL84.h"/>
+        </GROUP>
+      </GROUP>
       <GROUP id="{004B61D1-1CFA-016A-7887-63CF0B445860}" name="UIComponents">
         <FILE id="K7laz0" name="AmpLookAndFeel.cpp" compile="1" resource="0"
               file="Source/AmpLookAndFeel.cpp"/>

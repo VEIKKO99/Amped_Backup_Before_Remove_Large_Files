@@ -10,7 +10,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
-
+#include "original_hornet/TubeAmp.h"
 //==============================================================================
 AmpedAudioProcessor::AmpedAudioProcessor()
 #ifndef JucePlugin_PreferredChannelConfigurations
