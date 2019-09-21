@@ -20,18 +20,20 @@
 class AmpedAudioProcessorEditor  : public AudioProcessorEditor
 {
 public:
-    AmpedAudioProcessorEditor (AmpedAudioProcessor&);
+    AmpedAudioProcessorEditor (AmpedAudioProcessor&, AudioProcessorValueTreeState& vts);
     ~AmpedAudioProcessorEditor();
 
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
-
+    
 private:
     // This reference is provided as a quick way for your editor to
     // access the processor object that created it.
     AmpedAudioProcessor& processor;
     MainComponent mainContainer;
+    AudioProcessorValueTreeState& valueTreeState;
 
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessorEditor)
 };

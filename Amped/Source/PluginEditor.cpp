@@ -12,8 +12,8 @@
 #include "PluginEditor.h"
 
 //==============================================================================
-AmpedAudioProcessorEditor::AmpedAudioProcessorEditor (AmpedAudioProcessor& p)
-    : AudioProcessorEditor (&p), processor (p)
+AmpedAudioProcessorEditor::AmpedAudioProcessorEditor (AmpedAudioProcessor& p, AudioProcessorValueTreeState& vts)
+    : AudioProcessorEditor (&p), processor (p), mainContainer(vts), valueTreeState(vts)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.

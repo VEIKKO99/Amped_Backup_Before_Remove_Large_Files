@@ -13,7 +13,7 @@
 #include "UIConsts.h"
 
 //==============================================================================
-MainComponent::MainComponent()
+MainComponent::MainComponent(AudioProcessorValueTreeState& vts) : valueTreeState(vts), ampButtonBar(vts)
 {
     
     addAndMakeVisible(ampButtonBar);

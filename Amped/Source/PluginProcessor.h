@@ -32,6 +32,12 @@ public:
    #endif
 
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
+    
+    void processBlock (AudioBuffer<double>& buffer,
+                               MidiBuffer& midiMessages) override;
+    
+    virtual bool supportsDoublePrecisionProcessing() const override;
+
 
     //==============================================================================
     AudioProcessorEditor* createEditor() override;
@@ -72,10 +78,26 @@ public:
    // PluginParameterLinSlider paramMix;
     
     
+    static void interleaveSamples (double** source, double* dest, int numSamples, int numChannels);
     
+    static void deinterleaveSamples (double* source, double** dest, int numSamples, int numChannels);
+
 private:
     //==============================================================================    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
     
     TubeAmp tubeAmp;
+    AudioProcessorValueTreeState parameters;
+    
+    float* inputParameter = nullptr;
+    float* fxParameter = nullptr;
+    
+    float* driveParameter = nullptr;
+    float* bassParameter = nullptr;
+    float* middleParameter = nullptr;
+    float* trebleParameter = nullptr;
+    float* presenceParameter = nullptr;
+    float* masterParameter = nullptr;
+    float* irParameter = nullptr;
+    float* outputParameter = nullptr;
 };
