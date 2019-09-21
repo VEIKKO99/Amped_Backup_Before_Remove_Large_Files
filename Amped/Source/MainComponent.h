@@ -18,14 +18,14 @@
 class MainComponent    : public Component
 {
 public:
-    MainComponent();
+    MainComponent(AudioProcessorValueTreeState& vts);
     ~MainComponent();
 
     void paint (Graphics&) override;
     void resized() override;
 
 private:
-    
+    AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

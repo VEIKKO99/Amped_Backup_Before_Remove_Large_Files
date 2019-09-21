@@ -18,7 +18,7 @@ class AmpLookAndFeel : public LookAndFeel_V4
 public:
     AmpLookAndFeel()
     {
-        setColour (Slider::thumbColourId, Colours::red);
+     //   setColour (Slider::thumbColourId, Colours::red);
     }
     
     inline std::string getKnobResourceFilename(float sliderPos, std::string prefix)
@@ -35,7 +35,7 @@ public:
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
                            const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
     {
-        g.fillAll(Colours::red);
+//        g.fillAll(Colours::red);
         
         std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob62_chknw_00");
         int dataSize;
