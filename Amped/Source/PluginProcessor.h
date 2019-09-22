@@ -83,7 +83,9 @@ public:
     static void deinterleaveSamples (double* source, double** dest, int numSamples, int numChannels);
 
 private:
-    //==============================================================================    
+    //==============================================================================
+    
+    void setupAmp();
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
     
     TubeAmp tubeAmp;
