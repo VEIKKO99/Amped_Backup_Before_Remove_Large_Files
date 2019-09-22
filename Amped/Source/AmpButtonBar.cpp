@@ -20,14 +20,16 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(v
     
     initSliderComponent(inputSlider, "input", inputAttachment);
     addAndMakeVisible(fxSwitch);
-    /*initSliderComponent(driveSlider,"drive");
-    initSliderComponent(bassSlider, "bass");
-    initSliderComponent(middleSlider, "middle");
-    initSliderComponent(trebleSlider, "trebble");
-    initSliderComponent(presenceSlider, "presence");
-    initSliderComponent(masterSlider, "master");
+    fxAttachment.reset (new ButtonAttachment (valueTreeState, "fx", fxSwitch));
+    initSliderComponent(driveSlider,"drive", driveAttachment);
+    initSliderComponent(bassSlider, "bass", bassAttachment);
+    initSliderComponent(middleSlider, "middle", middleAttachment);
+    initSliderComponent(trebleSlider, "trebble", trebleAttachment);
+    initSliderComponent(presenceSlider, "presence", presenceAttachment);
+    initSliderComponent(masterSlider, "master", masterAttachment);
     addAndMakeVisible(cabSimSwitch);
-    initSliderComponent(outputSlider, "output");*/
+    fxAttachment.reset (new ButtonAttachment (valueTreeState, "cabSim", fxSwitch));
+    initSliderComponent(outputSlider, "output", outputAttachment);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 

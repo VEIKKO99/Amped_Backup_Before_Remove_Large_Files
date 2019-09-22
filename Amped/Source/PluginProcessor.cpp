@@ -129,13 +129,30 @@ void AmpedAudioProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
+void AmpedAudioProcessor::setupAmp() {
+    tubeAmp.setPreGain(*driveParameter);
+    tubeAmp.setDryWet(1.0);
+    tubeAmp.setMasterVolume(*masterParameter);
+    tubeAmp.setToneStackActive(true);
+    tubeAmp.setToneStackLow(*bassParameter);
+    tubeAmp.setToneStackMid(*middleParameter);
+    tubeAmp.setToneStackHigh(*trebleParameter);
+    tubeAmp.setHighGainStageActive(true);
+    tubeAmp.setPresence(*presenceParameter);
+    
+    
+    
+}
+
 void AmpedAudioProcessor::processBlock (AudioBuffer<double>& buffer,
                                                 MidiBuffer& midiMessages)
 {
-    
+    buffer.applyGain(*inputParameter);
     double* interleavedBuffer = new double[buffer.getNumChannels() * buffer.getNumSamples()];
     
     AmpedAudioProcessor::interleaveSamples(buffer.getArrayOfWritePointers(), interleavedBuffer, buffer.getNumSamples(), buffer.getNumChannels());
+    
+    setupAmp();
     
     tubeAmp.process(interleavedBuffer, buffer.getNumSamples());
     
@@ -144,7 +161,8 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<double>& buffer,
     
     delete[] interleavedBuffer;
     
-    
+    buffer.applyGain(*outputParameter);
+
     
     
   //  for (int i = 0; i < buffer.getNumChannels(); ++i)
@@ -177,17 +195,17 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
  //       TRACE;
      //   IMutexLock lock(this);
         
-        tubeAmp.setSampleRate(sampleRate);
-        tubeAmp.setOversample(1);
-        tubeAmp.init();
-        tubeAmp.setNumChans(2);
-    tubeAmp.setPreGain(1.0);
-    tubeAmp.setDryWet(1.0);
-    tubeAmp.setMasterVolume(1.0);
-    tubeAmp.setTubeType(5, 8);
+    tubeAmp.setSampleRate(sampleRate);
+    tubeAmp.setOversample(1);
+    tubeAmp.init();
+    tubeAmp.setNumChans(2);
+    
+    
+    
+
+
    // tubeAmp.setHighGainStageActive(true);
     tubeAmp.setInputType(PreAmp::EInputType::kMarshall);
-    tubeAmp.setToneStackActive(false);
     tubeAmp.setPowerAmpTubeType(TUBE_TABLE_EL34_68k);
         //mCabSim.setSampleRate(GetSampleRate())tubeAmp
         //tubeAmp.init();
