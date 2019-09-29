@@ -24,16 +24,16 @@ public:
 
     static const int ampButtonsY = 8;
     
-    static const int ampButtonsWidth = 62;//AmpButtonBarW / 10; // 10 = Amount of buttons
+    static const int ampButtonsWidth = 60;//AmpButtonBarW / 10; // 10 = Amount of buttons
     static const int ampButtonsHeight = AmpButtonBarH;
     
-    static const int ampCompInputX = 0;
+    static const int ampCompInputX = 4;
     static const int AmpCtrlSwitchX = ampCompInputX + ampButtonsWidth;
-    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth;
+    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth +2;
     static const int AmpCtrlBassX = AmpCtrlDriveX + ampButtonsWidth;
     static const int AmpCtrlMiddleX = AmpCtrlBassX + ampButtonsWidth;
     static const int AmpCtrlTrebbleX = AmpCtrlMiddleX + ampButtonsWidth;
-    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth;
+    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth -2;
     static const int AmpCtrlMasterX = AmpCtrlPresenceX + ampButtonsWidth;
     static const int AmpCtrlCabSimX = AmpCtrlMasterX + ampButtonsWidth;
     static const int AmpCtrlOutputX = AmpCtrlCabSimX + ampButtonsWidth;

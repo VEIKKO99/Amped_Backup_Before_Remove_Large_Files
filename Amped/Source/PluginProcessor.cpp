@@ -38,7 +38,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("trebble", "Trebble", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterBool> ("ir", "IR", false),
+                        std::make_unique<AudioParameterBool> ("cabSim", "IR", false),
                         std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f) })
 #endif
 {
@@ -51,7 +51,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     trebleParameter = parameters.getRawParameterValue ("trebble");
     presenceParameter = parameters.getRawParameterValue ("presence");
     masterParameter = parameters.getRawParameterValue ("master");
-    irParameter = parameters.getRawParameterValue ("ir");
+    irParameter = parameters.getRawParameterValue ("cabSim");
     outputParameter = parameters.getRawParameterValue ("output");
 
 
@@ -133,7 +133,7 @@ void AmpedAudioProcessor::setupAmp() {
     tubeAmp.setPreGain(*driveParameter);
     tubeAmp.setDryWet(1.0);
     tubeAmp.setMasterVolume(*masterParameter);
-    tubeAmp.setToneStackActive(true);
+    tubeAmp.setToneStackActive(false);
     tubeAmp.setToneStackLow(*bassParameter);
     tubeAmp.setToneStackMid(*middleParameter);
     tubeAmp.setToneStackHigh(*trebleParameter);
@@ -160,6 +160,74 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<double>& buffer,
                                              buffer.getNumSamples(), buffer.getNumChannels());
     
     delete[] interleavedBuffer;
+ 
+    
+   // float* floatAudioBufffer = new float[buffer.getNumSamples()];
+    float** samples = new float*[buffer.getNumChannels()];
+    for(int i = 0; i < buffer.getNumChannels(); ++i)
+    {
+        samples[i] = new float[buffer.getNumSamples()];
+        double* buf = buffer.getWritePointer(i);
+        for (int j = 0; j < buffer.getNumSamples(); j++)
+        {
+            samples[i][j] = static_cast<float> (buf[j]);
+        }
+    }
+    
+    
+    dsp::AudioBlock<float> block (samples, buffer.getNumChannels(), buffer.getNumSamples());
+    dsp::ProcessContextReplacing<float> context (block);
+ //   context.isBypassed = *middleParameter > 0.5;
+    context.isBypassed = false;
+    ampSim.process(context);
+    cabSim.process(context);
+
+    for(int i = 0; i < buffer.getNumChannels(); ++i) {
+        double* buf = buffer.getWritePointer(i);
+
+        for (int j = 0; j < buffer.getNumSamples(); j++)
+        {
+            buf[j] = samples[i][j];
+        }
+        delete [] samples[i];
+    }
+    delete [] samples;
+//     dsp::AudioBlock<float> block (buffer);
+//     dsp::ProcessContextReplacing<float> context (block);
+//     cabSim.process (context);
+    
+//    dsp::AudioBlock<float> block
+    
+    //double *samples = new int[buffer.getNumChannels() * buffer.getNumSamples()];
+    
+    
+    
+  /*  for (int i = 0; i < buffer.getNumChannels(); i++)
+    {
+        double* buf = buffer.getWritePointer(i);
+        for (int j = 0; j < buffer.getNumSamples(); j++)
+        {
+            floatAudioBufffer[j] = static_cast<float> (buf[j]);
+        }
+        
+        
+        
+        
+       // dsp::AudioBlock<float> block (buffer);
+       // dsp::ProcessContextReplacing<float> context (block);
+       // filter.process (context);
+        
+        
+        for (int j = 0; j < buffer.getNumSamples(); j++)
+        {
+            buf[j] = floatAudioBufffer[j];
+        }
+    }
+    
+    delete[] floatAudioBufffer;*/
+    
+    
+    
     
     buffer.applyGain(*outputParameter);
 
@@ -185,6 +253,15 @@ bool AmpedAudioProcessor::supportsDoublePrecisionProcessing() const
     return true;
 }
 
+void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution) {
+    dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), 2 };
+    convolution.prepare (spec);
+    
+    
+    // BinaryData::getNamedResource(BinaryData::CABIR_wav, size);
+    cabSim.loadImpulseResponse(data, size, true, false, 0);
+}
+
 //==============================================================================
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
@@ -205,8 +282,11 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 
 
    // tubeAmp.setHighGainStageActive(true);
-    tubeAmp.setInputType(PreAmp::EInputType::kMarshall);
-    tubeAmp.setPowerAmpTubeType(TUBE_TABLE_EL34_68k);
+    tubeAmp.setInputType(PreAmp::EInputType::kGuitarKit);
+    tubeAmp.setTubeType(0, TUBE_TABLE_12AX7_68k);
+    tubeAmp.setTubeType(1, TUBE_TABLE_12AX7_68k);
+
+    tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k );
         //mCabSim.setSampleRate(GetSampleRate())tubeAmp
         //tubeAmp.init();
         //tubeAmp.setOversample(1);
@@ -250,7 +330,13 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     delayWritePosition = 0;
     */
 
+    // Amp sim:
+    initInpulseResponseProcessor(BinaryData::MATCH_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::MATCH_IR_FILTERED_wavSize, ampSim);
+
+    // Cab sim:
+    initInpulseResponseProcessor(BinaryData::CAB_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::CAB_IR_FILTERED_wavSize, cabSim);
 }
+
 
 void AmpedAudioProcessor::releaseResources()
 {
@@ -410,6 +496,7 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AmpedAudioProcessor();
 }
+
 
 
 //==============================================================================
