@@ -23,7 +23,11 @@ public:
     AmpedAudioProcessor();
     ~AmpedAudioProcessor();
 
-    //==============================================================================
+    void extracted(double sampleRate, int samplesPerBlock);
+    
+    void extracted(const char *data, double sampleRate, int samplesPerBlock, int size);
+    
+//==============================================================================
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
     void releaseResources() override;
 
@@ -78,6 +82,10 @@ public:
    // PluginParameterLinSlider paramMix;
     
     
+private:
+    
+    void initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution);
+        
     static void interleaveSamples (double** source, double* dest, int numSamples, int numChannels);
     
     static void deinterleaveSamples (double* source, double** dest, int numSamples, int numChannels);
@@ -102,4 +110,11 @@ private:
     float* masterParameter = nullptr;
     float* irParameter = nullptr;
     float* outputParameter = nullptr;
+    
+
+    juce::dsp::Convolution cabSim;
+    juce::dsp::Convolution ampSim;
+
+    
+  //  juce::dsp::ProcessorChain<juce::dsp::Convolution> fxChain;
 };

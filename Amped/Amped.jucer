@@ -1148,7 +1148,15 @@
         <FILE id="XPQHws" name="amped_switch62_0020.png" compile="0" resource="1"
               file="res/amped_switch62/amped_switch62_0020.png"/>
       </GROUP>
+      <FILE id="yyWBtX" name="CAB IR_LO.wav" compile="0" resource="1" file="res/CAB IR_LO.wav"/>
+      <FILE id="ienhj4" name="CAB_IR_FILTERED.wav" compile="0" resource="1"
+            file="res/CAB_IR_FILTERED.wav"/>
+      <FILE id="N2BsmP" name="CABIR.wav" compile="0" resource="1" file="res/CABIR.wav"/>
       <FILE id="dFsuyk" name="full_bg.png" compile="0" resource="1" file="res/full_bg.png"/>
+      <FILE id="CKfWEx" name="MATCH IR_LO.wav" compile="0" resource="1" file="res/MATCH IR_LO.wav"/>
+      <FILE id="Dgmu45" name="MATCH_IR_FILTERED.wav" compile="0" resource="1"
+            file="res/MATCH_IR_FILTERED.wav"/>
+      <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
       <GROUP id="{DD6A0A51-DAA2-6BC2-F492-69855662BCE4}" name="Hornet">
@@ -1234,6 +1242,7 @@
         <MODULEPATH id="juce_gui_basics" path="../../../../../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_gui_extra" path="../../../../../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../../../../../Applications/JUCE/modules"/>
+        <MODULEPATH id="juce_dsp" path="../../../../../../Applications/JUCE/modules"/>
       </MODULEPATHS>
     </XCODE_MAC>
   </EXPORTFORMATS>
@@ -1248,6 +1257,7 @@
     <MODULE id="juce_core" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_cryptography" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_data_structures" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
+    <MODULE id="juce_dsp" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_events" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_graphics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>
     <MODULE id="juce_gui_basics" showAllCode="1" useLocalCopy="0" useGlobalPath="1"/>

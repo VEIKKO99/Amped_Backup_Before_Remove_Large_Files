@@ -37,8 +37,6 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(v
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
 {
-
-    
     slider.setRange(Constants::AmpButtonMin,
                     Constants::AmpButtonMax,
                     Constants::AmpButtonInterval);
