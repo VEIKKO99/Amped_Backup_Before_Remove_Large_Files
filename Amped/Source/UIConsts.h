@@ -28,14 +28,14 @@ public:
     static const int ampButtonsHeight = AmpButtonBarH;
     
     static const int ampCompInputX = 4;
-    static const int AmpCtrlSwitchX = ampCompInputX + ampButtonsWidth;
-    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth +2;
+    static const int AmpCtrlSwitchX = ampCompInputX + ampButtonsWidth + 5;
+    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth - 1;
     static const int AmpCtrlBassX = AmpCtrlDriveX + ampButtonsWidth;
-    static const int AmpCtrlMiddleX = AmpCtrlBassX + ampButtonsWidth;
-    static const int AmpCtrlTrebbleX = AmpCtrlMiddleX + ampButtonsWidth;
-    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth -2;
+    static const int AmpCtrlMiddleX = AmpCtrlBassX + ampButtonsWidth -1;
+    static const int AmpCtrlTrebbleX = AmpCtrlMiddleX + ampButtonsWidth -1;
+    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth -4;
     static const int AmpCtrlMasterX = AmpCtrlPresenceX + ampButtonsWidth;
-    static const int AmpCtrlCabSimX = AmpCtrlMasterX + ampButtonsWidth;
-    static const int AmpCtrlOutputX = AmpCtrlCabSimX + ampButtonsWidth;
+    static const int AmpCtrlCabSimX = AmpCtrlMasterX + ampButtonsWidth -2;
+    static const int AmpCtrlOutputX = AmpCtrlCabSimX + ampButtonsWidth +2;
 };
 
