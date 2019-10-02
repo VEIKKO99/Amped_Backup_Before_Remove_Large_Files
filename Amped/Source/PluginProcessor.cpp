@@ -17,7 +17,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
       AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
+                       .withInput  ("Input",  AudioChannelSet::mono(), true)
                       #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
@@ -347,7 +347,14 @@ void AmpedAudioProcessor::releaseResources()
 #ifndef JucePlugin_PreferredChannelConfigurations
 bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
-  #if JucePlugin_IsMidiEffect
+    // Support mono in and mono or stereo out only:
+    if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
+        (layouts.getMainOutputChannelSet() == AudioChannelSet::mono() ||
+         layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())){
+        return true;
+    }
+    return false;
+/*  #if JucePlugin_IsMidiEffect
     ignoreUnused (layouts);
     return true;
   #else
@@ -365,6 +372,7 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 
     return true;
   #endif
+ */
 }
 #endif
 
