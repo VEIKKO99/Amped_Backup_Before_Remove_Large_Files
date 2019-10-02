@@ -1148,6 +1148,23 @@
         <FILE id="XPQHws" name="amped_switch62_0020.png" compile="0" resource="1"
               file="res/amped_switch62/amped_switch62_0020.png"/>
       </GROUP>
+      <GROUP id="{ECFEE057-5F1B-D950-9912-AED5D9ACB82B}" name="EQ_IRs">
+        <FILE id="a1VXkS" name="BASS_HI_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_HI_IR.wav"/>
+        <FILE id="Vf0yu6" name="BASS_LO_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_LO_IR.wav"/>
+        <FILE id="x8FVrK" name="DRY_IR.wav" compile="0" resource="1" file="res/EQ_IRs/DRY_IR.wav"/>
+        <FILE id="S5epju" name="MIDDLE_HI_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/MIDDLE_HI_IR.wav"/>
+        <FILE id="SXqjYq" name="MIDDLE_LO_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/MIDDLE_LO_IR.wav"/>
+        <FILE id="Y4IqWl" name="PRESENCE_HI_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/PRESENCE_HI_IR.wav"/>
+        <FILE id="KSE0OF" name="PRESENCE_LO_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/PRESENCE_LO_IR.wav"/>
+        <FILE id="FtGW37" name="TREBLE_HI_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/TREBLE_HI_IR.wav"/>
+        <FILE id="TtyUkA" name="TREBLE_LO_IR.wav" compile="0" resource="1"
+              file="res/EQ_IRs/TREBLE_LO_IR.wav"/>
+      </GROUP>
       <FILE id="yyWBtX" name="CAB IR_LO.wav" compile="0" resource="1" file="res/CAB IR_LO.wav"/>
       <FILE id="ienhj4" name="CAB_IR_FILTERED.wav" compile="0" resource="1"
             file="res/CAB_IR_FILTERED.wav"/>
