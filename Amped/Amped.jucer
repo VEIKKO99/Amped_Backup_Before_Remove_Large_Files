@@ -1176,6 +1176,8 @@
       <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <FILE id="iWoyDc" name="AmpedAudioProcessorBase.h" compile="0" resource="0"
+            file="Source/AmpedAudioProcessorBase.h"/>
       <GROUP id="{DD6A0A51-DAA2-6BC2-F492-69855662BCE4}" name="Hornet">
         <FILE id="mRhkrQ" name="hornet_wrapper.h" compile="0" resource="0"
               file="Source/original_hornet/hornet_wrapper.h"/>

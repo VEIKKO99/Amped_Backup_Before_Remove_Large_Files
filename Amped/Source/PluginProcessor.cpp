@@ -11,17 +11,19 @@
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
 #include "original_hornet/TubeAmp.h"
+#include "AmpedAudioProcessorBase.h"
 //==============================================================================
 AmpedAudioProcessor::AmpedAudioProcessor() :
 #ifndef JucePlugin_PreferredChannelConfigurations
       AudioProcessor (BusesProperties()
                      #if ! JucePlugin_IsMidiEffect
                       #if ! JucePlugin_IsSynth
-                       .withInput  ("Input",  AudioChannelSet::mono(), true)
+                       .withInput  ("Input",  AudioChannelSet::stereo(), true)
                       #endif
                        .withOutput ("Output", AudioChannelSet::stereo(), true)
                      #endif
                        ),
+        mainProcessor  (new AudioProcessorGraph()),
         parameters (*this, nullptr, Identifier ("AmpedV100"),
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
@@ -43,6 +45,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
 #endif
 {
     Logger::getCurrentLogger()->writeToLog("AmpedAudioProcessor - Constructor");
+    mainProcessor->setProcessingPrecision(ProcessingPrecision::doublePrecision);
     inputParameter = parameters.getRawParameterValue ("input");
     fxParameter = parameters.getRawParameterValue ("fx");
     driveParameter = parameters.getRawParameterValue ("dirve");
@@ -144,9 +147,155 @@ void AmpedAudioProcessor::setupAmp() {
     
 }
 
+void AmpedAudioProcessor::updateGraph()
+{
+    bool hasChanged = true;
+    
+   // Array<AudioParameterChoice*> choices { processorSlot1,
+   //     processorSlot2,
+   //     processorSlot3 };
+    
+   // Array<AudioParameterBool*> bypasses { bypassSlot1,
+   //     bypassSlot2,
+   //     bypassSlot3 };
+    
+    //ReferenceCountedArray<Node> slots;
+    //slots.add (slot1Node);
+    //slots.add (slot2Node);
+    //slots.add (slot3Node);
+    
+//    for (int i = 0; i < 3; ++i)
+//    {
+//        auto& choice = choices.getReference (i);
+//        auto  slot   = slots  .getUnchecked (i);
+//
+//        if (choice->getIndex() == 0)
+//        {
+//            if (slot != nullptr)
+//            {
+//                mainProcessor->removeNode (slot.get());
+//                slots.set (i, nullptr);
+//                hasChanged = true;
+//            }
+//        }
+//        else if (choice->getIndex() == 1)
+//        {
+//            if (slot != nullptr)
+//            {
+//                if (slot->getProcessor()->getName() == "Oscillator")
+//                    continue;
+//
+//                mainProcessor->removeNode (slot.get());
+//            }
+//
+//            slots.set (i, mainProcessor->addNode (std::make_unique<OscillatorProcessor>()));
+//            hasChanged = true;
+//        }
+//        else if (choice->getIndex() == 2)
+//        {
+//            if (slot != nullptr)
+//            {
+//                if (slot->getProcessor()->getName() == "Gain")
+//                    continue;
+//
+//                mainProcessor->removeNode (slot.get());
+//            }
+//
+//            slots.set (i, mainProcessor->addNode (std::make_unique<GainProcessor>()));
+//            hasChanged = true;
+//        }
+//        else if (choice->getIndex() == 3)
+//        {
+//            if (slot != nullptr)
+//            {
+//                if (slot->getProcessor()->getName() == "Filter")
+//                    continue;
+//
+//                mainProcessor->removeNode (slot.get());
+//            }
+//
+//            slots.set (i, mainProcessor->addNode (std::make_unique<FilterProcessor>()));
+//            hasChanged = true;
+//        }
+//    }
+    //bool hasChanged = true;
+    if (hasChanged)
+    {
+        for (auto connection : mainProcessor->getConnections())
+            mainProcessor->removeConnection (connection);
+        
+  //      ReferenceCountedArray<Node> activeSlots;
+        
+//        for (auto slot : slots)
+//        {
+//            if (slot != nullptr)
+//            {
+//                activeSlots.add (slot);
+//
+//                slot->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+//                                                            getMainBusNumOutputChannels(),
+//                                                            getSampleRate(), getBlockSize());
+//            }
+//        }
+        
+  //      if (activeSlots.isEmpty())
+  //      {
+            connectAudioNodes();
+  //      }
+ //       else
+ //       {
+ //           for (int i = 0; i < activeSlots.size() - 1; ++i)
+ //           {
+ //               for (int channel = 0; channel < 2; ++channel)
+ //                   mainProcessor->addConnection ({ { activeSlots.getUnchecked (i)->nodeID,      channel },
+//                        { activeSlots.getUnchecked (i + 1)->nodeID,  channel } });
+//            }
+            
+     //       for (int channel = 0; channel < 2; ++channel)
+     //       {
+     //           mainProcessor->addConnection ({ { audioInputNode->nodeID,         channel },
+     //               { activeSlots.getFirst()->nodeID, channel } });
+     //           mainProcessor->addConnection ({ { activeSlots.getLast()->nodeID,  channel },
+     //               { audioOutputNode->nodeID,        channel } });
+     //       }
+     //   }
+        
+        connectMidiNodes();
+        
+        for (auto node : mainProcessor->getNodes())
+            node->getProcessor()->enableAllBuses();
+    }
+    
+//    for (int i = 0; i < 3; ++i)
+//    {
+//        auto  slot   = slots   .getUnchecked (i);
+//        auto& bypass = bypasses.getReference (i);
+//
+//        if (slot != nullptr)
+//            slot->setBypassed (bypass->get());
+//    }
+//
+//    audioInputNode->setBypassed (muteInput->get());
+//
+//    slot1Node = slots.getUnchecked (0);
+//    slot2Node = slots.getUnchecked (1);
+//    slot3Node = slots.getUnchecked (2);
+}
+
 void AmpedAudioProcessor::processBlock (AudioBuffer<double>& buffer,
                                                 MidiBuffer& midiMessages)
 {
+    for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
+    {
+        buffer.clear (i, 0, buffer.getNumSamples());
+    }
+
+    updateGraph();
+    mainProcessor->processBlock (buffer, midiMessages);
+
+    
+    
+    
     buffer.applyGain(*inputParameter);
     double* interleavedBuffer = new double[buffer.getNumChannels() * buffer.getNumSamples()];
     
@@ -262,11 +411,57 @@ void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double 
     cabSim.loadImpulseResponse(data, size, true, false, 0);
 }
 
+void AmpedAudioProcessor::initialiseGraph() {
+    mainProcessor->clear();
+    audioInputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioInputNode));
+    audioOutputNode = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioOutputNode));
+    midiInputNode   = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
+    midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
+    
+    connectAudioNodes();
+    connectMidiNodes();
+
+    //gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
+  //  connectAudioNodes();
+    
+   // mainProcessor->addConnection ({ { audioInputNode->nodeID,  2 },
+   //          { audioOutputNode->nodeID,        2 } });
+   // mainProcessor->addConnection ({ { audioInputNode->nodeID,         2 },
+   //     { gainProcessor->nodeID, 2 } });
+   // mainProcessor->addConnection ({ { gainProcessor->nodeID,  2 },
+   //     { audioOutputNode->nodeID,        2 } });
+    
+}
+
+void AmpedAudioProcessor::connectAudioNodes()
+{
+    for (int channel = 0; channel < 2; ++channel)
+        mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
+            { audioOutputNode->nodeID, channel } });
+}
+
+void AmpedAudioProcessor::connectMidiNodes()
+{
+    mainProcessor->addConnection ({ { midiInputNode->nodeID,  AudioProcessorGraph::midiChannelIndex },
+        { midiOutputNode->nodeID, AudioProcessorGraph::midiChannelIndex } });
+}
+
+
 //==============================================================================
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
 
+    mainProcessor->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                         getMainBusNumOutputChannels(),
+                                         sampleRate, samplesPerBlock);
+    
+    mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+    initialiseGraph();
+
+    
+    
+    
  //   void HoRNetGuitarKit::Reset()
  //   {
  //       TRACE;
@@ -347,13 +542,25 @@ void AmpedAudioProcessor::releaseResources()
 #ifndef JucePlugin_PreferredChannelConfigurations
 bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
+    if (layouts.getMainInputChannelSet()  == AudioChannelSet::disabled()
+        || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
+        return false;
+    
+    if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono()
+        && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
+        return false;
+    
+    return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
+    
+    
     // Support mono in and mono or stereo out only:
-    if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
+  /*  if ((layouts.getMainInputChannelSet() == AudioChannelSet::mono() ||
+         layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
         (layouts.getMainOutputChannelSet() == AudioChannelSet::mono() ||
          layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())){
         return true;
     }
-    return false;
+    return false;*/
 /*  #if JucePlugin_IsMidiEffect
     ignoreUnused (layouts);
     return true;

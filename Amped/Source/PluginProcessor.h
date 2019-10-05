@@ -13,6 +13,10 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "original_hornet/TubeAmp.h"
 
+using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
+using Node = AudioProcessorGraph::Node;
+
+
 //==============================================================================
 /**
 */
@@ -85,17 +89,25 @@ public:
 private:
     
     void initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution);
-        
+    
+    void updateGraph();
+
     static void interleaveSamples (double** source, double* dest, int numSamples, int numChannels);
     
     static void deinterleaveSamples (double* source, double** dest, int numSamples, int numChannels);
+    void initialiseGraph();
+
+    void connectAudioNodes();
+    void connectMidiNodes();
+
 
 private:
     //==============================================================================
     
     void setupAmp();
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
-    
+
+    std::unique_ptr<AudioProcessorGraph> mainProcessor;
+
     TubeAmp tubeAmp;
     AudioProcessorValueTreeState parameters;
     
@@ -114,7 +126,15 @@ private:
 
     juce::dsp::Convolution cabSim;
     juce::dsp::Convolution ampSim;
-
     
+    Node::Ptr audioInputNode;
+    Node::Ptr audioOutputNode;
+    Node::Ptr midiInputNode;
+    Node::Ptr midiOutputNode;
+    
+  //  Node::Ptr gainProcessor;
+    
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
+
   //  juce::dsp::ProcessorChain<juce::dsp::Convolution> fxChain;
 };
