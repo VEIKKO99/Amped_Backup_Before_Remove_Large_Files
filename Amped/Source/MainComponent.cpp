@@ -38,12 +38,6 @@ void MainComponent::paint (Graphics& g)
     
     Image background = ImageCache::getFromMemory (BinaryData::full_bg_png, BinaryData::full_bg_pngSize);
     g.drawImageAt (background, 0, 0);
-    
-    
-    g.setColour (Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("This is the MainComponent", getLocalBounds(),
-                Justification::centred, true);   // draw some placeholder text
 }
 
 void MainComponent::resized()

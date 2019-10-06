@@ -32,19 +32,25 @@ public:
     void extracted(const char *data, double sampleRate, int samplesPerBlock, int size);
     
 //==============================================================================
+    void prepareToPlay_temp (double sampleRate, int samplesPerBlock);
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
+
     void releaseResources() override;
 
    #ifndef JucePlugin_PreferredChannelConfigurations
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
    #endif
 
+    
+    void processBlock_temp (AudioBuffer<double>& buffer,
+                            MidiBuffer& midiMessages);
+    
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
     
-    void processBlock (AudioBuffer<double>& buffer,
-                               MidiBuffer& midiMessages) override;
+   // void processBlock (AudioBuffer<double>& buffer,
+   //                            MidiBuffer& midiMessages) override;
     
-    virtual bool supportsDoublePrecisionProcessing() const override;
+    //virtual bool supportsDoublePrecisionProcessing() const override;
 
 
     //==============================================================================
@@ -108,7 +114,7 @@ private:
 
     std::unique_ptr<AudioProcessorGraph> mainProcessor;
 
-    TubeAmp tubeAmp;
+    //TubeAmp tubeAmp;
     AudioProcessorValueTreeState parameters;
     
     float* inputParameter = nullptr;
@@ -120,19 +126,28 @@ private:
     float* trebleParameter = nullptr;
     float* presenceParameter = nullptr;
     float* masterParameter = nullptr;
-    float* irParameter = nullptr;
+    float* cabSimSwitch = nullptr;
     float* outputParameter = nullptr;
     
+#ifdef JUCE_DEBUG
+    float* ampSimSwitch = nullptr;
+#endif
+    
 
-    juce::dsp::Convolution cabSim;
-    juce::dsp::Convolution ampSim;
+//    juce::dsp::Convolution cabSim;
+//    juce::dsp::Convolution ampSim;
     
     Node::Ptr audioInputNode;
     Node::Ptr audioOutputNode;
     Node::Ptr midiInputNode;
     Node::Ptr midiOutputNode;
     
-  //  Node::Ptr gainProcessor;
+    Node::Ptr gainProcessor;
+    Node::Ptr ampProcessor;
+    Node::Ptr ampSimIR;
+    Node::Ptr cabSimIR;
+
+
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
 
