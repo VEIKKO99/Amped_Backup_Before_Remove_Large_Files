@@ -16,21 +16,16 @@
 AmpedAudioProcessor::AmpedAudioProcessor() :
 #ifndef JucePlugin_PreferredChannelConfigurations
       AudioProcessor (BusesProperties()
-                     #if ! JucePlugin_IsMidiEffect
-                      #if ! JucePlugin_IsSynth
                        .withInput  ("Input",  AudioChannelSet::stereo(), true)
-                      #endif
-                       .withOutput ("Output", AudioChannelSet::stereo(), true)
-                     #endif
-                       ),
-        mainProcessor  (new AudioProcessorGraph()),
-        parameters (*this, nullptr, Identifier ("AmpedV100"),
+                       .withOutput ("Output", AudioChannelSet::stereo(), true)),
+                    mainProcessor  (new AudioProcessorGraph()),
+                    parameters (*this, nullptr, Identifier ("AmpedV100"),
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
                                                                "Input",            // parameter name
-                                                               0.0f,              // minimum value
-                                                               1.0f,              // maximum value
-                                                               0.5f),             // default value
+                                                               -30.0f,              // minimum value
+                                                               30.0f,              // maximum value
+                                                               0.0f),             // default value
                         std::make_unique<AudioParameterBool> ("fx",               // parameterID
                                                               "FX",                // parameter name
                                                               false),              // default value
@@ -40,12 +35,16 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("trebble", "Trebble", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterBool> ("cabSim", "IR", false),
-                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f) })
+                        std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
+                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f)
+                        #ifdef JUCE_DEBUG
+                        ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
+                        #endif
+
+                    })
 #endif
 {
-    Logger::getCurrentLogger()->writeToLog("AmpedAudioProcessor - Constructor");
-    mainProcessor->setProcessingPrecision(ProcessingPrecision::doublePrecision);
+    mainProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
     inputParameter = parameters.getRawParameterValue ("input");
     fxParameter = parameters.getRawParameterValue ("fx");
     driveParameter = parameters.getRawParameterValue ("dirve");
@@ -54,16 +53,13 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     trebleParameter = parameters.getRawParameterValue ("trebble");
     presenceParameter = parameters.getRawParameterValue ("presence");
     masterParameter = parameters.getRawParameterValue ("master");
-    irParameter = parameters.getRawParameterValue ("cabSim");
+    cabSimSwitch = parameters.getRawParameterValue ("cabSim");
     outputParameter = parameters.getRawParameterValue ("output");
-
-
     driveParameter = parameters.getRawParameterValue ("drive");
     
-    
-  //  tubeAmp.setNumChans(2);
-  //  tubeAmp.setSampleRate(48000);
-  //  tubeAmp.init();
+    #ifdef JUCE_DEBUG
+    ampSimSwitch = parameters.getRawParameterValue ("ampSim");
+    #endif
 }
 
 AmpedAudioProcessor::~AmpedAudioProcessor()
@@ -132,275 +128,41 @@ void AmpedAudioProcessor::changeProgramName (int index, const String& newName)
 {
 }
 
-void AmpedAudioProcessor::setupAmp() {
-    tubeAmp.setPreGain(*driveParameter);
-    tubeAmp.setDryWet(1.0);
-    tubeAmp.setMasterVolume(*masterParameter);
-    tubeAmp.setToneStackActive(false);
-    tubeAmp.setToneStackLow(*bassParameter);
-    tubeAmp.setToneStackMid(*middleParameter);
-    tubeAmp.setToneStackHigh(*trebleParameter);
-    tubeAmp.setHighGainStageActive(true);
-    tubeAmp.setPresence(*presenceParameter);
-    
-    
-    
-}
 
-void AmpedAudioProcessor::updateGraph()
-{
-    bool hasChanged = true;
-    
-   // Array<AudioParameterChoice*> choices { processorSlot1,
-   //     processorSlot2,
-   //     processorSlot3 };
-    
-   // Array<AudioParameterBool*> bypasses { bypassSlot1,
-   //     bypassSlot2,
-   //     bypassSlot3 };
-    
-    //ReferenceCountedArray<Node> slots;
-    //slots.add (slot1Node);
-    //slots.add (slot2Node);
-    //slots.add (slot3Node);
-    
-//    for (int i = 0; i < 3; ++i)
-//    {
-//        auto& choice = choices.getReference (i);
-//        auto  slot   = slots  .getUnchecked (i);
-//
-//        if (choice->getIndex() == 0)
-//        {
-//            if (slot != nullptr)
-//            {
-//                mainProcessor->removeNode (slot.get());
-//                slots.set (i, nullptr);
-//                hasChanged = true;
-//            }
-//        }
-//        else if (choice->getIndex() == 1)
-//        {
-//            if (slot != nullptr)
-//            {
-//                if (slot->getProcessor()->getName() == "Oscillator")
-//                    continue;
-//
-//                mainProcessor->removeNode (slot.get());
-//            }
-//
-//            slots.set (i, mainProcessor->addNode (std::make_unique<OscillatorProcessor>()));
-//            hasChanged = true;
-//        }
-//        else if (choice->getIndex() == 2)
-//        {
-//            if (slot != nullptr)
-//            {
-//                if (slot->getProcessor()->getName() == "Gain")
-//                    continue;
-//
-//                mainProcessor->removeNode (slot.get());
-//            }
-//
-//            slots.set (i, mainProcessor->addNode (std::make_unique<GainProcessor>()));
-//            hasChanged = true;
-//        }
-//        else if (choice->getIndex() == 3)
-//        {
-//            if (slot != nullptr)
-//            {
-//                if (slot->getProcessor()->getName() == "Filter")
-//                    continue;
-//
-//                mainProcessor->removeNode (slot.get());
-//            }
-//
-//            slots.set (i, mainProcessor->addNode (std::make_unique<FilterProcessor>()));
-//            hasChanged = true;
-//        }
-//    }
-    //bool hasChanged = true;
-    if (hasChanged)
+/**
+ * Saved code to convert double samples to floats and vice versa...
+ *
+ float** samples = new float*[buffer.getNumChannels()];
+ for(int i = 0; i < buffer.getNumChannels(); ++i)
+ {
+    samples[i] = new float[buffer.getNumSamples()];
+    double* buf = buffer.getWritePointer(i);
+    for (int j = 0; j < buffer.getNumSamples(); j++)
     {
-        for (auto connection : mainProcessor->getConnections())
-            mainProcessor->removeConnection (connection);
-        
-  //      ReferenceCountedArray<Node> activeSlots;
-        
-//        for (auto slot : slots)
-//        {
-//            if (slot != nullptr)
-//            {
-//                activeSlots.add (slot);
-//
-//                slot->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-//                                                            getMainBusNumOutputChannels(),
-//                                                            getSampleRate(), getBlockSize());
-//            }
-//        }
-        
-  //      if (activeSlots.isEmpty())
-  //      {
-            connectAudioNodes();
-  //      }
- //       else
- //       {
- //           for (int i = 0; i < activeSlots.size() - 1; ++i)
- //           {
- //               for (int channel = 0; channel < 2; ++channel)
- //                   mainProcessor->addConnection ({ { activeSlots.getUnchecked (i)->nodeID,      channel },
-//                        { activeSlots.getUnchecked (i + 1)->nodeID,  channel } });
-//            }
-            
-     //       for (int channel = 0; channel < 2; ++channel)
-     //       {
-     //           mainProcessor->addConnection ({ { audioInputNode->nodeID,         channel },
-     //               { activeSlots.getFirst()->nodeID, channel } });
-     //           mainProcessor->addConnection ({ { activeSlots.getLast()->nodeID,  channel },
-     //               { audioOutputNode->nodeID,        channel } });
-     //       }
-     //   }
-        
-        connectMidiNodes();
-        
-        for (auto node : mainProcessor->getNodes())
-            node->getProcessor()->enableAllBuses();
+        samples[i][j] = static_cast<float> (buf[j]);
     }
-    
-//    for (int i = 0; i < 3; ++i)
-//    {
-//        auto  slot   = slots   .getUnchecked (i);
-//        auto& bypass = bypasses.getReference (i);
-//
-//        if (slot != nullptr)
-//            slot->setBypassed (bypass->get());
-//    }
-//
-//    audioInputNode->setBypassed (muteInput->get());
-//
-//    slot1Node = slots.getUnchecked (0);
-//    slot2Node = slots.getUnchecked (1);
-//    slot3Node = slots.getUnchecked (2);
-}
-
-void AmpedAudioProcessor::processBlock (AudioBuffer<double>& buffer,
-                                                MidiBuffer& midiMessages)
-{
-    for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
-    {
-        buffer.clear (i, 0, buffer.getNumSamples());
-    }
-
-    updateGraph();
-    mainProcessor->processBlock (buffer, midiMessages);
-
-    
-    
-    
-    buffer.applyGain(*inputParameter);
-    double* interleavedBuffer = new double[buffer.getNumChannels() * buffer.getNumSamples()];
-    
-    AmpedAudioProcessor::interleaveSamples(buffer.getArrayOfWritePointers(), interleavedBuffer, buffer.getNumSamples(), buffer.getNumChannels());
-    
-    setupAmp();
-    
-    tubeAmp.process(interleavedBuffer, buffer.getNumSamples());
-    
-    AmpedAudioProcessor::deinterleaveSamples(interleavedBuffer, buffer.getArrayOfWritePointers(),
-                                             buffer.getNumSamples(), buffer.getNumChannels());
-    
-    delete[] interleavedBuffer;
+ }
  
-    
-   // float* floatAudioBufffer = new float[buffer.getNumSamples()];
-    float** samples = new float*[buffer.getNumChannels()];
-    for(int i = 0; i < buffer.getNumChannels(); ++i)
-    {
-        samples[i] = new float[buffer.getNumSamples()];
-        double* buf = buffer.getWritePointer(i);
-        for (int j = 0; j < buffer.getNumSamples(); j++)
-        {
-            samples[i][j] = static_cast<float> (buf[j]);
-        }
-    }
-    
-    
-    dsp::AudioBlock<float> block (samples, buffer.getNumChannels(), buffer.getNumSamples());
-    dsp::ProcessContextReplacing<float> context (block);
+ dsp::AudioBlock<float> block (samples, buffer.getNumChannels(), buffer.getNumSamples());
+ dsp::ProcessContextReplacing<float> context (block);
  //   context.isBypassed = *middleParameter > 0.5;
-    context.isBypassed = false;
-    ampSim.process(context);
-    cabSim.process(context);
-
-    for(int i = 0; i < buffer.getNumChannels(); ++i) {
-        double* buf = buffer.getWritePointer(i);
-
-        for (int j = 0; j < buffer.getNumSamples(); j++)
-        {
-            buf[j] = samples[i][j];
-        }
-        delete [] samples[i];
-    }
-    delete [] samples;
-//     dsp::AudioBlock<float> block (buffer);
-//     dsp::ProcessContextReplacing<float> context (block);
-//     cabSim.process (context);
-    
-//    dsp::AudioBlock<float> block
-    
-    //double *samples = new int[buffer.getNumChannels() * buffer.getNumSamples()];
-    
-    
-    
-  /*  for (int i = 0; i < buffer.getNumChannels(); i++)
+ context.isBypassed = false;
+ 
+ ampSim.process(context);
+ cabSim.process(context);
+ 
+ for(int i = 0; i < buffer.getNumChannels(); ++i)
+ {
+    double* buf = buffer.getWritePointer(i);
+ 
+    for (int j = 0; j < buffer.getNumSamples(); j++)
     {
-        double* buf = buffer.getWritePointer(i);
-        for (int j = 0; j < buffer.getNumSamples(); j++)
-        {
-            floatAudioBufffer[j] = static_cast<float> (buf[j]);
-        }
-        
-        
-        
-        
-       // dsp::AudioBlock<float> block (buffer);
-       // dsp::ProcessContextReplacing<float> context (block);
-       // filter.process (context);
-        
-        
-        for (int j = 0; j < buffer.getNumSamples(); j++)
-        {
-            buf[j] = floatAudioBufffer[j];
-        }
+        buf[j] = samples[i][j];
     }
-    
-    delete[] floatAudioBufffer;*/
-    
-    
-    
-    
-    buffer.applyGain(*outputParameter);
-
-    
-    
-  //  for (int i = 0; i < buffer.getNumChannels(); ++i)
-  //  {
-    //    double* chanbuf = buffer.getWritePointer(1);
-        
-    //    tubeAmp.process(chanbuf, buffer.getNumSamples());
-        //for (int j = 0; j < bufferIn.getNumSamples(); ++j)
-        //{
-        //    chanbuf[j] = getNextSample(chanbuf[j]);
-        //}
-   // }
-    
-}
-
-
-
-bool AmpedAudioProcessor::supportsDoublePrecisionProcessing() const
-{
-    return true;
-}
+    delete [] samples[i];
+ }
+ delete [] samples;
+*/
 
 void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution) {
     dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), 2 };
@@ -408,7 +170,7 @@ void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double 
     
     
     // BinaryData::getNamedResource(BinaryData::CABIR_wav, size);
-    cabSim.loadImpulseResponse(data, size, true, false, 0);
+//    cabSim.loadImpulseResponse(data, size, true, false, 0);
 }
 
 void AmpedAudioProcessor::initialiseGraph() {
@@ -418,8 +180,42 @@ void AmpedAudioProcessor::initialiseGraph() {
     midiInputNode   = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
     
+    // Input gain:
+    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
+    ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
+    
+    gainProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                         getMainBusNumOutputChannels(),
+                                         getSampleRate(), getBlockSize());
+    
+    // Tube amp:
+    ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>());
+    
+    AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
+    amp->driveParameter = driveParameter;
+    amp->masterParameter = masterParameter;
+    amp->presenceParameter = presenceParameter;
+    ampProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                                         getMainBusNumOutputChannels(),
+                                                         getSampleRate(), getBlockSize());
+    
+    // Amp sim:
+    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize));
+    ampSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                                    getMainBusNumOutputChannels(),
+                                                    getSampleRate(), getBlockSize());
+    
+    // Cab sim:
+    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize));
+    cabSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                                        getMainBusNumOutputChannels(),
+                                                        getSampleRate(), getBlockSize());
+
     connectAudioNodes();
     connectMidiNodes();
+    
+    for (auto node : mainProcessor->getNodes())
+        node->getProcessor()->enableAllBuses();
 
     //gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
   //  connectAudioNodes();
@@ -435,9 +231,21 @@ void AmpedAudioProcessor::initialiseGraph() {
 
 void AmpedAudioProcessor::connectAudioNodes()
 {
-    for (int channel = 0; channel < 2; ++channel)
+    for (auto connection : mainProcessor->getConnections())
+        mainProcessor->removeConnection (connection);
+    
+    for (int channel = 0; channel < getTotalNumInputChannels(); ++channel) {
         mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
+            { gainProcessor->nodeID, channel } });
+        mainProcessor->addConnection ({ { gainProcessor->nodeID,  channel },
+            { ampProcessor->nodeID, channel } });
+        mainProcessor->addConnection ({ { ampProcessor->nodeID,  channel },
+            { ampSimIR->nodeID, channel } });
+        mainProcessor->addConnection ({ { ampSimIR->nodeID,  channel },
+            { cabSimIR->nodeID, channel } });
+        mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
             { audioOutputNode->nodeID, channel } });
+    }
 }
 
 void AmpedAudioProcessor::connectMidiNodes()
@@ -446,9 +254,21 @@ void AmpedAudioProcessor::connectMidiNodes()
         { midiOutputNode->nodeID, AudioProcessorGraph::midiChannelIndex } });
 }
 
+void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+{
+    Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
+    
+    mainProcessor->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                         getMainBusNumOutputChannels(),
+                                         sampleRate, samplesPerBlock);
+    
+    mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+    initialiseGraph();
+}
+
 
 //==============================================================================
-void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
+void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerBlock)
 {
     Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
 
@@ -467,7 +287,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
  //       TRACE;
      //   IMutexLock lock(this);
         
-    tubeAmp.setSampleRate(sampleRate);
+/*    tubeAmp.setSampleRate(sampleRate);
     tubeAmp.setOversample(1);
     tubeAmp.init();
     tubeAmp.setNumChans(2);
@@ -481,7 +301,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     tubeAmp.setTubeType(0, TUBE_TABLE_12AX7_68k);
     tubeAmp.setTubeType(1, TUBE_TABLE_12AX7_68k);
 
-    tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k );
+    tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k );*/
         //mCabSim.setSampleRate(GetSampleRate())tubeAmp
         //tubeAmp.init();
         //tubeAmp.setOversample(1);
@@ -526,10 +346,10 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     */
 
     // Amp sim:
-    initInpulseResponseProcessor(BinaryData::MATCH_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::MATCH_IR_FILTERED_wavSize, ampSim);
+   // initInpulseResponseProcessor(BinaryData::MATCH_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::MATCH_IR_FILTERED_wavSize, ampSim);
 
     // Cab sim:
-    initInpulseResponseProcessor(BinaryData::CAB_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::CAB_IR_FILTERED_wavSize, cabSim);
+   // initInpulseResponseProcessor(BinaryData::CAB_IR_FILTERED_wav, sampleRate, samplesPerBlock, BinaryData::CAB_IR_FILTERED_wavSize, cabSim);
 }
 
 
@@ -546,21 +366,19 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
         || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
         return false;
     
-    if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono()
-        && layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
+    if (layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
         return false;
     
     return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
-    
+  
     
     // Support mono in and mono or stereo out only:
-  /*  if ((layouts.getMainInputChannelSet() == AudioChannelSet::mono() ||
-         layouts.getMainInputChannelSet() == AudioChannelSet::stereo()) &&
+  /*  if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
         (layouts.getMainOutputChannelSet() == AudioChannelSet::mono() ||
          layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())){
         return true;
-    }
-    return false;*/
+    }*/
+    return false;
 /*  #if JucePlugin_IsMidiEffect
     ignoreUnused (layouts);
     return true;
@@ -586,6 +404,19 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 
 void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
+    {
+        buffer.clear (i, 0, buffer.getNumSamples());
+    }
+
+    
+    cabSimIR->setBypassed(*cabSimSwitch > .5);
+#ifdef JUCE_DEBUG
+    ampSimIR->setBypassed(*ampSimSwitch > .5);
+#endif
+    mainProcessor->processBlock (buffer, midiMessages);
+    
+    /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
 
@@ -614,7 +445,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
      // ..do something to the data...
      }
-
+*/
 
 
     /*

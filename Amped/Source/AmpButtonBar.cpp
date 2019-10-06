@@ -28,10 +28,16 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(v
     initSliderComponent(presenceSlider, "presence", presenceAttachment);
     initSliderComponent(masterSlider, "master", masterAttachment);
     addAndMakeVisible(cabSimSwitch);
-    fxAttachment.reset (new ButtonAttachment (valueTreeState, "cabSim", fxSwitch));
+    cabSimAttachment.reset (new ButtonAttachment (valueTreeState, "cabSim", cabSimSwitch));
     initSliderComponent(outputSlider, "output", outputAttachment);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
+    
+    
+#ifdef JUCE_DEBUG
+    addAndMakeVisible(matchIRSwitch);
+    matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
+#endif
 
 }
 
@@ -46,11 +52,6 @@ void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::uniq
     attachment.reset (new SliderAttachment (valueTreeState, vtsName, slider));
 
     addAndMakeVisible(slider);
-    
-    
-    
- 
-    
 }
 
 
@@ -60,24 +61,7 @@ AmpButtonBar::~AmpButtonBar()
 }
 
 void AmpButtonBar::paint (Graphics& g)
-{
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
-
-       You should replace everything in this method with your own
-       drawing code..
-    */
-
-    g.fillAll (Colours::transparentBlack);   // clear the background
-    
-    g.setColour (Colours::white);
-    g.drawRect (getLocalBounds(), 3);   // draw an outline around the component
-    
-    g.setColour (Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("AmpButtonBar", getLocalBounds(),
-                Justification::centred, true);   // draw some placeholder text
-}
+{}
 
 void AmpButtonBar::setAmpComponentBounds(Component& component, int xCoord) {
      component.setBounds(xCoord,
@@ -98,4 +82,7 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
     setAmpComponentBounds(cabSimSwitch, Constants::AmpCtrlCabSimX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
+#ifdef JUCE_DEBUG
+    setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
+#endif
 }

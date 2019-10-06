@@ -15,8 +15,13 @@ class Constants
 public:
     static const int AmpButtonBarX = 290;
     static const int AmpButtonBarY = 453;
+#ifndef JUCE_DEBUG
     static const int AmpButtonBarW = 620;
+#else
+    static const int AmpButtonBarW = 880;
+#endif
     static const int AmpButtonBarH = 90;
+    
     
     constexpr static const double AmpButtonMax = 59.0;
     constexpr static const double AmpButtonMin = 0.0;

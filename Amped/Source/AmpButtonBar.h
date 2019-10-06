@@ -64,6 +64,10 @@ private:
     Slider outputSlider;
     std::unique_ptr<SliderAttachment> outputAttachment;
 
+#ifdef JUCE_DEBUG
+    ToggleButton matchIRSwitch;
+    std::unique_ptr<ButtonAttachment> matchAttachment;;
+#endif
     
     AmpLookAndFeel ampLookAndFeel;
     
