@@ -105,6 +105,10 @@ private:
 
     void connectAudioNodes();
     void connectMidiNodes();
+    
+    void initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
+                               const char *highPotImpulseData, int highPotImpulseDataSize,
+                float* parameter, float makeupGain);
 
 
 private:
@@ -144,8 +148,16 @@ private:
     
     Node::Ptr gainProcessor;
     Node::Ptr ampProcessor;
+    
+    Node::Ptr bassEq;
+    Node::Ptr middleEq;
+    Node::Ptr trebleEq;
+    
     Node::Ptr ampSimIR;
     Node::Ptr cabSimIR;
+    
+    Node::Ptr outputGainProcessor;
+
 
 
     

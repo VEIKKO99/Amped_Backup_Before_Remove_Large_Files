@@ -1149,9 +1149,13 @@
               file="res/amped_switch62/amped_switch62_0020.png"/>
       </GROUP>
       <GROUP id="{ECFEE057-5F1B-D950-9912-AED5D9ACB82B}" name="EQ_IRs">
+        <FILE id="mrK0v5" name="ac_test.wav" compile="0" resource="1" file="res/EQ_IRs/ac_test.wav"/>
         <FILE id="a1VXkS" name="BASS_HI_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_HI_IR.wav"/>
         <FILE id="Vf0yu6" name="BASS_LO_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_LO_IR.wav"/>
         <FILE id="x8FVrK" name="DRY_IR.wav" compile="0" resource="1" file="res/EQ_IRs/DRY_IR.wav"/>
+        <FILE id="C4eeen" name="HICUT_IR_dc.wav" compile="0" resource="1" file="res/EQ_IRs/HICUT_IR_dc.wav"/>
+        <FILE id="b5yN48" name="LOWCUT_IR_dc.wav" compile="0" resource="1"
+              file="res/EQ_IRs/LOWCUT_IR_dc.wav"/>
         <FILE id="S5epju" name="MIDDLE_HI_IR.wav" compile="0" resource="1"
               file="res/EQ_IRs/MIDDLE_HI_IR.wav"/>
         <FILE id="SXqjYq" name="MIDDLE_LO_IR.wav" compile="0" resource="1"
@@ -1176,6 +1180,7 @@
       <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <FILE id="PDIE7d" name="AmpedDsp.h" compile="0" resource="0" file="Source/AmpedDsp.h"/>
       <FILE id="iWoyDc" name="AmpedAudioProcessorBase.h" compile="0" resource="0"
             file="Source/AmpedAudioProcessorBase.h"/>
       <GROUP id="{DD6A0A51-DAA2-6BC2-F492-69855662BCE4}" name="Hornet">

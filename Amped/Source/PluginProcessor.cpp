@@ -23,8 +23,8 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
                                                                "Input",            // parameter name
-                                                               -30.0f,              // minimum value
-                                                               30.0f,              // maximum value
+                                                               -20.0f,              // minimum value
+                                                               20.0f,              // maximum value
                                                                0.0f),             // default value
                         std::make_unique<AudioParameterBool> ("fx",               // parameterID
                                                               "FX",                // parameter name
@@ -36,7 +36,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
-                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f)
+                        std::make_unique<AudioParameterFloat> ("output", "Output", -50.0f, 50.0f, 0.0f)
                         #ifdef JUCE_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
                         #endif
@@ -169,8 +169,23 @@ void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double 
     convolution.prepare (spec);
     
     
-    // BinaryData::getNamedResource(BinaryData::CABIR_wav, size);
+    // aryData::getNamedResource(BinaryData::CABIR_wav, size);Bin
 //    cabSim.loadImpulseResponse(data, size, true, false, 0);
+}
+
+void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
+                                                const char *highPotImpulseData, int highPotImpulseDataSize,
+                                                float* parameter,
+                                                float makeupGain = .0f)
+{
+    eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowPotImpulseData, lowPotImpulseDataSize,
+                                                               highPotImpulseData, highPotImpulseDataSize, makeupGain ));
+    
+    EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
+    eqIr->eqValue = parameter;
+    eq->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                                  getMainBusNumOutputChannels(),
+                                                  getSampleRate(), getBlockSize());
 }
 
 void AmpedAudioProcessor::initialiseGraph() {
@@ -198,35 +213,44 @@ void AmpedAudioProcessor::initialiseGraph() {
     ampProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
                                                          getMainBusNumOutputChannels(),
                                                          getSampleRate(), getBlockSize());
+   
+    // Bass eq:
+    initEq(bassEq, BinaryData::BASS_LO_IR_wav, BinaryData::BASS_LO_IR_wavSize,
+           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 7.0f);
     
+    // Middle eq:
+    initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
+           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 7.0f);
+    
+    // Treble eq:
+    initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
+           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 7.0f);
+  
     // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize));
+    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, 8.0f));
     ampSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
                                                     getMainBusNumOutputChannels(),
                                                     getSampleRate(), getBlockSize());
     
     // Cab sim:
-    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize));
+    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, 4.0f));
     cabSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
                                                         getMainBusNumOutputChannels(),
                                                         getSampleRate(), getBlockSize());
+    
+    
+    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
+    ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
+    
+    outputGainProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                                         getMainBusNumOutputChannels(),
+                                                         getSampleRate(), getBlockSize());
 
     connectAudioNodes();
     connectMidiNodes();
     
     for (auto node : mainProcessor->getNodes())
         node->getProcessor()->enableAllBuses();
-
-    //gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
-  //  connectAudioNodes();
-    
-   // mainProcessor->addConnection ({ { audioInputNode->nodeID,  2 },
-   //          { audioOutputNode->nodeID,        2 } });
-   // mainProcessor->addConnection ({ { audioInputNode->nodeID,         2 },
-   //     { gainProcessor->nodeID, 2 } });
-   // mainProcessor->addConnection ({ { gainProcessor->nodeID,  2 },
-   //     { audioOutputNode->nodeID,        2 } });
-    
 }
 
 void AmpedAudioProcessor::connectAudioNodes()
@@ -242,8 +266,16 @@ void AmpedAudioProcessor::connectAudioNodes()
         mainProcessor->addConnection ({ { ampProcessor->nodeID,  channel },
             { ampSimIR->nodeID, channel } });
         mainProcessor->addConnection ({ { ampSimIR->nodeID,  channel },
+            { bassEq->nodeID, channel } });
+        mainProcessor->addConnection ({ { bassEq->nodeID,  channel },
+            { middleEq->nodeID, channel } });
+        mainProcessor->addConnection ({ { middleEq->nodeID,  channel },
+            { trebleEq->nodeID, channel } });
+        mainProcessor->addConnection ({ { trebleEq->nodeID,  channel },
             { cabSimIR->nodeID, channel } });
         mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
+            { outputGainProcessor->nodeID, channel } });
+        mainProcessor->addConnection ({ { outputGainProcessor->nodeID,  channel },
             { audioOutputNode->nodeID, channel } });
     }
 }
@@ -371,6 +403,11 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
     
     return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
   
+    
+ //   if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
+ //       layouts.getMainOutputChannelSet() == AudioChannelSet::mono()) {
+ //           return true;
+ //   }
     
     // Support mono in and mono or stereo out only:
   /*  if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
@@ -542,8 +579,6 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new AmpedAudioProcessor();
 }
-
-
 
 //==============================================================================
 void AmpedAudioProcessor::interleaveSamples (double** source, double* dest, int numSamples, int numChannels)
