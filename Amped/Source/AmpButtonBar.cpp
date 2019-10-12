@@ -38,7 +38,11 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(v
     addAndMakeVisible(matchIRSwitch);
     matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
 #endif
+}
 
+AmpButtonBar::~AmpButtonBar()
+{
+    setLookAndFeel(nullptr);
 }
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
@@ -56,9 +60,6 @@ void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::uniq
 
 
 
-AmpButtonBar::~AmpButtonBar()
-{
-}
 
 void AmpButtonBar::paint (Graphics& g)
 {}
