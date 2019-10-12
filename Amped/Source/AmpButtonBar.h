@@ -12,6 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpLookAndFeel.h"
+#include "UIConsts.h"
 
 //==============================================================================
 /*
@@ -64,7 +65,7 @@ private:
     Slider outputSlider;
     std::unique_ptr<SliderAttachment> outputAttachment;
 
-#ifdef JUCE_DEBUG
+#ifdef AMPED_DEBUG
     ToggleButton matchIRSwitch;
     std::unique_ptr<ButtonAttachment> matchAttachment;;
 #endif
