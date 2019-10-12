@@ -12,6 +12,8 @@
 #include "PluginEditor.h"
 #include "original_hornet/TubeAmp.h"
 #include "AmpedAudioProcessorBase.h"
+#include "UIConsts.h"
+
 //==============================================================================
 AmpedAudioProcessor::AmpedAudioProcessor() :
 #ifndef JucePlugin_PreferredChannelConfigurations
@@ -37,7 +39,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
                         std::make_unique<AudioParameterFloat> ("output", "Output", -50.0f, 50.0f, 0.0f)
-                        #ifdef JUCE_DEBUG
+                        #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
                         #endif
 
@@ -57,7 +59,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     outputParameter = parameters.getRawParameterValue ("output");
     driveParameter = parameters.getRawParameterValue ("drive");
     
-    #ifdef JUCE_DEBUG
+    #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
     #endif
 }
@@ -448,7 +450,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
     
     cabSimIR->setBypassed(*cabSimSwitch > .5);
-#ifdef JUCE_DEBUG
+#ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
     mainProcessor->processBlock (buffer, midiMessages);

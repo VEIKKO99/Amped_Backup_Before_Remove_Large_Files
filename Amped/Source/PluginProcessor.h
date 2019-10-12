@@ -12,6 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "original_hornet/TubeAmp.h"
+#include "UIConsts.h"
 
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
@@ -133,7 +134,7 @@ private:
     float* cabSimSwitch = nullptr;
     float* outputParameter = nullptr;
     
-#ifdef JUCE_DEBUG
+#ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
 #endif
     

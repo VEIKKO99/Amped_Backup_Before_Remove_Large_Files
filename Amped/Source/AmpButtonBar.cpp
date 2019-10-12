@@ -12,6 +12,7 @@
 #include "AmpButtonBar.h"
 #include "UIConsts.h"
 #include "PluginEditor.h"
+#include "UIConsts.h"
 
 //==============================================================================
 AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
@@ -34,7 +35,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(v
     // initialise any special settings that your component needs.
     
     
-#ifdef JUCE_DEBUG
+#ifdef AMPED_DEBUG
     addAndMakeVisible(matchIRSwitch);
     matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
 #endif
@@ -83,7 +84,7 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
     setAmpComponentBounds(cabSimSwitch, Constants::AmpCtrlCabSimX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
-#ifdef JUCE_DEBUG
+#ifdef AMPED_DEBUG
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
 #endif
 }
