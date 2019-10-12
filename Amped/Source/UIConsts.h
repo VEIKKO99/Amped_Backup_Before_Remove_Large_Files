@@ -12,10 +12,16 @@
 
 class Constants
 {
+#ifdef JUCE_DEBUG
+   #define AMPED_DEBUG
+#else
+   #define AMPED_DEBUG
+#endif
+    
 public:
     static const int AmpButtonBarX = 290;
     static const int AmpButtonBarY = 453;
-#ifndef JUCE_DEBUG
+#ifndef AMPED_DEBUG
     static const int AmpButtonBarW = 620;
 #else
     static const int AmpButtonBarW = 880;
