@@ -129,7 +129,7 @@ private:
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolutionDsp.prepare(spec);
-        convolutionDsp.loadImpulseResponse(data, dataSize, true, false, 0);
+        convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
     }
     
 public:
@@ -320,7 +320,7 @@ private:
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolution.prepare(spec);
-        convolution.loadImpulseResponse(data, dataSize, true, false, 0, true);
+        convolution.loadImpulseResponse(data, dataSize, false, false, 0, true);
     }
     
 public:
