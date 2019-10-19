@@ -13,7 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "original_hornet/TubeAmp.h"
 #include "UIConsts.h"
-
+#include "AdminSettingsUtil.h"
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
 
@@ -158,8 +158,8 @@ private:
     Node::Ptr cabSimIR;
     
     Node::Ptr outputGainProcessor;
-
-
+    
+    std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
 
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
