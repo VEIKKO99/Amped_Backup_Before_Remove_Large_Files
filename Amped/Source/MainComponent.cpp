@@ -17,6 +17,8 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts) : valueTreeState
 {
     
     addAndMakeVisible(ampButtonBar);
+    addAndMakeVisible(adminUIButton);
+    adminUIButton.addListener(this);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 }
@@ -24,6 +26,25 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts) : valueTreeState
 MainComponent::~MainComponent()
 {
 }
+
+#ifdef AMPED_DEBUG
+
+void MainComponent::buttonClicked (Button* button)
+{
+    //std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow(new AmpedAdminSettingsWindowOverride()) ;
+    //ScopedPointer<AmpedAdminSettingsWindowOverride> adminUIWindow = new AmpedAdminSettingsWindowOverride() ;
+    if (adminUIWindow == nullptr) {
+        adminUIWindow.reset(new AmpedAdminSettingsWindowOverride());
+        adminUIWindow->setUsingNativeTitleBar (false);
+        adminUIWindow->setCentrePosition(400, 400);
+        adminUIWindow->setResizable(false, false);
+        adminUIWindow->setContentOwned(new AdminSettingsWindow(),true);
+    }
+    adminUIWindow->setVisible (true);
+
+  //  adminUIWindow->setContentOwned (new AdminSettingsWindow());
+}
+#endif
 
 void MainComponent::paint (Graphics& g)
 {
@@ -44,6 +65,12 @@ void MainComponent::resized()
 {
     ampButtonBar.setBounds(Constants::AmpButtonBarX, Constants::AmpButtonBarY,
                            Constants::AmpButtonBarW, Constants::AmpButtonBarH);
+    
+    
+#ifdef AMPED_DEBUG
+    adminUIButton.setBounds(80, 80, 100, 40);
+    adminUIButton.setButtonText("Admin");
+#endif
     // This method is where you should set the bounds of any child
     // components that your component contains..
 
