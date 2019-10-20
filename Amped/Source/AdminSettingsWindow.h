@@ -21,6 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "AdminSettingsUtil.h"
 //[/Headers]
 
 
@@ -44,6 +45,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    AdminSettingsWindow (ISoundSettingsChanged* changed);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -55,6 +57,8 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    ISoundSettingsChanged* changeInterface;
+    void updateSettings();
     //[/UserVariables]
 
     //==============================================================================
@@ -74,7 +78,7 @@ private:
     std::unique_ptr<Label> label7;
     std::unique_ptr<TextEditor> preTube1VPlus;
     std::unique_ptr<Label> label8;
-    std::unique_ptr<TextButton> textButton;
+    std::unique_ptr<TextButton> updateButton;
 
 
     //==============================================================================

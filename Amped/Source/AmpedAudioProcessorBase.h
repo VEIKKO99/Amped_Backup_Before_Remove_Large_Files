@@ -19,9 +19,11 @@ class AmpedAudioProcessorBase  : public AudioProcessor
 {
 public:
     //==============================================================================
-    AmpedAudioProcessorBase()  {}
+    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings> settings)  {
+        this->soundSettings = settings;
+    }
     
-    //==============================================================================
+//==============================================================================
     void prepareToPlay (double, int) override {}
     void releaseResources() override {}
     void processBlock (AudioSampleBuffer&, MidiBuffer&) override {}
@@ -47,8 +49,11 @@ public:
     void getStateInformation (MemoryBlock&) override       {}
     void setStateInformation (const void*, int) override   {}
     
-private:
-    //==============================================================================
+    virtual void updateInternalSettings() {}
+    
+protected:
+    
+    std::shared_ptr<SoundSettings> soundSettings = nullptr;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessorBase)
 };
 
@@ -56,7 +61,7 @@ private:
 class GainProcessor  : public AmpedAudioProcessorBase
 {
 public:
-    GainProcessor()
+    GainProcessor(std::shared_ptr<SoundSettings> settings) : AmpedAudioProcessorBase(settings)
     {
         gain.setGainDecibels (.0f);
     }
@@ -92,10 +97,12 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GainProcessor)
 };
 
-class IRProcessor  : public AmpedAudioProcessorBase
+class IRProcessor : public AmpedAudioProcessorBase
 {
 public:
-    IRProcessor(const char *impulseData, int impulseDataSize, float makeupGain = .0f)
+    IRProcessor(const char *impulseData, int impulseDataSize,
+                std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
+                AmpedAudioProcessorBase(settings)
     {
         this->impulseData = impulseData;
         this->impulseDataSize = impulseDataSize;
@@ -153,7 +160,7 @@ class AmpProcessor  : public AmpedAudioProcessorBase
     static const int INTERLEAVED_DEFAULT_SIZE = 8192 * 2; // Two channels, 8192 samples
     
 public:
-    AmpProcessor() :  interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
+    AmpProcessor(std::shared_ptr<SoundSettings> settings): AmpedAudioProcessorBase(settings), interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
     {
        
     }
@@ -188,6 +195,15 @@ public:
         }
     }
     
+    void updateInternalSettings() override {
+        tubeAmp.setInputType(soundSettings->ampSettings.inputType);
+        
+        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
+        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
+        
+        tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k);
+    }
+    
     void prepareAmp(double sampleRate, int numOfChannels)
     {
         tubeAmp.setSampleRate(sampleRate);
@@ -195,11 +211,8 @@ public:
         tubeAmp.init();
         tubeAmp.setNumChans(2);
         
-        tubeAmp.setInputType(PreAmp::EInputType::kGuitarKit);
-        tubeAmp.setTubeType(0, TUBE_TABLE_12AX7_68k);
-        tubeAmp.setTubeType(1, TUBE_TABLE_12AX7_68k);
+        updateInternalSettings();
         
-        tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k);
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -271,7 +284,8 @@ public:
     
     EQWithIR(const char *lowPotImpulseData, int lowPotImpulseDataSize,
              const char *highPotImpulseData, int highPotImpulseDataSize,
-             float makeupGain = .0f)
+             std::shared_ptr<SoundSettings> settings,
+             float makeupGain = .0f) : AmpedAudioProcessorBase(settings)
     {
         this->loImpulseData = lowPotImpulseData;
         this->loImpulseDataSize = lowPotImpulseDataSize;

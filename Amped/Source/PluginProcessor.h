@@ -21,7 +21,7 @@ using Node = AudioProcessorGraph::Node;
 //==============================================================================
 /**
 */
-class AmpedAudioProcessor  : public AudioProcessor
+class AmpedAudioProcessor  : public AudioProcessor, public ISoundSettingsChanged
 {
 public:
     //==============================================================================
@@ -77,7 +77,9 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    
+    void settingChanged() override;
+    std::shared_ptr<SoundSettings> getCurrentSettings() override;
+
     // Delay plugin 
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;
@@ -118,7 +120,8 @@ private:
     void setupAmp();
 
     std::unique_ptr<AudioProcessorGraph> mainProcessor;
-
+    void initProcessor(Node::Ptr processor);
+    
     //TubeAmp tubeAmp;
     AudioProcessorValueTreeState parameters;
     
@@ -159,8 +162,9 @@ private:
     
     Node::Ptr outputGainProcessor;
     
+    ReferenceCountedArray<Node> audioProcessors;
+    
     std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
-
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
 

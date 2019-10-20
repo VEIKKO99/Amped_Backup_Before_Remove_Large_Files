@@ -21,6 +21,7 @@
 */
 
 #include "AdminSettingsWindow.h"
+#include "PluginProcessor.h"
 
 class MainComponent    : public Component
                         #ifdef AMPED_DEBUG
@@ -28,7 +29,7 @@ class MainComponent    : public Component
                         #endif
 {
 public:
-    MainComponent(AudioProcessorValueTreeState& vts);
+    MainComponent(AudioProcessorValueTreeState& vts, AmpedAudioProcessor& p);
     ~MainComponent();
 
     void paint (Graphics&) override;
@@ -41,7 +42,8 @@ public:
 private:
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
-    
+    AmpedAudioProcessor& processor;
+
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
     std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow;
