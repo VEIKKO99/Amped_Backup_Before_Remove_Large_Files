@@ -59,9 +59,6 @@ void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::uniq
     addAndMakeVisible(slider);
 }
 
-
-
-
 void AmpButtonBar::paint (Graphics& g)
 {}
 

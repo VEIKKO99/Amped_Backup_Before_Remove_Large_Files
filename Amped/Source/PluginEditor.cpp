@@ -13,7 +13,7 @@
 
 //==============================================================================
 AmpedAudioProcessorEditor::AmpedAudioProcessorEditor (AmpedAudioProcessor& p, AudioProcessorValueTreeState& vts)
-    : AudioProcessorEditor (&p), processor (p), mainContainer(vts), valueTreeState(vts)
+    : AudioProcessorEditor (&p), processor (p), mainContainer(vts,p), valueTreeState(vts)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.

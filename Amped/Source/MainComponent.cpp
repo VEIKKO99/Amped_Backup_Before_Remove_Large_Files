@@ -11,9 +11,11 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "MainComponent.h"
 #include "UIConsts.h"
+#include "PluginProcessor.h"
 
 //==============================================================================
-MainComponent::MainComponent(AudioProcessorValueTreeState& vts) : valueTreeState(vts), ampButtonBar(vts)
+MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
+                             AmpedAudioProcessor& p) : valueTreeState(vts), ampButtonBar(vts), processor(p)
 {
     
     addAndMakeVisible(ampButtonBar);
@@ -38,7 +40,7 @@ void MainComponent::buttonClicked (Button* button)
         adminUIWindow->setUsingNativeTitleBar (false);
         adminUIWindow->setCentrePosition(400, 400);
         adminUIWindow->setResizable(false, false);
-        adminUIWindow->setContentOwned(new AdminSettingsWindow(),true);
+        adminUIWindow->setContentOwned(new AdminSettingsWindow(&processor),true);
     }
     adminUIWindow->setVisible (true);
 

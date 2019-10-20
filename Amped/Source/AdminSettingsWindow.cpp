@@ -240,12 +240,12 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     label8->setBounds (504, 152, 150, 24);
 
-    textButton.reset (new TextButton ("new button"));
-    addAndMakeVisible (textButton.get());
-    textButton->setButtonText (TRANS("Update"));
-    textButton->addListener (this);
+    updateButton.reset (new TextButton ("new button"));
+    addAndMakeVisible (updateButton.get());
+    updateButton->setButtonText (TRANS("Update"));
+    updateButton->addListener (this);
 
-    textButton->setBounds (344, 240, 150, 24);
+    updateButton->setBounds (344, 240, 150, 24);
 
 
     //[UserPreSize]
@@ -261,6 +261,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
 AdminSettingsWindow::~AdminSettingsWindow()
 {
     //[Destructor_pre]. You can add your own custom destruction code here..
+    changeInterface = nullptr;
     //[/Destructor_pre]
 
     preInputType = nullptr;
@@ -279,7 +280,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label7 = nullptr;
     preTube1VPlus = nullptr;
     label8 = nullptr;
-    textButton = nullptr;
+    updateButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -332,19 +333,33 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     //[UserbuttonClicked_Pre]
     //[/UserbuttonClicked_Pre]
 
-    if (buttonThatWasClicked == textButton.get())
+    if (buttonThatWasClicked == updateButton.get())
     {
-        //[UserButtonCode_textButton] -- add your button handler code here..
-        //[/UserButtonCode_textButton]
+        //[UserButtonCode_updateButton] -- add your button handler code here..
+        if (changeInterface != nullptr) {
+            updateSettings();
+            changeInterface->settingChanged();
+        }
+        //[/UserButtonCode_updateButton]
     }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
 
-
-
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void AdminSettingsWindow::updateSettings() {
+    auto settings = changeInterface->getCurrentSettings();
+    settings->ampSettings.inputType = static_cast<PreAmp::EInputType>(preInputType->getSelectedItemIndex());
+    settings->ampSettings.preAmpTubes[0].tubeType = static_cast<PreAmp::EInputType>(preTube1->getSelectedItemIndex());
+
+}
+
+AdminSettingsWindow::AdminSettingsWindow (ISoundSettingsChanged* changed) : AdminSettingsWindow()
+{
+    changeInterface = changed;
+}
 //[/MiscUserCode]
 
 
@@ -434,7 +449,7 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="VPlus&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTBUTTON name="new button" id="3518e4a88f598a7" memberName="textButton"
+  <TEXTBUTTON name="new button" id="3518e4a88f598a7" memberName="updateButton"
               virtualName="" explicitFocusOrder="0" pos="344 240 150 24" buttonText="Update"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>

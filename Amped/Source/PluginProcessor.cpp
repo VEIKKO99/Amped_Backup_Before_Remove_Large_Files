@@ -68,6 +68,17 @@ AmpedAudioProcessor::~AmpedAudioProcessor()
 {
 }
 
+void AmpedAudioProcessor::settingChanged()
+{
+    for (auto node : audioProcessors) {
+        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
+    }
+}
+
+std::shared_ptr<SoundSettings> AmpedAudioProcessor::getCurrentSettings() {
+    return soundSettings;
+}
+
 //==============================================================================
 const String AmpedAudioProcessor::getName() const
 {
@@ -181,45 +192,48 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, i
                                                 float makeupGain = .0f)
 {
     eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowPotImpulseData, lowPotImpulseDataSize,
-                                                               highPotImpulseData, highPotImpulseDataSize, makeupGain ));
+                                                               highPotImpulseData, highPotImpulseDataSize,
+                                                           soundSettings, makeupGain));
     
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
-    eq->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                                  getMainBusNumOutputChannels(),
-                                                  getSampleRate(), getBlockSize());
+    audioProcessors.add(eq);
+}
+
+void AmpedAudioProcessor::initProcessor(Node::Ptr processor) {
+    processor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
+                                            getMainBusNumOutputChannels(),
+                                            getSampleRate(), getBlockSize());
 }
 
 void AmpedAudioProcessor::initialiseGraph() {
     mainProcessor->clear();
+    audioProcessors.clear();
+
     audioInputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioInputNode));
     audioOutputNode = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioOutputNode));
     midiInputNode   = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
     
     // Input gain:
-    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
+    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings));
     ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
-    
-    gainProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                         getMainBusNumOutputChannels(),
-                                         getSampleRate(), getBlockSize());
+    audioProcessors.add(gainProcessor);
     
     // Tube amp:
-    ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>());
+    ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettings));
     
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->driveParameter = driveParameter;
     amp->masterParameter = masterParameter;
     amp->presenceParameter = presenceParameter;
-    ampProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                                         getMainBusNumOutputChannels(),
-                                                         getSampleRate(), getBlockSize());
-   
+    audioProcessors.add(ampProcessor);
+
+    
     // Bass eq:
     initEq(bassEq, BinaryData::BASS_LO_IR_wav, BinaryData::BASS_LO_IR_wavSize,
            BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 7.0f);
-    
+
     // Middle eq:
     initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
            BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 7.0f);
@@ -227,27 +241,23 @@ void AmpedAudioProcessor::initialiseGraph() {
     // Treble eq:
     initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
            BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 7.0f);
-  
-    // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, 8.0f));
-    ampSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                                    getMainBusNumOutputChannels(),
-                                                    getSampleRate(), getBlockSize());
-    
-    // Cab sim:
-    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, 4.0f));
-    cabSimIR->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                                        getMainBusNumOutputChannels(),
-                                                        getSampleRate(), getBlockSize());
-    
-    
-    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>());
-    ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
-    
-    outputGainProcessor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                                         getMainBusNumOutputChannels(),
-                                                         getSampleRate(), getBlockSize());
 
+    // Amp sim:
+    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, 8.0f));
+    audioProcessors.add(ampSimIR);
+
+    // Cab sim:
+    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, 4.0f));
+    audioProcessors.add(cabSimIR);
+    
+    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings));
+    ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
+    audioProcessors.add(outputGainProcessor);
+    
+    for (auto node : audioProcessors)
+    {
+        initProcessor(node);
+    }
     connectAudioNodes();
     connectMidiNodes();
     
