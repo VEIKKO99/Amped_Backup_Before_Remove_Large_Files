@@ -1181,6 +1181,10 @@
       <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <FILE id="FIkfBK" name="UITubeSettings.cpp" compile="1" resource="0"
+            file="Source/UITubeSettings.cpp"/>
+      <FILE id="qF0iWn" name="UITubeSettings.h" compile="0" resource="0"
+            file="Source/UITubeSettings.h"/>
       <FILE id="RnSWGR" name="AdminSettingsWindow.cpp" compile="1" resource="0"
             file="Source/AdminSettingsWindow.cpp"/>
       <FILE id="J1lMAZ" name="AdminSettingsWindow.h" compile="0" resource="0"
