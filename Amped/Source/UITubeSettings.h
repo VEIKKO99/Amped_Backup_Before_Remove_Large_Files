@@ -21,6 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+
 //[/Headers]
 
 
@@ -43,6 +44,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void setupUI(TubeSettings& settings);
     //[/UserMethods]
 
     void paint (Graphics& g) override;

@@ -98,7 +98,7 @@ public:
 private:
     
     void initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution);
-    
+    void initInternalAmpSettings();
     void updateGraph();
 
     static void interleaveSamples (double** source, double* dest, int numSamples, int numChannels);

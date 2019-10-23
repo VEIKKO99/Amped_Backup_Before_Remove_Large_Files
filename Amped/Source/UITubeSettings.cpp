@@ -290,6 +290,11 @@ void UITubeSettings::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void setupUI(TubeSettings& settings) {
+    
+}
+
 //[/MiscUserCode]
 
 
