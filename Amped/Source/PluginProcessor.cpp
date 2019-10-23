@@ -62,10 +62,19 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
     #endif
+    
+    initInternalAmpSettings();
 }
 
 AmpedAudioProcessor::~AmpedAudioProcessor()
 {
+}
+
+void AmpedAudioProcessor::initInternalAmpSettings()
+{
+  //  soundSettings->ampSettings.inputType = PreAmp::EInputType::kGuitarKit;
+  //  soundSettings->ampSettings.preAmpTubes[0].tubeType = TUBE_TABLE_12AX7_68k;
+  //  soundSettings->ampSettings.preAmpTubes[1].tubeType = TUBE_TABLE_12AX7_68k;
 }
 
 void AmpedAudioProcessor::settingChanged()

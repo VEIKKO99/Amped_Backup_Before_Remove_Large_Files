@@ -203,7 +203,7 @@ public:
         
         tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k);
     }
-    
+
     void prepareAmp(double sampleRate, int numOfChannels)
     {
         tubeAmp.setSampleRate(sampleRate);

@@ -33,7 +33,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     preTube1Settings.reset (new UITubeSettings());
     preTube2Settings.reset (new UITubeSettings());
     powerAmpTubeSettings.reset (new UITubeSettings());
-    
+
     preTube1Settings->setBounds (0, 80, preTube1Settings->getWidth(), preTube1Settings->getHeight());
     preTube2Settings->setBounds (0, 10 + 80 + preTube2Settings->getHeight(), preTube2Settings->getWidth(), preTube2Settings->getHeight());
     powerAmpTubeSettings->setBounds (0, 20 + 80 + preTube2Settings->getHeight() * 2, powerAmpTubeSettings->getWidth(), powerAmpTubeSettings->getHeight());
@@ -85,7 +85,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     //[Constructor] You can add your own custom stuff here..
 
-    setupUI();
     //[/Constructor]
 }
 
@@ -173,10 +172,13 @@ void AdminSettingsWindow::updateSettings() {
 AdminSettingsWindow::AdminSettingsWindow (ISoundSettingsChanged* changed) : AdminSettingsWindow()
 {
     changeInterface = changed;
+    setupUI();
 }
 
 void AdminSettingsWindow::setupUI(){
-
+    auto settings = changeInterface->getCurrentSettings();
+    this->preInputType.get()->setSelectedItemIndex(settings->ampSettings.inputType);
+    this->preTube1Settings->setupUI(&settings->ampSettings.preAmpTubes[0]);
 }
 //[/MiscUserCode]
 
