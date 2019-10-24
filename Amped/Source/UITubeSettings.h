@@ -44,7 +44,8 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    void setupUI(TubeSettings& settings);
+    void setupUI(TubeSettings& settings, String tubeName);
+    void updateSettings(TubeSettings& settings);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -61,17 +62,15 @@ private:
     std::unique_ptr<ComboBox> preTube1;
     std::unique_ptr<Label> label2;
     std::unique_ptr<TextEditor> preTube1RK;
-    std::unique_ptr<Label> label3;
+    std::unique_ptr<Label> rkLabel;
     std::unique_ptr<TextEditor> preTube1RP;
-    std::unique_ptr<Label> label4;
+    std::unique_ptr<Label> rpLabel;
     std::unique_ptr<TextEditor> preTube1VK0;
-    std::unique_ptr<Label> label5;
+    std::unique_ptr<Label> vK0Label;
     std::unique_ptr<TextEditor> preTube1LowPassFbk;
-    std::unique_ptr<Label> label6;
-    std::unique_ptr<TextEditor> preTube1OutHpFreq;
-    std::unique_ptr<Label> label7;
+    std::unique_ptr<Label> lowPassLabel;
     std::unique_ptr<TextEditor> preTube1VPlus;
-    std::unique_ptr<Label> label8;
+    std::unique_ptr<Label> vPlusLabel;
 
 
     //==============================================================================

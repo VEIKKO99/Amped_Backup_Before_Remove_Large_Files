@@ -18,6 +18,7 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "AdminSettingsUtil.h"
 //[/Headers]
 
 #include "UITubeSettings.h"
@@ -89,16 +90,16 @@ UITubeSettings::UITubeSettings ()
 
     preTube1RK->setBounds (176, 32, 150, 24);
 
-    label3.reset (new Label ("new label",
-                             TRANS("RK\n")));
-    addAndMakeVisible (label3.get());
-    label3->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label3->setJustificationType (Justification::centredLeft);
-    label3->setEditable (false, false, false);
-    label3->setColour (TextEditor::textColourId, Colours::black);
-    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    rkLabel.reset (new Label ("new label",
+                              TRANS("RK\n")));
+    addAndMakeVisible (rkLabel.get());
+    rkLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    rkLabel->setJustificationType (Justification::centredLeft);
+    rkLabel->setEditable (false, false, false);
+    rkLabel->setColour (TextEditor::textColourId, Colours::black);
+    rkLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label3->setBounds (168, 0, 150, 24);
+    rkLabel->setBounds (168, 0, 150, 24);
 
     preTube1RP.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (preTube1RP.get());
@@ -112,16 +113,16 @@ UITubeSettings::UITubeSettings ()
 
     preTube1RP->setBounds (344, 32, 150, 24);
 
-    label4.reset (new Label ("new label",
-                             TRANS("RP\n")));
-    addAndMakeVisible (label4.get());
-    label4->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label4->setJustificationType (Justification::centredLeft);
-    label4->setEditable (false, false, false);
-    label4->setColour (TextEditor::textColourId, Colours::black);
-    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    rpLabel.reset (new Label ("new label",
+                              TRANS("RP\n")));
+    addAndMakeVisible (rpLabel.get());
+    rpLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    rpLabel->setJustificationType (Justification::centredLeft);
+    rpLabel->setEditable (false, false, false);
+    rpLabel->setColour (TextEditor::textColourId, Colours::black);
+    rpLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label4->setBounds (336, 0, 150, 24);
+    rpLabel->setBounds (336, 0, 150, 24);
 
     preTube1VK0.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (preTube1VK0.get());
@@ -135,16 +136,16 @@ UITubeSettings::UITubeSettings ()
 
     preTube1VK0->setBounds (512, 32, 150, 24);
 
-    label5.reset (new Label ("new label",
-                             TRANS("VK0\n")));
-    addAndMakeVisible (label5.get());
-    label5->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label5->setJustificationType (Justification::centredLeft);
-    label5->setEditable (false, false, false);
-    label5->setColour (TextEditor::textColourId, Colours::black);
-    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    vK0Label.reset (new Label ("new label",
+                               TRANS("VK0\n")));
+    addAndMakeVisible (vK0Label.get());
+    vK0Label->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    vK0Label->setJustificationType (Justification::centredLeft);
+    vK0Label->setEditable (false, false, false);
+    vK0Label->setColour (TextEditor::textColourId, Colours::black);
+    vK0Label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label5->setBounds (504, 0, 150, 24);
+    vK0Label->setBounds (504, 0, 150, 24);
 
     preTube1LowPassFbk.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (preTube1LowPassFbk.get());
@@ -158,39 +159,16 @@ UITubeSettings::UITubeSettings ()
 
     preTube1LowPassFbk->setBounds (176, 104, 150, 24);
 
-    label6.reset (new Label ("new label",
-                             TRANS("LowPassFbk\n")));
-    addAndMakeVisible (label6.get());
-    label6->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label6->setJustificationType (Justification::centredLeft);
-    label6->setEditable (false, false, false);
-    label6->setColour (TextEditor::textColourId, Colours::black);
-    label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    lowPassLabel.reset (new Label ("new label",
+                                   TRANS("LowPassFbk\n")));
+    addAndMakeVisible (lowPassLabel.get());
+    lowPassLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    lowPassLabel->setJustificationType (Justification::centredLeft);
+    lowPassLabel->setEditable (false, false, false);
+    lowPassLabel->setColour (TextEditor::textColourId, Colours::black);
+    lowPassLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label6->setBounds (168, 72, 150, 24);
-
-    preTube1OutHpFreq.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (preTube1OutHpFreq.get());
-    preTube1OutHpFreq->setMultiLine (false);
-    preTube1OutHpFreq->setReturnKeyStartsNewLine (false);
-    preTube1OutHpFreq->setReadOnly (false);
-    preTube1OutHpFreq->setScrollbarsShown (true);
-    preTube1OutHpFreq->setCaretVisible (true);
-    preTube1OutHpFreq->setPopupMenuEnabled (true);
-    preTube1OutHpFreq->setText (String());
-
-    preTube1OutHpFreq->setBounds (344, 104, 150, 24);
-
-    label7.reset (new Label ("new label",
-                             TRANS("OutHpFreq\n")));
-    addAndMakeVisible (label7.get());
-    label7->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label7->setJustificationType (Justification::centredLeft);
-    label7->setEditable (false, false, false);
-    label7->setColour (TextEditor::textColourId, Colours::black);
-    label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label7->setBounds (336, 72, 150, 24);
+    lowPassLabel->setBounds (168, 72, 150, 24);
 
     preTube1VPlus.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (preTube1VPlus.get());
@@ -202,18 +180,18 @@ UITubeSettings::UITubeSettings ()
     preTube1VPlus->setPopupMenuEnabled (true);
     preTube1VPlus->setText (String());
 
-    preTube1VPlus->setBounds (512, 104, 150, 24);
+    preTube1VPlus->setBounds (344, 104, 150, 24);
 
-    label8.reset (new Label ("new label",
-                             TRANS("VPlus\n")));
-    addAndMakeVisible (label8.get());
-    label8->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label8->setJustificationType (Justification::centredLeft);
-    label8->setEditable (false, false, false);
-    label8->setColour (TextEditor::textColourId, Colours::black);
-    label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    vPlusLabel.reset (new Label ("new label",
+                                 TRANS("VPlus\n")));
+    addAndMakeVisible (vPlusLabel.get());
+    vPlusLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    vPlusLabel->setJustificationType (Justification::centredLeft);
+    vPlusLabel->setEditable (false, false, false);
+    vPlusLabel->setColour (TextEditor::textColourId, Colours::black);
+    vPlusLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label8->setBounds (504, 72, 150, 24);
+    vPlusLabel->setBounds (336, 72, 150, 24);
 
 
     //[UserPreSize]
@@ -234,17 +212,15 @@ UITubeSettings::~UITubeSettings()
     preTube1 = nullptr;
     label2 = nullptr;
     preTube1RK = nullptr;
-    label3 = nullptr;
+    rkLabel = nullptr;
     preTube1RP = nullptr;
-    label4 = nullptr;
+    rpLabel = nullptr;
     preTube1VK0 = nullptr;
-    label5 = nullptr;
+    vK0Label = nullptr;
     preTube1LowPassFbk = nullptr;
-    label6 = nullptr;
-    preTube1OutHpFreq = nullptr;
-    label7 = nullptr;
+    lowPassLabel = nullptr;
     preTube1VPlus = nullptr;
-    label8 = nullptr;
+    vPlusLabel = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -291,8 +267,23 @@ void UITubeSettings::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 
-void setupUI(TubeSettings& settings) {
-    
+void UITubeSettings::setupUI(TubeSettings& settings, String tubeName) {
+    label2->setText(tubeName, dontSendNotification);
+    preTube1->setSelectedItemIndex(settings.tubeType, dontSendNotification);
+    preTube1RK->setText(String(settings.rk), false);
+    preTube1RP->setText(String(settings.rp), false);
+    preTube1VK0->setText(String(settings.vk0), false);
+    preTube1VPlus->setText(String(settings.vPlus), false);
+    preTube1LowPassFbk->setText(String(settings.lowPassFbk), false);
+}
+
+void UITubeSettings::updateSettings(TubeSettings& settings) {
+    settings.tubeType = this->preTube1->getSelectedItemIndex();
+    settings.rp = this->preTube1RP->getText().getDoubleValue();
+    settings.rk = this->preTube1RK->getText().getDoubleValue();
+    settings.vPlus = this->preTube1VPlus->getText().getDoubleValue();
+    settings.vk0 = this->preTube1VK0->getText().getDoubleValue();
+    settings.lowPassFbk = this->preTube1LowPassFbk->getText().getDoubleValue();
 }
 
 //[/MiscUserCode]
@@ -325,7 +316,7 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="176 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="ff9a0c8caa693e63" memberName="label3" virtualName=""
+  <LABEL name="new label" id="ff9a0c8caa693e63" memberName="rkLabel" virtualName=""
          explicitFocusOrder="0" pos="168 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="RK&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
@@ -334,7 +325,7 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="344 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="2880963b095d9a70" memberName="label4" virtualName=""
+  <LABEL name="new label" id="2880963b095d9a70" memberName="rpLabel" virtualName=""
          explicitFocusOrder="0" pos="336 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="RP&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
@@ -343,8 +334,8 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="512 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="87d87c9690b2d345" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="504 0 150 24" edTextCol="ff000000"
+  <LABEL name="new label" id="87d87c9690b2d345" memberName="vK0Label"
+         virtualName="" explicitFocusOrder="0" pos="504 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="VK0&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
@@ -352,26 +343,17 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="176 104 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="4ac2cbf6e58b540a" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="168 72 150 24" edTextCol="ff000000"
+  <LABEL name="new label" id="4ac2cbf6e58b540a" memberName="lowPassLabel"
+         virtualName="" explicitFocusOrder="0" pos="168 72 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="LowPassFbk&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="5c5f2d3c229bb0e8" memberName="preTube1OutHpFreq"
+  <TEXTEDITOR name="new text editor" id="2dabbcc509be5690" memberName="preTube1VPlus"
               virtualName="" explicitFocusOrder="0" pos="344 104 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="79ad8375733cea38" memberName="label7" virtualName=""
-         explicitFocusOrder="0" pos="336 72 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="OutHpFreq&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="2dabbcc509be5690" memberName="preTube1VPlus"
-              virtualName="" explicitFocusOrder="0" pos="512 104 150 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="547aa1b4a7b34978" memberName="label8" virtualName=""
-         explicitFocusOrder="0" pos="504 72 150 24" edTextCol="ff000000"
+  <LABEL name="new label" id="547aa1b4a7b34978" memberName="vPlusLabel"
+         virtualName="" explicitFocusOrder="0" pos="336 72 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="VPlus&#10;" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
