@@ -64,11 +64,22 @@ public:
     }
 };
 
-class SoundSettings
+class MaxMin
 {
 public:
-    SoundSettings() {}
+    float min = -10.0;
+    float max = 10.0;
+};
+
+class SoundSettings {
+public:
+    SoundSettings() {
+    }
+
     InternalAmpSettings ampSettings;
+
+    // Gain settings:
+    MaxMin gainSettings[3];
 };
 
 class ISoundSettingsChanged

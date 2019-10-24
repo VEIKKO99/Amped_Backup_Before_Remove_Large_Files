@@ -25,9 +25,9 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
                                                                "Input",            // parameter name
-                                                               -20.0f,              // minimum value
-                                                               20.0f,              // maximum value
-                                                               0.0f),             // default value
+                                                               .0f,              // minimum value
+                                                               1.0f,              // maximum value
+                                                               0.5f),             // default value
                         std::make_unique<AudioParameterBool> ("fx",               // parameterID
                                                               "FX",                // parameter name
                                                               false),              // default value
@@ -38,7 +38,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
-                        std::make_unique<AudioParameterFloat> ("output", "Output", -50.0f, 50.0f, 0.0f)
+                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f)
                         #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
                         #endif
@@ -225,7 +225,7 @@ void AmpedAudioProcessor::initialiseGraph() {
     midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
     
     // Input gain:
-    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings));
+    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
     ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
     audioProcessors.add(gainProcessor);
     
@@ -259,7 +259,7 @@ void AmpedAudioProcessor::initialiseGraph() {
     cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, 4.0f));
     audioProcessors.add(cabSimIR);
     
-    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings));
+    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     audioProcessors.add(outputGainProcessor);
     

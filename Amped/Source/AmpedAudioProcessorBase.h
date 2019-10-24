@@ -9,17 +9,20 @@
 */
 
 #include "AmpedDsp.h"
+#include "AdminSettingsUtil.h"
 
 #pragma once
 
 using Convolution = juce::dsp::Convolution;
+
+enum GainProcessorId { InputGain = 0, OutputGain, DriveGain, SIZE};
 
 //==============================================================================
 class AmpedAudioProcessorBase  : public AudioProcessor
 {
 public:
     //==============================================================================
-    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings> settings)  {
+    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings   > settings)  {
         this->soundSettings = settings;
     }
     
@@ -61,9 +64,10 @@ protected:
 class GainProcessor  : public AmpedAudioProcessorBase
 {
 public:
-    GainProcessor(std::shared_ptr<SoundSettings> settings) : AmpedAudioProcessorBase(settings)
+    GainProcessor(std::shared_ptr<SoundSettings> settings, GainProcessorId id) : AmpedAudioProcessorBase(settings)
     {
         gain.setGainDecibels (.0f);
+        processorId = id;
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -77,7 +81,10 @@ public:
     {
         dsp::AudioBlock<float> block (buffer);
         dsp::ProcessContextReplacing<float> context (block);
-        gain.setGainDecibels(*gainValue);
+       
+        float scaledGain = (gainMax - gainMin) * *gainValue + gainMin;
+        
+        gain.setGainDecibels(scaledGain);
         gain.process (context);
     }
     
@@ -86,14 +93,23 @@ public:
         gain.reset();
     }
     
+    void updateInternalSettings() override {
+        gainMin = soundSettings->gainSettings[processorId].min;
+        gainMax = soundSettings->gainSettings[processorId].max;
+    }
+
+
     const String getName() const override { return "Input Gain"; }
     
 public:
     float* gainValue = NULL;
-    
+    float gainMin = -10;
+    float gainMax = 10;
+
 private:
     dsp::Gain<float> gain;
-    
+    GainProcessorId processorId;
+   
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GainProcessor)
 };
 
@@ -246,7 +262,13 @@ public:
     }
     
     void setupAmp() {
-        tubeAmp.setPreGain(*driveParameter);
+
+        float gainMax = soundSettings->gainSettings[GainProcessorId::DriveGain].max;
+        float gainMin = soundSettings->gainSettings[GainProcessorId::DriveGain].min;
+
+        float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
+
+        tubeAmp.setPreGain(scaledDrive);
         tubeAmp.setMasterVolume(*masterParameter);
         tubeAmp.setPresence(*presenceParameter);
         
