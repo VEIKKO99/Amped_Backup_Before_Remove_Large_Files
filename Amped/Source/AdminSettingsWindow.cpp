@@ -18,10 +18,10 @@
 */
 
 //[Headers] You can add your own extra header files here...
+#include "AmpedAudioProcessorBase.h"
 //[/Headers]
 
 #include "AdminSettingsWindow.h"
-#include "AmpedAudioProcessorBase.h"
 
 
 //[MiscUserDefs] You can add your own user definitions and misc code here...
@@ -89,7 +89,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label3->setBounds (808, 72, 150, 24);
 
     label2.reset (new Label ("new label",
-                             TRANS("Drive Max / Min")));
+                             TRANS("NOT USED!")));
     addAndMakeVisible (label2.get());
     label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     label2->setJustificationType (Justification::centredLeft);
@@ -100,7 +100,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label2->setBounds (808, 136, 150, 24);
 
     label4.reset (new Label ("new label",
-                             TRANS("Master Max / Min")));
+                             TRANS("Output Max / Min")));
     addAndMakeVisible (label4.get());
     label4->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     label4->setJustificationType (Justification::centredLeft);
@@ -352,12 +352,12 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="9e5c6ee92a31ff20" memberName="label2" virtualName=""
          explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Drive Max / Min" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         edBkgCol="0" labelText="NOT USED!" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="ea8a683340dc7a41" memberName="label4" virtualName=""
          explicitFocusOrder="0" pos="808 200 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Master Max / Min" editableSingleClick="0"
+         edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="8e867a582e3c87dd" memberName="inMin"

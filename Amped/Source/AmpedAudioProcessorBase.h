@@ -263,12 +263,12 @@ public:
     
     void setupAmp() {
 
-        float gainMax = soundSettings->gainSettings[GainProcessorId::DriveGain].max;
-        float gainMin = soundSettings->gainSettings[GainProcessorId::DriveGain].min;
+   //     float gainMax = soundSettings->gainSettings[GainProcessorId::DriveGain].max;
+   //     float gainMin = soundSettings->gainSettings[GainProcessorId::DriveGain].min;
 
-        float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
+    //    float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
 
-        tubeAmp.setPreGain(scaledDrive);
+        tubeAmp.setPreGain(*driveParameter);
         tubeAmp.setMasterVolume(*masterParameter);
         tubeAmp.setPresence(*presenceParameter);
         
