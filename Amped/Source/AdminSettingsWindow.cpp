@@ -165,7 +165,11 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
 void AdminSettingsWindow::updateSettings() {
     auto settings = changeInterface->getCurrentSettings();
     settings->ampSettings.inputType = static_cast<PreAmp::EInputType>(preInputType->getSelectedItemIndex());
- //   settings->ampSettings.preAmpTubes[0].tubeType = static_cast<PreAmp::EInputType>(preTube1->getSelectedItemIndex());
+    preTube1Settings->updateSettings(settings->ampSettings.preAmpTubes[0]);
+    preTube2Settings->updateSettings(settings->ampSettings.preAmpTubes[1]);
+    powerAmpTubeSettings->updateSettings(settings->ampSettings.powerAmpTube);
+
+    //   settings->ampSettings.preAmpTubes[0].tubeType = static_cast<PreAmp::EInputType>(preTube1->getSelectedItemIndex());
 
 }
 
@@ -178,7 +182,9 @@ AdminSettingsWindow::AdminSettingsWindow (ISoundSettingsChanged* changed) : Admi
 void AdminSettingsWindow::setupUI(){
     auto settings = changeInterface->getCurrentSettings();
     this->preInputType.get()->setSelectedItemIndex(settings->ampSettings.inputType);
-    this->preTube1Settings->setupUI(&settings->ampSettings.preAmpTubes[0]);
+    this->preTube1Settings->setupUI(settings->ampSettings.preAmpTubes[0],"Pre Amp Tube 1");
+    this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
+    this->powerAmpTubeSettings->setupUI(settings->ampSettings.powerAmpTube, "Power Amp Tube");
 }
 //[/MiscUserCode]
 

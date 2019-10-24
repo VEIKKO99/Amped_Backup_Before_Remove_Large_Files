@@ -194,15 +194,33 @@ public:
             }
         }
     }
-    
-    void updateInternalSettings() override {
-        tubeAmp.setInputType(soundSettings->ampSettings.inputType);
-        
-        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
-        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
-        
-        tubeAmp.setPowerAmpTubeType(TUBE_TABLE_6L6CG_68k);
+
+    void updateTubeSettings(TubeSettings& source, TubeStage& destination)
+    {
+        destination.setRK(source.rk);
+        destination.setVk0(source.vk0);
+        destination.setVPlus(source.vPlus);
+        destination.setLowPassFbk(source.lowPassFbk);
+        destination.setRP(source.rp);
     }
+
+    void updateInternalSettings() override {
+        // Input type (mesa, marshall etc)
+        tubeAmp.setInputType(soundSettings->ampSettings.inputType);
+
+        // Power amp:
+        tubeAmp.setPowerAmpTubeType(soundSettings->ampSettings.powerAmpTube.tubeType); // This will set the type for both tubes.
+        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[0]);
+        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[1]);
+
+        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[0], tubeAmp.mPreAmp.tubeStage[0]);
+        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
+
+        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
+        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
+    }
+
+
 
     void prepareAmp(double sampleRate, int numOfChannels)
     {
@@ -212,7 +230,6 @@ public:
         tubeAmp.setNumChans(2);
         
         updateInternalSettings();
-        
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
