@@ -71,6 +71,15 @@ private:
     std::unique_ptr<ComboBox> preInputType;
     std::unique_ptr<Label> label;
     std::unique_ptr<TextButton> updateButton;
+    std::unique_ptr<Label> label3;
+    std::unique_ptr<Label> label2;
+    std::unique_ptr<Label> label4;
+    std::unique_ptr<TextEditor> inMin;
+    std::unique_ptr<TextEditor> inMax;
+    std::unique_ptr<TextEditor> dMin;
+    std::unique_ptr<TextEditor> dMax;
+    std::unique_ptr<TextEditor> mMin;
+    std::unique_ptr<TextEditor> mMax;
 
 
     //==============================================================================
