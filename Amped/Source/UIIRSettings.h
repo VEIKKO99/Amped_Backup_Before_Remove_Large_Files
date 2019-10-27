@@ -21,6 +21,7 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "AdminSettingsUtil.h"
 //[/Headers]
 
 
@@ -43,6 +44,9 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    void setupUI (IRSettings& irSettings, String irName);
+    void updateSettings(IRSettings& settings);
+    void chooseIRFile();
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -53,11 +57,12 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    String selectedFileName = "";
     //[/UserVariables]
 
     //==============================================================================
     std::unique_ptr<TextButton> irBtn;
-    std::unique_ptr<Label> cabIrLabel;
+    std::unique_ptr<Label> irFileNameLabel;
     std::unique_ptr<TextEditor> irGain;
 
 

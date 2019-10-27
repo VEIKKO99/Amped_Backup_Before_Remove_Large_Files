@@ -23,6 +23,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AdminSettingsUtil.h"
 #include "UITubeSettings.h"
+#include "UIIRSettings.h"
 //[/Headers]
 
 
@@ -64,8 +65,9 @@ private:
     std::unique_ptr<UITubeSettings> preTube1Settings;
     std::unique_ptr<UITubeSettings> preTube2Settings;
     std::unique_ptr<UITubeSettings> powerAmpTubeSettings;
-    void chooseIRFile(IRSettings& irSettings, Label* fileNameLabel);
 
+    std::unique_ptr<UIIRSettings> cabIrUi;
+    std::unique_ptr<UIIRSettings> ampIrUi;
     //[/UserVariables]
 
     //==============================================================================
@@ -83,14 +85,8 @@ private:
     std::unique_ptr<TextEditor> mMax;
     std::unique_ptr<Label> label5;
     std::unique_ptr<TextEditor> eqGain;
-    std::unique_ptr<TextButton> cabIrBtn;
-    std::unique_ptr<Label> cabIrLabel;
-    std::unique_ptr<TextButton> ampIrBtn;
-    std::unique_ptr<Label> ampIrLabel;
     std::unique_ptr<Label> label6;
-    std::unique_ptr<TextEditor> cabIrGain;
     std::unique_ptr<Label> label7;
-    std::unique_ptr<TextEditor> ampIrGain;
 
 
     //==============================================================================
