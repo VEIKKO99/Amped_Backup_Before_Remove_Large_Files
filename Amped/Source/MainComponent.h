@@ -43,6 +43,8 @@ private:
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
     AmpedAudioProcessor& processor;
+    AmpLookAndFeel ampLookAndFeel;
+
 
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;

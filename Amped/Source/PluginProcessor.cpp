@@ -82,6 +82,10 @@ void AmpedAudioProcessor::settingChanged()
     for (auto node : audioProcessors) {
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
     }
+    auto editor = getActiveEditor();
+    if (editor != nullptr) {
+        editor->repaint();
+    }
 }
 
 std::shared_ptr<SoundSettings> AmpedAudioProcessor::getCurrentSettings() {
@@ -198,11 +202,11 @@ void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double 
 void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
                                                 const char *highPotImpulseData, int highPotImpulseDataSize,
                                                 float* parameter,
-                                                float makeupGain = .0f)
+                                                float makeupGain = .0f, EQType type = EQType::kBassEq)
 {
     eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowPotImpulseData, lowPotImpulseDataSize,
                                                                highPotImpulseData, highPotImpulseDataSize,
-                                                           soundSettings, makeupGain));
+                                                           soundSettings, makeupGain, type));
     
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
@@ -241,15 +245,15 @@ void AmpedAudioProcessor::initialiseGraph() {
     
     // Bass eq:
     initEq(bassEq, BinaryData::BASS_LO_IR_wav, BinaryData::BASS_LO_IR_wavSize,
-           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 6.50f);
+           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 6.50f, EQType::kBassEq);
 
     // Middle eq:
     initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
-           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f);
+           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f, EQType::kBassEq);
     
     // Treble eq:
     initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
-           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f);
+           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f, EQType::kBassEq);
 
     // Amp sim:
     ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIr.gain));

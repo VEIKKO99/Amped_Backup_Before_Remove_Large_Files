@@ -10,14 +10,15 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "UIConsts.h"
-
+#include "AdminSettingsUtil.h"
 #pragma once
 
 class AmpLookAndFeel : public LookAndFeel_V4
 {
 public:
-    AmpLookAndFeel()
+    AmpLookAndFeel(ISoundSettingsChanged* settings)
     {
+        this->settings = settings;
      //   setColour (Slider::thumbColourId, Colours::red);
     }
     
@@ -37,7 +38,7 @@ public:
     {
 //        g.fillAll(Colours::red);
         
-        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob62_rectob_00");
+        std::string fileName = getKnobResourceFilename(sliderPos, settings->getCurrentSettings()->uiSettings.getCurrentKnobName().toStdString());
         int dataSize;
         auto* data = BinaryData::getNamedResource (fileName.c_str(), dataSize);
         
@@ -98,5 +99,8 @@ public:
     
      */
      }
+
+private:
+    ISoundSettingsChanged* settings;
     
 };

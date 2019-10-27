@@ -26,6 +26,11 @@
 #include "UIIRSettings.h"
 //[/Headers]
 
+#include "UIIRSettings.h"
+#include "UIIRSettings.h"
+#include "UITubeSettings.h"
+#include "UITubeSettings.h"
+#include "UITubeSettings.h"
 
 
 //==============================================================================
@@ -62,13 +67,9 @@ private:
     ISoundSettingsChanged* changeInterface;
     void updateSettings();
     void setupUI();
-    std::unique_ptr<UITubeSettings> preTube1Settings;
-    std::unique_ptr<UITubeSettings> preTube2Settings;
-    std::unique_ptr<UITubeSettings> powerAmpTubeSettings;
+    void chooseBGImageFile();
 
-    std::unique_ptr<UIIRSettings> cabIrUi;
-    std::unique_ptr<UIIRSettings> ampIrUi;
-    //[/UserVariables]
+        //[/UserVariables]
 
     //==============================================================================
     std::unique_ptr<ComboBox> preInputType;
@@ -86,7 +87,16 @@ private:
     std::unique_ptr<Label> label5;
     std::unique_ptr<TextEditor> eqGain;
     std::unique_ptr<Label> label6;
+    std::unique_ptr<Label> fileNameLabel;
+    std::unique_ptr<UIIRSettings> cabIrUi;
+    std::unique_ptr<UIIRSettings> ampIrUi;
+    std::unique_ptr<UITubeSettings> preTube1Settings;
+    std::unique_ptr<UITubeSettings> preTube2Settings;
+    std::unique_ptr<UITubeSettings> powerAmpTubeSettings;
+    std::unique_ptr<ComboBox> knobTypeComboBox;
     std::unique_ptr<Label> label7;
+    std::unique_ptr<TextButton> bgButton;
+    std::unique_ptr<Label> bgImageLabel;
 
 
     //==============================================================================

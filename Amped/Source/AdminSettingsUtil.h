@@ -47,6 +47,34 @@ public:
     float gain = 6.0;
 };
 
+enum EQType {
+    kBassEq,
+    kMiddleEq,
+    kTrebleEq,
+    kEQSize
+};
+
+class UISettings {
+    std::string knobFileNames[9] = {"amped_knob62_chknw_00",
+            "amped_knob62_chknb_00",
+            "amped_knob62_dizl_000",
+            "amped_knob62_frmn_00",
+            "amped_knob62_mars_00",
+            "amped_knob62_marss_00",
+            "amped_knob62_mega_00",
+            "amped_knob62_recto_00",
+            "amped_knob62_rectob_00"};
+
+public:
+    String getCurrentKnobName()
+    {
+        return knobFileNames[selectedKnob];
+    }
+    int selectedKnob = 0;
+
+    String mainBackgroundImageFileName = "";
+};
+
 class InternalAmpSettings {
 public:
     
@@ -59,6 +87,8 @@ public:
 
     IRSettings cabIr;
     IRSettings ampIr;
+
+    IRSettings eqs[kEQSize];
     
 public:
     InternalAmpSettings() {
@@ -92,6 +122,8 @@ public:
 
     // Gain settings:
     MaxMin gainSettings[3];
+
+    UISettings uiSettings;
 };
 
 class ISoundSettingsChanged

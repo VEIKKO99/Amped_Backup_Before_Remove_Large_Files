@@ -358,8 +358,10 @@ public:
     EQWithIR(const char *lowPotImpulseData, int lowPotImpulseDataSize,
              const char *highPotImpulseData, int highPotImpulseDataSize,
              std::shared_ptr<SoundSettings> settings,
-             float makeupGain = .0f) : AmpedAudioProcessorBase(settings)
+             float makeupGain = .0f,
+             EQType eqType = kBassEq) : AmpedAudioProcessorBase(settings)
     {
+        this->eqType = eqType;
         this->loImpulseData = lowPotImpulseData;
         this->loImpulseDataSize = lowPotImpulseDataSize;
         
@@ -424,6 +426,8 @@ private:
     
     const char *loImpulseData = nullptr;
     int loImpulseDataSize = 0;
+
+    EQType eqType;
 };
 
 //
