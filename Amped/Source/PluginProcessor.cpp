@@ -252,11 +252,11 @@ void AmpedAudioProcessor::initialiseGraph() {
            BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f);
 
     // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIrGain));
+    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIr.gain));
     audioProcessors.add(ampSimIR);
 
     // Cab sim:
-    cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, soundSettings->ampSettings.cabIrGain));
+    cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, soundSettings->ampSettings.cabIr.gain));
     audioProcessors.add(cabSimIR);
     
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));

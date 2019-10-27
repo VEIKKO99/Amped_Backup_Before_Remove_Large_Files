@@ -387,15 +387,15 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == cabIrBtn.get())
     {
         //[UserButtonCode_cabIrBtn] -- add your button handler code here..
-
-        loadCabIrFile();
-
+        auto settings = changeInterface->getCurrentSettings();
+        chooseIRFile(settings->ampSettings.cabIr, cabIrLabel.get());
         //[/UserButtonCode_cabIrBtn]
     }
     else if (buttonThatWasClicked == ampIrBtn.get())
     {
         //[UserButtonCode_ampIrBtn] -- add your button handler code here..
-        loadAmpIrFile();
+        auto settings = changeInterface->getCurrentSettings();
+        chooseIRFile(settings->ampSettings.ampIr, ampIrLabel.get());
         //[/UserButtonCode_ampIrBtn]
     }
 
@@ -422,8 +422,8 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
 
     settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
-    settings->ampSettings.ampIrGain = ampIrGain->getText().getFloatValue();
-    settings->ampSettings.cabIrGain = cabIrGain->getText().getFloatValue();
+    settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
+    settings->ampSettings.cabIr.gain = cabIrGain->getText().getFloatValue();
 
 
     //   settings->ampSettings.preAmpTubes[0].tubeType = static_cast<PreAmp::EInputType>(preTube1->getSelectedItemIndex());
@@ -452,40 +452,27 @@ void AdminSettingsWindow::setupUI(){
     this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
     this->powerAmpTubeSettings->setupUI(settings->ampSettings.powerAmpTube, "Power Amp Tube");
 
-    this->cabIrGain->setText(String(settings->ampSettings.cabIrGain), dontSendNotification);
-    this->ampIrGain->setText(String(settings->ampSettings.ampIrGain), dontSendNotification);
-    if (settings->ampSettings.ampIrFileName.length() > 0)
-        ampIrLabel->setText(settings->ampSettings.ampIrFileName, dontSendNotification);
-    if (settings->ampSettings.cabIrFileName.length() > 0)
-        cabIrLabel->setText(settings->ampSettings.cabIrFileName, dontSendNotification);
+    this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
+    this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
+    if (settings->ampSettings.ampIr.irFileName.length() > 0)
+        ampIrLabel->setText(settings->ampSettings.ampIr.irFileName, dontSendNotification);
+    if (settings->ampSettings.cabIr.irFileName.length() > 0)
+        cabIrLabel->setText(settings->ampSettings.cabIr.irFileName, dontSendNotification);
 
 }
 
-void AdminSettingsWindow::loadCabIrFile() {
-    FileChooser myChooser ("Please select the Cab ir file you want to load...",
+void AdminSettingsWindow::chooseIRFile(IRSettings& irSettings, Label* fileNameLabel) {
+    FileChooser myChooser ("Please select the IR file.",
             File::getSpecialLocation (File::userHomeDirectory),
             "*.wav");
     if (myChooser.browseForFileToOpen())
     {
         File irFile (myChooser.getResult());
-        cabIrLabel->setText(irFile.getFileName(), dontSendNotification);
-        auto settings = changeInterface->getCurrentSettings();
-        settings->ampSettings.cabIrFileName = irFile.getFullPathName();
+        fileNameLabel->setText(irFile.getFileName(), dontSendNotification);
+        irSettings.irFileName = irFile.getFullPathName();
     }
 }
 
-void AdminSettingsWindow::loadAmpIrFile() {
-    FileChooser myChooser ("Please select the Amp ir file you want to load...",
-            File::getSpecialLocation (File::userHomeDirectory),
-            "*.wav");
-    if (myChooser.browseForFileToOpen())
-    {
-        File irFile (myChooser.getResult());
-        cabIrLabel->setText(irFile.getFileName(), dontSendNotification);
-        auto settings = changeInterface->getCurrentSettings();
-        settings->ampSettings.ampIrFileName = irFile.getFullPathName();
-    }
-}
 //[/MiscUserCode]
 
 

@@ -42,8 +42,9 @@ public:
 
 class IRSettings
 {
+public:
     String irFileName = "";
-    float gain = 0.0;
+    float gain = 6.0;
 };
 
 class InternalAmpSettings {
@@ -58,11 +59,6 @@ public:
 
     IRSettings cabIr;
     IRSettings ampIr;
-
-    String cabIrFileName = "";
-    String ampIrFileName = "";
-    float cabIrGain = 4.0f;
-    float ampIrGain = 8.0f;
     
 public:
     InternalAmpSettings() {
