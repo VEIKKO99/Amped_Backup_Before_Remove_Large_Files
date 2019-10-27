@@ -35,13 +35,22 @@ AdminSettingsWindow::AdminSettingsWindow ()
     preTube2Settings.reset (new UITubeSettings());
     powerAmpTubeSettings.reset (new UITubeSettings());
 
+    cabIrUi.reset(new UIIRSettings());
+    ampIrUi.reset(new UIIRSettings());
+
     preTube1Settings->setBounds (0, 80, preTube1Settings->getWidth(), preTube1Settings->getHeight());
     preTube2Settings->setBounds (0, 10 + 80 + preTube2Settings->getHeight(), preTube2Settings->getWidth(), preTube2Settings->getHeight());
     powerAmpTubeSettings->setBounds (0, 20 + 80 + preTube2Settings->getHeight() * 2, powerAmpTubeSettings->getWidth(), powerAmpTubeSettings->getHeight());
 
+    cabIrUi->setBounds(12, 554, cabIrUi->getWidth(), cabIrUi->getHeight());
+    ampIrUi->setBounds(12, cabIrUi->getY() + 46, ampIrUi->getWidth(), ampIrUi->getHeight());
+
     addAndMakeVisible(preTube1Settings.get());
     addAndMakeVisible(preTube2Settings.get());
     addAndMakeVisible(powerAmpTubeSettings.get());
+
+    addAndMakeVisible(cabIrUi.get());
+    addAndMakeVisible(ampIrUi.get());
 
     //[/Constructor_pre]
 
@@ -205,42 +214,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     eqGain->setBounds (816, 320, 47, 24);
 
-    cabIrBtn.reset (new TextButton ("new button"));
-    addAndMakeVisible (cabIrBtn.get());
-    cabIrBtn->setButtonText (TRANS("Cab Ir"));
-    cabIrBtn->addListener (this);
-
-    cabIrBtn->setBounds (16, 552, 80, 24);
-
-    cabIrLabel.reset (new Label ("new label",
-                                 TRANS("Default (from memory)\n")));
-    addAndMakeVisible (cabIrLabel.get());
-    cabIrLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    cabIrLabel->setJustificationType (Justification::centredLeft);
-    cabIrLabel->setEditable (false, false, false);
-    cabIrLabel->setColour (TextEditor::textColourId, Colours::black);
-    cabIrLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    cabIrLabel->setBounds (169, 552, 200, 24);
-
-    ampIrBtn.reset (new TextButton ("new button"));
-    addAndMakeVisible (ampIrBtn.get());
-    ampIrBtn->setButtonText (TRANS("Amp Ir"));
-    ampIrBtn->addListener (this);
-
-    ampIrBtn->setBounds (16, 592, 80, 24);
-
-    ampIrLabel.reset (new Label ("new label",
-                                 TRANS("Default (from memory)\n")));
-    addAndMakeVisible (ampIrLabel.get());
-    ampIrLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    ampIrLabel->setJustificationType (Justification::centredLeft);
-    ampIrLabel->setEditable (false, false, false);
-    ampIrLabel->setColour (TextEditor::textColourId, Colours::black);
-    ampIrLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    ampIrLabel->setBounds (169, 592, 200, 24);
-
     label6.reset (new Label ("new label",
                              TRANS("\n"
                              "Gain")));
@@ -251,19 +224,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label6->setColour (TextEditor::textColourId, Colours::black);
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label6->setBounds (112, 520, 40, 24);
-
-    cabIrGain.reset (new TextEditor ("cabSimGain"));
-    addAndMakeVisible (cabIrGain.get());
-    cabIrGain->setMultiLine (false);
-    cabIrGain->setReturnKeyStartsNewLine (false);
-    cabIrGain->setReadOnly (false);
-    cabIrGain->setScrollbarsShown (true);
-    cabIrGain->setCaretVisible (true);
-    cabIrGain->setPopupMenuEnabled (true);
-    cabIrGain->setText (String());
-
-    cabIrGain->setBounds (112, 552, 47, 24);
+    label6->setBounds (112, 533, 40, 24);
 
     label7.reset (new Label ("new label",
                              TRANS("Filename\n")));
@@ -274,19 +235,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label7->setColour (TextEditor::textColourId, Colours::black);
     label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label7->setBounds (176, 520, 136, 24);
-
-    ampIrGain.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (ampIrGain.get());
-    ampIrGain->setMultiLine (false);
-    ampIrGain->setReturnKeyStartsNewLine (false);
-    ampIrGain->setReadOnly (false);
-    ampIrGain->setScrollbarsShown (true);
-    ampIrGain->setCaretVisible (true);
-    ampIrGain->setPopupMenuEnabled (true);
-    ampIrGain->setText (String());
-
-    ampIrGain->setBounds (112, 592, 47, 24);
+    label7->setBounds (176, 533, 136, 24);
 
 
     //[UserPreSize]
@@ -320,14 +269,8 @@ AdminSettingsWindow::~AdminSettingsWindow()
     mMax = nullptr;
     label5 = nullptr;
     eqGain = nullptr;
-    cabIrBtn = nullptr;
-    cabIrLabel = nullptr;
-    ampIrBtn = nullptr;
-    ampIrLabel = nullptr;
     label6 = nullptr;
-    cabIrGain = nullptr;
     label7 = nullptr;
-    ampIrGain = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -384,20 +327,6 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         }
         //[/UserButtonCode_updateButton]
     }
-    else if (buttonThatWasClicked == cabIrBtn.get())
-    {
-        //[UserButtonCode_cabIrBtn] -- add your button handler code here..
-        auto settings = changeInterface->getCurrentSettings();
-        chooseIRFile(settings->ampSettings.cabIr, cabIrLabel.get());
-        //[/UserButtonCode_cabIrBtn]
-    }
-    else if (buttonThatWasClicked == ampIrBtn.get())
-    {
-        //[UserButtonCode_ampIrBtn] -- add your button handler code here..
-        auto settings = changeInterface->getCurrentSettings();
-        chooseIRFile(settings->ampSettings.ampIr, ampIrLabel.get());
-        //[/UserButtonCode_ampIrBtn]
-    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -413,6 +342,8 @@ void AdminSettingsWindow::updateSettings() {
     preTube1Settings->updateSettings(settings->ampSettings.preAmpTubes[0]);
     preTube2Settings->updateSettings(settings->ampSettings.preAmpTubes[1]);
     powerAmpTubeSettings->updateSettings(settings->ampSettings.powerAmpTube);
+    cabIrUi->updateSettings(settings->ampSettings.cabIr);
+    ampIrUi->updateSettings(settings->ampSettings.ampIr);
 
     settings->gainSettings[GainProcessorId::InputGain].min = inMin->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::InputGain].max = inMax->getText().getFloatValue();
@@ -422,8 +353,10 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
 
     settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
-    settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
-    settings->ampSettings.cabIr.gain = cabIrGain->getText().getFloatValue();
+
+
+  //  settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
+  //  settings->ampSettings.cabIr.gain = cabIrGain->getText().getFloatValue();
 
 
     //   settings->ampSettings.preAmpTubes[0].tubeType = static_cast<PreAmp::EInputType>(preTube1->getSelectedItemIndex());
@@ -452,26 +385,19 @@ void AdminSettingsWindow::setupUI(){
     this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
     this->powerAmpTubeSettings->setupUI(settings->ampSettings.powerAmpTube, "Power Amp Tube");
 
-    this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
-    this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
-    if (settings->ampSettings.ampIr.irFileName.length() > 0)
-        ampIrLabel->setText(settings->ampSettings.ampIr.irFileName, dontSendNotification);
-    if (settings->ampSettings.cabIr.irFileName.length() > 0)
-        cabIrLabel->setText(settings->ampSettings.cabIr.irFileName, dontSendNotification);
+    this->cabIrUi->setupUI(settings->ampSettings.cabIr,"Cab IR");
+    this->ampIrUi->setupUI(settings->ampSettings.ampIr,"AMP IR");
+
+
+    //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
+    //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
+    //if (settings->ampSettings.ampIr.irFileName.length() > 0)
+    //    ampIrLabel->setText(settings->ampSettings.ampIr.irFileName, dontSendNotification);
+    //if (settings->ampSettings.cabIr.irFileName.length() > 0)
+    //    cabIrLabel->setText(settings->ampSettings.cabIr.irFileName, dontSendNotification);
 
 }
 
-void AdminSettingsWindow::chooseIRFile(IRSettings& irSettings, Label* fileNameLabel) {
-    FileChooser myChooser ("Please select the IR file.",
-            File::getSpecialLocation (File::userHomeDirectory),
-            "*.wav");
-    if (myChooser.browseForFileToOpen())
-    {
-        File irFile (myChooser.getResult());
-        fileNameLabel->setText(irFile.getFileName(), dontSendNotification);
-        irSettings.irFileName = irFile.getFullPathName();
-    }
-}
 
 //[/MiscUserCode]
 
@@ -550,40 +476,16 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="816 320 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <TEXTBUTTON name="new button" id="9efe025fec7486c4" memberName="cabIrBtn"
-              virtualName="" explicitFocusOrder="0" pos="16 552 80 24" buttonText="Cab Ir"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <LABEL name="new label" id="119f4b72245d948e" memberName="cabIrLabel"
-         virtualName="" explicitFocusOrder="0" pos="169 552 200 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTBUTTON name="new button" id="e88a7afad718cc09" memberName="ampIrBtn"
-              virtualName="" explicitFocusOrder="0" pos="16 592 80 24" buttonText="Amp Ir"
-              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <LABEL name="new label" id="4ba9462d22725e82" memberName="ampIrLabel"
-         virtualName="" explicitFocusOrder="0" pos="169 592 200 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="78af7379fb9b0e54" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="112 520 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="112 533 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="&#10;Gain" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="cabSimGain" id="bdf3c9eff0364d86" memberName="cabIrGain"
-              virtualName="" explicitFocusOrder="0" pos="112 552 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
   <LABEL name="new label" id="a84735c2601cd71" memberName="label7" virtualName=""
-         explicitFocusOrder="0" pos="176 520 136 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="176 533 136 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Filename&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="f2c8f16084993798" memberName="ampIrGain"
-              virtualName="" explicitFocusOrder="0" pos="112 592 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

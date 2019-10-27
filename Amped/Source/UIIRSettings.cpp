@@ -39,16 +39,16 @@ UIIRSettings::UIIRSettings ()
 
     irBtn->setBounds (0, 0, 80, 24);
 
-    cabIrLabel.reset (new Label ("new label",
-                                 TRANS("Default (from memory)\n")));
-    addAndMakeVisible (cabIrLabel.get());
-    cabIrLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    cabIrLabel->setJustificationType (Justification::centredLeft);
-    cabIrLabel->setEditable (false, false, false);
-    cabIrLabel->setColour (TextEditor::textColourId, Colours::black);
-    cabIrLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+    irFileNameLabel.reset (new Label ("new label",
+                                      TRANS("Default (from memory)\n")));
+    addAndMakeVisible (irFileNameLabel.get());
+    irFileNameLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    irFileNameLabel->setJustificationType (Justification::centredLeft);
+    irFileNameLabel->setEditable (false, false, false);
+    irFileNameLabel->setColour (TextEditor::textColourId, Colours::black);
+    irFileNameLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    cabIrLabel->setBounds (153, 0, 200, 24);
+    irFileNameLabel->setBounds (153, 0, 200, 24);
 
     irGain.reset (new TextEditor ("cabSimGain"));
     addAndMakeVisible (irGain.get());
@@ -79,7 +79,7 @@ UIIRSettings::~UIIRSettings()
     //[/Destructor_pre]
 
     irBtn = nullptr;
-    cabIrLabel = nullptr;
+    irFileNameLabel = nullptr;
     irGain = nullptr;
 
 
@@ -116,6 +116,7 @@ void UIIRSettings::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == irBtn.get())
     {
         //[UserButtonCode_irBtn] -- add your button handler code here..
+        chooseIRFile();
         //[/UserButtonCode_irBtn]
     }
 
@@ -126,6 +127,32 @@ void UIIRSettings::buttonClicked (Button* buttonThatWasClicked)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void UIIRSettings::setupUI (IRSettings& irSettings, String irName) {
+    this->irBtn->setButtonText(irName);
+    if (irSettings.irFileName.length() > 0)
+        this->irFileNameLabel->setText(irSettings.irFileName, dontSendNotification);
+    this->irGain->setText(String(irSettings.gain), dontSendNotification);
+}
+
+void UIIRSettings::updateSettings(IRSettings& settings) {
+    if (this->selectedFileName.length() > 0)
+        settings.irFileName = selectedFileName;
+    settings.gain = irGain->getText().getFloatValue();
+}
+
+void UIIRSettings::chooseIRFile() {
+    FileChooser myChooser ("Please select the IR file.",
+            File::getSpecialLocation (File::userHomeDirectory),
+            "*.wav");
+    if (myChooser.browseForFileToOpen())
+    {
+        File irFile (myChooser.getResult());
+        irFileNameLabel->setText(irFile.getFileName(), dontSendNotification);
+        selectedFileName = irFile.getFullPathName();
+    }
+}
+
 //[/MiscUserCode]
 
 
@@ -146,7 +173,7 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="9efe025fec7486c4" memberName="irBtn" virtualName=""
               explicitFocusOrder="0" pos="0 0 80 24" buttonText="Cab Ir" connectedEdges="0"
               needsCallback="1" radioGroupId="0"/>
-  <LABEL name="new label" id="119f4b72245d948e" memberName="cabIrLabel"
+  <LABEL name="new label" id="119f4b72245d948e" memberName="irFileNameLabel"
          virtualName="" explicitFocusOrder="0" pos="153 0 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
