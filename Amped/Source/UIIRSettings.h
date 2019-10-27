@@ -21,8 +21,6 @@
 
 //[Headers]     -- You can add your own extra header files here --
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "AdminSettingsUtil.h"
-#include "UITubeSettings.h"
 //[/Headers]
 
 
@@ -35,66 +33,36 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class AdminSettingsWindow  : public Component,
-                             public ComboBox::Listener,
-                             public Button::Listener
+class UIIRSettings  : public Component,
+                      public Button::Listener
 {
 public:
     //==============================================================================
-    AdminSettingsWindow ();
-    ~AdminSettingsWindow();
+    UIIRSettings ();
+    ~UIIRSettings();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    AdminSettingsWindow (ISoundSettingsChanged* changed);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
     void resized() override;
-    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
     void buttonClicked (Button* buttonThatWasClicked) override;
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    ISoundSettingsChanged* changeInterface;
-    void updateSettings();
-    void setupUI();
-    std::unique_ptr<UITubeSettings> preTube1Settings;
-    std::unique_ptr<UITubeSettings> preTube2Settings;
-    std::unique_ptr<UITubeSettings> powerAmpTubeSettings;
-    void chooseIRFile(IRSettings& irSettings, Label* fileNameLabel);
-
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<ComboBox> preInputType;
-    std::unique_ptr<Label> label;
-    std::unique_ptr<TextButton> updateButton;
-    std::unique_ptr<Label> label3;
-    std::unique_ptr<Label> label2;
-    std::unique_ptr<Label> label4;
-    std::unique_ptr<TextEditor> inMin;
-    std::unique_ptr<TextEditor> inMax;
-    std::unique_ptr<TextEditor> dMin;
-    std::unique_ptr<TextEditor> dMax;
-    std::unique_ptr<TextEditor> mMin;
-    std::unique_ptr<TextEditor> mMax;
-    std::unique_ptr<Label> label5;
-    std::unique_ptr<TextEditor> eqGain;
-    std::unique_ptr<TextButton> cabIrBtn;
+    std::unique_ptr<TextButton> irBtn;
     std::unique_ptr<Label> cabIrLabel;
-    std::unique_ptr<TextButton> ampIrBtn;
-    std::unique_ptr<Label> ampIrLabel;
-    std::unique_ptr<Label> label6;
-    std::unique_ptr<TextEditor> cabIrGain;
-    std::unique_ptr<Label> label7;
-    std::unique_ptr<TextEditor> ampIrGain;
+    std::unique_ptr<TextEditor> irGain;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (UIIRSettings)
 };
 
 //[EndFile] You can add extra defines here...

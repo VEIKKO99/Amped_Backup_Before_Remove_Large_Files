@@ -136,7 +136,7 @@ public:
         dsp::ProcessContextReplacing<float> context (block);
 //        context.isBypassed = false;
         convolutionDsp.process(context);
-        buffer.applyGain(makeupGain);
+        buffer.applyGain(makeupGain + 1.0f);
     }
     
     void reset() override
@@ -185,8 +185,8 @@ public:
     {}
 
     void updateInternalSettings() override {
-            loadIRFile(soundSettings->ampSettings.cabIrFileName);
-            makeupGain = soundSettings->ampSettings.cabIrGain;
+            loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
+            makeupGain = soundSettings->ampSettings.cabIr.gain;
     }
 };
 
@@ -199,8 +199,8 @@ public:
     {}
 
     void updateInternalSettings() override {
-        loadIRFile(soundSettings->ampSettings.ampIrFileName);
-        makeupGain = soundSettings->ampSettings.ampIrGain;
+        loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
+        makeupGain = soundSettings->ampSettings.ampIr.gain;
 
     }
 };
