@@ -23,7 +23,7 @@ class AmpButtonBar    : public Component
     typedef AudioProcessorValueTreeState::ButtonAttachment ButtonAttachment;
     
 public:
-    AmpButtonBar(AudioProcessorValueTreeState& vts);
+    AmpButtonBar(AudioProcessorValueTreeState& vts,  AmpLookAndFeel& lookAndFeel);
     ~AmpButtonBar();
 
     void paint (Graphics&) override;
@@ -69,9 +69,7 @@ private:
     ToggleButton matchIRSwitch;
     std::unique_ptr<ButtonAttachment> matchAttachment;;
 #endif
-    
-    AmpLookAndFeel ampLookAndFeel;
-    
+
     AudioProcessorValueTreeState& valueTreeState;
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpButtonBar)

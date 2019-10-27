@@ -15,10 +15,10 @@
 #include "UIConsts.h"
 
 //==============================================================================
-AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
+AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel) : valueTreeState(vts)
 {
-    setLookAndFeel(&ampLookAndFeel);
-    
+    setLookAndFeel(&lookAndFeel);
+
     initSliderComponent(inputSlider, "input", inputAttachment);
     addAndMakeVisible(fxSwitch);
     fxAttachment.reset (new ButtonAttachment (valueTreeState, "fx", fxSwitch));

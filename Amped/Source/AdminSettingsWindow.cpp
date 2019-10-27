@@ -31,27 +31,6 @@
 AdminSettingsWindow::AdminSettingsWindow ()
 {
     //[Constructor_pre] You can add your own custom stuff here..
-    preTube1Settings.reset (new UITubeSettings());
-    preTube2Settings.reset (new UITubeSettings());
-    powerAmpTubeSettings.reset (new UITubeSettings());
-
-    cabIrUi.reset(new UIIRSettings());
-    ampIrUi.reset(new UIIRSettings());
-
-    preTube1Settings->setBounds (0, 80, preTube1Settings->getWidth(), preTube1Settings->getHeight());
-    preTube2Settings->setBounds (0, 10 + 80 + preTube2Settings->getHeight(), preTube2Settings->getWidth(), preTube2Settings->getHeight());
-    powerAmpTubeSettings->setBounds (0, 20 + 80 + preTube2Settings->getHeight() * 2, powerAmpTubeSettings->getWidth(), powerAmpTubeSettings->getHeight());
-
-    cabIrUi->setBounds(12, 554, cabIrUi->getWidth(), cabIrUi->getHeight());
-    ampIrUi->setBounds(12, cabIrUi->getY() + 46, ampIrUi->getWidth(), ampIrUi->getHeight());
-
-    addAndMakeVisible(preTube1Settings.get());
-    addAndMakeVisible(preTube2Settings.get());
-    addAndMakeVisible(powerAmpTubeSettings.get());
-
-    addAndMakeVisible(cabIrUi.get());
-    addAndMakeVisible(ampIrUi.get());
-
     //[/Constructor_pre]
 
     preInputType.reset (new ComboBox ("new combo box"));
@@ -224,10 +203,60 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label6->setColour (TextEditor::textColourId, Colours::black);
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label6->setBounds (112, 533, 40, 24);
+    label6->setBounds (112, 530, 40, 24);
+
+    fileNameLabel.reset (new Label ("new label",
+                                    TRANS("Filename\n")));
+    addAndMakeVisible (fileNameLabel.get());
+    fileNameLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    fileNameLabel->setJustificationType (Justification::centredLeft);
+    fileNameLabel->setEditable (false, false, false);
+    fileNameLabel->setColour (TextEditor::textColourId, Colours::black);
+    fileNameLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    fileNameLabel->setBounds (176, 530, 136, 24);
+
+    cabIrUi.reset (new UIIRSettings());
+    addAndMakeVisible (cabIrUi.get());
+    cabIrUi->setBounds (16, 560, 300, 24);
+
+    ampIrUi.reset (new UIIRSettings());
+    addAndMakeVisible (ampIrUi.get());
+    ampIrUi->setBounds (16, 600, 300, 24);
+
+    preTube1Settings.reset (new UITubeSettings());
+    addAndMakeVisible (preTube1Settings.get());
+    preTube1Settings->setBounds (8, 72, 680, 144);
+
+    preTube2Settings.reset (new UITubeSettings());
+    addAndMakeVisible (preTube2Settings.get());
+    preTube2Settings->setBounds (8, 221, 680, 144);
+
+    powerAmpTubeSettings.reset (new UITubeSettings());
+    addAndMakeVisible (powerAmpTubeSettings.get());
+    powerAmpTubeSettings->setBounds (8, 376, 680, 144);
+
+    knobTypeComboBox.reset (new ComboBox ("new combo box"));
+    addAndMakeVisible (knobTypeComboBox.get());
+    knobTypeComboBox->setEditableText (false);
+    knobTypeComboBox->setJustificationType (Justification::centredLeft);
+    knobTypeComboBox->setTextWhenNothingSelected (String());
+    knobTypeComboBox->setTextWhenNoChoicesAvailable (TRANS("(no choices)"));
+    knobTypeComboBox->addItem (TRANS("chkn"), 1);
+    knobTypeComboBox->addItem (TRANS("chknb"), 2);
+    knobTypeComboBox->addItem (TRANS("dizl"), 3);
+    knobTypeComboBox->addItem (TRANS("frmn"), 4);
+    knobTypeComboBox->addItem (TRANS("mars"), 5);
+    knobTypeComboBox->addItem (TRANS("marss"), 6);
+    knobTypeComboBox->addItem (TRANS("mega"), 7);
+    knobTypeComboBox->addItem (TRANS("recto"), 8);
+    knobTypeComboBox->addItem (TRANS("rectob"), 9);
+    knobTypeComboBox->addListener (this);
+
+    knobTypeComboBox->setBounds (184, 32, 150, 24);
 
     label7.reset (new Label ("new label",
-                             TRANS("Filename\n")));
+                             TRANS("KNOB type\n")));
     addAndMakeVisible (label7.get());
     label7->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     label7->setJustificationType (Justification::centredLeft);
@@ -235,7 +264,25 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label7->setColour (TextEditor::textColourId, Colours::black);
     label7->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label7->setBounds (176, 533, 136, 24);
+    label7->setBounds (176, 0, 150, 24);
+
+    bgButton.reset (new TextButton ("new button"));
+    addAndMakeVisible (bgButton.get());
+    bgButton->setButtonText (TRANS("Background image"));
+    bgButton->addListener (this);
+
+    bgButton->setBounds (352, 32, 128, 24);
+
+    bgImageLabel.reset (new Label ("new label",
+                                   TRANS("From memory")));
+    addAndMakeVisible (bgImageLabel.get());
+    bgImageLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    bgImageLabel->setJustificationType (Justification::centredLeft);
+    bgImageLabel->setEditable (false, false, false);
+    bgImageLabel->setColour (TextEditor::textColourId, Colours::black);
+    bgImageLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    bgImageLabel->setBounds (488, 32, 192, 24);
 
 
     //[UserPreSize]
@@ -270,7 +317,16 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label5 = nullptr;
     eqGain = nullptr;
     label6 = nullptr;
+    fileNameLabel = nullptr;
+    cabIrUi = nullptr;
+    ampIrUi = nullptr;
+    preTube1Settings = nullptr;
+    preTube2Settings = nullptr;
+    powerAmpTubeSettings = nullptr;
+    knobTypeComboBox = nullptr;
     label7 = nullptr;
+    bgButton = nullptr;
+    bgImageLabel = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -308,6 +364,11 @@ void AdminSettingsWindow::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
         //[UserComboBoxCode_preInputType] -- add your combo box handling code here..
         //[/UserComboBoxCode_preInputType]
     }
+    else if (comboBoxThatHasChanged == knobTypeComboBox.get())
+    {
+        //[UserComboBoxCode_knobTypeComboBox] -- add your combo box handling code here..
+        //[/UserComboBoxCode_knobTypeComboBox]
+    }
 
     //[UsercomboBoxChanged_Post]
     //[/UsercomboBoxChanged_Post]
@@ -327,14 +388,32 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         }
         //[/UserButtonCode_updateButton]
     }
+    else if (buttonThatWasClicked == bgButton.get())
+    {
+        //[UserButtonCode_bgButton] -- add your button handler code here..
+        chooseBGImageFile();
+        //[/UserButtonCode_bgButton]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
 }
 
-
-
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void AdminSettingsWindow::chooseBGImageFile() {
+    auto settings = changeInterface->getCurrentSettings();
+
+    FileChooser myChooser ("Please select the BG image file.",
+            File::getSpecialLocation (File::userHomeDirectory),
+            "*.png");
+    if (myChooser.browseForFileToOpen())
+    {
+        File imgFile (myChooser.getResult());
+        bgImageLabel->setText(imgFile.getFileName(), dontSendNotification);
+        settings->uiSettings.mainBackgroundImageFileName = imgFile.getFullPathName();
+    }
+}
 
 void AdminSettingsWindow::updateSettings() {
     auto settings = changeInterface->getCurrentSettings();
@@ -353,6 +432,7 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
 
     settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
+    settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
 
 
   //  settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
@@ -387,6 +467,8 @@ void AdminSettingsWindow::setupUI(){
 
     this->cabIrUi->setupUI(settings->ampSettings.cabIr,"Cab IR");
     this->ampIrUi->setupUI(settings->ampSettings.ampIr,"AMP IR");
+
+    this->knobTypeComboBox->setSelectedItemIndex(settings->uiSettings.selectedKnob, dontSendNotification);
 
 
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
@@ -477,13 +559,45 @@ BEGIN_JUCER_METADATA
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="new label" id="78af7379fb9b0e54" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="112 533 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="112 530 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="&#10;Gain" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
-  <LABEL name="new label" id="a84735c2601cd71" memberName="label7" virtualName=""
-         explicitFocusOrder="0" pos="176 533 136 24" edTextCol="ff000000"
+  <LABEL name="new label" id="a84735c2601cd71" memberName="fileNameLabel"
+         virtualName="" explicitFocusOrder="0" pos="176 530 136 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Filename&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <JUCERCOMP name="" id="59790b7b05875a88" memberName="cabIrUi" virtualName=""
+             explicitFocusOrder="0" pos="16 560 300 24" sourceFile="UIIRSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="2f7b8b080201fa1b" memberName="ampIrUi" virtualName=""
+             explicitFocusOrder="0" pos="16 600 300 24" sourceFile="UIIRSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="efb8e0bb8dcbdbb" memberName="preTube1Settings" virtualName=""
+             explicitFocusOrder="0" pos="8 72 680 144" sourceFile="UITubeSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="32b5cf72e47c155d" memberName="preTube2Settings" virtualName=""
+             explicitFocusOrder="0" pos="8 221 680 144" sourceFile="UITubeSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="85421bade1ef9019" memberName="powerAmpTubeSettings"
+             virtualName="" explicitFocusOrder="0" pos="8 376 680 144" sourceFile="UITubeSettings.cpp"
+             constructorParams=""/>
+  <COMBOBOX name="new combo box" id="392db2e92c1aaa72" memberName="knobTypeComboBox"
+            virtualName="" explicitFocusOrder="0" pos="184 32 150 24" editable="0"
+            layout="33" items="chkn&#10;chknb&#10;dizl&#10;frmn&#10;mars&#10;marss&#10;mega&#10;recto&#10;rectob"
+            textWhenNonSelected="" textWhenNoItems="(no choices)"/>
+  <LABEL name="new label" id="2b53012dc5be6d37" memberName="label7" virtualName=""
+         explicitFocusOrder="0" pos="176 0 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="KNOB type&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="new button" id="a7d6e983b84d83c6" memberName="bgButton"
+              virtualName="" explicitFocusOrder="0" pos="352 32 128 24" buttonText="Background image"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="new label" id="76b35b380f318eb6" memberName="bgImageLabel"
+         virtualName="" explicitFocusOrder="0" pos="488 32 192 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="From memory" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>

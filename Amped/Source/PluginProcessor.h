@@ -111,7 +111,7 @@ private:
     
     void initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
                                const char *highPotImpulseData, int highPotImpulseDataSize,
-                float* parameter, float makeupGain);
+                float* parameter, float makeupGain, EQType type);
 
 
 private:

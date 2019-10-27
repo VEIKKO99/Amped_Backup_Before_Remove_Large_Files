@@ -15,7 +15,7 @@
 
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
-                             AmpedAudioProcessor& p) : valueTreeState(vts), ampButtonBar(vts), processor(p)
+                             AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel), processor(p)
 {
     
     addAndMakeVisible(ampButtonBar);
@@ -27,6 +27,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
 
 MainComponent::~MainComponent()
 {
+    setLookAndFeel(nullptr);
 }
 
 #ifdef AMPED_DEBUG
@@ -35,6 +36,8 @@ void MainComponent::buttonClicked (Button* button)
 {
     //std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow(new AmpedAdminSettingsWindowOverride()) ;
     //ScopedPointer<AmpedAdminSettingsWindowOverride> adminUIWindow = new AmpedAdminSettingsWindowOverride() ;
+    setLookAndFeel(&ampLookAndFeel);
+    ampButtonBar.setLookAndFeel(&ampLookAndFeel);
     if (adminUIWindow == nullptr) {
         adminUIWindow.reset(new AmpedAdminSettingsWindowOverride());
         adminUIWindow->setUsingNativeTitleBar (false);
@@ -58,8 +61,14 @@ void MainComponent::paint (Graphics& g)
     */
 
     //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
-    
-    Image background = ImageCache::getFromMemory (BinaryData::full_bg_png, BinaryData::full_bg_pngSize);
+    Image background;
+    if (processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName.length() > 0) {
+        File imageFile(processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName);
+        background = ImageCache::getFromFile(imageFile);
+    }
+    else {
+        background = ImageCache::getFromMemory (BinaryData::full_bg_png, BinaryData::full_bg_pngSize);
+    }
     g.drawImageAt (background, 0, 0);
 }
 
