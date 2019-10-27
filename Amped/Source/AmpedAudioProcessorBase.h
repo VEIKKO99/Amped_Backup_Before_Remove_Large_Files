@@ -145,6 +145,11 @@ public:
     }
     
     const String getName() const override { return "IR"; }
+
+    void loadIRFile(String irFile) {
+        File irData(irFile);
+        convolutionDsp.loadImpulseResponse(irData, false, false, 0);
+    }
     
 private:
     void initInpulseResponseProcessor(const char *data, int dataSize, double sampleRate, int samplesPerBlock)
@@ -155,7 +160,7 @@ private:
         convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
     }
     
-public:
+protected:
     
     float makeupGain = .0f;
     
@@ -168,7 +173,36 @@ private:
     
     const char *impulseData = nullptr;
     int impulseDataSize = 0;
-    
+};
+
+
+class CabSimIr : public IRProcessor
+{
+public:
+    CabSimIr(const char *impulseData, int impulseDataSize,
+            std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
+            IRProcessor(impulseData, impulseDataSize, settings, makeupGain)
+    {}
+
+    void updateInternalSettings() override {
+            loadIRFile(soundSettings->ampSettings.cabIrFileName);
+            makeupGain = soundSettings->ampSettings.cabIrGain;
+    }
+};
+
+class AmpSimIr : public IRProcessor
+{
+public:
+    AmpSimIr(const char *impulseData, int impulseDataSize,
+            std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
+            IRProcessor(impulseData, impulseDataSize, settings, makeupGain)
+    {}
+
+    void updateInternalSettings() override {
+        loadIRFile(soundSettings->ampSettings.ampIrFileName);
+        makeupGain = soundSettings->ampSettings.ampIrGain;
+
+    }
 };
 
 class AmpProcessor  : public AmpedAudioProcessorBase
@@ -356,7 +390,7 @@ public:
             lowerPotValues.process(context);
         else
             higherPotValues.process(context);
-        buffer.applyGain(makeupGain);
+        buffer.applyGain(makeupGain + *eqValue * soundSettings->ampSettings.eqGain);
         dryWet.process(context);
     }
     

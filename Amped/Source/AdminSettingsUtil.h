@@ -40,6 +40,12 @@ public:
     int tubeType = 0;
 };
 
+class IRSettings
+{
+    String irFileName = "";
+    float gain = 0.0;
+};
+
 class InternalAmpSettings {
 public:
     
@@ -47,6 +53,16 @@ public:
     TubeSettings preAmpTubes[2];
     // Please note that tis power amp tube is duplicated on hornet side.
     TubeSettings powerAmpTube;
+
+    float eqGain = .0f;
+
+    IRSettings cabIr;
+    IRSettings ampIr;
+
+    String cabIrFileName = "";
+    String ampIrFileName = "";
+    float cabIrGain = 4.0f;
+    float ampIrGain = 8.0f;
     
 public:
     InternalAmpSettings() {

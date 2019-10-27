@@ -241,22 +241,22 @@ void AmpedAudioProcessor::initialiseGraph() {
     
     // Bass eq:
     initEq(bassEq, BinaryData::BASS_LO_IR_wav, BinaryData::BASS_LO_IR_wavSize,
-           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 7.0f);
+           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 6.50f);
 
     // Middle eq:
     initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
-           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 7.0f);
+           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f);
     
     // Treble eq:
     initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
-           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 7.0f);
+           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f);
 
     // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, 8.0f));
+    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIrGain));
     audioProcessors.add(ampSimIR);
 
     // Cab sim:
-    cabSimIR = mainProcessor->addNode(std::make_unique<IRProcessor>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, 4.0f));
+    cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, soundSettings->ampSettings.cabIrGain));
     audioProcessors.add(cabSimIR);
     
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));
