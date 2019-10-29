@@ -17,7 +17,8 @@
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
                              AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel), processor(p)
 {
-    
+    setLookAndFeel(&ampLookAndFeel);
+
     addAndMakeVisible(ampButtonBar);
     addAndMakeVisible(adminUIButton);
     adminUIButton.addListener(this);
@@ -36,8 +37,6 @@ void MainComponent::buttonClicked (Button* button)
 {
     //std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow(new AmpedAdminSettingsWindowOverride()) ;
     //ScopedPointer<AmpedAdminSettingsWindowOverride> adminUIWindow = new AmpedAdminSettingsWindowOverride() ;
-    setLookAndFeel(&ampLookAndFeel);
-    ampButtonBar.setLookAndFeel(&ampLookAndFeel);
     if (adminUIWindow == nullptr) {
         adminUIWindow.reset(new AmpedAdminSettingsWindowOverride());
         adminUIWindow->setUsingNativeTitleBar (false);
