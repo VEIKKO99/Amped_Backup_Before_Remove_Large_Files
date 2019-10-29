@@ -17,7 +17,7 @@
 //==============================================================================
 AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel) : valueTreeState(vts)
 {
-    setLookAndFeel(&lookAndFeel);
+   // setLookAndFeel(&lookAndFeel);
 
     initSliderComponent(inputSlider, "input", inputAttachment);
     addAndMakeVisible(fxSwitch);
@@ -43,7 +43,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
 
 AmpButtonBar::~AmpButtonBar()
 {
-    setLookAndFeel(nullptr);
+   // setLookAndFeel(nullptr);
 }
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
