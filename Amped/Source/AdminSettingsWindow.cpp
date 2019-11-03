@@ -76,17 +76,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     label3->setBounds (808, 72, 150, 24);
 
-    label2.reset (new Label ("new label",
-                             TRANS("NOT USED!")));
-    addAndMakeVisible (label2.get());
-    label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label2->setJustificationType (Justification::centredLeft);
-    label2->setEditable (false, false, false);
-    label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label2->setBounds (808, 136, 150, 24);
-
     label4.reset (new Label ("new label",
                              TRANS("Output Max / Min")));
     addAndMakeVisible (label4.get());
@@ -96,7 +85,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label4->setColour (TextEditor::textColourId, Colours::black);
     label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label4->setBounds (808, 200, 150, 24);
+    label4->setBounds (808, 136, 150, 24);
 
     inMin.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (inMin.get());
@@ -122,30 +111,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     inMax->setBounds (872, 104, 47, 24);
 
-    dMin.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (dMin.get());
-    dMin->setMultiLine (false);
-    dMin->setReturnKeyStartsNewLine (false);
-    dMin->setReadOnly (false);
-    dMin->setScrollbarsShown (true);
-    dMin->setCaretVisible (true);
-    dMin->setPopupMenuEnabled (true);
-    dMin->setText (String());
-
-    dMin->setBounds (816, 168, 47, 24);
-
-    dMax.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (dMax.get());
-    dMax->setMultiLine (false);
-    dMax->setReturnKeyStartsNewLine (false);
-    dMax->setReadOnly (false);
-    dMax->setScrollbarsShown (true);
-    dMax->setCaretVisible (true);
-    dMax->setPopupMenuEnabled (true);
-    dMax->setText (String());
-
-    dMax->setBounds (872, 168, 47, 24);
-
     mMin.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (mMin.get());
     mMin->setMultiLine (false);
@@ -156,7 +121,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     mMin->setPopupMenuEnabled (true);
     mMin->setText (String());
 
-    mMin->setBounds (816, 232, 47, 24);
+    mMin->setBounds (816, 168, 47, 24);
 
     mMax.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (mMax.get());
@@ -168,30 +133,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     mMax->setPopupMenuEnabled (true);
     mMax->setText (String());
 
-    mMax->setBounds (872, 232, 47, 24);
-
-    label5.reset (new Label ("new label",
-                             TRANS("Eq Gain")));
-    addAndMakeVisible (label5.get());
-    label5->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label5->setJustificationType (Justification::centredLeft);
-    label5->setEditable (false, false, false);
-    label5->setColour (TextEditor::textColourId, Colours::black);
-    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label5->setBounds (808, 288, 150, 24);
-
-    eqGain.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (eqGain.get());
-    eqGain->setMultiLine (false);
-    eqGain->setReturnKeyStartsNewLine (false);
-    eqGain->setReadOnly (false);
-    eqGain->setScrollbarsShown (true);
-    eqGain->setCaretVisible (true);
-    eqGain->setPopupMenuEnabled (true);
-    eqGain->setText (String());
-
-    eqGain->setBounds (816, 320, 47, 24);
+    mMax->setBounds (872, 168, 47, 24);
 
     label6.reset (new Label ("new label",
                              TRANS("\n"
@@ -203,7 +145,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label6->setColour (TextEditor::textColourId, Colours::black);
     label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label6->setBounds (112, 530, 40, 24);
+    label6->setBounds (792, 415, 40, 24);
 
     fileNameLabel.reset (new Label ("new label",
                                     TRANS("Filename\n")));
@@ -214,15 +156,15 @@ AdminSettingsWindow::AdminSettingsWindow ()
     fileNameLabel->setColour (TextEditor::textColourId, Colours::black);
     fileNameLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    fileNameLabel->setBounds (176, 530, 136, 24);
+    fileNameLabel->setBounds (856, 415, 136, 24);
 
     cabIrUi.reset (new UIIRSettings());
     addAndMakeVisible (cabIrUi.get());
-    cabIrUi->setBounds (16, 560, 300, 24);
+    cabIrUi->setBounds (696, 445, 300, 24);
 
     ampIrUi.reset (new UIIRSettings());
     addAndMakeVisible (ampIrUi.get());
-    ampIrUi->setBounds (16, 600, 300, 24);
+    ampIrUi->setBounds (696, 485, 300, 24);
 
     preTube1Settings.reset (new UITubeSettings());
     addAndMakeVisible (preTube1Settings.get());
@@ -284,6 +226,107 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     bgImageLabel->setBounds (488, 32, 192, 24);
 
+    bassEq.reset (new UIEQSettings());
+    addAndMakeVisible (bassEq.get());
+    bassEq->setBounds (8, 535, 768, 40);
+
+    middleEq.reset (new UIEQSettings());
+    addAndMakeVisible (middleEq.get());
+    middleEq->setBounds (8, 575, 768, 40);
+
+    component3.reset (new UIEQSettings());
+    addAndMakeVisible (component3.get());
+    component3->setBounds (8, 614, 768, 40);
+
+    trebleEq.reset (new UIEQSettings());
+    addAndMakeVisible (trebleEq.get());
+    trebleEq->setBounds (8, 614, 768, 40);
+
+    label2.reset (new Label ("new label",
+                             TRANS("Output Max / Min")));
+    addAndMakeVisible (label2.get());
+    label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label2->setJustificationType (Justification::centredLeft);
+    label2->setEditable (false, false, false);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label2->setBounds (808, 136, 150, 24);
+
+    mMin2.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (mMin2.get());
+    mMin2->setMultiLine (false);
+    mMin2->setReturnKeyStartsNewLine (false);
+    mMin2->setReadOnly (false);
+    mMin2->setScrollbarsShown (true);
+    mMin2->setCaretVisible (true);
+    mMin2->setPopupMenuEnabled (true);
+    mMin2->setText (String());
+
+    mMin2->setBounds (816, 168, 47, 24);
+
+    mMax2.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (mMax2.get());
+    mMax2->setMultiLine (false);
+    mMax2->setReturnKeyStartsNewLine (false);
+    mMax2->setReadOnly (false);
+    mMax2->setScrollbarsShown (true);
+    mMax2->setCaretVisible (true);
+    mMax2->setPopupMenuEnabled (true);
+    mMax2->setText (String());
+
+    mMax2->setBounds (872, 168, 47, 24);
+
+    label5.reset (new Label ("new label",
+                             TRANS("Hornet Drive (0.0 - 1.0)")));
+    addAndMakeVisible (label5.get());
+    label5->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label5->setJustificationType (Justification::centredLeft);
+    label5->setEditable (false, false, false);
+    label5->setColour (TextEditor::textColourId, Colours::black);
+    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label5->setBounds (808, 208, 168, 24);
+
+    hornetDrive.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (hornetDrive.get());
+    hornetDrive->setMultiLine (false);
+    hornetDrive->setReturnKeyStartsNewLine (false);
+    hornetDrive->setReadOnly (false);
+    hornetDrive->setScrollbarsShown (true);
+    hornetDrive->setCaretVisible (true);
+    hornetDrive->setPopupMenuEnabled (true);
+    hornetDrive->setText (String());
+
+    hornetDrive->setBounds (816, 240, 47, 24);
+
+    label8.reset (new Label ("new label",
+                             TRANS("Hornet Presence (0.0 - 1.0)\n")));
+    addAndMakeVisible (label8.get());
+    label8->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label8->setJustificationType (Justification::centredLeft);
+    label8->setEditable (false, false, false);
+    label8->setColour (TextEditor::textColourId, Colours::black);
+    label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label8->setBounds (808, 280, 184, 24);
+
+    hornetPresence.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (hornetPresence.get());
+    hornetPresence->setMultiLine (false);
+    hornetPresence->setReturnKeyStartsNewLine (false);
+    hornetPresence->setReadOnly (false);
+    hornetPresence->setScrollbarsShown (true);
+    hornetPresence->setCaretVisible (true);
+    hornetPresence->setPopupMenuEnabled (true);
+    hornetPresence->setText (String());
+
+    hornetPresence->setBounds (816, 312, 47, 24);
+
+    trebleEq2.reset (new UIEQSettings());
+    addAndMakeVisible (trebleEq2.get());
+    trebleEq2->setBounds (8, 672, 768, 40);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -306,16 +349,11 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label = nullptr;
     updateButton = nullptr;
     label3 = nullptr;
-    label2 = nullptr;
     label4 = nullptr;
     inMin = nullptr;
     inMax = nullptr;
-    dMin = nullptr;
-    dMax = nullptr;
     mMin = nullptr;
     mMax = nullptr;
-    label5 = nullptr;
-    eqGain = nullptr;
     label6 = nullptr;
     fileNameLabel = nullptr;
     cabIrUi = nullptr;
@@ -327,6 +365,18 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label7 = nullptr;
     bgButton = nullptr;
     bgImageLabel = nullptr;
+    bassEq = nullptr;
+    middleEq = nullptr;
+    component3 = nullptr;
+    trebleEq = nullptr;
+    label2 = nullptr;
+    mMin2 = nullptr;
+    mMax2 = nullptr;
+    label5 = nullptr;
+    hornetDrive = nullptr;
+    label8 = nullptr;
+    hornetPresence = nullptr;
+    trebleEq2 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -399,6 +449,8 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     //[/UserbuttonClicked_Post]
 }
 
+
+
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
 
 void AdminSettingsWindow::chooseBGImageFile() {
@@ -424,6 +476,10 @@ void AdminSettingsWindow::updateSettings() {
     cabIrUi->updateSettings(settings->ampSettings.cabIr);
     ampIrUi->updateSettings(settings->ampSettings.ampIr);
 
+    bassEq->updateSettings(settings->ampSettings.eqs[kBassEq]);
+    middleEq->updateSettings(settings->ampSettings.eqs[kMiddleEq]);
+    trebleEq->updateSettings(settings->ampSettings.eqs[kTrebleEq]);
+
     settings->gainSettings[GainProcessorId::InputGain].min = inMin->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::InputGain].max = inMax->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::OutputGain].max = mMax->getText().getFloatValue();
@@ -431,8 +487,9 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::DriveGain].min = inMin->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
 
-    settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
+  //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
+
 
 
   //  settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
@@ -454,12 +511,10 @@ void AdminSettingsWindow::setupUI(){
     this->preInputType.get()->setSelectedItemIndex(settings->ampSettings.inputType);
     this->mMin->setText(String(settings->gainSettings[GainProcessorId::OutputGain].min),dontSendNotification);
     this->mMax->setText(String(settings->gainSettings[GainProcessorId::OutputGain].max), dontSendNotification);
-    this->dMin->setText(String(settings->gainSettings[GainProcessorId::DriveGain].min), dontSendNotification);
-    this->dMax->setText(String(settings->gainSettings[GainProcessorId::DriveGain].max), dontSendNotification);
     this->inMin->setText(String(settings->gainSettings[GainProcessorId::InputGain].min), dontSendNotification);
     this->inMax->setText(String(settings->gainSettings[GainProcessorId::InputGain].max), dontSendNotification);
 
-    this->eqGain->setText(String(settings->ampSettings.eqGain));
+   // this->eqGain->setText(String(settings->ampSettings.eqGain));
 
     this->preTube1Settings->setupUI(settings->ampSettings.preAmpTubes[0],"Pre Amp Tube 1");
     this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
@@ -469,7 +524,9 @@ void AdminSettingsWindow::setupUI(){
     this->ampIrUi->setupUI(settings->ampSettings.ampIr,"AMP IR");
 
     this->knobTypeComboBox->setSelectedItemIndex(settings->uiSettings.selectedKnob, dontSendNotification);
-
+    this->bassEq->setupUI(settings->ampSettings.eqs[kBassEq], "Bass Eq");
+    this->middleEq->setupUI(settings->ampSettings.eqs[kMiddleEq], "Middle Eq");
+    this->trebleEq->setupUI(settings->ampSettings.eqs[kTrebleEq], "Treble Eq");
 
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
@@ -515,13 +572,8 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Input Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <LABEL name="new label" id="9e5c6ee92a31ff20" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="NOT USED!" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="ea8a683340dc7a41" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="808 200 150 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
@@ -533,46 +585,29 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="872 104 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <TEXTEDITOR name="new text editor" id="2345afe3a1dc68e1" memberName="dMin"
+  <TEXTEDITOR name="new text editor" id="46143fb20b12f67" memberName="mMin"
               virtualName="" explicitFocusOrder="0" pos="816 168 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <TEXTEDITOR name="new text editor" id="cebb191ed9ac93f9" memberName="dMax"
+  <TEXTEDITOR name="new text editor" id="ea4f7edcb1f0a4f1" memberName="mMax"
               virtualName="" explicitFocusOrder="0" pos="872 168 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <TEXTEDITOR name="new text editor" id="46143fb20b12f67" memberName="mMin"
-              virtualName="" explicitFocusOrder="0" pos="816 232 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
-  <TEXTEDITOR name="new text editor" id="ea4f7edcb1f0a4f1" memberName="mMax"
-              virtualName="" explicitFocusOrder="0" pos="872 232 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="f16c943b118a6d31" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="808 288 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Eq Gain" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="837541a942ed530c" memberName="eqGain"
-              virtualName="" explicitFocusOrder="0" pos="816 320 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
   <LABEL name="new label" id="78af7379fb9b0e54" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="112 530 40 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="792 415 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="&#10;Gain" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="a84735c2601cd71" memberName="fileNameLabel"
-         virtualName="" explicitFocusOrder="0" pos="176 530 136 24" edTextCol="ff000000"
+         virtualName="" explicitFocusOrder="0" pos="856 415 136 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Filename&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <JUCERCOMP name="" id="59790b7b05875a88" memberName="cabIrUi" virtualName=""
-             explicitFocusOrder="0" pos="16 560 300 24" sourceFile="UIIRSettings.cpp"
+             explicitFocusOrder="0" pos="696 445 300 24" sourceFile="UIIRSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="2f7b8b080201fa1b" memberName="ampIrUi" virtualName=""
-             explicitFocusOrder="0" pos="16 600 300 24" sourceFile="UIIRSettings.cpp"
+             explicitFocusOrder="0" pos="696 485 300 24" sourceFile="UIIRSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="efb8e0bb8dcbdbb" memberName="preTube1Settings" virtualName=""
              explicitFocusOrder="0" pos="8 72 680 144" sourceFile="UITubeSettings.cpp"
@@ -600,6 +635,52 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="From memory" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <JUCERCOMP name="" id="f05f02aebf7cb86b" memberName="bassEq" virtualName=""
+             explicitFocusOrder="0" pos="8 535 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="7a92c9ed75d11d77" memberName="middleEq" virtualName=""
+             explicitFocusOrder="0" pos="8 575 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="bbe19eb4320544a" memberName="component3" virtualName=""
+             explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
+  <JUCERCOMP name="" id="c1dae00a7f289494" memberName="trebleEq" virtualName=""
+             explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
+  <LABEL name="new label" id="9d9e191e697d9e82" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="6a8160b611c40b4e" memberName="mMin2"
+              virtualName="" explicitFocusOrder="0" pos="816 168 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="d2a810c2e62996e8" memberName="mMax2"
+              virtualName="" explicitFocusOrder="0" pos="872 168 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="3857fe40619377d4" memberName="label5" virtualName=""
+         explicitFocusOrder="0" pos="808 208 168 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Hornet Drive (0.0 - 1.0)" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="6da8bc166af565b8" memberName="hornetDrive"
+              virtualName="" explicitFocusOrder="0" pos="816 240 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="e83a6ccb98be6e9a" memberName="label8" virtualName=""
+         explicitFocusOrder="0" pos="808 280 184 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Hornet Presence (0.0 - 1.0)&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="924bcf4c8fd15167" memberName="hornetPresence"
+              virtualName="" explicitFocusOrder="0" pos="816 312 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="trebleEq2" virtualName=""
+             explicitFocusOrder="0" pos="8 672 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -205,8 +205,8 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, i
                                                 float makeupGain = .0f, EQType type = EQType::kBassEq)
 {
     eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowPotImpulseData, lowPotImpulseDataSize,
-                                                               highPotImpulseData, highPotImpulseDataSize,
-                                                           soundSettings, makeupGain, type));
+                                           highPotImpulseData, highPotImpulseDataSize,
+                                           soundSettings, makeupGain, type));
     
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;

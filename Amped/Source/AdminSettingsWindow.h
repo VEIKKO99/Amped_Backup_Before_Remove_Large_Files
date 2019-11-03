@@ -31,6 +31,11 @@
 #include "UITubeSettings.h"
 #include "UITubeSettings.h"
 #include "UITubeSettings.h"
+#include "UIEQSettings.h"
+#include "UIEQSettings.h"
+#include "UIEQSettings.h"
+#include "UIEQSettings.h"
+#include "UIEQSettings.h"
 
 
 //==============================================================================
@@ -69,23 +74,18 @@ private:
     void setupUI();
     void chooseBGImageFile();
 
-        //[/UserVariables]
+    //[/UserVariables]
 
     //==============================================================================
     std::unique_ptr<ComboBox> preInputType;
     std::unique_ptr<Label> label;
     std::unique_ptr<TextButton> updateButton;
     std::unique_ptr<Label> label3;
-    std::unique_ptr<Label> label2;
     std::unique_ptr<Label> label4;
     std::unique_ptr<TextEditor> inMin;
     std::unique_ptr<TextEditor> inMax;
-    std::unique_ptr<TextEditor> dMin;
-    std::unique_ptr<TextEditor> dMax;
     std::unique_ptr<TextEditor> mMin;
     std::unique_ptr<TextEditor> mMax;
-    std::unique_ptr<Label> label5;
-    std::unique_ptr<TextEditor> eqGain;
     std::unique_ptr<Label> label6;
     std::unique_ptr<Label> fileNameLabel;
     std::unique_ptr<UIIRSettings> cabIrUi;
@@ -97,6 +97,18 @@ private:
     std::unique_ptr<Label> label7;
     std::unique_ptr<TextButton> bgButton;
     std::unique_ptr<Label> bgImageLabel;
+    std::unique_ptr<UIEQSettings> bassEq;
+    std::unique_ptr<UIEQSettings> middleEq;
+    std::unique_ptr<UIEQSettings> component3;
+    std::unique_ptr<UIEQSettings> trebleEq;
+    std::unique_ptr<Label> label2;
+    std::unique_ptr<TextEditor> mMin2;
+    std::unique_ptr<TextEditor> mMax2;
+    std::unique_ptr<Label> label5;
+    std::unique_ptr<TextEditor> hornetDrive;
+    std::unique_ptr<Label> label8;
+    std::unique_ptr<TextEditor> hornetPresence;
+    std::unique_ptr<UIEQSettings> trebleEq2;
 
 
     //==============================================================================
