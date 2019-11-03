@@ -47,10 +47,20 @@ public:
     float gain = 6.0;
 };
 
+class EQSettings
+{
+public:
+    String lowIrFileName = "";
+    String highIrFileName = "";
+    float gain = 6.0;
+    float realisticGain = 1.0;
+};
+
 enum EQType {
     kBassEq,
     kMiddleEq,
     kTrebleEq,
+    kPresence,
     kEQSize
 };
 
@@ -88,7 +98,7 @@ public:
     IRSettings cabIr;
     IRSettings ampIr;
 
-    IRSettings eqs[kEQSize];
+    EQSettings eqs[kEQSize];
     
 public:
     InternalAmpSettings() {

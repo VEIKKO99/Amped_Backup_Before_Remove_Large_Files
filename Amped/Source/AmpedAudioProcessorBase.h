@@ -185,8 +185,10 @@ public:
     {}
 
     void updateInternalSettings() override {
+        if (soundSettings->ampSettings.cabIr.irFileName.length() > 0) {
             loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
             makeupGain = soundSettings->ampSettings.cabIr.gain;
+        }
     }
 };
 
@@ -370,7 +372,26 @@ public:
         this->makeupGain = makeupGain;
     }
     ~EQWithIR() = default;
-    
+
+    void loadIRFile(String irFile, Convolution& convolution) {
+        File irData(irFile);
+        convolution.loadImpulseResponse(irData, false, false, 0);
+    }
+
+    void updateInternalSettings() override {
+        EQSettings& eqSettings = soundSettings->ampSettings.eqs[eqType];
+
+        if (eqSettings.highIrFileName.length()  > 0) {
+            loadIRFile(eqSettings.highIrFileName, higherPotValues);
+        }
+        if (eqSettings.lowIrFileName.length() > 0) {
+            loadIRFile(eqSettings.lowIrFileName, lowerPotValues);
+        }
+        makeupGain = eqSettings.gain;
+        realisticEqGain = eqSettings.realisticGain;
+
+    }
+
     void prepareToPlay(double sampleRate, int samplesPerBlock) override
     {
         int numOfChannels = getTotalNumInputChannels();
@@ -383,6 +404,7 @@ public:
     
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
     {
+
         dryWet.setDryBuffer(buffer);
         dsp::AudioBlock<float> block(buffer);
         dsp::ProcessContextReplacing<float> context (block);
@@ -392,7 +414,7 @@ public:
             lowerPotValues.process(context);
         else
             higherPotValues.process(context);
-        buffer.applyGain(makeupGain + *eqValue * soundSettings->ampSettings.eqGain);
+        buffer.applyGain(makeupGain + *eqValue * realisticEqGain);
         dryWet.process(context);
     }
     
@@ -402,6 +424,8 @@ public:
         lowerPotValues.reset();
         higherPotValues.reset();
     }
+
+
 
 private:
     void initInpulseResponseProcessor(const char *data, int dataSize, double sampleRate, int samplesPerBlock, Convolution& convolution )
@@ -414,8 +438,7 @@ private:
     
 public:
     float* eqValue = nullptr;
-    float makeupGain = .0f;
-    
+
 private:
     DryWetDsp dryWet;
     Convolution lowerPotValues;
@@ -426,6 +449,9 @@ private:
     
     const char *loImpulseData = nullptr;
     int loImpulseDataSize = 0;
+
+    float makeupGain = .0f;
+    float realisticEqGain = .0f;
 
     EQType eqType;
 };

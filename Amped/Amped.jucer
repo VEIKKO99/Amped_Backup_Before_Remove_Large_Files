@@ -1181,6 +1181,9 @@
       <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <FILE id="NHopDT" name="UIEQSettings.cpp" compile="1" resource="0"
+            file="Source/UIEQSettings.cpp"/>
+      <FILE id="GdsDnm" name="UIEQSettings.h" compile="0" resource="0" file="Source/UIEQSettings.h"/>
       <FILE id="JnpLpn" name="UIIRSettings.cpp" compile="1" resource="0"
             file="Source/UIIRSettings.cpp"/>
       <FILE id="b7vrES" name="UIIRSettings.h" compile="0" resource="0" file="Source/UIIRSettings.h"/>
