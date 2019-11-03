@@ -83,7 +83,7 @@ void AmpedAudioProcessor::settingChanged()
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
     }
     auto editor = getActiveEditor();
-    if (editor != nullptr) {
+    if (editor != nullptr) {
         editor->repaint();
     }
 }
