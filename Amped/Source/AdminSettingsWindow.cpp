@@ -323,9 +323,9 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     hornetPresence->setBounds (816, 312, 47, 24);
 
-    trebleEq2.reset (new UIEQSettings());
-    addAndMakeVisible (trebleEq2.get());
-    trebleEq2->setBounds (8, 672, 768, 40);
+    presenceEq.reset (new UIEQSettings());
+    addAndMakeVisible (presenceEq.get());
+    presenceEq->setBounds (8, 672, 768, 40);
 
 
     //[UserPreSize]
@@ -376,7 +376,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     hornetDrive = nullptr;
     label8 = nullptr;
     hornetPresence = nullptr;
-    trebleEq2 = nullptr;
+    presenceEq = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -479,6 +479,7 @@ void AdminSettingsWindow::updateSettings() {
     bassEq->updateSettings(settings->ampSettings.eqs[kBassEq]);
     middleEq->updateSettings(settings->ampSettings.eqs[kMiddleEq]);
     trebleEq->updateSettings(settings->ampSettings.eqs[kTrebleEq]);
+    presenceEq->updateSettings(settings->ampSettings.eqs[kPresence]);
 
     settings->gainSettings[GainProcessorId::InputGain].min = inMin->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::InputGain].max = inMax->getText().getFloatValue();
@@ -487,7 +488,11 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::DriveGain].min = inMin->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
 
-  //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
+    settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
+    settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
+
+
+    //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
 
 
@@ -527,6 +532,11 @@ void AdminSettingsWindow::setupUI(){
     this->bassEq->setupUI(settings->ampSettings.eqs[kBassEq], "Bass Eq");
     this->middleEq->setupUI(settings->ampSettings.eqs[kMiddleEq], "Middle Eq");
     this->trebleEq->setupUI(settings->ampSettings.eqs[kTrebleEq], "Treble Eq");
+    this->presenceEq->setupUI(settings->ampSettings.eqs[kPresence], "Presence");
+
+    this->hornetDrive->setText(String(settings->ampSettings.hornetDrive), dontSendNotification);
+    this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
+
 
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);

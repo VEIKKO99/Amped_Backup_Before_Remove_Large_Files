@@ -232,14 +232,16 @@ void AmpedAudioProcessor::initialiseGraph() {
     gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
     ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
     audioProcessors.add(gainProcessor);
+
+    driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::DriveGain));
+    ((GainProcessor*)driveProcessor->getProcessor())->gainValue = driveParameter;
+    audioProcessors.add(driveProcessor);
     
     // Tube amp:
     ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettings));
     
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
-    amp->driveParameter = driveParameter;
     amp->masterParameter = masterParameter;
-    amp->presenceParameter = presenceParameter;
     audioProcessors.add(ampProcessor);
 
     
@@ -249,11 +251,15 @@ void AmpedAudioProcessor::initialiseGraph() {
 
     // Middle eq:
     initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
-           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f, EQType::kBassEq);
+           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f, EQType::kMiddleEq);
     
     // Treble eq:
     initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
-           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f, EQType::kBassEq);
+           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f, EQType::kTrebleEq);
+
+    // Presence eq:
+    initEq(presenceEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
+            BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, presenceParameter, 6.5f, EQType::kPresence);
 
     // Amp sim:
     ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIr.gain));
@@ -287,6 +293,8 @@ void AmpedAudioProcessor::connectAudioNodes()
         mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
             { gainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { gainProcessor->nodeID,  channel },
+                { driveProcessor->nodeID, channel } });
+        mainProcessor->addConnection ({ { driveProcessor->nodeID,  channel },
             { ampProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { ampProcessor->nodeID,  channel },
             { ampSimIR->nodeID, channel } });
@@ -297,7 +305,9 @@ void AmpedAudioProcessor::connectAudioNodes()
         mainProcessor->addConnection ({ { middleEq->nodeID,  channel },
             { trebleEq->nodeID, channel } });
         mainProcessor->addConnection ({ { trebleEq->nodeID,  channel },
-            { cabSimIR->nodeID, channel } });
+            { presenceEq->nodeID, channel } });
+        mainProcessor->addConnection ({ { presenceEq->nodeID,  channel },
+                { cabSimIR->nodeID, channel } });
         mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
             { outputGainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { outputGainProcessor->nodeID,  channel },
@@ -321,6 +331,9 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
     initialiseGraph();
+    for (auto node : audioProcessors) {
+        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
+    }
 }
 
 

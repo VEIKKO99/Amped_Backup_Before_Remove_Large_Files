@@ -151,11 +151,15 @@ private:
     Node::Ptr midiOutputNode;
     
     Node::Ptr gainProcessor;
+    Node::Ptr driveProcessor;
+
     Node::Ptr ampProcessor;
     
     Node::Ptr bassEq;
     Node::Ptr middleEq;
     Node::Ptr trebleEq;
+
+    Node::Ptr presenceEq;
     
     Node::Ptr ampSimIR;
     Node::Ptr cabSimIR;

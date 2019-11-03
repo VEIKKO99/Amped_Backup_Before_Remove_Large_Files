@@ -270,6 +270,11 @@ public:
 
         updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
         tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
+
+        drive = soundSettings->ampSettings.hornetDrive;
+        presence = soundSettings->ampSettings.hornetPresence;
+
+        setupAmp();
     }
 
 
@@ -304,9 +309,9 @@ public:
 
     //    float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
 
-        tubeAmp.setPreGain(*driveParameter);
+        tubeAmp.setPreGain(drive);
         tubeAmp.setMasterVolume(*masterParameter);
-        tubeAmp.setPresence(*presenceParameter);
+        tubeAmp.setPresence(presence);
         
         tubeAmp.setDryWet(1.0);
         tubeAmp.setToneStackActive(false);
@@ -319,9 +324,7 @@ public:
         int numOfChannels = buffer.getNumChannels();
         
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
-        
-        setupAmp();
-        
+
         tubeAmp.process(interleavedBuffer.get(), numOfSamples);
         
         deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
@@ -337,8 +340,8 @@ public:
 public:
     
     float* fxParameter = nullptr;
-    float* driveParameter = nullptr;
-    float* presenceParameter = nullptr;
+    float drive = 0.5f;
+    float presence = 0.5f;
     float* masterParameter = nullptr;
     float* outputParameter = nullptr;
     

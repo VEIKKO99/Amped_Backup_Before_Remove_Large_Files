@@ -108,7 +108,7 @@ private:
     std::unique_ptr<TextEditor> hornetDrive;
     std::unique_ptr<Label> label8;
     std::unique_ptr<TextEditor> hornetPresence;
-    std::unique_ptr<UIEQSettings> trebleEq2;
+    std::unique_ptr<UIEQSettings> presenceEq;
 
 
     //==============================================================================
