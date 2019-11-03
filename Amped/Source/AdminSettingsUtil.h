@@ -93,7 +93,8 @@ public:
     // Please note that tis power amp tube is duplicated on hornet side.
     TubeSettings powerAmpTube;
 
-    float eqGain = .0f;
+    float hornetDrive = 0.5f;
+    float hornetPresence = 0.5f;
 
     IRSettings cabIr;
     IRSettings ampIr;

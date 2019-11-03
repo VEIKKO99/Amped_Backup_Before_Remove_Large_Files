@@ -49,6 +49,7 @@ private:
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
     std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow;
+    Label versionLabel;
 
 #endif
 

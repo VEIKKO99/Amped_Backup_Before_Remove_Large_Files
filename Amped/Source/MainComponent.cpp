@@ -20,8 +20,11 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     setLookAndFeel(&ampLookAndFeel);
 
     addAndMakeVisible(ampButtonBar);
+#ifdef AMPED_DEBUG
     addAndMakeVisible(adminUIButton);
     adminUIButton.addListener(this);
+    addAndMakeVisible (versionLabel);
+#endif
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 }
@@ -80,6 +83,11 @@ void MainComponent::resized()
 #ifdef AMPED_DEBUG
     adminUIButton.setBounds(80, 80, 100, 40);
     adminUIButton.setButtonText("Admin");
+    versionLabel.setBounds(620, 90, 200, 30);
+    String date (__DATE__);
+    String time (__TIME__);
+    versionLabel.setText(date + " - " + time, dontSendNotification);
+    versionLabel.setColour (Label::textColourId, Colours::lightgreen);
 #endif
     // This method is where you should set the bounds of any child
     // components that your component contains..
