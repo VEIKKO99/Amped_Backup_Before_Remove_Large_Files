@@ -1260,6 +1260,7 @@
       <FILE id="Xh3SH7" name="PluginEditor.cpp" compile="1" resource="0"
             file="Source/PluginEditor.cpp"/>
       <FILE id="tSkUWX" name="PluginEditor.h" compile="0" resource="0" file="Source/PluginEditor.h"/>
+      <FILE id="YLoTsw" name="Consts.h" compile="0" resource="0" file="Source/Consts.h"/>
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
@@ -1288,8 +1289,7 @@
     </XCODE_MAC>
     <VS2019 targetFolder="Builds/VisualStudio2019">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"
-                       useRuntimeLibDLL="0"/>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"/>
         <CONFIGURATION isDebug="0" name="Release" useRuntimeLibDLL="0" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"/>
       </CONFIGURATIONS>
       <MODULEPATHS>

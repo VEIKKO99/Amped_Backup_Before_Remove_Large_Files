@@ -63,7 +63,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     updateButton->setButtonText (TRANS("Update"));
     updateButton->addListener (this);
 
-    updateButton->setBounds (840, 16, 150, 24);
+    updateButton->setBounds (824, 584, 150, 24);
 
     label3.reset (new Label ("new label",
                              TRANS("Input Max / Min")));
@@ -327,6 +327,13 @@ AdminSettingsWindow::AdminSettingsWindow ()
     addAndMakeVisible (presenceEq.get());
     presenceEq->setBounds (8, 672, 768, 40);
 
+    updateButton2.reset (new TextButton ("new button"));
+    addAndMakeVisible (updateButton2.get());
+    updateButton2->setButtonText (TRANS("Save"));
+    updateButton2->addListener (this);
+
+    updateButton2->setBounds (824, 616, 150, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -377,6 +384,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label8 = nullptr;
     hornetPresence = nullptr;
     presenceEq = nullptr;
+    updateButton2 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -443,6 +451,14 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_bgButton] -- add your button handler code here..
         chooseBGImageFile();
         //[/UserButtonCode_bgButton]
+    }
+    else if (buttonThatWasClicked == updateButton2.get())
+    {
+        //[UserButtonCode_updateButton2] -- add your button handler code here..
+        updateSettings();
+        saveSettings();
+
+        //[/UserButtonCode_updateButton2]
     }
 
     //[UserbuttonClicked_Post]
@@ -547,6 +563,12 @@ void AdminSettingsWindow::setupUI(){
 
 }
 
+void AdminSettingsWindow::saveSettings() {
+    auto settings = changeInterface->getCurrentSettings();
+    auto xml = settings->serializeToXml();
+    Logger::getCurrentLogger()->writeToLog(xml->toString());
+}
+
 
 //[/MiscUserCode]
 
@@ -575,7 +597,7 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="new button" id="3518e4a88f598a7" memberName="updateButton"
-              virtualName="" explicitFocusOrder="0" pos="840 16 150 24" buttonText="Update"
+              virtualName="" explicitFocusOrder="0" pos="824 584 150 24" buttonText="Update"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
   <LABEL name="new label" id="7237a071422d3973" memberName="label3" virtualName=""
          explicitFocusOrder="0" pos="808 72 150 24" edTextCol="ff000000"
@@ -688,9 +710,12 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="816 312 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="trebleEq2" virtualName=""
+  <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="presenceEq" virtualName=""
              explicitFocusOrder="0" pos="8 672 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
+  <TEXTBUTTON name="new button" id="54f521d0b77f3c71" memberName="updateButton2"
+              virtualName="" explicitFocusOrder="0" pos="824 616 150 24" buttonText="Save"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

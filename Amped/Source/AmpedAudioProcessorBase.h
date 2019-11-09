@@ -10,19 +10,18 @@
 
 #include "AmpedDsp.h"
 #include "AdminSettingsUtil.h"
+#include "Consts.h"
 
 #pragma once
 
 using Convolution = juce::dsp::Convolution;
-
-enum GainProcessorId { InputGain = 0, OutputGain, DriveGain, SIZE};
 
 //==============================================================================
 class AmpedAudioProcessorBase  : public AudioProcessor
 {
 public:
     //==============================================================================
-    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings   > settings)  {
+    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings> settings)  {
         this->soundSettings = settings;
     }
     
