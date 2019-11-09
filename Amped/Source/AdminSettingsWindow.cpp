@@ -455,7 +455,6 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == updateButton2.get())
     {
         //[UserButtonCode_updateButton2] -- add your button handler code here..
-        updateSettings();
         saveSettings();
 
         //[/UserButtonCode_updateButton2]
@@ -564,9 +563,23 @@ void AdminSettingsWindow::setupUI(){
 }
 
 void AdminSettingsWindow::saveSettings() {
+    updateSettings();
     auto settings = changeInterface->getCurrentSettings();
     auto xml = settings->serializeToXml();
     Logger::getCurrentLogger()->writeToLog(xml->toString());
+
+    FileChooser myChooser ("Save sound settings to empty directory.",
+            File::getSpecialLocation (File::userHomeDirectory),
+                "*.apd");
+    if (myChooser.browseForFileToSave(true))
+    {
+        File saveFile (myChooser.getResult());
+        xml->writeTo(saveFile);
+
+        Logger::getCurrentLogger()->writeToLog(saveFile.getParentDirectory().getFullPathName());
+
+
+    }
 }
 
 
