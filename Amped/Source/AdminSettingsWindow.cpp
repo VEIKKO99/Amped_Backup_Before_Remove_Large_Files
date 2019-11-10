@@ -576,11 +576,44 @@ void AdminSettingsWindow::saveSettings() {
         File saveFile (myChooser.getResult());
         xml->writeTo(saveFile);
 
-        Logger::getCurrentLogger()->writeToLog(saveFile.getParentDirectory().getFullPathName());
+        String filesDirectoryString = saveFile.getParentDirectory().getFullPathName() + File::getSeparatorString()  + "files";
+        Logger::getCurrentLogger()->writeToLog(filesDirectoryString);
 
+        String withTrailingSeparator = File::addTrailingSeparator(filesDirectoryString);
+        Logger::getCurrentLogger()->writeToLog(withTrailingSeparator);
 
+        File files(withTrailingSeparator);
+        if (files.createDirectory().wasOk()) {
+            settings->uiSettings.mainBackgroundImageFileName = copyFile(withTrailingSeparator, settings->uiSettings.mainBackgroundImageFileName);
+            settings->ampSettings.cabIr.irFileName = copyFile(withTrailingSeparator, settings->ampSettings.cabIr.irFileName);
+            settings->ampSettings.ampIr.irFileName = copyFile(withTrailingSeparator, settings->ampSettings.ampIr.irFileName);
+
+            for (int i = 0; i < EQType::kEQSize; i++) {
+                settings->ampSettings.eqs[i].lowIrFileName = copyFile(withTrailingSeparator,  settings->ampSettings.eqs[i].lowIrFileName);
+                settings->ampSettings.eqs[i].highIrFileName = copyFile(withTrailingSeparator,  settings->ampSettings.eqs[i].highIrFileName);
+            }
+        }
+        else {
+            showAlert("Cannot create files directory");
+        }
     }
 }
+
+void AdminSettingsWindow::showAlert(String message) {
+    NativeMessageBox::showMessageBox(AlertWindow::AlertIconType::WarningIcon,
+            "Error", message, this);
+}
+
+String AdminSettingsWindow::copyFile(String destDirectory, String originalFile) {
+    File original(originalFile);
+    String destFullName = destDirectory + original.getFileName();
+    File destination(destFullName);
+    if (!original.copyFileTo(destination)){
+        showAlert("Error copying file: " + original.getFileName());
+    }
+    return destFullName;
+}
+
 
 
 //[/MiscUserCode]

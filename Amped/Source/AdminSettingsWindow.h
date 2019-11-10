@@ -74,7 +74,8 @@ private:
     void setupUI();
     void chooseBGImageFile();
     void saveSettings();
-
+    String copyFile(String destDirectory, String originalFile);
+    void showAlert(String message);
     //[/UserVariables]
 
     //==============================================================================
