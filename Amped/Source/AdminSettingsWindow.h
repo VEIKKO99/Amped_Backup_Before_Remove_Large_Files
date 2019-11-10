@@ -76,6 +76,7 @@ private:
     void saveSettings();
     String copyFile(String destDirectory, String originalFile);
     void showAlert(String message);
+    void loadSettings();
     //[/UserVariables]
 
     //==============================================================================
@@ -112,11 +113,11 @@ private:
     std::unique_ptr<TextEditor> hornetPresence;
     std::unique_ptr<UIEQSettings> presenceEq;
     std::unique_ptr<TextButton> updateButton2;
+    std::unique_ptr<TextButton> loadButton;
 
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)
-
 };
 
 //[EndFile] You can add extra defines here...
