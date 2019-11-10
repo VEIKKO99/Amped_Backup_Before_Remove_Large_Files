@@ -51,13 +51,14 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->vPlus = element.getDoubleAttribute("vPlus", 250.0);
-        this->rk = element.getDoubleAttribute("rk", 2700.0);
-        this->vk0 = element.getDoubleAttribute("vk0", 2.5);
-        this->rp = element.getDoubleAttribute("rp",  100000.00);
-        this->lowPassFbk = element.getDoubleAttribute("lowPassFbk", 0.0);
-        this->tubeType = element.getIntAttribute("tubeType", 0);
+    void readFromXml(XmlElement* root) {
+        auto element = root->getChildByName("TubeSetting");
+        this->vPlus = element->getDoubleAttribute("vPlus", 250.0);
+        this->rk = element->getDoubleAttribute("rk", 2700.0);
+        this->vk0 = element->getDoubleAttribute("vk0", 2.5);
+        this->rp = element->getDoubleAttribute("rp",  100000.00);
+        this->lowPassFbk = element->getDoubleAttribute("lowPassFbk", 0.0);
+        this->tubeType = element->getIntAttribute("tubeType", 0);
     }
 
 };
@@ -75,9 +76,10 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->irFileName = element.getStringAttribute("irFileName");
-        this->gain = static_cast<float>(element.getDoubleAttribute("gain", 6.0));
+    void readFromXml(XmlElement* root) {
+        auto element = root->getChildByName("IRSetting");
+        this->irFileName = element->getStringAttribute("irFileName");
+        this->gain = static_cast<float>(element->getDoubleAttribute("gain", 6.0));
     }
 };
 
@@ -99,12 +101,12 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->lowIrFileName = element.getStringAttribute("lowIrFileName");
-        this->highIrFileName = element.getStringAttribute("highIrFileName");
+    void readFromXml(XmlElement* element) {
+        this->lowIrFileName = element->getStringAttribute("lowIrFileName");
+        this->highIrFileName = element->getStringAttribute("highIrFileName");
 
-        this->gain = static_cast<float>(element.getDoubleAttribute("gain"));
-        this->realisticGain = static_cast<float>(element.getDoubleAttribute("realisticGain"));
+        this->gain = static_cast<float>(element->getDoubleAttribute("gain"));
+        this->realisticGain = static_cast<float>(element->getDoubleAttribute("realisticGain"));
     }
 };
 
@@ -144,9 +146,10 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->selectedKnob = element.getIntAttribute("selectedKnob", 0);
-        this->mainBackgroundImageFileName = element.getStringAttribute(mainBackgroundImageFileName);
+    void readFromXml(XmlElement* element) {
+        auto uiSettingsElement = element->getChildByName("UISettings");
+        this->selectedKnob = uiSettingsElement->getIntAttribute("selectedKnob", 0);
+        this->mainBackgroundImageFileName = uiSettingsElement->getStringAttribute("mainBackgroundImageFileName");
     }
 };
 
@@ -210,15 +213,28 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->inputType = static_cast<PreAmp::EInputType>(element.getIntAttribute("inputType", 0));
-        this->hornetDrive = static_cast<float>(element.getDoubleAttribute("hornetDrive", 0.5));
-        this->hornetPresence = static_cast<float>(element.getDoubleAttribute("hornetPresence", 0.5));
+    void readFromXml(XmlElement* root) {
+        XmlElement* element = root->getChildByName("InternalAmpSettings");
 
-        XmlElement* tubeSettings = element.getChildByName("TubeSettings");
-        preAmpTubes[0].readFromXml(*tubeSettings->getChildByName("PreAmpTube_1"));
-        preAmpTubes[1].readFromXml(*tubeSettings->getChildByName("PreAmpTube_2"));
-        powerAmpTube.readFromXml(*tubeSettings->getChildByName("PowerAmpTube"));
+        this->inputType = static_cast<PreAmp::EInputType>(element->getIntAttribute("inputType", 0));
+        this->hornetDrive = static_cast<float>(element->getDoubleAttribute("hornetDrive", 0.5));
+        this->hornetPresence = static_cast<float>(element->getDoubleAttribute("hornetPresence", 0.5));
+
+        XmlElement* tubeSettings = element->getChildByName("TubeSettings");
+        preAmpTubes[0].readFromXml(tubeSettings->getChildByName("PreAmpTube_1"));
+        preAmpTubes[1].readFromXml(tubeSettings->getChildByName("PreAmpTube_2"));
+        powerAmpTube.readFromXml(tubeSettings->getChildByName("PowerAmpTube"));
+
+        XmlElement* irElements = element->getChildByName("IRSettings");
+        cabIr.readFromXml(irElements->getChildByName("CabIr"));
+        ampIr.readFromXml(irElements->getChildByName("AmpIr"));
+
+        XmlElement* eqSettings = element->getChildByName("EQSettings");
+        for (int i = 0; i < eqSettings->getNumChildElements(); i++) {
+            if (i < kEQSize) {
+                eqs[i].readFromXml(eqSettings->getChildElement(i));
+            }
+        }
     }
 };
 
@@ -235,9 +251,9 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement& element) {
-        this->min = (float)element.getDoubleAttribute("min", -10.0);
-        this->max = (float)element.getDoubleAttribute("max", 10.0);
+    void readFromXml(XmlElement* element) {
+        this->min = (float)element->getDoubleAttribute("min", -10.0);
+        this->max = (float)element->getDoubleAttribute("max", 10.0);
     }
 };
 
@@ -262,6 +278,18 @@ public:
        }
        rootElement->addChildElement(ampSettings.serializeToXml());
        return rootElement;
+    }
+
+    void readFromXml(XmlElement* root) {
+        auto minMaxElements = root->getChildByName("MaxMinSettings");
+        uiSettings.readFromXml(root);
+        for (int i = 0; i < minMaxElements->getNumChildElements(); i++) {
+            if (i < GainProcessorId::SIZE) {
+                gainSettings[i].readFromXml(minMaxElements->getChildElement(i));
+            }
+        }
+        ampSettings.readFromXml(root);
+
     }
 };
 

@@ -334,6 +334,13 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     updateButton2->setBounds (824, 616, 150, 24);
 
+    loadButton.reset (new TextButton ("new button"));
+    addAndMakeVisible (loadButton.get());
+    loadButton->setButtonText (TRANS("Load"));
+    loadButton->addListener (this);
+
+    loadButton->setBounds (824, 648, 150, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -385,6 +392,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     hornetPresence = nullptr;
     presenceEq = nullptr;
     updateButton2 = nullptr;
+    loadButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -458,6 +466,12 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         saveSettings();
 
         //[/UserButtonCode_updateButton2]
+    }
+    else if (buttonThatWasClicked == loadButton.get())
+    {
+        //[UserButtonCode_loadButton] -- add your button handler code here..
+        loadSettings();
+        //[/UserButtonCode_loadButton]
     }
 
     //[UserbuttonClicked_Post]
@@ -596,6 +610,23 @@ void AdminSettingsWindow::saveSettings() {
         else {
             showAlert("Cannot create files directory");
         }
+    }
+}
+
+void AdminSettingsWindow::loadSettings() {
+    FileChooser myChooser ("Load sound settings .",
+            File::getSpecialLocation (File::userHomeDirectory),
+            "*.apd");
+
+    if (myChooser.browseForFileToOpen()) {
+        File settingsFile =  myChooser.getResult();
+
+        XmlDocument xmlDocument(settingsFile);
+        auto xmlElement = xmlDocument.getDocumentElement();
+        auto settings = changeInterface->getCurrentSettings();
+        settings->readFromXml(xmlElement.get());
+        setupUI();
+        changeInterface->settingChanged();
     }
 }
 
@@ -761,6 +792,9 @@ BEGIN_JUCER_METADATA
              constructorParams=""/>
   <TEXTBUTTON name="new button" id="54f521d0b77f3c71" memberName="updateButton2"
               virtualName="" explicitFocusOrder="0" pos="824 616 150 24" buttonText="Save"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="5f7cd414ef4bc0e9" memberName="loadButton"
+              virtualName="" explicitFocusOrder="0" pos="824 648 150 24" buttonText="Load"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 

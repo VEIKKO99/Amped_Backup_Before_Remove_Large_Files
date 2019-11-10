@@ -228,7 +228,7 @@ void UIEQSettings::setupUI(EQSettings& settings, String tubeName) {
         lowPotIrNameLabel->setText(settings.lowIrFileName, dontSendNotification);
     }
     if (settings.highIrFileName.length() > 0) {
-        lowPotIrNameLabel->setText(settings.highIrFileName, dontSendNotification);
+        highPotIrNameLabel->setText(settings.highIrFileName, dontSendNotification);
     }
 }
 
