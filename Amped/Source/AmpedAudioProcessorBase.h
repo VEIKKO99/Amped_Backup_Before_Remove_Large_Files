@@ -16,12 +16,49 @@
 
 using Convolution = juce::dsp::Convolution;
 
+class AmpedMonoAudioGraph : public AudioProcessorGraph {
+public:
+    AmpedMonoAudioGraph() : AudioProcessorGraph() {
+        BusesLayout defaultLayout = getBusesLayout();
+    //    defaultLayout.outputBuses[0] = AudioChannelSet::mono();
+    //    defaultLayout.inputBuses[0] = AudioChannelSet::mono();
+    //    defaultLayout.
+    //    defaultLayout.inputBuses.clear();
+    //    defaultLayout.outputBuses.clear();
+    //    defaultLayout.inputBuses.add(AudioChannelSet::mono());
+    //    defaultLayout.outputBuses.add(AudioChannelSet::mono());
+
+        /*
+        busArrangement.inputBuses.clear();
+        busArrangement.outputBuses.clear();
+        if (type == audioOutputNode)
+            busArrangement.inputBuses.add  (AudioProcessorBus ("Input",  AudioChannelSet::canonicalChannelSet(numOuts) ));
+        if (type == audioInputNode)
+            busArrangement.outputBuses.add (AudioProcessorBus ("Output", AudioChannelSet::canonicalChannelSet(numIns) ));
+            */
+    }
+/*
+    bool isBusesLayoutSupported (const BusesLayout& layouts) const override {
+        if (layouts.getMainInputChannelSet() == AudioChannelSet::disabled()
+                || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
+            return false;
+
+        if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono())
+            return false;
+
+        return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
+    }*/
+};
+
 //==============================================================================
 class AmpedAudioProcessorBase  : public AudioProcessor
 {
 public:
     //==============================================================================
-    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings> settings)  {
+    AmpedAudioProcessorBase(std::shared_ptr<SoundSettings> settings) : AudioProcessor (BusesProperties()
+                                                                 .withInput("Input", AudioChannelSet::mono(), false)
+                                                                 .withOutput ("Output", AudioChannelSet::mono(), true))
+    {
         this->soundSettings = settings;
     }
     
@@ -46,12 +83,46 @@ public:
     void setCurrentProgram (int) override                  {}
     const String getProgramName (int) override             { return {}; }
     void changeProgramName (int, const String&) override   {}
-    
-    //==============================================================================
+
+
+    bool isBusesLayoutSupported (const BusesLayout& layouts) const override {
+     //   if (layouts.getMainInputChannelSet() == AudioChannelSet::disabled()
+     //           || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
+     //       return false;
+
+ //       if (layouts.getMainOutputChannelSet() != AudioChannelSet::mono())
+ //           return false;
+
+ //       return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
+        juce::Logger::getCurrentLogger()->writeToLog("##### printing layouts #####");
+
+        for (auto input: layouts.inputBuses) {
+            juce::Logger::getCurrentLogger()->writeToLog("INPUT: "+ input.getDescription());
+        }
+        for (auto input: layouts.outputBuses) {
+            juce::Logger::getCurrentLogger()->writeToLog("OUTPUT: "+ input.getDescription());
+        }
+
+ return true;
+    }
+
+        //==============================================================================
     void getStateInformation (MemoryBlock&) override       {}
     void setStateInformation (const void*, int) override   {}
     
     virtual void updateInternalSettings() {}
+
+    // THis method returns the 1 because we want to process the signal
+    // as mono signal as long as possible to save resources.
+
+    int getAmpedInputChannelCount() {
+        juce::Logger::getCurrentLogger()->writeToLog("processor graph: getTotalNumInputChannels: " + String(getTotalNumInputChannels()));
+
+        if (getTotalNumInputChannels() > 0) {
+            return 1;
+        }
+        return getTotalNumInputChannels();
+    }
     
 protected:
     
@@ -71,7 +142,7 @@ public:
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
     {
-        int numOfChannels = getTotalNumInputChannels();
+        int numOfChannels = getAmpedInputChannelCount();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock),  static_cast<uint32>(numOfChannels)};
         gain.prepare (spec);
     }
@@ -283,7 +354,7 @@ public:
         tubeAmp.setSampleRate(sampleRate);
         tubeAmp.setOversample(1);
         tubeAmp.init();
-        tubeAmp.setNumChans(2);
+        tubeAmp.setNumChans(1);
         
         updateInternalSettings();
     }

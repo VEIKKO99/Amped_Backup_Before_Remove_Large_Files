@@ -20,7 +20,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
       AudioProcessor (BusesProperties()
                        .withInput  ("Input",  AudioChannelSet::stereo(), true)
                        .withOutput ("Output", AudioChannelSet::stereo(), true)),
-                    mainProcessor  (new AudioProcessorGraph()),
+                    mainProcessor  (new AmpedMonoAudioGraph()),
                     parameters (*this, nullptr, Identifier ("AmpedV100"),
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
@@ -190,15 +190,6 @@ void AmpedAudioProcessor::changeProgramName (int index, const String& newName)
  delete [] samples;
 */
 
-void AmpedAudioProcessor::initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution) {
-    dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), 2 };
-    convolution.prepare (spec);
-    
-    
-    // aryData::getNamedResource(BinaryData::CABIR_wav, size);Bin
-//    cabSim.loadImpulseResponse(data, size, true, false, 0);
-}
-
 void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
                                                 const char *highPotImpulseData, int highPotImpulseDataSize,
                                                 float* parameter,
@@ -214,8 +205,8 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, i
 }
 
 void AmpedAudioProcessor::initProcessor(Node::Ptr processor) {
-    processor->getProcessor()->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                            getMainBusNumOutputChannels(),
+    processor->getProcessor()->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+                                             AMPED_MONO_CHANNEL,
                                             getSampleRate(), getBlockSize());
 }
 
@@ -272,14 +263,27 @@ void AmpedAudioProcessor::initialiseGraph() {
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     audioProcessors.add(outputGainProcessor);
-    
+
     for (auto node : audioProcessors)
     {
         initProcessor(node);
     }
+
     connectAudioNodes();
     connectMidiNodes();
-    
+
+
+
+   // BusesLayout monoLayout;
+   // monoLayout.inputBuses.add(AudioChannelSet::mono());
+   // monoLayout.outputBuses.add(AudioChannelSet::mono());
+
+   // mainProcessor->removeBus(true);
+   // mainProcessor->removeBus(false);
+
+
+
+   // mainProcessor->setBusesLayout(monoLayout);
     for (auto node : mainProcessor->getNodes())
         node->getProcessor()->enableAllBuses();
 }
@@ -289,7 +293,7 @@ void AmpedAudioProcessor::connectAudioNodes()
     for (auto connection : mainProcessor->getConnections())
         mainProcessor->removeConnection (connection);
     
-    for (int channel = 0; channel < getTotalNumInputChannels(); ++channel) {
+    for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
         mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
             { gainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { gainProcessor->nodeID,  channel },
@@ -324,12 +328,13 @@ void AmpedAudioProcessor::connectMidiNodes()
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
-    
-    mainProcessor->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                         getMainBusNumOutputChannels(),
-                                         sampleRate, samplesPerBlock);
-    
+
+    mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+            AMPED_MONO_CHANNEL,
+            sampleRate, samplesPerBlock);
+
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+
     initialiseGraph();
     for (auto node : audioProcessors) {
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
@@ -342,8 +347,8 @@ void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerB
 {
     Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
 
-    mainProcessor->setPlayConfigDetails (getMainBusNumInputChannels(),
-                                         getMainBusNumOutputChannels(),
+    mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+                                         AMPED_MONO_CHANNEL,
                                          sampleRate, samplesPerBlock);
     
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
@@ -479,18 +484,32 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 
 void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    // If we have more outputchannels than input channels we must clear them, they might contain garbage.
     for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
     {
         buffer.clear (i, 0, buffer.getNumSamples());
     }
 
-    
+   // buffer.clear(0,0, buffer.getNumSamples());
+
+    float* monoPointer[1];
+    monoPointer[0] = buffer.getWritePointer(0);
+    AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
+
     cabSimIR->setBypassed(*cabSimSwitch > .5);
 #ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
-    mainProcessor->processBlock (buffer, midiMessages);
-    
+
+    mainProcessor->processBlock (monoBuffer, midiMessages);
+
+    // We copy the mono (left) channel to right channel also:
+    if (buffer.getNumChannels() > 1) {
+        buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
+    }
+
+
+
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
@@ -618,7 +637,9 @@ AudioProcessor* JUCE_CALLTYPE createPluginFilter()
     return new AmpedAudioProcessor();
 }
 
-//==============================================================================
+
+/*
+
 void AmpedAudioProcessor::interleaveSamples (double** source, double* dest, int numSamples, int numChannels)
 {
     for (int chan = 0; chan < numChannels; ++chan)
@@ -648,3 +669,4 @@ void AmpedAudioProcessor::deinterleaveSamples (double* source, double** dest, in
         }
     }
 }
+*/
