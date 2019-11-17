@@ -65,17 +65,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     updateButton->setBounds (824, 584, 150, 24);
 
-    label3.reset (new Label ("new label",
-                             TRANS("Input Max / Min")));
-    addAndMakeVisible (label3.get());
-    label3->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label3->setJustificationType (Justification::centredLeft);
-    label3->setEditable (false, false, false);
-    label3->setColour (TextEditor::textColourId, Colours::black);
-    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label3->setBounds (808, 72, 150, 24);
-
     label4.reset (new Label ("new label",
                              TRANS("Output Max / Min")));
     addAndMakeVisible (label4.get());
@@ -97,7 +86,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     inMin->setPopupMenuEnabled (true);
     inMin->setText (String());
 
-    inMin->setBounds (816, 104, 47, 24);
+    inMin->setBounds (816, 48, 47, 24);
 
     inMax.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (inMax.get());
@@ -109,7 +98,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     inMax->setPopupMenuEnabled (true);
     inMax->setText (String());
 
-    inMax->setBounds (872, 104, 47, 24);
+    inMax->setBounds (872, 48, 47, 24);
 
     mMin.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (mMin.get());
@@ -242,41 +231,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
     addAndMakeVisible (trebleEq.get());
     trebleEq->setBounds (8, 614, 768, 40);
 
-    label2.reset (new Label ("new label",
-                             TRANS("Output Max / Min")));
-    addAndMakeVisible (label2.get());
-    label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label2->setJustificationType (Justification::centredLeft);
-    label2->setEditable (false, false, false);
-    label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label2->setBounds (808, 136, 150, 24);
-
-    mMin2.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (mMin2.get());
-    mMin2->setMultiLine (false);
-    mMin2->setReturnKeyStartsNewLine (false);
-    mMin2->setReadOnly (false);
-    mMin2->setScrollbarsShown (true);
-    mMin2->setCaretVisible (true);
-    mMin2->setPopupMenuEnabled (true);
-    mMin2->setText (String());
-
-    mMin2->setBounds (816, 168, 47, 24);
-
-    mMax2.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (mMax2.get());
-    mMax2->setMultiLine (false);
-    mMax2->setReturnKeyStartsNewLine (false);
-    mMax2->setReadOnly (false);
-    mMax2->setScrollbarsShown (true);
-    mMax2->setCaretVisible (true);
-    mMax2->setPopupMenuEnabled (true);
-    mMax2->setText (String());
-
-    mMax2->setBounds (872, 168, 47, 24);
-
     label5.reset (new Label ("new label",
                              TRANS("Hornet Drive (0.0 - 1.0)")));
     addAndMakeVisible (label5.get());
@@ -286,7 +240,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label5->setColour (TextEditor::textColourId, Colours::black);
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label5->setBounds (808, 208, 168, 24);
+    label5->setBounds (816, 240, 168, 24);
 
     hornetDrive.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (hornetDrive.get());
@@ -298,7 +252,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     hornetDrive->setPopupMenuEnabled (true);
     hornetDrive->setText (String());
 
-    hornetDrive->setBounds (816, 240, 47, 24);
+    hornetDrive->setBounds (824, 272, 47, 24);
 
     label8.reset (new Label ("new label",
                              TRANS("Hornet Presence (0.0 - 1.0)\n")));
@@ -309,7 +263,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label8->setColour (TextEditor::textColourId, Colours::black);
     label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label8->setBounds (808, 280, 184, 24);
+    label8->setBounds (816, 312, 184, 24);
 
     hornetPresence.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (hornetPresence.get());
@@ -321,7 +275,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     hornetPresence->setPopupMenuEnabled (true);
     hornetPresence->setText (String());
 
-    hornetPresence->setBounds (816, 312, 47, 24);
+    hornetPresence->setBounds (824, 344, 47, 24);
 
     presenceEq.reset (new UIEQSettings());
     addAndMakeVisible (presenceEq.get());
@@ -340,6 +294,53 @@ AdminSettingsWindow::AdminSettingsWindow ()
     loadButton->addListener (this);
 
     loadButton->setBounds (824, 648, 150, 24);
+
+    label9.reset (new Label ("new label",
+                             TRANS("Input Max / Min\n"
+                             "Dont Touch!")));
+    addAndMakeVisible (label9.get());
+    label9->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label9->setJustificationType (Justification::centredLeft);
+    label9->setEditable (false, false, false);
+    label9->setColour (TextEditor::textColourId, Colours::black);
+    label9->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label9->setBounds (808, 16, 150, 24);
+
+    driveMin.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (driveMin.get());
+    driveMin->setMultiLine (false);
+    driveMin->setReturnKeyStartsNewLine (false);
+    driveMin->setReadOnly (false);
+    driveMin->setScrollbarsShown (true);
+    driveMin->setCaretVisible (true);
+    driveMin->setPopupMenuEnabled (true);
+    driveMin->setText (String());
+
+    driveMin->setBounds (816, 108, 47, 24);
+
+    driveMax.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (driveMax.get());
+    driveMax->setMultiLine (false);
+    driveMax->setReturnKeyStartsNewLine (false);
+    driveMax->setReadOnly (false);
+    driveMax->setScrollbarsShown (true);
+    driveMax->setCaretVisible (true);
+    driveMax->setPopupMenuEnabled (true);
+    driveMax->setText (String());
+
+    driveMax->setBounds (872, 108, 47, 24);
+
+    label10.reset (new Label ("new label",
+                              TRANS("Drive Max / Min")));
+    addAndMakeVisible (label10.get());
+    label10->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label10->setJustificationType (Justification::centredLeft);
+    label10->setEditable (false, false, false);
+    label10->setColour (TextEditor::textColourId, Colours::black);
+    label10->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label10->setBounds (808, 76, 150, 24);
 
 
     //[UserPreSize]
@@ -362,7 +363,6 @@ AdminSettingsWindow::~AdminSettingsWindow()
     preInputType = nullptr;
     label = nullptr;
     updateButton = nullptr;
-    label3 = nullptr;
     label4 = nullptr;
     inMin = nullptr;
     inMax = nullptr;
@@ -383,9 +383,6 @@ AdminSettingsWindow::~AdminSettingsWindow()
     middleEq = nullptr;
     component3 = nullptr;
     trebleEq = nullptr;
-    label2 = nullptr;
-    mMin2 = nullptr;
-    mMax2 = nullptr;
     label5 = nullptr;
     hornetDrive = nullptr;
     label8 = nullptr;
@@ -393,6 +390,10 @@ AdminSettingsWindow::~AdminSettingsWindow()
     presenceEq = nullptr;
     updateButton2 = nullptr;
     loadButton = nullptr;
+    label9 = nullptr;
+    driveMin = nullptr;
+    driveMax = nullptr;
+    label10 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -514,8 +515,8 @@ void AdminSettingsWindow::updateSettings() {
     settings->gainSettings[GainProcessorId::InputGain].max = inMax->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::OutputGain].max = mMax->getText().getFloatValue();
     settings->gainSettings[GainProcessorId::OutputGain].min = mMin->getText().getFloatValue();
-    settings->gainSettings[GainProcessorId::DriveGain].min = inMin->getText().getFloatValue();
-    settings->gainSettings[GainProcessorId::DriveGain].max = inMax->getText().getFloatValue();
+    settings->gainSettings[GainProcessorId::DriveGain].min = driveMin->getText().getFloatValue();
+    settings->gainSettings[GainProcessorId::DriveGain].max = driveMax->getText().getFloatValue();
 
     settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
@@ -547,8 +548,10 @@ void AdminSettingsWindow::setupUI(){
     this->mMax->setText(String(settings->gainSettings[GainProcessorId::OutputGain].max), dontSendNotification);
     this->inMin->setText(String(settings->gainSettings[GainProcessorId::InputGain].min), dontSendNotification);
     this->inMax->setText(String(settings->gainSettings[GainProcessorId::InputGain].max), dontSendNotification);
+    this->driveMax->setText(String(settings->gainSettings[GainProcessorId::DriveGain].max), dontSendNotification);
+    this->driveMin->setText(String(settings->gainSettings[GainProcessorId::DriveGain].min), dontSendNotification);
 
-   // this->eqGain->setText(String(settings->ampSettings.eqGain));
+    // this->eqGain->setText(String(settings->ampSettings.eqGain));
 
     this->preTube1Settings->setupUI(settings->ampSettings.preAmpTubes[0],"Pre Amp Tube 1");
     this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
@@ -676,22 +679,17 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="3518e4a88f598a7" memberName="updateButton"
               virtualName="" explicitFocusOrder="0" pos="824 584 150 24" buttonText="Update"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
-  <LABEL name="new label" id="7237a071422d3973" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="808 72 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Input Max / Min" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="ea8a683340dc7a41" memberName="label4" virtualName=""
          explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="8e867a582e3c87dd" memberName="inMin"
-              virtualName="" explicitFocusOrder="0" pos="816 104 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="816 48 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <TEXTEDITOR name="new text editor" id="bf18a407ae51f5ef" memberName="inMax"
-              virtualName="" explicitFocusOrder="0" pos="872 104 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="872 48 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <TEXTEDITOR name="new text editor" id="46143fb20b12f67" memberName="mMin"
@@ -756,35 +754,22 @@ BEGIN_JUCER_METADATA
   <JUCERCOMP name="" id="c1dae00a7f289494" memberName="trebleEq" virtualName=""
              explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
-  <LABEL name="new label" id="9d9e191e697d9e82" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="6a8160b611c40b4e" memberName="mMin2"
-              virtualName="" explicitFocusOrder="0" pos="816 168 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
-  <TEXTEDITOR name="new text editor" id="d2a810c2e62996e8" memberName="mMax2"
-              virtualName="" explicitFocusOrder="0" pos="872 168 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
   <LABEL name="new label" id="3857fe40619377d4" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="808 208 168 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="816 240 168 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Drive (0.0 - 1.0)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="6da8bc166af565b8" memberName="hornetDrive"
-              virtualName="" explicitFocusOrder="0" pos="816 240 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="824 272 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="new label" id="e83a6ccb98be6e9a" memberName="label8" virtualName=""
-         explicitFocusOrder="0" pos="808 280 184 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="816 312 184 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Presence (0.0 - 1.0)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="924bcf4c8fd15167" memberName="hornetPresence"
-              virtualName="" explicitFocusOrder="0" pos="816 312 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="824 344 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="presenceEq" virtualName=""
@@ -796,6 +781,24 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="5f7cd414ef4bc0e9" memberName="loadButton"
               virtualName="" explicitFocusOrder="0" pos="824 648 150 24" buttonText="Load"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="new label" id="ea33da321f3a70e2" memberName="label9" virtualName=""
+         explicitFocusOrder="0" pos="808 16 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Input Max / Min&#10;Dont Touch!" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="3e8959223324712" memberName="driveMin"
+              virtualName="" explicitFocusOrder="0" pos="816 108 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="6003f14ffc6e1178" memberName="driveMax"
+              virtualName="" explicitFocusOrder="0" pos="872 108 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="3eec3084a6030705" memberName="label10" virtualName=""
+         explicitFocusOrder="0" pos="808 76 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Drive Max / Min" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

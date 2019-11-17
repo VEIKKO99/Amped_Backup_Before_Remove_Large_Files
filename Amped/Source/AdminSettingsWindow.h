@@ -83,7 +83,6 @@ private:
     std::unique_ptr<ComboBox> preInputType;
     std::unique_ptr<Label> label;
     std::unique_ptr<TextButton> updateButton;
-    std::unique_ptr<Label> label3;
     std::unique_ptr<Label> label4;
     std::unique_ptr<TextEditor> inMin;
     std::unique_ptr<TextEditor> inMax;
@@ -104,9 +103,6 @@ private:
     std::unique_ptr<UIEQSettings> middleEq;
     std::unique_ptr<UIEQSettings> component3;
     std::unique_ptr<UIEQSettings> trebleEq;
-    std::unique_ptr<Label> label2;
-    std::unique_ptr<TextEditor> mMin2;
-    std::unique_ptr<TextEditor> mMax2;
     std::unique_ptr<Label> label5;
     std::unique_ptr<TextEditor> hornetDrive;
     std::unique_ptr<Label> label8;
@@ -114,6 +110,10 @@ private:
     std::unique_ptr<UIEQSettings> presenceEq;
     std::unique_ptr<TextButton> updateButton2;
     std::unique_ptr<TextButton> loadButton;
+    std::unique_ptr<Label> label9;
+    std::unique_ptr<TextEditor> driveMin;
+    std::unique_ptr<TextEditor> driveMax;
+    std::unique_ptr<Label> label10;
 
 
     //==============================================================================

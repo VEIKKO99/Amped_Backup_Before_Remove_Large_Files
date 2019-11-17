@@ -123,7 +123,7 @@ public:
         }
         return getTotalNumInputChannels();
     }
-    
+
 protected:
     
     std::shared_ptr<SoundSettings> soundSettings = nullptr;
@@ -173,8 +173,8 @@ public:
     
 public:
     float* gainValue = NULL;
-    float gainMin = -10;
-    float gainMax = 10;
+    float gainMin = -24;
+    float gainMax = 24;
 
 private:
     dsp::Gain<float> gain;

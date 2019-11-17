@@ -260,6 +260,8 @@ public:
 class SoundSettings {
 public:
     SoundSettings() {
+        gainSettings[GainProcessorId::InputGain].min = -24;
+        gainSettings[GainProcessorId::InputGain].max = 24;
     }
 
     InternalAmpSettings ampSettings;
