@@ -12,3 +12,5 @@
 
 enum GainProcessorId { InputGain = 0, OutputGain, DriveGain, SIZE};
 
+const int AMPED_MONO_CHANNEL = 1;
+

@@ -14,6 +14,8 @@
 #include "original_hornet/TubeAmp.h"
 #include "UIConsts.h"
 #include "AdminSettingsUtil.h"
+#include "AmpedAudioProcessorBase.h"
+
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
 
@@ -97,13 +99,9 @@ public:
     
 private:
     
-    void initInpulseResponseProcessor(const char *data, double sampleRate, int samplesPerBlock, int size, juce::dsp::Convolution& convolution);
     void initInternalAmpSettings();
     void updateGraph();
 
-    static void interleaveSamples (double** source, double* dest, int numSamples, int numChannels);
-    
-    static void deinterleaveSamples (double* source, double** dest, int numSamples, int numChannels);
     void initialiseGraph();
 
     void connectAudioNodes();
@@ -119,7 +117,7 @@ private:
     
     void setupAmp();
 
-    std::unique_ptr<AudioProcessorGraph> mainProcessor;
+    std::unique_ptr<AmpedMonoAudioGraph> mainProcessor;
     void initProcessor(Node::Ptr processor);
     
     //TubeAmp tubeAmp;
@@ -140,11 +138,7 @@ private:
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
 #endif
-    
 
-//    juce::dsp::Convolution cabSim;
-//    juce::dsp::Convolution ampSim;
-    
     Node::Ptr audioInputNode;
     Node::Ptr audioOutputNode;
     Node::Ptr midiInputNode;
@@ -171,6 +165,4 @@ private:
     std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
-
-  //  juce::dsp::ProcessorChain<juce::dsp::Convolution> fxChain;
 };
