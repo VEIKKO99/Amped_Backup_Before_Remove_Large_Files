@@ -406,7 +406,7 @@ void AdminSettingsWindow::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff323e44));
+    g.fillAll (Colour (0xff324144));
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -666,7 +666,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="0" initialWidth="1000" initialHeight="800">
-  <BACKGROUND backgroundColour="ff323e44"/>
+  <BACKGROUND backgroundColour="ff324144"/>
   <COMBOBOX name="new combo box" id="c0d7bac554763e1" memberName="preInputType"
             virtualName="" explicitFocusOrder="0" pos="8 32 150 24" editable="0"
             layout="33" items="&#9;&#9;kGuitarKit&#10;&#9;&#9;kFender&#10;&#9;&#9;kMarshall&#10;&#9;&#9;kMesa"

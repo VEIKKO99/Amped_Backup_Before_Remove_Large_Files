@@ -15,7 +15,7 @@
 
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
-                             AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel), processor(p)
+                             AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel), processor(p), effectsBar(vts)
 {
     setLookAndFeel(&ampLookAndFeel);
 
@@ -25,6 +25,11 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     adminUIButton.addListener(this);
     addAndMakeVisible (versionLabel);
 #endif
+
+    addAndMakeVisible(effectsButton);
+    addAndMakeVisible(effectsBar);
+    effectsBar.setVisible(false);
+    effectsButton.addListener(this);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 }
@@ -34,24 +39,30 @@ MainComponent::~MainComponent()
     setLookAndFeel(nullptr);
 }
 
-#ifdef AMPED_DEBUG
 
 void MainComponent::buttonClicked (Button* button)
 {
-    //std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow(new AmpedAdminSettingsWindowOverride()) ;
-    //ScopedPointer<AmpedAdminSettingsWindowOverride> adminUIWindow = new AmpedAdminSettingsWindowOverride() ;
-    if (adminUIWindow == nullptr) {
-        adminUIWindow.reset(new AmpedAdminSettingsWindowOverride());
-        adminUIWindow->setUsingNativeTitleBar (false);
-        adminUIWindow->setCentrePosition(400, 400);
-        adminUIWindow->setResizable(false, false);
-        adminUIWindow->setContentOwned(new AdminSettingsWindow(&processor),true);
-    }
-    adminUIWindow->setVisible (true);
+    if (button == &effectsButton) {
 
-  //  adminUIWindow->setContentOwned (new AdminSettingsWindow());
-}
+    }
+
+#ifdef AMPED_DEBUG
+    if (button == &adminUIButton) {
+        if (adminUIWindow == nullptr) {
+            adminUIWindow.reset(new AmpedAdminSettingsWindowOverride());
+            adminUIWindow->setUsingNativeTitleBar(false);
+            adminUIWindow->setCentrePosition(400, 400);
+            adminUIWindow->setResizable(false, false);
+            adminUIWindow->setContentOwned(new AdminSettingsWindow(&processor), true);
+        }
+        adminUIWindow->setVisible(true);
+    }
+    if (button == &effectsButton) {
+        effectsBar.setVisible(!effectsBar.isVisible());
+    }
 #endif
+
+}
 
 void MainComponent::paint (Graphics& g)
 {
@@ -89,6 +100,9 @@ void MainComponent::resized()
     versionLabel.setText(date + " - " + time, dontSendNotification);
     versionLabel.setColour (Label::textColourId, Colours::lightgreen);
 #endif
+    effectsButton.setButtonText("Effects");
+    effectsButton.setBounds(600, 24, 240, 54);
+    effectsBar.setBounds(0, 140, 1200, 289);
     // This method is where you should set the bounds of any child
     // components that your component contains..
 

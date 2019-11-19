@@ -20,7 +20,9 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
       AudioProcessor (BusesProperties()
                        .withInput  ("Input",  AudioChannelSet::stereo(), true)
                        .withOutput ("Output", AudioChannelSet::stereo(), true)),
-                    mainProcessor  (new AmpedMonoAudioGraph()),
+                        mainProcessor  (new AmpedMonoAudioGraph()),
+                        preEffectsProcessor  (new AmpedMonoAudioGraph()),
+
                     parameters (*this, nullptr, Identifier ("AmpedV100"),
                     {
                         std::make_unique<AudioParameterFloat> ("input",            // parameterID
@@ -38,8 +40,13 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
-                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f)
-                        #ifdef AMPED_DEBUG
+                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> ("effects_od_drive", "OD Drive", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> ("effects_od_tone", "OD Tone", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> ("effects_od_level", "OD Level", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> ("effects_od_on", "OD om", false)
+
+#ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
                         #endif
 
@@ -47,6 +54,8 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
 #endif
 {
     mainProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
+    preEffectsProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
+
     inputParameter = parameters.getRawParameterValue ("input");
     fxParameter = parameters.getRawParameterValue ("fx");
     driveParameter = parameters.getRawParameterValue ("dirve");
@@ -62,24 +71,15 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
     #endif
-    
-    initInternalAmpSettings();
 }
 
 AmpedAudioProcessor::~AmpedAudioProcessor()
 {
 }
 
-void AmpedAudioProcessor::initInternalAmpSettings()
-{
-  //  soundSettings->ampSettings.inputType = PreAmp::EInputType::kGuitarKit;
-  //  soundSettings->ampSettings.preAmpTubes[0].tubeType = TUBE_TABLE_12AX7_68k;
-  //  soundSettings->ampSettings.preAmpTubes[1].tubeType = TUBE_TABLE_12AX7_68k;
-}
-
 void AmpedAudioProcessor::settingChanged()
 {
-    for (auto node : audioProcessors) {
+    for (auto node : mainAudioProcessors) {
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
     }
     auto editor = getActiveEditor();
@@ -201,7 +201,7 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, i
     
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
-    audioProcessors.add(eq);
+    mainAudioProcessors.add(eq);
 }
 
 void AmpedAudioProcessor::initProcessor(Node::Ptr processor) {
@@ -210,9 +210,43 @@ void AmpedAudioProcessor::initProcessor(Node::Ptr processor) {
                                             getSampleRate(), getBlockSize());
 }
 
-void AmpedAudioProcessor::initialiseGraph() {
+
+void AmpedAudioProcessor::initialisePreEffectsGraph() {
+    preEffectsProcessor->clear();
+    preEffectsAudioProcessors.clear();
+
+    audioInputPreEffectsNode  = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioInputNode));
+    audioOutputPreEffectsNode = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioOutputNode));
+    preEffectsMidiInputNode = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
+    preEffectsMidiOutputNode  = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
+
+    for (auto node : preEffectsAudioProcessors)
+    {
+        initProcessor(node);
+    }
+
+    connectPreEffectsMidiNodes();
+    connectPreEffectsAudioNodes();
+
+    for (auto node : preEffectsProcessor->getNodes())
+        node->getProcessor()->enableAllBuses();
+}
+
+void AmpedAudioProcessor::connectPreEffectsAudioNodes()
+{
+    for (auto connection : preEffectsProcessor->getConnections())
+        preEffectsProcessor->removeConnection (connection);
+
+    for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
+        preEffectsProcessor->addConnection ({ { audioInputPreEffectsNode->nodeID,  channel },
+                { audioOutputPreEffectsNode->nodeID, channel } });
+    }
+}
+
+
+void AmpedAudioProcessor::initialiseMainGraph() {
     mainProcessor->clear();
-    audioProcessors.clear();
+    mainAudioProcessors.clear();
 
     audioInputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioInputNode));
     audioOutputNode = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioOutputNode));
@@ -222,18 +256,18 @@ void AmpedAudioProcessor::initialiseGraph() {
     // Input gain:
     gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
     ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
-    audioProcessors.add(gainProcessor);
+    mainAudioProcessors.add(gainProcessor);
 
     driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::DriveGain));
     ((GainProcessor*)driveProcessor->getProcessor())->gainValue = driveParameter;
-    audioProcessors.add(driveProcessor);
+    mainAudioProcessors.add(driveProcessor);
     
     // Tube amp:
     ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettings));
     
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->masterParameter = masterParameter;
-    audioProcessors.add(ampProcessor);
+    mainAudioProcessors.add(ampProcessor);
 
     
     // Bass eq:
@@ -254,22 +288,22 @@ void AmpedAudioProcessor::initialiseGraph() {
 
     // Amp sim:
     ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIr.gain));
-    audioProcessors.add(ampSimIR);
+    mainAudioProcessors.add(ampSimIR);
 
     // Cab sim:
     cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, soundSettings->ampSettings.cabIr.gain));
-    audioProcessors.add(cabSimIR);
+    mainAudioProcessors.add(cabSimIR);
     
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
-    audioProcessors.add(outputGainProcessor);
+    mainAudioProcessors.add(outputGainProcessor);
 
-    for (auto node : audioProcessors)
+    for (auto node : mainAudioProcessors)
     {
         initProcessor(node);
     }
 
-    connectAudioNodes();
+    connectMainAudioNodes();
     connectMidiNodes();
 
 
@@ -288,7 +322,7 @@ void AmpedAudioProcessor::initialiseGraph() {
         node->getProcessor()->enableAllBuses();
 }
 
-void AmpedAudioProcessor::connectAudioNodes()
+void AmpedAudioProcessor::connectMainAudioNodes()
 {
     for (auto connection : mainProcessor->getConnections())
         mainProcessor->removeConnection (connection);
@@ -325,18 +359,31 @@ void AmpedAudioProcessor::connectMidiNodes()
         { midiOutputNode->nodeID, AudioProcessorGraph::midiChannelIndex } });
 }
 
+void AmpedAudioProcessor::connectPreEffectsMidiNodes()
+{
+    preEffectsProcessor->addConnection ({ { preEffectsMidiInputNode->nodeID,  AudioProcessorGraph::midiChannelIndex },
+            { preEffectsMidiOutputNode->nodeID, AudioProcessorGraph::midiChannelIndex } });
+}
+
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
     Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
+
+    preEffectsProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+            AMPED_MONO_CHANNEL,
+            sampleRate, samplesPerBlock);
 
     mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
             AMPED_MONO_CHANNEL,
             sampleRate, samplesPerBlock);
 
+    preEffectsProcessor->prepareToPlay (sampleRate, samplesPerBlock);
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
 
-    initialiseGraph();
-    for (auto node : audioProcessors) {
+    initialisePreEffectsGraph();
+    initialiseMainGraph();
+
+    for (auto node : mainAudioProcessors) {
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
     }
 }
@@ -352,7 +399,7 @@ void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerB
                                          sampleRate, samplesPerBlock);
     
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
-    initialiseGraph();
+    initialiseMainGraph();
 
     
     
@@ -500,7 +547,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 #ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
-
+  //  preEffectsProcessor->processBlock(monoBuffer, midiMessages);
     mainProcessor->processBlock (monoBuffer, midiMessages);
 
     // We copy the mono (left) channel to right channel also:

@@ -19,7 +19,6 @@
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
 
-
 //==============================================================================
 /**
 */
@@ -99,14 +98,18 @@ public:
     
 private:
     
-    void initInternalAmpSettings();
     void updateGraph();
 
-    void initialiseGraph();
+    void initialiseMainGraph();
+    void initialisePreEffectsGraph();
 
-    void connectAudioNodes();
+    void connectPreEffectsAudioNodes();
+
+    void connectMainAudioNodes();
     void connectMidiNodes();
-    
+
+    void connectPreEffectsMidiNodes();
+
     void initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
                                const char *highPotImpulseData, int highPotImpulseDataSize,
                 float* parameter, float makeupGain, EQType type);
@@ -117,6 +120,7 @@ private:
     
     void setupAmp();
 
+    std::unique_ptr<AmpedMonoAudioGraph> preEffectsProcessor;
     std::unique_ptr<AmpedMonoAudioGraph> mainProcessor;
     void initProcessor(Node::Ptr processor);
     
@@ -139,6 +143,12 @@ private:
     float* ampSimSwitch = nullptr;
 #endif
 
+    Node::Ptr audioInputPreEffectsNode;
+    Node::Ptr audioOutputPreEffectsNode;
+    Node::Ptr preEffectsMidiInputNode;
+    Node::Ptr preEffectsMidiOutputNode;
+    Node::Ptr overdriveNode;
+
     Node::Ptr audioInputNode;
     Node::Ptr audioOutputNode;
     Node::Ptr midiInputNode;
@@ -160,8 +170,9 @@ private:
     
     Node::Ptr outputGainProcessor;
     
-    ReferenceCountedArray<Node> audioProcessors;
-    
+    ReferenceCountedArray<Node> mainAudioProcessors;
+    ReferenceCountedArray<Node> preEffectsAudioProcessors;
+
     std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
     
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
