@@ -67,7 +67,7 @@ private:
 
 #ifdef AMPED_DEBUG
     ToggleButton matchIRSwitch;
-    std::unique_ptr<ButtonAttachment> matchAttachment;;
+    std::unique_ptr<ButtonAttachment> matchAttachment;
 #endif
 
     AudioProcessorValueTreeState& valueTreeState;

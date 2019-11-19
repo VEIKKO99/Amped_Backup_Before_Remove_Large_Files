@@ -1170,6 +1170,8 @@
         <FILE id="TtyUkA" name="TREBLE_LO_IR.wav" compile="0" resource="1"
               file="res/EQ_IRs/TREBLE_LO_IR.wav"/>
       </GROUP>
+      <FILE id="YNaBDp" name="1200x289-pedals.png" compile="0" resource="1"
+            file="res/1200x289-pedals.png"/>
       <FILE id="yyWBtX" name="CAB IR_LO.wav" compile="0" resource="1" file="res/CAB IR_LO.wav"/>
       <FILE id="ienhj4" name="CAB_IR_FILTERED.wav" compile="0" resource="1"
             file="res/CAB_IR_FILTERED.wav"/>
@@ -1181,6 +1183,16 @@
       <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <GROUP id="{C67AA057-3832-6F7E-B262-88E29E976998}" name="Effects">
+        <GROUP id="{9B59BF53-11D0-7944-7709-6ADDBF418CEB}" name="HTS9">
+          <FILE id="JbRRzb" name="AudioProcessor.h" compile="0" resource="0"
+                file="Source/Effects/HTS9/AudioProcessor.h"/>
+          <FILE id="J4qQNb" name="DspFilter.cpp" compile="1" resource="0" file="Source/Effects/HTS9/DspFilter.cpp"/>
+          <FILE id="ptxexy" name="DspFilter.h" compile="0" resource="0" file="Source/Effects/HTS9/DspFilter.h"/>
+          <FILE id="nkspMz" name="rcFilter.h" compile="0" resource="0" file="Source/Effects/HTS9/rcFilter.h"/>
+          <FILE id="Pkk3qw" name="TS9.h" compile="0" resource="0" file="Source/Effects/HTS9/TS9.h"/>
+        </GROUP>
+      </GROUP>
       <FILE id="NHopDT" name="UIEQSettings.cpp" compile="1" resource="0"
             file="Source/UIEQSettings.cpp"/>
       <FILE id="GdsDnm" name="UIEQSettings.h" compile="0" resource="0" file="Source/UIEQSettings.h"/>
@@ -1239,6 +1251,8 @@
         </GROUP>
       </GROUP>
       <GROUP id="{004B61D1-1CFA-016A-7887-63CF0B445860}" name="UIComponents">
+        <FILE id="rSpdOU" name="EffectsBar.cpp" compile="1" resource="0" file="Source/EffectsBar.cpp"/>
+        <FILE id="lBC5Fc" name="EffectsBar.h" compile="0" resource="0" file="Source/EffectsBar.h"/>
         <FILE id="K7laz0" name="AmpLookAndFeel.cpp" compile="1" resource="0"
               file="Source/AmpLookAndFeel.cpp"/>
         <FILE id="PQzOva" name="AmpLookAndFeel.h" compile="0" resource="0"

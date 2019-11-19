@@ -12,6 +12,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpButtonBar.h"
+#include "EffectsBar.h"
 #ifdef AMPED_DEBUG
 #include "AdminSettingsUtil.h"
 #endif
@@ -35,16 +36,15 @@ public:
     void paint (Graphics&) override;
     void resized() override;
 
-#ifdef AMPED_DEBUG
     void buttonClicked (Button* button) override;
-#endif
-    
+
 private:
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
     AmpedAudioProcessor& processor;
     AmpLookAndFeel ampLookAndFeel;
-
+    TextButton effectsButton;
+    EffectsBar effectsBar;
 
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
