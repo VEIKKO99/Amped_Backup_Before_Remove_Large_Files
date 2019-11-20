@@ -138,7 +138,9 @@ private:
     float* masterParameter = nullptr;
     float* cabSimSwitch = nullptr;
     float* outputParameter = nullptr;
-    
+
+    float* effects_od_switch = nullptr;
+
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
 #endif

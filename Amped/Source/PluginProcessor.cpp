@@ -67,6 +67,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     cabSimSwitch = parameters.getRawParameterValue ("cabSim");
     outputParameter = parameters.getRawParameterValue ("output");
     driveParameter = parameters.getRawParameterValue ("drive");
+    effects_od_switch = parameters.getRawParameterValue("effects_od_on");
     
     #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
@@ -220,6 +221,14 @@ void AmpedAudioProcessor::initialisePreEffectsGraph() {
     preEffectsMidiInputNode = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     preEffectsMidiOutputNode  = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
 
+    overdriveNode = preEffectsProcessor->addNode (std::make_unique<EffectsODProcessor>(soundSettings));
+    EffectsODProcessor* processor = (EffectsODProcessor*) overdriveNode->getProcessor();
+    processor->driveParameter = parameters.getRawParameterValue ("effects_od_drive");
+    processor->toneParameter = parameters.getRawParameterValue ("effects_od_tone");
+    processor->levelParameter = parameters.getRawParameterValue ("effects_od_level");
+
+    preEffectsAudioProcessors.add(overdriveNode);
+
     for (auto node : preEffectsAudioProcessors)
     {
         initProcessor(node);
@@ -239,6 +248,8 @@ void AmpedAudioProcessor::connectPreEffectsAudioNodes()
 
     for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
         preEffectsProcessor->addConnection ({ { audioInputPreEffectsNode->nodeID,  channel },
+                { overdriveNode->nodeID, channel } });
+        preEffectsProcessor->addConnection ({ { overdriveNode->nodeID,  channel },
                 { audioOutputPreEffectsNode->nodeID, channel } });
     }
 }
@@ -543,11 +554,16 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     monoPointer[0] = buffer.getWritePointer(0);
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
 
+    overdriveNode->setBypassed(*effects_od_switch > .5);
+
     cabSimIR->setBypassed(*cabSimSwitch > .5);
 #ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
-  //  preEffectsProcessor->processBlock(monoBuffer, midiMessages);
+
+    if (*fxParameter < 0.5) {
+        preEffectsProcessor->processBlock(monoBuffer, midiMessages);
+    }
     mainProcessor->processBlock (monoBuffer, midiMessages);
 
     // We copy the mono (left) channel to right channel also:
