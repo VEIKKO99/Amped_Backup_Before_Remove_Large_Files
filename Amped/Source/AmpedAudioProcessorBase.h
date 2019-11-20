@@ -11,6 +11,7 @@
 #include "AmpedDsp.h"
 #include "AdminSettingsUtil.h"
 #include "Consts.h"
+#include "Effects/HTS9/TS9.h"
 
 #pragma once
 
@@ -129,6 +130,135 @@ protected:
     std::shared_ptr<SoundSettings> soundSettings = nullptr;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessorBase)
 };
+
+class HornetWrapperBase  : public AmpedAudioProcessorBase {
+
+protected:
+
+    HornetWrapperBase(std::shared_ptr<SoundSettings> settings): AmpedAudioProcessorBase(settings),
+                                                                interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
+    {
+    }
+
+    void interleaveAndConvertSamples (float** source, double* dest, int numSamples, int numChannels)
+    {
+        for (int chan = 0; chan < numChannels; ++chan)
+        {
+            auto i = chan;
+            auto src = source [chan];
+
+            for (int j = 0; j < numSamples; ++j)
+            {
+                dest [i] = (double)src [j];
+                i += numChannels;
+            }
+        }
+    }
+
+    void deinterleaveAndConvertSamples (double* source, float** dest, int numSamples, int numChannels)
+    {
+        for (int chan = 0; chan < numChannels; ++chan)
+        {
+            auto i = chan;
+            auto dst = dest [chan];
+
+            for (int j = 0; j < numSamples; ++j)
+            {
+                dst [j] = static_cast<float>(source [i]);
+                i += numChannels;
+            }
+        }
+    }
+
+    // 8192 should be enough
+    std::unique_ptr<double[]> interleavedBuffer;
+    static const int INTERLEAVED_DEFAULT_SIZE = 8192 * 2; // Two channels, 8192 samples
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HornetWrapperBase)
+
+};
+
+
+class EffectsODProcessor  : public HornetWrapperBase
+{
+
+public:
+    EffectsODProcessor(std::shared_ptr<SoundSettings> settings): HornetWrapperBase(settings)
+    {
+    }
+
+    void updateInternalSettings() override {
+        // Input type (mesa, marshall etc)
+   /*     tubeAmp.setInputType(soundSettings->ampSettings.inputType);
+
+        // Power amp:
+        tubeAmp.setPowerAmpTubeType(soundSettings->ampSettings.powerAmpTube.tubeType); // This will set the type for both tubes.
+        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[0]);
+        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[1]);
+
+        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[0], tubeAmp.mPreAmp.tubeStage[0]);
+        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
+
+        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
+        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
+
+        drive = soundSettings->ampSettings.hornetDrive;
+        presence = soundSettings->ampSettings.hornetPresence;
+
+        setupAmp();*/
+    }
+
+    void prepareToPlay (double sampleRate, int samplesPerBlock) override
+    {
+        int numOfChannels = getTotalNumInputChannels();
+
+        // If 8192 *"  samples are not enough, re-init the buffer.
+        // Todo: This might not be thread safe.
+        if (samplesPerBlock * getTotalNumInputChannels() > INTERLEAVED_DEFAULT_SIZE)
+        {
+            interleavedBuffer.reset(new double[samplesPerBlock * getTotalNumInputChannels()]);
+        }
+    }
+
+    void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
+    {
+        int numOfSamples = buffer.getNumSamples();
+        int numOfChannels = buffer.getNumChannels();
+
+        interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
+
+        effect.setTone(*toneParameter);
+        effect.setLevel(*levelParameter);
+        effect.setDistAmp(*driveParameter);
+
+        effect.process(interleavedBuffer.get(), numOfSamples);
+      //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
+
+        deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
+                numOfSamples, numOfChannels);
+    }
+
+    void reset() override
+    {
+    }
+
+    const String getName() const override { return "Effects_OD"; }
+
+public:
+
+    float* driveParameter = nullptr;
+    float* toneParameter = nullptr;
+    float* levelParameter = nullptr;
+
+private:
+
+    ts9 effect;
+   // TubeAmp tubeAmp;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EffectsODProcessor)
+
+};
+
 
 //==============================================================================
 class GainProcessor  : public AmpedAudioProcessorBase
@@ -277,44 +407,14 @@ public:
     }
 };
 
-class AmpProcessor  : public AmpedAudioProcessorBase
+
+
+class AmpProcessor  : public HornetWrapperBase
 {
-    static const int INTERLEAVED_DEFAULT_SIZE = 8192 * 2; // Two channels, 8192 samples
-    
+
 public:
-    AmpProcessor(std::shared_ptr<SoundSettings> settings): AmpedAudioProcessorBase(settings), interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
+    AmpProcessor(std::shared_ptr<SoundSettings> settings): HornetWrapperBase(settings)
     {
-       
-    }
-    
-    void interleaveAndConvertSamples (float** source, double* dest, int numSamples, int numChannels)
-    {
-        for (int chan = 0; chan < numChannels; ++chan)
-        {
-            auto i = chan;
-            auto src = source [chan];
-            
-            for (int j = 0; j < numSamples; ++j)
-            {
-                dest [i] = (double)src [j];
-                i += numChannels;
-            }
-        }
-    }
-    
-    void deinterleaveAndConvertSamples (double* source, float** dest, int numSamples, int numChannels)
-    {
-        for (int chan = 0; chan < numChannels; ++chan)
-        {
-            auto i = chan;
-            auto dst = dest [chan];
-            
-            for (int j = 0; j < numSamples; ++j)
-            {
-                dst [j] = static_cast<float>(source [i]);
-                i += numChannels;
-            }
-        }
     }
 
     void updateTubeSettings(TubeSettings& source, TubeStage& destination)
@@ -418,10 +518,7 @@ public:
 private:
     
     TubeAmp tubeAmp;
-    
-    // 8192 should be enough
-    std::unique_ptr<double[]> interleavedBuffer;
-    
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpProcessor)
 
 };

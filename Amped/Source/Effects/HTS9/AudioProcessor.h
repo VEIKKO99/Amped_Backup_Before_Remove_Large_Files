@@ -6,8 +6,7 @@
  * for oversample and block process
  */
 
-#ifndef AudioProcessor_h
-#define AudioProcessor_h
+#pragma once
 
 #ifndef _MSC_VER
 #define _aligned_malloc(N, A) malloc(N)
@@ -16,6 +15,7 @@
 
 #include "DspFilter.h"
 
+namespace Effects_OD {
 class AudioProcessor {
 	
 public:
@@ -157,5 +157,5 @@ private:
 	Dsp::ChebyIILowPass<6,1> dwnFilter;
 
 };
+}
 
-#endif

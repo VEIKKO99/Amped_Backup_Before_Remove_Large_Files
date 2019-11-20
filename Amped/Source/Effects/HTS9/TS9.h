@@ -13,7 +13,9 @@
 #include <ctime>
 #include <cstdlib>
 
-class ts9 : public AudioProcessor {
+static const double IAMP_DB = 0.11512925464970;
+
+class ts9 : public Effects_OD::AudioProcessor {
 
 public:
 	
@@ -73,7 +75,13 @@ public:
 	}
  
 protected:
-	
+
+
+	static inline double DBToAmp(double dB)
+	{
+		return exp(IAMP_DB * dB);
+	}
+
 	void processDsp(double *samples, int samplesCount) {
 		
 		while (samplesCount--) {
