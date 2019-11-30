@@ -627,7 +627,7 @@ void AdminSettingsWindow::loadSettings() {
         XmlDocument xmlDocument(settingsFile);
         auto xmlElement = xmlDocument.getDocumentElement();
         auto settings = changeInterface->getCurrentSettings();
-        settings->readFromXml(xmlElement.get());
+        settings->readFromXml(xmlElement.get(), settingsFile.getParentDirectory().getFullPathName() + File::getSeparatorString() + "files" +  File::getSeparatorString());
         setupUI();
         changeInterface->settingChanged();
     }

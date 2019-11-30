@@ -29,6 +29,18 @@ public:
     }
 };
 
+inline String getLocalFilename(String fileName, String rootFilePath) {
+    // Windows style path:
+    String name = fileName.substring (fileName.lastIndexOfChar ('\\') + 1);
+    if (name.length() == 0) {
+        // OS X path:
+        name = fileName.substring (fileName.lastIndexOfChar ('/') + 1);
+    }
+    String nameWithPath = rootFilePath + name;
+    Logger::getCurrentLogger()->writeToLog("Full local path: " + nameWithPath);
+    return nameWithPath;
+}
+
 class TubeSettings
 {
 public:
@@ -60,7 +72,6 @@ public:
         this->lowPassFbk = element->getDoubleAttribute("lowPassFbk", 0.0);
         this->tubeType = element->getIntAttribute("tubeType", 0);
     }
-
 };
 
 class IRSettings
@@ -76,9 +87,9 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement* root) {
+    void readFromXml(XmlElement* root, String rootFilePath) {
         auto element = root->getChildByName("IRSetting");
-        this->irFileName = element->getStringAttribute("irFileName");
+        this->irFileName = getLocalFilename(element->getStringAttribute("irFileName"), rootFilePath);
         this->gain = static_cast<float>(element->getDoubleAttribute("gain", 6.0));
     }
 };
@@ -101,9 +112,9 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement* element) {
-        this->lowIrFileName = element->getStringAttribute("lowIrFileName");
-        this->highIrFileName = element->getStringAttribute("highIrFileName");
+    void readFromXml(XmlElement* element, String rootFilePath) {
+        this->lowIrFileName = getLocalFilename(element->getStringAttribute("lowIrFileName"), rootFilePath);
+        this->highIrFileName = getLocalFilename(element->getStringAttribute("highIrFileName"), rootFilePath);
 
         this->gain = static_cast<float>(element->getDoubleAttribute("gain"));
         this->realisticGain = static_cast<float>(element->getDoubleAttribute("realisticGain"));
@@ -146,10 +157,10 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement* element) {
+    void readFromXml(XmlElement* element, String rootFilePath) {
         auto uiSettingsElement = element->getChildByName("UISettings");
         this->selectedKnob = uiSettingsElement->getIntAttribute("selectedKnob", 0);
-        this->mainBackgroundImageFileName = uiSettingsElement->getStringAttribute("mainBackgroundImageFileName");
+        this->mainBackgroundImageFileName = getLocalFilename(uiSettingsElement->getStringAttribute("mainBackgroundImageFileName"), rootFilePath);
     }
 };
 
@@ -213,7 +224,7 @@ public:
         return settings;
     }
 
-    void readFromXml(XmlElement* root) {
+    void readFromXml(XmlElement* root, String rootFilePath) {
         XmlElement* element = root->getChildByName("InternalAmpSettings");
 
         this->inputType = static_cast<PreAmp::EInputType>(element->getIntAttribute("inputType", 0));
@@ -226,13 +237,13 @@ public:
         powerAmpTube.readFromXml(tubeSettings->getChildByName("PowerAmpTube"));
 
         XmlElement* irElements = element->getChildByName("IRSettings");
-        cabIr.readFromXml(irElements->getChildByName("CabIr"));
-        ampIr.readFromXml(irElements->getChildByName("AmpIr"));
+        cabIr.readFromXml(irElements->getChildByName("CabIr"), rootFilePath);
+        ampIr.readFromXml(irElements->getChildByName("AmpIr"), rootFilePath);
 
         XmlElement* eqSettings = element->getChildByName("EQSettings");
         for (int i = 0; i < eqSettings->getNumChildElements(); i++) {
             if (i < kEQSize) {
-                eqs[i].readFromXml(eqSettings->getChildElement(i));
+                eqs[i].readFromXml(eqSettings->getChildElement(i), rootFilePath);
             }
         }
     }
@@ -282,16 +293,15 @@ public:
        return rootElement;
     }
 
-    void readFromXml(XmlElement* root) {
+    void readFromXml(XmlElement* root, String rootFilePath) {
         auto minMaxElements = root->getChildByName("MaxMinSettings");
-        uiSettings.readFromXml(root);
+        uiSettings.readFromXml(root, rootFilePath);
         for (int i = 0; i < minMaxElements->getNumChildElements(); i++) {
             if (i < GainProcessorId::SIZE) {
                 gainSettings[i].readFromXml(minMaxElements->getChildElement(i));
             }
         }
-        ampSettings.readFromXml(root);
-
+        ampSettings.readFromXml(root, rootFilePath);
     }
 };
 
