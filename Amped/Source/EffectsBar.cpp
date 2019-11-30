@@ -16,6 +16,7 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
 {
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
+    setLookAndFeel(&effectsLookAndFeel);
     addAndMakeVisible(onOffButton);
     onOffButtonAttachment.reset (new ButtonAttachment (valueTreeState, "effects_od_on", onOffButton));
     initSliderComponent(driveSlider,"effects_od_drive", driveAttachment);
@@ -68,9 +69,9 @@ void EffectsBar::paint (Graphics& g)
 void EffectsBar::resized()
 {
     onOffButton.setBounds(470, 160, 100, 100);
-    driveSlider.setBounds(426, 30, 60, 60);
-    toneSlider.setBounds(466, 0, 60, 60);
-    levelSlider.setBounds(506, 30, 60, 60);
+    driveSlider.setBounds(426, 30, 62, 62);
+    toneSlider.setBounds(466, 0, 62, 62);
+    levelSlider.setBounds(506, 30, 62, 62);
 
     // This method is where you should set the bounds of any child
     // components that your component contains..

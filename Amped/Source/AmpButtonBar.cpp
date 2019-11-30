@@ -22,6 +22,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     initSliderComponent(inputSlider, "input", inputAttachment);
     addAndMakeVisible(fxSwitch);
     fxAttachment.reset (new ButtonAttachment (valueTreeState, "fx", fxSwitch));
+    fxSwitch.setWantsKeyboardFocus(false);
     initSliderComponent(driveSlider,"drive", driveAttachment);
     initSliderComponent(bassSlider, "bass", bassAttachment);
     initSliderComponent(middleSlider, "middle", middleAttachment);
@@ -29,6 +30,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     initSliderComponent(presenceSlider, "presence", presenceAttachment);
     initSliderComponent(masterSlider, "master", masterAttachment);
     addAndMakeVisible(cabSimSwitch);
+    cabSimSwitch.setWantsKeyboardFocus(false);
     cabSimAttachment.reset (new ButtonAttachment (valueTreeState, "cabSim", cabSimSwitch));
     initSliderComponent(outputSlider, "output", outputAttachment);
     // In your constructor, you should add any child components, and
@@ -38,6 +40,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
 #ifdef AMPED_DEBUG
     addAndMakeVisible(matchIRSwitch);
     matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
+    matchIRSwitch.setWantsKeyboardFocus(false);
 #endif
 }
 

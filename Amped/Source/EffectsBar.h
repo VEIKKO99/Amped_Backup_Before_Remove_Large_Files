@@ -11,6 +11,7 @@
 #pragma once
 
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "AmpLookAndFeel.h"
 
 typedef AudioProcessorValueTreeState::SliderAttachment SliderAttachment;
 typedef AudioProcessorValueTreeState::ButtonAttachment ButtonAttachment;
@@ -45,5 +46,7 @@ private:
     std::unique_ptr<ButtonAttachment> onOffButtonAttachment;
 
     AudioProcessorValueTreeState& valueTreeState;
+
+    EffectsLookAndFeel effectsLookAndFeel;
 
 };

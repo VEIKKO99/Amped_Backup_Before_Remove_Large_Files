@@ -108,6 +108,9 @@ private:
     void connectMainAudioNodes();
     void connectMidiNodes();
 
+    inline void processInputGain(AudioBuffer<float>& buffer);
+
+
     void connectPreEffectsMidiNodes();
 
     void initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,

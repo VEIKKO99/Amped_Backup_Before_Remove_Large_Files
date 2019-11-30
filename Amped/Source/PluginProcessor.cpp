@@ -265,9 +265,9 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
     
     // Input gain:
-    gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
-    ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
-    mainAudioProcessors.add(gainProcessor);
+  //  gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
+  //  ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
+  //  mainAudioProcessors.add(gainProcessor);
 
     driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::DriveGain));
     ((GainProcessor*)driveProcessor->getProcessor())->gainValue = driveParameter;
@@ -340,9 +340,7 @@ void AmpedAudioProcessor::connectMainAudioNodes()
     
     for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
         mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
-            { gainProcessor->nodeID, channel } });
-        mainProcessor->addConnection ({ { gainProcessor->nodeID,  channel },
-                { driveProcessor->nodeID, channel } });
+            { driveProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { driveProcessor->nodeID,  channel },
             { ampProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { ampProcessor->nodeID,  channel },
@@ -539,6 +537,14 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 }
 #endif
 
+inline void AmpedAudioProcessor::processInputGain(AudioBuffer<float>& buffer) {
+
+    MaxMin maxMin = soundSettings->gainSettings[InputGain];
+    float scaledGain = (maxMin.max - maxMin.min) * *inputParameter + maxMin.min;
+    float inputGainInDb = Decibels::decibelsToGain<float>(scaledGain,  maxMin.min);
+  //  Logger::getCurrentLogger()->writeToLog("Scaled: " + String(scaledGain) + "gainInDb: " + String(inputGainInDb));
+    buffer.applyGain(inputGainInDb);
+}
 
 void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
@@ -553,6 +559,8 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     float* monoPointer[1];
     monoPointer[0] = buffer.getWritePointer(0);
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
+
+    processInputGain(monoBuffer);
 
     overdriveNode->setBypassed(*effects_od_switch > .5);
 

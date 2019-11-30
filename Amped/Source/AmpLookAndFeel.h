@@ -13,15 +13,9 @@
 #include "AdminSettingsUtil.h"
 #pragma once
 
-class AmpLookAndFeel : public LookAndFeel_V4
-{
-public:
-    AmpLookAndFeel(ISoundSettingsChanged* settings)
-    {
-        this->settings = settings;
-     //   setColour (Slider::thumbColourId, Colours::red);
-    }
-    
+class AmpLookAndFeelBase: public LookAndFeel_V4 {
+
+protected:
     inline std::string getKnobResourceFilename(float sliderPos, std::string prefix)
     {
         std::ostringstream fileName;
@@ -31,23 +25,41 @@ public:
         fileName << "_png";
         return fileName.str();
     }
-    
-    
-    void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
-                           const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
-    {
-//        g.fillAll(Colours::red);
-        
-        std::string fileName = getKnobResourceFilename(sliderPos, settings->getCurrentSettings()->uiSettings.getCurrentKnobName().toStdString());
+
+    void drawRotaryS(const Graphics &g, const std::string &fileName) const {
         int dataSize;
         auto* data = BinaryData::getNamedResource (fileName.c_str(), dataSize);
-        
+
         Image myStrip = ImageCache::getFromMemory (data, dataSize);
         g.drawImageAt (myStrip, 0, 0);
     }
-    
-    
-    
+};
+
+class EffectsLookAndFeel : public AmpLookAndFeelBase {
+    void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
+            const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
+    {
+        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob62_marss_00");
+        drawRotaryS(g, fileName);
+    }
+};
+
+class AmpLookAndFeel : public AmpLookAndFeelBase
+{
+public:
+    AmpLookAndFeel(ISoundSettingsChanged* settings)
+    {
+        this->settings = settings;
+     //   setColour (Slider::thumbColourId, Colours::red);
+    }
+
+    void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
+                           const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
+    {
+        std::string fileName = getKnobResourceFilename(sliderPos, settings->getCurrentSettings()->uiSettings.getCurrentKnobName().toStdString());
+        drawRotaryS(g, fileName);
+    }
+
     void drawToggleButton (Graphics& g,
                            ToggleButton& button,
                            bool isMouseOverButton,

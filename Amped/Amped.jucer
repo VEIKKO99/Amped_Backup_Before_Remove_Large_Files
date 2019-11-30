@@ -1251,6 +1251,8 @@
         </GROUP>
       </GROUP>
       <GROUP id="{004B61D1-1CFA-016A-7887-63CF0B445860}" name="UIComponents">
+        <FILE id="NmMgkv" name="EffectsLookAndFeel.h" compile="0" resource="0"
+              file="Source/EffectsLookAndFeel.h"/>
         <FILE id="rSpdOU" name="EffectsBar.cpp" compile="1" resource="0" file="Source/EffectsBar.cpp"/>
         <FILE id="lBC5Fc" name="EffectsBar.h" compile="0" resource="0" file="Source/EffectsBar.h"/>
         <FILE id="K7laz0" name="AmpLookAndFeel.cpp" compile="1" resource="0"

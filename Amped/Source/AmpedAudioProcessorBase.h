@@ -218,6 +218,8 @@ public:
         {
             interleavedBuffer.reset(new double[samplesPerBlock * getTotalNumInputChannels()]);
         }
+        effect.setSampleRate(sampleRate);
+        effect.setNumChans(getTotalNumInputChannels());
     }
 
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
