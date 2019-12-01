@@ -12,7 +12,7 @@
 #include "AdminSettingsUtil.h"
 #include "Consts.h"
 #include "Effects/HTS9/TS9.h"
-
+#include "Effects/CompExp/CompExp.h"
 
 #pragma once
 
@@ -180,6 +180,56 @@ protected:
 };
 
 
+class EffectsNGProcessor  : public HornetWrapperBase {
+
+public:
+    EffectsNGProcessor(std::shared_ptr<SoundSettings> settings) : HornetWrapperBase(settings) {
+    }
+
+    void updateInternalSettings() override {
+    }
+
+    void prepareToPlay (double sampleRate, int samplesPerBlock) override
+    {
+        int numOfChannels = getTotalNumInputChannels();
+
+        // If 8192 *"  samples are not enough, re-init the buffer.
+        // Todo: This might not be thread safe.
+        if (samplesPerBlock * getTotalNumInputChannels() > INTERLEAVED_DEFAULT_SIZE)
+        {
+            interleavedBuffer.reset(new double[samplesPerBlock * getTotalNumInputChannels()]);
+        }
+        effect.SetMode(CompExp::ECompMode::kExp);
+        effect.SetAttack(1.0);
+        effect.SetRelease(50.0);
+    }
+
+    void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
+    {
+        int numOfSamples = buffer.getNumSamples();
+        int numOfChannels = buffer.getNumChannels();
+
+        interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
+
+        effect.SetRatio(*thresholdParam);
+        effect.Process(interleavedBuffer.get(), numOfSamples);
+        //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
+
+        deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
+                numOfSamples, numOfChannels);
+    }
+
+public:
+    float* thresholdParam = nullptr;
+
+private:
+    CompExp effect;
+
+    // TubeAmp tubeAmp;
+
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EffectsNGProcessor)
+};
+
 class EffectsODProcessor  : public HornetWrapperBase
 {
 
@@ -189,24 +239,6 @@ public:
     }
 
     void updateInternalSettings() override {
-        // Input type (mesa, marshall etc)
-   /*     tubeAmp.setInputType(soundSettings->ampSettings.inputType);
-
-        // Power amp:
-        tubeAmp.setPowerAmpTubeType(soundSettings->ampSettings.powerAmpTube.tubeType); // This will set the type for both tubes.
-        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[0]);
-        updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[1]);
-
-        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[0], tubeAmp.mPreAmp.tubeStage[0]);
-        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
-
-        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
-        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
-
-        drive = soundSettings->ampSettings.hornetDrive;
-        presence = soundSettings->ampSettings.hornetPresence;
-
-        setupAmp();*/
     }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override

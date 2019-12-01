@@ -1308,6 +1308,12 @@
       <FILE id="AdMBg3" name="SoundSettingsModel.h" compile="0" resource="0"
             file="Source/SoundSettingsModel.h"/>
       <GROUP id="{C67AA057-3832-6F7E-B262-88E29E976998}" name="Effects">
+        <GROUP id="{F1583737-B0E0-12A4-D63A-C6890A4FDAFE}" name="CompExp">
+          <FILE id="sgF71l" name="CompExp.cpp" compile="1" resource="0" file="Source/Effects/CompExp/CompExp.cpp"/>
+          <FILE id="sLosF0" name="CompExp.h" compile="0" resource="0" file="Source/Effects/CompExp/CompExp.h"/>
+          <FILE id="ct01BX" name="envelopeFollower.h" compile="0" resource="0"
+                file="Source/Effects/CompExp/envelopeFollower.h"/>
+        </GROUP>
         <GROUP id="{9B59BF53-11D0-7944-7709-6ADDBF418CEB}" name="HTS9">
           <FILE id="JbRRzb" name="AudioProcessor.h" compile="0" resource="0"
                 file="Source/Effects/HTS9/AudioProcessor.h"/>
