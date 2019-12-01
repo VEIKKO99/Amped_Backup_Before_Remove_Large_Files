@@ -44,7 +44,9 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("effects_od_drive", "OD Drive", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("effects_od_tone", "OD Tone", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("effects_od_level", "OD Level", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterBool> ("effects_od_on", "OD om", false)
+                        std::make_unique<AudioParameterBool> ("effects_od_on", "OD on", false),
+                        std::make_unique<AudioParameterBool> ("effects_ng_on", "NG on", false),
+                        std::make_unique<AudioParameterFloat> ("effects_ng_threshold", "NG Threshold", 1.0f, 10.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
@@ -68,8 +70,9 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     outputParameter = parameters.getRawParameterValue ("output");
     driveParameter = parameters.getRawParameterValue ("drive");
     effects_od_switch = parameters.getRawParameterValue("effects_od_on");
-    
-    #ifdef AMPED_DEBUG
+    effects_ng_switch = parameters.getRawParameterValue("effects_ng_on");
+
+#ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
     #endif
 }
@@ -227,12 +230,16 @@ void AmpedAudioProcessor::initialisePreEffectsGraph() {
     preEffectsMidiInputNode = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     preEffectsMidiOutputNode  = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
 
+    noiseGateNode = preEffectsProcessor->addNode (std::make_unique<EffectsNGProcessor>(soundSettingsModel.getCurrentSetting()));
+    EffectsNGProcessor* ngProcessor = (EffectsNGProcessor*) noiseGateNode->getProcessor();
+    ngProcessor->thresholdParam = parameters.getRawParameterValue ("effects_ng_threshold");
+    preEffectsAudioProcessors.add(noiseGateNode);
+
     overdriveNode = preEffectsProcessor->addNode (std::make_unique<EffectsODProcessor>(soundSettingsModel.getCurrentSetting()));
     EffectsODProcessor* processor = (EffectsODProcessor*) overdriveNode->getProcessor();
     processor->driveParameter = parameters.getRawParameterValue ("effects_od_drive");
     processor->toneParameter = parameters.getRawParameterValue ("effects_od_tone");
     processor->levelParameter = parameters.getRawParameterValue ("effects_od_level");
-
     preEffectsAudioProcessors.add(overdriveNode);
 
     for (auto node : preEffectsAudioProcessors)
@@ -254,6 +261,8 @@ void AmpedAudioProcessor::connectPreEffectsAudioNodes()
 
     for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
         preEffectsProcessor->addConnection ({ { audioInputPreEffectsNode->nodeID,  channel },
+                { noiseGateNode->nodeID, channel } });
+        preEffectsProcessor->addConnection ({ { noiseGateNode->nodeID,  channel },
                 { overdriveNode->nodeID, channel } });
         preEffectsProcessor->addConnection ({ { overdriveNode->nodeID,  channel },
                 { audioOutputPreEffectsNode->nodeID, channel } });
@@ -572,7 +581,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
 
     processInputGain(monoBuffer);
-
+    noiseGateNode->setBypassed(*effects_ng_switch > .5);
     overdriveNode->setBypassed(*effects_od_switch > .5);
 
     cabSimIR->setBypassed(*cabSimSwitch > .5);

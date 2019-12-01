@@ -143,6 +143,7 @@ private:
     float* outputParameter = nullptr;
 
     float* effects_od_switch = nullptr;
+    float* effects_ng_switch = nullptr;
 
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
@@ -153,6 +154,8 @@ private:
     Node::Ptr preEffectsMidiInputNode;
     Node::Ptr preEffectsMidiOutputNode;
     Node::Ptr overdriveNode;
+    Node::Ptr noiseGateNode;
+
 
     Node::Ptr audioInputNode;
     Node::Ptr audioOutputNode;

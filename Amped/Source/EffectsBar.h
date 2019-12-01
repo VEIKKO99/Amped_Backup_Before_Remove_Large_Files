@@ -45,6 +45,12 @@ private:
     ToggleButton onOffButton;
     std::unique_ptr<ButtonAttachment> onOffButtonAttachment;
 
+    Slider ngThreshold;
+    std::unique_ptr<SliderAttachment> ngThresholdAttachment;
+
+    ToggleButton ngOnOffButton;
+    std::unique_ptr<ButtonAttachment> ngOnOffButtonAttachment;
+
     AudioProcessorValueTreeState& valueTreeState;
 
     EffectsLookAndFeel effectsLookAndFeel;
