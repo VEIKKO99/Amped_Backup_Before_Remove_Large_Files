@@ -7,6 +7,35 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <GROUP id="{299176D2-9CE7-FE35-3ED2-7E0324FFEB95}" name="SoundSettings">
+        <GROUP id="{D6351969-3175-CD3F-323E-BB9045A87E76}" name="SoundSettings">
+          <GROUP id="{0C47FD49-297A-3967-4CE7-E4FAB90FBCE9}" name="files">
+            <FILE id="hV7VVA" name="1200x600_fluff_5034_PROJECT.png" compile="0"
+                  resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT.png"/>
+            <FILE id="WOCPOm" name="FLUFF_5034_BASS_00.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_BASS_00.wav"/>
+            <FILE id="SAK1iF" name="FLUFF_5034_BASS_10.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_BASS_10.wav"/>
+            <FILE id="OTWGZf" name="FLUFF_5034_MATCH.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_MATCH.wav"/>
+            <FILE id="YWegFl" name="FLUFF_5034_MIDDLE_00.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_MIDDLE_00.wav"/>
+            <FILE id="qW3KgU" name="FLUFF_5034_MIDDLE_10.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_MIDDLE_10.wav"/>
+            <FILE id="oJgu9N" name="FLUFF_5034_PRESENCE_00.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_PRESENCE_00.wav"/>
+            <FILE id="ECMbmO" name="FLUFF_5034_PRESENCE_10.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_PRESENCE_10.wav"/>
+            <FILE id="dsKhXt" name="FLUFF_5034_TREBLE_00.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_TREBLE_00.wav"/>
+            <FILE id="REHXXB" name="FLUFF_5034_TREBLE_10.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/FLUFF_5034_TREBLE_10.wav"/>
+            <FILE id="ENXakF" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+                  file="res/SoundSettings/files/ML-MEGA-OS-Almighty.wav"/>
+          </GROUP>
+          <FILE id="yBwzy1" name="Fluff_5034.apd" compile="0" resource="1" file="res/SoundSettings/Fluff_5034.apd"/>
+        </GROUP>
+      </GROUP>
       <GROUP id="{6702B31C-D20E-AE2F-7470-FFB0D2A87347}" name="amped_knob62_chkn">
         <FILE id="GJvMKm" name="amped_knob62_chknw_0000.png" compile="0" resource="1"
               file="res/amped_knob62_chkn/amped_knob62_chknw_0000.png"/>
@@ -1149,40 +1178,13 @@
         <FILE id="XPQHws" name="amped_switch62_0020.png" compile="0" resource="1"
               file="res/amped_switch62/amped_switch62_0020.png"/>
       </GROUP>
-      <GROUP id="{ECFEE057-5F1B-D950-9912-AED5D9ACB82B}" name="EQ_IRs">
-        <FILE id="mrK0v5" name="ac_test.wav" compile="0" resource="1" file="res/EQ_IRs/ac_test.wav"/>
-        <FILE id="a1VXkS" name="BASS_HI_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_HI_IR.wav"/>
-        <FILE id="Vf0yu6" name="BASS_LO_IR.wav" compile="0" resource="1" file="res/EQ_IRs/BASS_LO_IR.wav"/>
-        <FILE id="x8FVrK" name="DRY_IR.wav" compile="0" resource="1" file="res/EQ_IRs/DRY_IR.wav"/>
-        <FILE id="C4eeen" name="HICUT_IR_dc.wav" compile="0" resource="1" file="res/EQ_IRs/HICUT_IR_dc.wav"/>
-        <FILE id="b5yN48" name="LOWCUT_IR_dc.wav" compile="0" resource="1"
-              file="res/EQ_IRs/LOWCUT_IR_dc.wav"/>
-        <FILE id="S5epju" name="MIDDLE_HI_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/MIDDLE_HI_IR.wav"/>
-        <FILE id="SXqjYq" name="MIDDLE_LO_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/MIDDLE_LO_IR.wav"/>
-        <FILE id="Y4IqWl" name="PRESENCE_HI_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/PRESENCE_HI_IR.wav"/>
-        <FILE id="KSE0OF" name="PRESENCE_LO_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/PRESENCE_LO_IR.wav"/>
-        <FILE id="FtGW37" name="TREBLE_HI_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/TREBLE_HI_IR.wav"/>
-        <FILE id="TtyUkA" name="TREBLE_LO_IR.wav" compile="0" resource="1"
-              file="res/EQ_IRs/TREBLE_LO_IR.wav"/>
-      </GROUP>
+      <GROUP id="{ECFEE057-5F1B-D950-9912-AED5D9ACB82B}" name="EQ_IRs"/>
       <FILE id="YNaBDp" name="1200x289-pedals.png" compile="0" resource="1"
             file="res/1200x289-pedals.png"/>
-      <FILE id="yyWBtX" name="CAB IR_LO.wav" compile="0" resource="1" file="res/CAB IR_LO.wav"/>
-      <FILE id="ienhj4" name="CAB_IR_FILTERED.wav" compile="0" resource="1"
-            file="res/CAB_IR_FILTERED.wav"/>
-      <FILE id="N2BsmP" name="CABIR.wav" compile="0" resource="1" file="res/CABIR.wav"/>
-      <FILE id="dFsuyk" name="full_bg.png" compile="0" resource="1" file="res/full_bg.png"/>
-      <FILE id="CKfWEx" name="MATCH IR_LO.wav" compile="0" resource="1" file="res/MATCH IR_LO.wav"/>
-      <FILE id="Dgmu45" name="MATCH_IR_FILTERED.wav" compile="0" resource="1"
-            file="res/MATCH_IR_FILTERED.wav"/>
-      <FILE id="TVtrJ3" name="MATCHIR.wav" compile="0" resource="1" file="res/MATCHIR.wav"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
+      <FILE id="AdMBg3" name="SoundSettingsModel.h" compile="0" resource="0"
+            file="Source/SoundSettingsModel.h"/>
       <GROUP id="{C67AA057-3832-6F7E-B262-88E29E976998}" name="Effects">
         <GROUP id="{9B59BF53-11D0-7944-7709-6ADDBF418CEB}" name="HTS9">
           <FILE id="JbRRzb" name="AudioProcessor.h" compile="0" resource="0"

@@ -12,6 +12,7 @@
 #include "MainComponent.h"
 #include "UIConsts.h"
 #include "PluginProcessor.h"
+#include "Consts.h"
 
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
@@ -74,15 +75,21 @@ void MainComponent::paint (Graphics& g)
     */
 
     //g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
-    Image background;
+
     if (processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName.length() > 0) {
-        File imageFile(processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName);
-        background = ImageCache::getFromFile(imageFile);
+        String bgImageName = processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName;
+        if (bgImageName.startsWith("memory:")) {
+            int dataSize = 0;
+            auto bgImageData = getBinaryDataWithOriginalFileName(bgImageName, dataSize);
+            Image background = ImageCache::getFromMemory(bgImageData, dataSize);
+            g.drawImageAt (background, 0, 0);
+        }
+        else {
+            File imageFile(processor.getCurrentSettings()->uiSettings.mainBackgroundImageFileName);
+            Image background = ImageCache::getFromFile(imageFile);
+            g.drawImageAt (background, 0, 0);
+        }
     }
-    else {
-        background = ImageCache::getFromMemory (BinaryData::full_bg_png, BinaryData::full_bg_pngSize);
-    }
-    g.drawImageAt (background, 0, 0);
 }
 
 void MainComponent::resized()
