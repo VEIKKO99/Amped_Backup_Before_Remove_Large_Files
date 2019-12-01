@@ -15,6 +15,7 @@
 #include "UIConsts.h"
 #include "AdminSettingsUtil.h"
 #include "AmpedAudioProcessorBase.h"
+#include "SoundSettingsModel.h"
 
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
@@ -113,8 +114,7 @@ private:
 
     void connectPreEffectsMidiNodes();
 
-    void initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
-                               const char *highPotImpulseData, int highPotImpulseDataSize,
+    void initEq(Node::Ptr& eq, String lowBinFileName, String highBinFileName,
                 float* parameter, float makeupGain, EQType type);
 
 
@@ -178,7 +178,9 @@ private:
     ReferenceCountedArray<Node> mainAudioProcessors;
     ReferenceCountedArray<Node> preEffectsAudioProcessors;
 
-    std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
-    
+   // std::shared_ptr<SoundSettings> soundSettings = std::make_shared<SoundSettings>();
+
+    SoundSettingsModel soundSettingsModel;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
 };

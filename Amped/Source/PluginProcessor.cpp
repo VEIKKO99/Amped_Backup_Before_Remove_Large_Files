@@ -90,7 +90,7 @@ void AmpedAudioProcessor::settingChanged()
 }
 
 std::shared_ptr<SoundSettings> AmpedAudioProcessor::getCurrentSettings() {
-    return soundSettings;
+    return soundSettingsModel.getCurrentSetting();
 }
 
 //==============================================================================
@@ -191,14 +191,20 @@ void AmpedAudioProcessor::changeProgramName (int index, const String& newName)
  delete [] samples;
 */
 
-void AmpedAudioProcessor::initEq(Node::Ptr& eq, const char *lowPotImpulseData, int lowPotImpulseDataSize,
-                                                const char *highPotImpulseData, int highPotImpulseDataSize,
+void AmpedAudioProcessor::initEq(Node::Ptr& eq, String lowBinFileName,
+                                                String highBinFileName,
                                                 float* parameter,
                                                 float makeupGain = .0f, EQType type = EQType::kBassEq)
 {
-    eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowPotImpulseData, lowPotImpulseDataSize,
-                                           highPotImpulseData, highPotImpulseDataSize,
-                                           soundSettings, makeupGain, type));
+    int lowDataSize = 0;
+    auto* lowData = getBinaryDataWithOriginalFileName (lowBinFileName, lowDataSize);
+
+    int highDataSize = 0;
+    auto* highData = getBinaryDataWithOriginalFileName (highBinFileName, highDataSize);
+
+    eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowData, lowDataSize,
+                                           highData, highDataSize,
+                                           soundSettingsModel.getCurrentSetting(), makeupGain, type));
     
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
@@ -221,7 +227,7 @@ void AmpedAudioProcessor::initialisePreEffectsGraph() {
     preEffectsMidiInputNode = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     preEffectsMidiOutputNode  = preEffectsProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
 
-    overdriveNode = preEffectsProcessor->addNode (std::make_unique<EffectsODProcessor>(soundSettings));
+    overdriveNode = preEffectsProcessor->addNode (std::make_unique<EffectsODProcessor>(soundSettingsModel.getCurrentSetting()));
     EffectsODProcessor* processor = (EffectsODProcessor*) overdriveNode->getProcessor();
     processor->driveParameter = parameters.getRawParameterValue ("effects_od_drive");
     processor->toneParameter = parameters.getRawParameterValue ("effects_od_tone");
@@ -269,43 +275,48 @@ void AmpedAudioProcessor::initialiseMainGraph() {
   //  ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
   //  mainAudioProcessors.add(gainProcessor);
 
-    driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::DriveGain));
+    driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettingsModel.getCurrentSetting(), GainProcessorId::DriveGain));
     ((GainProcessor*)driveProcessor->getProcessor())->gainValue = driveParameter;
     mainAudioProcessors.add(driveProcessor);
     
     // Tube amp:
-    ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettings));
+    ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettingsModel.getCurrentSetting()));
     
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->masterParameter = masterParameter;
     mainAudioProcessors.add(ampProcessor);
 
-    
+    auto curSetting = soundSettingsModel.getCurrentSetting();
+
     // Bass eq:
-    initEq(bassEq, BinaryData::BASS_LO_IR_wav, BinaryData::BASS_LO_IR_wavSize,
-           BinaryData::BASS_HI_IR_wav, BinaryData::BASS_HI_IR_wavSize, bassParameter, 6.50f, EQType::kBassEq);
+    initEq(bassEq, curSetting->ampSettings.eqs[EQType::kBassEq].lowIrFileName,
+                   curSetting->ampSettings.eqs[EQType::kBassEq].highIrFileName,
+                   bassParameter, 6.50f, EQType::kBassEq);
 
     // Middle eq:
-    initEq(middleEq, BinaryData::MIDDLE_LO_IR_wav, BinaryData::MIDDLE_LO_IR_wavSize,
-           BinaryData::MIDDLE_HI_IR_wav, BinaryData::MIDDLE_HI_IR_wavSize, middleParameter, 6.5f, EQType::kMiddleEq);
+    initEq(middleEq, curSetting->ampSettings.eqs[EQType::kMiddleEq].lowIrFileName,
+                     curSetting->ampSettings.eqs[EQType::kMiddleEq].highIrFileName,
+            middleParameter, 6.5f, EQType::kMiddleEq);
     
     // Treble eq:
-    initEq(trebleEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
-           BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, trebleParameter, 6.5f, EQType::kTrebleEq);
+    initEq(trebleEq, curSetting->ampSettings.eqs[EQType::kTrebleEq].lowIrFileName,
+            curSetting->ampSettings.eqs[EQType::kTrebleEq].highIrFileName,
+            trebleParameter, 6.5f, EQType::kTrebleEq);
 
     // Presence eq:
-    initEq(presenceEq, BinaryData::TREBLE_LO_IR_wav, BinaryData::TREBLE_LO_IR_wavSize,
-            BinaryData::TREBLE_HI_IR_wav, BinaryData::TREBLE_HI_IR_wavSize, presenceParameter, 6.5f, EQType::kPresence);
+    initEq(presenceEq,curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
+            curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
+            presenceParameter, 6.5f, EQType::kPresence);
 
     // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize, soundSettings, soundSettings->ampSettings.ampIr.gain));
+    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(soundSettingsModel.getCurrentSetting(), soundSettingsModel.getCurrentSetting()->ampSettings.ampIr.gain));
     mainAudioProcessors.add(ampSimIR);
 
     // Cab sim:
-    cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(BinaryData::CABIR_wav, BinaryData::CABIR_wavSize, soundSettings, soundSettings->ampSettings.cabIr.gain));
+    cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(soundSettingsModel.getCurrentSetting(), soundSettingsModel.getCurrentSetting()->ampSettings.cabIr.gain));
     mainAudioProcessors.add(cabSimIR);
     
-    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::OutputGain));
+    outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettingsModel.getCurrentSetting(), GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     mainAudioProcessors.add(outputGainProcessor);
 
@@ -539,7 +550,7 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 
 inline void AmpedAudioProcessor::processInputGain(AudioBuffer<float>& buffer) {
 
-    MaxMin maxMin = soundSettings->gainSettings[InputGain];
+    MaxMin maxMin = soundSettingsModel.getCurrentSetting()->gainSettings[InputGain];
     float scaledGain = (maxMin.max - maxMin.min) * *inputParameter + maxMin.min;
     float inputGainInDb = Decibels::decibelsToGain<float>(scaledGain,  maxMin.min);
   //  Logger::getCurrentLogger()->writeToLog("Scaled: " + String(scaledGain) + "gainInDb: " + String(inputGainInDb));
