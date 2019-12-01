@@ -7,6 +7,128 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <GROUP id="{EF1E9526-49EC-4C08-B27C-9DB3A6CB7EB3}" name="amped_knob_pedal_0000">
+        <FILE id="tRnJ23" name="amped_knob_pedal_0000.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0000.png"/>
+        <FILE id="GMjlRO" name="amped_knob_pedal_0001.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0001.png"/>
+        <FILE id="PM5cnl" name="amped_knob_pedal_0002.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0002.png"/>
+        <FILE id="h2JkQp" name="amped_knob_pedal_0003.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0003.png"/>
+        <FILE id="rT71wl" name="amped_knob_pedal_0004.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0004.png"/>
+        <FILE id="jkQKgx" name="amped_knob_pedal_0005.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0005.png"/>
+        <FILE id="ioZoUU" name="amped_knob_pedal_0006.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0006.png"/>
+        <FILE id="O4g9uV" name="amped_knob_pedal_0007.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0007.png"/>
+        <FILE id="TcNOkM" name="amped_knob_pedal_0008.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0008.png"/>
+        <FILE id="UObA7m" name="amped_knob_pedal_0009.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0009.png"/>
+        <FILE id="GIAlO1" name="amped_knob_pedal_0010.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0010.png"/>
+        <FILE id="BUwsg7" name="amped_knob_pedal_0011.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0011.png"/>
+        <FILE id="MERhPJ" name="amped_knob_pedal_0012.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0012.png"/>
+        <FILE id="RdZAI1" name="amped_knob_pedal_0013.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0013.png"/>
+        <FILE id="bPvSMt" name="amped_knob_pedal_0014.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0014.png"/>
+        <FILE id="DSFoBU" name="amped_knob_pedal_0015.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0015.png"/>
+        <FILE id="IEgRBi" name="amped_knob_pedal_0016.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0016.png"/>
+        <FILE id="LxFjkV" name="amped_knob_pedal_0017.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0017.png"/>
+        <FILE id="XKeZoH" name="amped_knob_pedal_0018.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0018.png"/>
+        <FILE id="bLkPqq" name="amped_knob_pedal_0019.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0019.png"/>
+        <FILE id="VKZ7ab" name="amped_knob_pedal_0020.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0020.png"/>
+        <FILE id="khYVE8" name="amped_knob_pedal_0021.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0021.png"/>
+        <FILE id="KBVIQ8" name="amped_knob_pedal_0022.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0022.png"/>
+        <FILE id="CJmyzM" name="amped_knob_pedal_0023.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0023.png"/>
+        <FILE id="NwMBn7" name="amped_knob_pedal_0024.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0024.png"/>
+        <FILE id="kX0hV8" name="amped_knob_pedal_0025.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0025.png"/>
+        <FILE id="Pt9NLF" name="amped_knob_pedal_0026.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0026.png"/>
+        <FILE id="RsVanS" name="amped_knob_pedal_0027.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0027.png"/>
+        <FILE id="mloO0y" name="amped_knob_pedal_0028.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0028.png"/>
+        <FILE id="AwUbwy" name="amped_knob_pedal_0029.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0029.png"/>
+        <FILE id="ggVz9h" name="amped_knob_pedal_0030.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0030.png"/>
+        <FILE id="tEEVc6" name="amped_knob_pedal_0031.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0031.png"/>
+        <FILE id="uLRdOX" name="amped_knob_pedal_0032.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0032.png"/>
+        <FILE id="k96jtx" name="amped_knob_pedal_0033.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0033.png"/>
+        <FILE id="YEjbIL" name="amped_knob_pedal_0034.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0034.png"/>
+        <FILE id="BQwoqG" name="amped_knob_pedal_0035.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0035.png"/>
+        <FILE id="UkwqF6" name="amped_knob_pedal_0036.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0036.png"/>
+        <FILE id="WZoIMP" name="amped_knob_pedal_0037.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0037.png"/>
+        <FILE id="DTzKbc" name="amped_knob_pedal_0038.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0038.png"/>
+        <FILE id="X3vHzF" name="amped_knob_pedal_0039.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0039.png"/>
+        <FILE id="WPhqnj" name="amped_knob_pedal_0040.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0040.png"/>
+        <FILE id="EqkhXf" name="amped_knob_pedal_0041.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0041.png"/>
+        <FILE id="ANkYtX" name="amped_knob_pedal_0042.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0042.png"/>
+        <FILE id="vdnOop" name="amped_knob_pedal_0043.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0043.png"/>
+        <FILE id="potVvd" name="amped_knob_pedal_0044.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0044.png"/>
+        <FILE id="iyzuAz" name="amped_knob_pedal_0045.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0045.png"/>
+        <FILE id="yIx6hW" name="amped_knob_pedal_0046.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0046.png"/>
+        <FILE id="mBamjL" name="amped_knob_pedal_0047.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0047.png"/>
+        <FILE id="oDKsve" name="amped_knob_pedal_0048.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0048.png"/>
+        <FILE id="grfRhS" name="amped_knob_pedal_0049.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0049.png"/>
+        <FILE id="ulFCIs" name="amped_knob_pedal_0050.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0050.png"/>
+        <FILE id="J7Ar7Z" name="amped_knob_pedal_0051.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0051.png"/>
+        <FILE id="r3htD1" name="amped_knob_pedal_0052.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0052.png"/>
+        <FILE id="UpnxuD" name="amped_knob_pedal_0053.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0053.png"/>
+        <FILE id="dBGwVe" name="amped_knob_pedal_0054.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0054.png"/>
+        <FILE id="ifIhGn" name="amped_knob_pedal_0055.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0055.png"/>
+        <FILE id="O4iDWT" name="amped_knob_pedal_0056.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0056.png"/>
+        <FILE id="DU63o6" name="amped_knob_pedal_0057.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0057.png"/>
+        <FILE id="g2oXXY" name="amped_knob_pedal_0058.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0058.png"/>
+        <FILE id="QOpxvv" name="amped_knob_pedal_0059.png" compile="0" resource="1"
+              file="res/amped_knob_pedal_0000/amped_knob_pedal_0059.png"/>
+      </GROUP>
       <GROUP id="{299176D2-9CE7-FE35-3ED2-7E0324FFEB95}" name="SoundSettings">
         <GROUP id="{D6351969-3175-CD3F-323E-BB9045A87E76}" name="SoundSettings">
           <GROUP id="{0C47FD49-297A-3967-4CE7-E4FAB90FBCE9}" name="files">

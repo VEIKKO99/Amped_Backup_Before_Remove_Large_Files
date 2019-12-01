@@ -221,6 +221,7 @@ public:
         }
         effect.setSampleRate(sampleRate);
         effect.setNumChans(getTotalNumInputChannels());
+        effect.setHiss(false);
     }
 
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
@@ -231,7 +232,7 @@ public:
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
         effect.setTone(*toneParameter);
-        effect.setLevel(*levelParameter);
+        effect.setLevel((*levelParameter) / 10.0f);
         effect.setDistAmp(*driveParameter);
 
         effect.process(interleavedBuffer.get(), numOfSamples);
