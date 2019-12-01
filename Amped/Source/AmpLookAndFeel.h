@@ -39,7 +39,7 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
             const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
     {
-        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob62_marss_00");
+        std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob_pedal_00");
         drawRotaryS(g, fileName);
     }
 };

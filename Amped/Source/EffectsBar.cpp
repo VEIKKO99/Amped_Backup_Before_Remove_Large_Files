@@ -69,9 +69,9 @@ void EffectsBar::paint (Graphics& g)
 void EffectsBar::resized()
 {
     onOffButton.setBounds(470, 160, 100, 100);
-    driveSlider.setBounds(426, 30, 62, 62);
-    toneSlider.setBounds(466, 0, 62, 62);
-    levelSlider.setBounds(506, 30, 62, 62);
+    driveSlider.setBounds(430, 30, 60, 60);
+    toneSlider.setBounds(470, 30, 60, 60);
+    levelSlider.setBounds(510, 30, 60, 60);
 
     // This method is where you should set the bounds of any child
     // components that your component contains..
