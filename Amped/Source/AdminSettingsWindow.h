@@ -114,6 +114,8 @@ private:
     std::unique_ptr<TextEditor> driveMin;
     std::unique_ptr<TextEditor> driveMax;
     std::unique_ptr<Label> label10;
+    std::unique_ptr<Label> overSampleLabel;
+    std::unique_ptr<TextEditor> overSample;
 
 
     //==============================================================================

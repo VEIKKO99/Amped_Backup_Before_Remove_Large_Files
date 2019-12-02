@@ -178,6 +178,9 @@ public:
     IRSettings cabIr;
     IRSettings ampIr;
 
+    // Not read or write to xml:
+    int overSample = 1;
+
     EQSettings eqs[kEQSize];
     
 public:
