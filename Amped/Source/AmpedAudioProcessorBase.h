@@ -211,7 +211,7 @@ public:
 
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
-        effect.SetRatio(*thresholdParam);
+        effect.SetRatio(*thresholdParam * 0.3);
         effect.Process(interleavedBuffer.get(), numOfSamples);
         //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
 
@@ -475,6 +475,7 @@ public:
         updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
         tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
 
+        tubeAmp.setOversample(soundSettings->ampSettings.overSample);
         drive = soundSettings->ampSettings.hornetDrive;
         presence = soundSettings->ampSettings.hornetPresence;
 
@@ -486,7 +487,7 @@ public:
     void prepareAmp(double sampleRate, int numOfChannels)
     {
         tubeAmp.setSampleRate(sampleRate);
-        tubeAmp.setOversample(1);
+      //  tubeAmp.setOversample(1);
         tubeAmp.init();
         tubeAmp.setNumChans(1);
         
@@ -520,6 +521,7 @@ public:
         tubeAmp.setDryWet(1.0);
         tubeAmp.setToneStackActive(false);
         tubeAmp.setHighGainStageActive(true);
+      //  tubeAmp.setOversample(8);
     }
     
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
@@ -548,7 +550,7 @@ public:
     float presence = 0.5f;
     float* masterParameter = nullptr;
     float* outputParameter = nullptr;
-    
+
 private:
     
     TubeAmp tubeAmp;

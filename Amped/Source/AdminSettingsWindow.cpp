@@ -342,6 +342,30 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     label10->setBounds (808, 76, 150, 24);
 
+    overSampleLabel.reset (new Label ("new label",
+                                      CharPointer_UTF8 ("\xc3\x96vers\xc3\xa4mple\n"
+                                      "1 / 2 / 4 / 8 / 16\n")));
+    addAndMakeVisible (overSampleLabel.get());
+    overSampleLabel->setFont (Font (12.00f, Font::plain).withTypefaceStyle ("Regular"));
+    overSampleLabel->setJustificationType (Justification::centredLeft);
+    overSampleLabel->setEditable (false, false, false);
+    overSampleLabel->setColour (TextEditor::textColourId, Colours::black);
+    overSampleLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    overSampleLabel->setBounds (696, 96, 96, 24);
+
+    overSample.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (overSample.get());
+    overSample->setMultiLine (false);
+    overSample->setReturnKeyStartsNewLine (false);
+    overSample->setReadOnly (false);
+    overSample->setScrollbarsShown (true);
+    overSample->setCaretVisible (true);
+    overSample->setPopupMenuEnabled (true);
+    overSample->setText (String());
+
+    overSample->setBounds (704, 128, 47, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -394,6 +418,8 @@ AdminSettingsWindow::~AdminSettingsWindow()
     driveMin = nullptr;
     driveMax = nullptr;
     label10 = nullptr;
+    overSampleLabel = nullptr;
+    overSample = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -521,6 +547,7 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
 
+    settings->ampSettings.overSample = overSample->getText().getIntValue();
 
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
@@ -569,6 +596,7 @@ void AdminSettingsWindow::setupUI(){
     this->hornetDrive->setText(String(settings->ampSettings.hornetDrive), dontSendNotification);
     this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
 
+    this->overSample->setText(String(settings->ampSettings.overSample));
 
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
@@ -799,6 +827,16 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Drive Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="d7d196c447ee454c" memberName="overSampleLabel"
+         virtualName="" explicitFocusOrder="0" pos="696 96 96 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="&#214;vers&#228;mple&#10;1 / 2 / 4 / 8 / 16&#10;"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
+         italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="7681e36da5ce556c" memberName="overSample"
+              virtualName="" explicitFocusOrder="0" pos="704 128 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
