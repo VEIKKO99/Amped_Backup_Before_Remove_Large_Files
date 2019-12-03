@@ -34,15 +34,15 @@ public:
   void SetRatio(double ratio);
   
   // attack in milliseconds for the CompExp algorithm, the original CompExp
-  // defaults to 10ms and has a minimum of 1ms with a maximum of 300ms
-  void SetAttack(double attack);
-  
-  // the release time in milliseconds, the original CompExp defaults to 100ms
-  // and has a minimum of 50ms and a max of 500ms
-  void SetRelease(double release);
-  
-  // sets the processor mode, 0 is compressor while 1 is expander
-  void SetMode(int mode);
+    // defaults to 10ms and has a minimum of 1ms with a maximum of 300ms
+    void SetAttack(double attack);
+
+    // the release time in milliseconds, the original CompExp defaults to 100ms
+    // and has a minimum of 50ms and a max of 500ms
+    void SetRelease(double release);
+
+    // sets the processor mode, 0 is compressor while 1 is expander
+    void SetMode(int mode);
   
   // if set to true the processing is bypassed
   void SetBypass(bool toggle);

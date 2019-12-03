@@ -46,7 +46,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("effects_od_level", "OD Level", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("effects_od_on", "OD on", false),
                         std::make_unique<AudioParameterBool> ("effects_ng_on", "NG on", false),
-                        std::make_unique<AudioParameterFloat> ("effects_ng_threshold", "NG Threshold", 1.0f, 10.0f, 0.5f)
+                        std::make_unique<AudioParameterFloat> ("effects_ng_threshold", "NG Threshold", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
@@ -581,8 +581,8 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
 
     processInputGain(monoBuffer);
-    noiseGateNode->setBypassed(*effects_ng_switch > .5);
-    overdriveNode->setBypassed(*effects_od_switch > .5);
+    noiseGateNode->setBypassed(*effects_ng_switch < .5);
+    overdriveNode->setBypassed(*effects_od_switch < .5);
 
     cabSimIR->setBypassed(*cabSimSwitch > .5);
 #ifdef AMPED_DEBUG

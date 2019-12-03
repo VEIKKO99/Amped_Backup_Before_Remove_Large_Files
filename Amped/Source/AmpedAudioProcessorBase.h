@@ -199,6 +199,7 @@ public:
         {
             interleavedBuffer.reset(new double[samplesPerBlock * getTotalNumInputChannels()]);
         }
+        effect.init(sampleRate);
         effect.SetMode(CompExp::ECompMode::kExp);
         effect.SetAttack(1.0);
         effect.SetRelease(50.0);
@@ -211,7 +212,8 @@ public:
 
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
-        effect.SetRatio(*thresholdParam * 0.3);
+        // Values from 1 to 3
+        effect.SetRatio(1 + (*thresholdParam * 2));
         effect.Process(interleavedBuffer.get(), numOfSamples);
         //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
 

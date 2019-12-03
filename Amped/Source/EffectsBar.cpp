@@ -26,6 +26,24 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     initSliderComponent(ngThreshold,"effects_ng_threshold", ngThresholdAttachment);
     addAndMakeVisible(ngOnOffButton);
     ngOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState, "effects_ng_on", ngOnOffButton));
+
+    addAndMakeVisible(ngOnOffButton);
+    addAndMakeVisible(ngLed);
+    addAndMakeVisible(odLed);
+    ngOnOffButton.addListener(this);
+    onOffButton.addListener(this);
+}
+
+void EffectsBar::buttonClicked (Button* button)
+{
+    if (button == &onOffButton)
+    {
+        odLed.setOn(button->getToggleState());
+    }
+    else if(button == &ngOnOffButton)
+    {
+        ngLed.setOn(button->getToggleState());
+    }
 }
 
 void EffectsBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
@@ -72,13 +90,17 @@ void EffectsBar::paint (Graphics& g)
 
 void EffectsBar::resized()
 {
-    onOffButton.setBounds(470, 160, 100, 100);
+    onOffButton.setBounds(440, 165, 120, 80);
     driveSlider.setBounds(430, 30, 60, 60);
     toneSlider.setBounds(470, 30, 60, 60);
     levelSlider.setBounds(510, 30, 60, 60);
 
-    ngOnOffButton.setBounds(650, 160, 100, 100);
+    ngOnOffButton.setBounds(640, 165, 120, 80);
     ngThreshold.setBounds(668, 30, 60, 60);
+
+    ngLed.setBounds(688, 22 ,22, 22);
+    odLed.setBounds(489, 22, 22, 22);
+
     // This method is where you should set the bounds of any child
     // components that your component contains..
 

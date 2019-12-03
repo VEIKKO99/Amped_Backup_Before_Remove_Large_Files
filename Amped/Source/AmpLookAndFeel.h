@@ -42,6 +42,13 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
         std::string fileName = getKnobResourceFilename(sliderPos, "amped_knob_pedal_00");
         drawRotaryS(g, fileName);
     }
+
+    void drawToggleButton (Graphics& g,
+            ToggleButton& button,
+            bool isMouseOverButton,
+            bool isButtonDown) override
+    {
+    }
 };
 
 class AmpLookAndFeel : public AmpLookAndFeelBase

@@ -7,6 +7,8 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <FILE id="SY3vgL" name="pedal-led-on.png" compile="0" resource="1"
+            file="res/pedal-led-on.png"/>
       <GROUP id="{EF1E9526-49EC-4C08-B27C-9DB3A6CB7EB3}" name="amped_knob_pedal_0000">
         <FILE id="tRnJ23" name="amped_knob_pedal_0000.png" compile="0" resource="1"
               file="res/amped_knob_pedal_0000/amped_knob_pedal_0000.png"/>
