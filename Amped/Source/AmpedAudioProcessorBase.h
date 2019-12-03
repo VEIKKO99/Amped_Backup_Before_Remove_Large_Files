@@ -533,6 +533,7 @@ public:
         
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
+        tubeAmp.setMasterVolume(*masterParameter);
         tubeAmp.process(interleavedBuffer.get(), numOfSamples);
         
         deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
