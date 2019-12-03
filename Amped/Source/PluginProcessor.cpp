@@ -696,6 +696,26 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
 }
 
+// You should use this method to store your parameters in the memory block.
+// You could do that either as raw data, or use the XML or ValueTree classes
+// as intermediaries to make it easy to save and load complex data.
+void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
+{
+    auto state = parameters.copyState();
+    std::unique_ptr<XmlElement> xml (state.createXml());
+    copyXmlToBinary (*xml, destData);
+}
+
+// You should use this method to restore your parameters from this memory block,
+// whose contents will have been created by the getStateInformation() call.
+void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
+{
+    std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
+    if (xmlState.get() != nullptr)
+        if (xmlState->hasTagName (parameters.state.getType()))
+            parameters.replaceState (ValueTree::fromXml (*xmlState));
+}
+
 //==============================================================================
 bool AmpedAudioProcessor::hasEditor() const
 {
@@ -705,21 +725,7 @@ bool AmpedAudioProcessor::hasEditor() const
 AudioProcessorEditor* AmpedAudioProcessor::createEditor()
 {
     return new AmpedAudioProcessorEditor (*this, parameters);
-}
-
-//==============================================================================
-void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
-{
-    // You should use this method to store your parameters in the memory block.
-    // You could do that either as raw data, or use the XML or ValueTree classes
-    // as intermediaries to make it easy to save and load complex data.
-}
-
-void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
-{
-    // You should use this method to restore your parameters from this memory block,
-    // whose contents will have been created by the getStateInformation() call.
-}
+}   
 
 //==============================================================================
 // This creates new instances of the plugin..
