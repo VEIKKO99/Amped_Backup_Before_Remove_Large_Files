@@ -55,7 +55,11 @@ class ClipLed : public OnOffLed, private Timer {
 public:
     ClipLed(): OnOffLed() {
         setOn(true);
-   //     startTimerHz(10);
+        startTimerHz(10);
+    }
+
+    ~ClipLed() {
+        stopTimer();
     }
 
     void startTimerHz(int hz) {
@@ -83,7 +87,7 @@ public:
 
     void timerCallback() override {
         if ((source && source->checkNewDataFlag())) {
-            if (source) {
+            if (source && source->getNumChannels() > 0) {
                 const float maxDb = juce::Decibels::gainToDecibels(source->getMaxOverallLevel(0));
                 source->clearMaxNum(0);
                 if (maxDb > -6.0) {
