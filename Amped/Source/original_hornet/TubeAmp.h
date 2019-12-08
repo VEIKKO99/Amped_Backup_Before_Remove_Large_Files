@@ -93,7 +93,11 @@ public:
 	
 	PreAmp mPreAmp;
 	TubeStage mPowerAmp[2];
-	
+
+    void setAmountOfPreampTubesInUse(int amountOfTubes) {
+        mPreAmp.setAmountOfPreampTubesInUse(amountOfTubes);
+    }
+
 protected:
 	
 	void oversampleSetup() {
@@ -163,7 +167,7 @@ private:
 	
 	rcFilter mPresence;
 	rcFilter mDCBlock;
-	
+
 };
 
 #endif /* TubeAmp_h */

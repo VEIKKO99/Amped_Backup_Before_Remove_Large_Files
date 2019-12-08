@@ -64,13 +64,13 @@ public:
     }
 
     void readFromXml(XmlElement* root) {
-        auto element = root->getChildByName("TubeSetting");
-        this->vPlus = element->getDoubleAttribute("vPlus", 250.0);
-        this->rk = element->getDoubleAttribute("rk", 2700.0);
-        this->vk0 = element->getDoubleAttribute("vk0", 2.5);
-        this->rp = element->getDoubleAttribute("rp",  100000.00);
-        this->lowPassFbk = element->getDoubleAttribute("lowPassFbk", 0.0);
-        this->tubeType = element->getIntAttribute("tubeType", 0);
+       // auto element = root->getChildByName("TubeSetting");
+        this->vPlus = root->getDoubleAttribute("vPlus", 250.0);
+        this->rk = root->getDoubleAttribute("rk", 2700.0);
+        this->vk0 = root->getDoubleAttribute("vk0", 2.5);
+        this->rp = root->getDoubleAttribute("rp",  100000.00);
+        this->lowPassFbk = root->getDoubleAttribute("lowPassFbk", 0.0);
+        this->tubeType = root->getIntAttribute("tubeType", 0);
     }
 };
 
@@ -164,11 +164,13 @@ public:
     }
 };
 
+#define MAX_AMOUNT_OF_PREAMP_TUBES 4
+
 class InternalAmpSettings {
 public:
-    
+
     PreAmp::EInputType inputType = PreAmp::EInputType::kGuitarKit;
-    TubeSettings preAmpTubes[2];
+    TubeSettings preAmpTubes[MAX_AMOUNT_OF_PREAMP_TUBES];
     // Please note that tis power amp tube is duplicated on hornet side.
     TubeSettings powerAmpTube;
 
@@ -179,12 +181,15 @@ public:
     IRSettings ampIr;
 
     // Not read or write to xml:
-    int overSample = 1;
+    int overSample = 4;
+
+    int amountOfPreAmpTubes = 1;
 
     EQSettings eqs[kEQSize];
     
 public:
     InternalAmpSettings() {
+        /*
         preAmpTubes[0].tubeType = TUBE_TABLE_12AX7_68k;
         preAmpTubes[1].tubeType = TUBE_TABLE_12AX7_68k;
 
@@ -195,6 +200,7 @@ public:
         powerAmpTube.rp = 3.4e3;
         powerAmpTube.vk0 = 0;
         powerAmpTube.lowPassFbk = 338.;
+         */
     }
 
     XmlElement* serializeToXml() {
@@ -202,10 +208,11 @@ public:
 
         // Tube Settings:
         XmlElement* tubeSettings = settings->createNewChildElement ("TubeSettings");
-        XmlElement* preTube1 = tubeSettings->createNewChildElement ("PreAmpTube_1");
-        preTube1->addChildElement(preAmpTubes[0].serializeToXml());
-        XmlElement* preTube2 = tubeSettings->createNewChildElement ("PreAmpTube_2");
-        preTube2->addChildElement(preAmpTubes[1].serializeToXml());
+        tubeSettings->setAttribute("amountOfPreampTubes", amountOfPreAmpTubes);
+        XmlElement* preTubes = tubeSettings->createNewChildElement("PreAmpTubes");
+        for (int i = 0; i < amountOfPreAmpTubes; i++) {
+            preTubes->addChildElement(preAmpTubes[i].serializeToXml());
+        }
         XmlElement* pAmpTube = tubeSettings->createNewChildElement ("PowerAmpTube");
         pAmpTube->addChildElement(powerAmpTube.serializeToXml());
 
@@ -235,9 +242,18 @@ public:
         this->hornetPresence = static_cast<float>(element->getDoubleAttribute("hornetPresence", 0.5));
 
         XmlElement* tubeSettings = element->getChildByName("TubeSettings");
-        preAmpTubes[0].readFromXml(tubeSettings->getChildByName("PreAmpTube_1"));
-        preAmpTubes[1].readFromXml(tubeSettings->getChildByName("PreAmpTube_2"));
-        powerAmpTube.readFromXml(tubeSettings->getChildByName("PowerAmpTube"));
+        this->amountOfPreAmpTubes = tubeSettings->getIntAttribute("amountOfPreampTubes", 1);
+
+        XmlElement* preTubeSettings = tubeSettings->getChildByName("PreAmpTubes");
+        if (preTubeSettings != nullptr) {
+            int numOfTubes = preTubeSettings->getNumChildElements();
+            for (int i = 0; i < numOfTubes; i++) {
+                if (i < MAX_AMOUNT_OF_PREAMP_TUBES) {
+                    preAmpTubes[i].readFromXml(preTubeSettings->getChildElement(i));
+                }
+            }
+        }
+        powerAmpTube.readFromXml(tubeSettings->getChildByName("PowerAmpTube")->getChildByName("TubeSetting"));
 
         XmlElement* irElements = element->getChildByName("IRSettings");
         cabIr.readFromXml(irElements->getChildByName("CabIr"), rootFilePath);

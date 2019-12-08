@@ -16,7 +16,7 @@ class SoundSettingsModel {
 
 public:
     SoundSettingsModel() {
-        initModel();
+         initModel();
     }
 
     std::shared_ptr<SoundSettings> getCurrentSetting() {

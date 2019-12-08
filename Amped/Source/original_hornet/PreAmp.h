@@ -33,6 +33,8 @@ public:
 	};
 	
 	TubeStage tubeStage[NUMBER_OF_STAGES];
+
+	int amountOfPreampTubesInUse = 3;
 	
 	PreAmp() {
 		mGain = 1.;
@@ -123,7 +125,7 @@ public:
 		
 		mInputFilter->process(&sample);
 		
-		for (int i = 1; i < 3; i++) {
+		for (int i = 1; i < amountOfPreampTubesInUse; i++) {
 			sample = tubeStage[i].process(sample);
 		}
 		// lower 6db to recover high gain stage
@@ -136,7 +138,11 @@ public:
 	void setHighGainStageActive(bool toggle) {
 		mHighGainStage = toggle;
 	}
-	
+
+    void setAmountOfPreampTubesInUse(int amountOfTubes) {
+		this->amountOfPreampTubesInUse = amountOfTubes;
+    }
+
 private:
 	
 	int mSampleRate;
@@ -150,7 +156,7 @@ private:
 	Dsp::ButterLowShelf<1,1> mBrightLs;
 	
 	InputFilter* mInputFilter;
-	
+
 };
 
 #endif 
