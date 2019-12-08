@@ -16,7 +16,7 @@
 
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
-                             AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel), processor(p), effectsBar(vts)
+                             AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel, p), processor(p), effectsBar(vts)
 {
     setLookAndFeel(&ampLookAndFeel);
 
@@ -31,6 +31,10 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     addAndMakeVisible(effectsBar);
     effectsBar.setVisible(false);
     effectsButton.addListener(this);
+
+//    initInputClipMeter();
+
+
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
 }
@@ -40,6 +44,16 @@ MainComponent::~MainComponent()
     setLookAndFeel(nullptr);
 }
 
+void MainComponent::initInputClipMeter() {
+    lnf = new FFAU::LevelMeterLookAndFeel();
+    // adjust the colours to how you like them, e.g.
+ //   lnf->setColour (FFAU::LevelMeter::lmMeterGradientLowColour, juce::Colours::green);
+    lnf->setupDefaultMeterColours();
+    meter = new FFAU::LevelMeter(); // See FFAU::LevelMeter::MeterFlags for options
+    meter->setLookAndFeel (lnf);
+    meter->setMeterSource (&processor.getMeterSource());
+    addAndMakeVisible (meter);
+}
 
 void MainComponent::buttonClicked (Button* button)
 {
@@ -112,5 +126,7 @@ void MainComponent::resized()
     effectsBar.setBounds(0, 140, 1200, 289);
     // This method is where you should set the bounds of any child
     // components that your component contains..
+
+  //ga  meter->setBounds(10, 10, 400, 400);
 
 }

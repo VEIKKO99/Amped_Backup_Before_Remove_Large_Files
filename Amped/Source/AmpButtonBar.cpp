@@ -15,7 +15,7 @@
 #include "UIConsts.h"
 
 //==============================================================================
-AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel) : valueTreeState(vts)
+AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel, AmpedAudioProcessor& processor) : valueTreeState(vts)
 {
    // setLookAndFeel(&lookAndFeel);
 
@@ -42,6 +42,10 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
     matchIRSwitch.setWantsKeyboardFocus(false);
 #endif
+
+    inputClipLed.setMeterSource(&processor.getMeterSource());
+    addAndMakeVisible(inputClipLed);
+    inputClipLed.setVisible(false);
 }
 
 AmpButtonBar::~AmpButtonBar()
@@ -87,4 +91,5 @@ void AmpButtonBar::resized()
 #ifdef AMPED_DEBUG
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
 #endif
+    inputClipLed.setBounds(50,6, 22, 22);
 }

@@ -10,6 +10,8 @@
 
 #pragma once
 
+#include <Amped/Amped/Source/OnOffLeds.h>
+#include <Amped/Amped/Source/PluginProcessor.h>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpLookAndFeel.h"
 #include "UIConsts.h"
@@ -23,7 +25,7 @@ class AmpButtonBar    : public Component
     typedef AudioProcessorValueTreeState::ButtonAttachment ButtonAttachment;
     
 public:
-    AmpButtonBar(AudioProcessorValueTreeState& vts,  AmpLookAndFeel& lookAndFeel);
+    AmpButtonBar(AudioProcessorValueTreeState& vts,  AmpLookAndFeel& lookAndFeel, AmpedAudioProcessor& processor);
     ~AmpButtonBar();
 
     void paint (Graphics&) override;
@@ -64,6 +66,8 @@ private:
 
     Slider outputSlider;
     std::unique_ptr<SliderAttachment> outputAttachment;
+
+    ClipLed inputClipLed;
 
 #ifdef AMPED_DEBUG
     ToggleButton matchIRSwitch;
