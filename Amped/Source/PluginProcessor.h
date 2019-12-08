@@ -82,6 +82,7 @@ public:
     void settingChanged() override;
     std::shared_ptr<SoundSettings> getCurrentSettings() override;
 
+    FFAU::LevelMeterSource& getMeterSource();
     // Delay plugin 
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;
@@ -186,4 +187,7 @@ private:
     SoundSettingsModel soundSettingsModel;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
+
+    FFAU::LevelMeterSource meterSource;
+
 };

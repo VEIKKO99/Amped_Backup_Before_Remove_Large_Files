@@ -39,6 +39,9 @@ public:
     void buttonClicked (Button* button) override;
 
 private:
+
+    void initInputClipMeter();
+
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
     AmpedAudioProcessor& processor;
@@ -52,6 +55,7 @@ private:
     Label versionLabel;
 
 #endif
-
+    ScopedPointer<FFAU::LevelMeter> meter;
+    ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
 };

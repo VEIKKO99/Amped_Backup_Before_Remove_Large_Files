@@ -12,47 +12,11 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpLookAndFeel.h"
-
+#include "OnOffLeds.h"
 typedef AudioProcessorValueTreeState::SliderAttachment SliderAttachment;
 typedef AudioProcessorValueTreeState::ButtonAttachment ButtonAttachment;
 
-// Current size 22x22
-class OnOffLed : public Component {
 
-public:
-    OnOffLed()
-    {
-
-    }
-    ~OnOffLed()
-    {
-
-    }
-
-    void paint(Graphics& g) override
-    {
-        if (on) {
-            Image onOffLed;
-            onOffLed = ImageCache::getFromMemory(BinaryData::pedalledon_png, BinaryData::pedalledon_pngSize);
-            g.drawImageAt(onOffLed, 0, 0);
-        }
-        else {
-
-        }
-    }
-
-    void setOn(bool on)
-    {
-        if (this->on != on) {
-            this->on = on;
-            repaint();
-        }
-    }
-
-private:
-    bool on = false;
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (OnOffLed)
-};
 
 //==============================================================================
 /*

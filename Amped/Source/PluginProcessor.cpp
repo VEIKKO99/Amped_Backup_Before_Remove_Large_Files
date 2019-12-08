@@ -269,6 +269,10 @@ void AmpedAudioProcessor::connectPreEffectsAudioNodes()
     }
 }
 
+FFAU::LevelMeterSource& AmpedAudioProcessor::getMeterSource()
+{
+    return meterSource;
+}
 
 void AmpedAudioProcessor::initialiseMainGraph() {
     mainProcessor->clear();
@@ -581,6 +585,8 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
 
     processInputGain(monoBuffer);
+    meterSource.measureBlock (monoBuffer);
+
     noiseGateNode->setBypassed(*effects_ng_switch < .5);
     overdriveNode->setBypassed(*effects_od_switch < .5);
 
