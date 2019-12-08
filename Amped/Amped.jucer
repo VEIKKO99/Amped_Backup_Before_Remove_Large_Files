@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pllKDb" name="Amped" projectType="audioplug" jucerVersion="5.4.4"
+<JUCERPROJECT id="pllKDb" name="Amped" projectType="audioplug" jucerVersion="5.4.5"
               pluginFormats="buildAU,buildStandalone,buildVST3">
   <MAINGROUP id="H6VpyL" name="Amped">
     <GROUP id="{DEEE0891-E3FA-3620-F858-1F386BF0782D}" name="original_hornet">
