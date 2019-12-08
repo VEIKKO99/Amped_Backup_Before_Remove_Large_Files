@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.4
+  Created with Projucer version: 5.4.5
 
   ------------------------------------------------------------------------------
 
@@ -157,11 +157,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     preTube1Settings.reset (new UITubeSettings());
     addAndMakeVisible (preTube1Settings.get());
-    preTube1Settings->setBounds (8, 72, 680, 144);
-
-    preTube2Settings.reset (new UITubeSettings());
-    addAndMakeVisible (preTube2Settings.get());
-    preTube2Settings->setBounds (8, 221, 680, 144);
+    preTube1Settings->setBounds (8, 128, 680, 145);
 
     powerAmpTubeSettings.reset (new UITubeSettings());
     addAndMakeVisible (powerAmpTubeSettings.get());
@@ -343,7 +339,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label10->setBounds (808, 76, 150, 24);
 
     overSampleLabel.reset (new Label ("new label",
-                                      CharPointer_UTF8 ("\xc3\x96vers\xc3\xa4mple\n"
+                                      CharPointer_UTF8 ("\xc3\x96vers\xc3\xa4mple (Not Saved)\n"
                                       "1 / 2 / 4 / 8 / 16\n")));
     addAndMakeVisible (overSampleLabel.get());
     overSampleLabel->setFont (Font (12.00f, Font::plain).withTypefaceStyle ("Regular"));
@@ -352,7 +348,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     overSampleLabel->setColour (TextEditor::textColourId, Colours::black);
     overSampleLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    overSampleLabel->setBounds (696, 96, 96, 24);
+    overSampleLabel->setBounds (608, 32, 144, 24);
 
     overSample.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (overSample.get());
@@ -364,7 +360,30 @@ AdminSettingsWindow::AdminSettingsWindow ()
     overSample->setPopupMenuEnabled (true);
     overSample->setText (String());
 
-    overSample->setBounds (704, 128, 47, 24);
+    overSample->setBounds (616, 64, 47, 24);
+
+    amtPreAmpTubesLabel.reset (new Label ("new label",
+                                          TRANS("Amount of Preamp tubes (1-4)")));
+    addAndMakeVisible (amtPreAmpTubesLabel.get());
+    amtPreAmpTubesLabel->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    amtPreAmpTubesLabel->setJustificationType (Justification::centredLeft);
+    amtPreAmpTubesLabel->setEditable (false, false, false);
+    amtPreAmpTubesLabel->setColour (TextEditor::textColourId, Colours::black);
+    amtPreAmpTubesLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    amtPreAmpTubesLabel->setBounds (8, 64, 216, 24);
+
+    amountOfPreampTubes.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (amountOfPreampTubes.get());
+    amountOfPreampTubes->setMultiLine (false);
+    amountOfPreampTubes->setReturnKeyStartsNewLine (false);
+    amountOfPreampTubes->setReadOnly (false);
+    amountOfPreampTubes->setScrollbarsShown (true);
+    amountOfPreampTubes->setCaretVisible (true);
+    amountOfPreampTubes->setPopupMenuEnabled (true);
+    amountOfPreampTubes->setText (String());
+
+    amountOfPreampTubes->setBounds (16, 95, 47, 24);
 
 
     //[UserPreSize]
@@ -397,7 +416,6 @@ AdminSettingsWindow::~AdminSettingsWindow()
     cabIrUi = nullptr;
     ampIrUi = nullptr;
     preTube1Settings = nullptr;
-    preTube2Settings = nullptr;
     powerAmpTubeSettings = nullptr;
     knobTypeComboBox = nullptr;
     label7 = nullptr;
@@ -420,6 +438,8 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label10 = nullptr;
     overSampleLabel = nullptr;
     overSample = nullptr;
+    amtPreAmpTubesLabel = nullptr;
+    amountOfPreampTubes = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -526,8 +546,13 @@ void AdminSettingsWindow::chooseBGImageFile() {
 void AdminSettingsWindow::updateSettings() {
     auto settings = changeInterface->getCurrentSettings();
     settings->ampSettings.inputType = static_cast<PreAmp::EInputType>(preInputType->getSelectedItemIndex());
-    preTube1Settings->updateSettings(settings->ampSettings.preAmpTubes[0]);
-    preTube2Settings->updateSettings(settings->ampSettings.preAmpTubes[1]);
+
+    // All pre amp tubes should hold the same settings.
+    settings->ampSettings.amountOfPreAmpTubes = amountOfPreampTubes->getText().getIntValue();
+    for (int i = 0; i < settings->ampSettings.amountOfPreAmpTubes; i++)
+    {
+        preTube1Settings->updateSettings(settings->ampSettings.preAmpTubes[i]);
+    }
     powerAmpTubeSettings->updateSettings(settings->ampSettings.powerAmpTube);
     cabIrUi->updateSettings(settings->ampSettings.cabIr);
     ampIrUi->updateSettings(settings->ampSettings.ampIr);
@@ -546,7 +571,6 @@ void AdminSettingsWindow::updateSettings() {
 
     settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
-
     settings->ampSettings.overSample = overSample->getText().getIntValue();
 
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
@@ -580,10 +604,10 @@ void AdminSettingsWindow::setupUI(){
 
     // this->eqGain->setText(String(settings->ampSettings.eqGain));
 
-    this->preTube1Settings->setupUI(settings->ampSettings.preAmpTubes[0],"Pre Amp Tube 1");
-    this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
+    this->preTube1Settings->setupUI(settings->ampSettings.preAmpTubes[0],"All preamp tube settings");
+   // this->preTube2Settings->setupUI(settings->ampSettings.preAmpTubes[1],"Pre Amp Tube 2");
     this->powerAmpTubeSettings->setupUI(settings->ampSettings.powerAmpTube, "Power Amp Tube");
-
+    this->amountOfPreampTubes->setText(String(settings->ampSettings.amountOfPreAmpTubes));
     this->cabIrUi->setupUI(settings->ampSettings.cabIr,"Cab IR");
     this->ampIrUi->setupUI(settings->ampSettings.ampIr,"AMP IR");
 
@@ -745,10 +769,7 @@ BEGIN_JUCER_METADATA
              explicitFocusOrder="0" pos="696 485 300 24" sourceFile="UIIRSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="efb8e0bb8dcbdbb" memberName="preTube1Settings" virtualName=""
-             explicitFocusOrder="0" pos="8 72 680 144" sourceFile="UITubeSettings.cpp"
-             constructorParams=""/>
-  <JUCERCOMP name="" id="32b5cf72e47c155d" memberName="preTube2Settings" virtualName=""
-             explicitFocusOrder="0" pos="8 221 680 144" sourceFile="UITubeSettings.cpp"
+             explicitFocusOrder="0" pos="8 128 680 145" sourceFile="UITubeSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="85421bade1ef9019" memberName="powerAmpTubeSettings"
              virtualName="" explicitFocusOrder="0" pos="8 376 680 144" sourceFile="UITubeSettings.cpp"
@@ -828,13 +849,22 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="d7d196c447ee454c" memberName="overSampleLabel"
-         virtualName="" explicitFocusOrder="0" pos="696 96 96 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="&#214;vers&#228;mple&#10;1 / 2 / 4 / 8 / 16&#10;"
+         virtualName="" explicitFocusOrder="0" pos="608 32 144 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="&#214;vers&#228;mple (Not Saved)&#10;1 / 2 / 4 / 8 / 16&#10;"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
          italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="7681e36da5ce556c" memberName="overSample"
-              virtualName="" explicitFocusOrder="0" pos="704 128 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="616 64 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="4fcc49e204792f0a" memberName="amtPreAmpTubesLabel"
+         virtualName="" explicitFocusOrder="0" pos="8 64 216 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Amount of Preamp tubes (1-4)" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="550e03298bf4de1d" memberName="amountOfPreampTubes"
+              virtualName="" explicitFocusOrder="0" pos="16 95 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>

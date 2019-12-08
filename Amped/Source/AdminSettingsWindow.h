@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.4
+  Created with Projucer version: 5.4.5
 
   ------------------------------------------------------------------------------
 
@@ -28,7 +28,6 @@
 
 #include "UIIRSettings.h"
 #include "UIIRSettings.h"
-#include "UITubeSettings.h"
 #include "UITubeSettings.h"
 #include "UITubeSettings.h"
 #include "UIEQSettings.h"
@@ -93,7 +92,6 @@ private:
     std::unique_ptr<UIIRSettings> cabIrUi;
     std::unique_ptr<UIIRSettings> ampIrUi;
     std::unique_ptr<UITubeSettings> preTube1Settings;
-    std::unique_ptr<UITubeSettings> preTube2Settings;
     std::unique_ptr<UITubeSettings> powerAmpTubeSettings;
     std::unique_ptr<ComboBox> knobTypeComboBox;
     std::unique_ptr<Label> label7;
@@ -116,6 +114,8 @@ private:
     std::unique_ptr<Label> label10;
     std::unique_ptr<Label> overSampleLabel;
     std::unique_ptr<TextEditor> overSample;
+    std::unique_ptr<Label> amtPreAmpTubesLabel;
+    std::unique_ptr<TextEditor> amountOfPreampTubes;
 
 
     //==============================================================================

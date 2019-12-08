@@ -471,11 +471,11 @@ public:
         updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[0]);
         updateTubeSettings(soundSettings->ampSettings.powerAmpTube, tubeAmp.mPowerAmp[1]);
 
-        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[0], tubeAmp.mPreAmp.tubeStage[0]);
-        tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[0].tubeType);
-
-        updateTubeSettings(soundSettings->ampSettings.preAmpTubes[1], tubeAmp.mPreAmp.tubeStage[1]);
-        tubeAmp.setTubeType(1, soundSettings->ampSettings.preAmpTubes[1].tubeType);
+        for (int i = 0; i < soundSettings->ampSettings.amountOfPreAmpTubes; i++) {
+            updateTubeSettings(soundSettings->ampSettings.preAmpTubes[i], tubeAmp.mPreAmp.tubeStage[i]);
+            tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[i].tubeType);
+        }
+        tubeAmp.setAmountOfPreampTubesInUse(soundSettings->ampSettings.amountOfPreAmpTubes);
 
         tubeAmp.setOversample(soundSettings->ampSettings.overSample);
         drive = soundSettings->ampSettings.hornetDrive;
@@ -483,8 +483,6 @@ public:
 
         setupAmp();
     }
-
-
 
     void prepareAmp(double sampleRate, int numOfChannels)
     {
