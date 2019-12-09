@@ -1307,30 +1307,6 @@
             file="res/1200x289-pedals.png"/>
     </GROUP>
     <GROUP id="{73A8B8E5-D7ED-3751-E121-F39075839D78}" name="Source">
-      <GROUP id="{5CB257AD-866A-0F4F-99A5-08E2EB8B9348}" name="ff_meters">
-        <FILE id="tnmeG7" name="Doxyfile" compile="0" resource="1" file="Source/ff_meters/Doxyfile"/>
-        <FILE id="o6JQ8j" name="ff_meters.h" compile="0" resource="0" file="Source/ff_meters/ff_meters.h"/>
-        <FILE id="v3X4CK" name="ff_meters_LevelMeter.cpp" compile="1" resource="0"
-              file="Source/ff_meters/ff_meters_LevelMeter.cpp"/>
-        <FILE id="uTnZVk" name="ff_meters_LevelMeter.h" compile="0" resource="0"
-              file="Source/ff_meters/ff_meters_LevelMeter.h"/>
-        <FILE id="ApostU" name="ff_meters_LevelMeterSource.h" compile="0" resource="0"
-              file="Source/ff_meters/ff_meters_LevelMeterSource.h"/>
-        <FILE id="DS71tH" name="ff_meters_LookAndFeel.h" compile="0" resource="0"
-              file="Source/ff_meters/ff_meters_LookAndFeel.h"/>
-        <FILE id="Fuuk0d" name="ff_meters_LookAndFeelMethods.h" compile="0"
-              resource="0" file="Source/ff_meters/ff_meters_LookAndFeelMethods.h"/>
-        <FILE id="l6PwvA" name="ff_meters_OutlineBuffer.h" compile="0" resource="0"
-              file="Source/ff_meters/ff_meters_OutlineBuffer.h"/>
-        <FILE id="Abj4bD" name="ff_meters_SoundFieldLookAndFeelMethods.h" compile="0"
-              resource="0" file="Source/ff_meters/ff_meters_SoundFieldLookAndFeelMethods.h"/>
-        <FILE id="Z73TdS" name="ff_meters_StereoFieldBuffer.h" compile="0"
-              resource="0" file="Source/ff_meters/ff_meters_StereoFieldBuffer.h"/>
-        <FILE id="z3K1vH" name="ff_meters_StereoFieldComponent.h" compile="0"
-              resource="0" file="Source/ff_meters/ff_meters_StereoFieldComponent.h"/>
-        <FILE id="ENqZix" name="LICENSE.md" compile="0" resource="1" file="Source/ff_meters/LICENSE.md"/>
-        <FILE id="T4S7Rd" name="README.md" compile="0" resource="1" file="Source/ff_meters/README.md"/>
-      </GROUP>
       <FILE id="AdMBg3" name="SoundSettingsModel.h" compile="0" resource="0"
             file="Source/SoundSettingsModel.h"/>
       <GROUP id="{C67AA057-3832-6F7E-B262-88E29E976998}" name="Effects">
@@ -1458,12 +1434,13 @@
         <MODULEPATH id="juce_gui_extra" path="../../../../../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../../../../../Applications/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../../../../../../Applications/JUCE/modules"/>
-        <MODULEPATH id="ff_meters" path="../../../JuceProjects"/>
+        <MODULEPATH id="ff_meters" path="Source"/>
       </MODULEPATHS>
     </XCODE_MAC>
     <VS2019 targetFolder="Builds/VisualStudio2019">
       <CONFIGURATIONS>
-        <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"/>
+        <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"
+                       useRuntimeLibDLL="0"/>
         <CONFIGURATION isDebug="0" name="Release" useRuntimeLibDLL="0" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"/>
       </CONFIGURATIONS>
       <MODULEPATHS>
@@ -1482,7 +1459,7 @@
         <MODULEPATH id="juce_audio_formats" path="../../juce"/>
         <MODULEPATH id="juce_audio_devices" path="../../juce"/>
         <MODULEPATH id="juce_audio_basics" path="../../juce"/>
-        <MODULEPATH id="ff_meters" path="../../../JuceProjects"/>
+        <MODULEPATH id="ff_meters" path="Source"/>
       </MODULEPATHS>
     </VS2019>
   </EXPORTFORMATS>
