@@ -10,8 +10,8 @@
 
 #pragma once
 
-#include <Amped/Amped/Source/OnOffLeds.h>
-#include <Amped/Amped/Source/PluginProcessor.h>
+#include "OnOffLeds.h"
+#include "PluginProcessor.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpLookAndFeel.h"
 #include "UIConsts.h"
