@@ -40,6 +40,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
+                        std::make_unique<AudioParameterFloat> ("cabSim_type", "Cab Sim", 0.0, 2, (float)ThreeWayIRFileSwitch::SwitchStatus::IRDefault),
                         std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("effects_od_drive", "OD Drive", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> ("effects_od_tone", "OD Tone", 0.0f, 1.0f, 0.5f),
@@ -51,7 +52,6 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
                         #endif
-
                     })
 #endif
 {
@@ -66,7 +66,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     trebleParameter = parameters.getRawParameterValue ("trebble");
     presenceParameter = parameters.getRawParameterValue ("presence");
     masterParameter = parameters.getRawParameterValue ("master");
-    cabSimSwitch = parameters.getRawParameterValue ("cabSim");
+    cabSimSwitch = parameters.getRawParameterValue("cabSim_type");
     outputParameter = parameters.getRawParameterValue ("output");
     driveParameter = parameters.getRawParameterValue ("drive");
     effects_od_switch = parameters.getRawParameterValue("effects_od_on");
@@ -590,7 +590,12 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     noiseGateNode->setBypassed(*effects_ng_switch < .5);
     overdriveNode->setBypassed(*effects_od_switch < .5);
 
-    cabSimIR->setBypassed(*cabSimSwitch > .5);
+   // cabSimIR->setBypassed(*cabSimSwitch > .5);
+
+  //  Logger::getCurrentLogger()->writeToLog("Status: " +  String(*cabSimSwitch));
+    cabSimIR->setBypassed(((int)*cabSimSwitch) == ThreeWayIRFileSwitch::SwitchStatus::IROff);
+
+
 #ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
@@ -709,6 +714,10 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     auto state = parameters.copyState();
     std::unique_ptr<XmlElement> xml (state.createXml());
+    if (getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
+        xml->deleteAllChildElementsWithTagName("CustomCabIr");
+        xml->createNewChildElement("CustomCabIr")->setAttribute("fileName", getCurrentSettings()->ampSettings.cabIr.overridingIrFileName);
+    }
     copyXmlToBinary (*xml, destData);
 }
 
@@ -718,8 +727,22 @@ void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes
 {
     std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     if (xmlState.get() != nullptr)
+    {
         if (xmlState->hasTagName (parameters.state.getType()))
             parameters.replaceState (ValueTree::fromXml (*xmlState));
+
+        auto element = xmlState->getChildByName("CustomCabIr");
+        if (element != nullptr)
+        {
+            auto fileName = xmlState->getChildByName("CustomCabIr")->getStringAttribute("fileName", "");
+            if (!File(fileName).exists()) {
+                AlertWindow::showMessageBox(AlertWindow::AlertIconType::WarningIcon,"File not found", "Cabinet IR file. Using default instead." + fileName + " not found.", "OK", nullptr);
+            }
+            else {
+                getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = fileName;
+            }
+        }
+    }
 }
 
 //==============================================================================

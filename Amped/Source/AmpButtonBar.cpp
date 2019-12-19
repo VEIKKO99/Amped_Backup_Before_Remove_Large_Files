@@ -15,7 +15,7 @@
 #include "UIConsts.h"
 
 //==============================================================================
-AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel, AmpedAudioProcessor& processor) : valueTreeState(vts)
+AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel, AmpedAudioProcessor& processor) : valueTreeState(vts), ampedProcessor(processor)
 {
    // setLookAndFeel(&lookAndFeel);
 
@@ -29,9 +29,19 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     initSliderComponent(trebleSlider, "trebble", trebleAttachment);
     initSliderComponent(presenceSlider, "presence", presenceAttachment);
     initSliderComponent(masterSlider, "master", masterAttachment);
+
     addAndMakeVisible(cabSimSwitch);
+    cabSimSwitch.addListener(this);
+    updateCabSimValueFromVTS(*valueTreeState.getRawParameterValue("cabSim_type"));
+    vts.addParameterListener("cabSim_type", this);
+    /*addAndMakeVisible(cabSimSwitch);
     cabSimSwitch.setWantsKeyboardFocus(false);
-    cabSimAttachment.reset (new ButtonAttachment (valueTreeState, "cabSim", cabSimSwitch));
+    cabSimSwitch.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
+    cabSimSwitch.setTextBoxStyle (Slider::NoTextBox, false,0,0);
+    cabSimSwitch.setRange(0.0, 2.0, 1.0);
+    cabSimSwitch.setLookAndFeel(&threeWaySliderSwitchLnF);*/
+    //cabSimAttachment.reset (new SliderAttachment (valueTreeState, "cabSim", cabSimSwitch));
+
     initSliderComponent(outputSlider, "output", outputAttachment);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
@@ -51,6 +61,8 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
 AmpButtonBar::~AmpButtonBar()
 {
    // setLookAndFeel(nullptr);
+   cabSimSwitch.setLookAndFeel(nullptr);
+   valueTreeState.removeParameterListener("cabSim_type", this);
 }
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
@@ -64,6 +76,34 @@ void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::uniq
     attachment.reset (new SliderAttachment (valueTreeState, vtsName, slider));
 
     addAndMakeVisible(slider);
+}
+
+void AmpButtonBar::stateChanged (ThreeWayIRFileSwitch*) {
+
+    auto cabSimStatus = cabSimSwitch.getCurrentStatus();
+   // auto irSettings = ampedProcessor.getCurrentSettings()->ampSettings.cabIr;
+
+    if (cabSimStatus == ThreeWayIRFileSwitch::IRCustomUserFile)
+    {
+        ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = cabSimSwitch.getCustomIrFilePath();
+        RangedAudioParameter* param = valueTreeState.getParameter("cabSim_type");
+        param->setValueNotifyingHost(0.5);
+        ampedProcessor.settingChanged();
+    }
+    else
+    {
+        valueTreeState.getParameter("cabSim_type")->setValueNotifyingHost(cabSimStatus);
+        // If we have been using custom (user defined) ir file, remove it:
+        if (ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
+            ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = "";
+            ampedProcessor.settingChanged();
+        }
+    }
+}
+
+// This is only used to get callbacks to our custom Cab IR switch status:
+void AmpButtonBar::parameterChanged (const String& parameterID, float newValue) {
+    updateCabSimValueFromVTS(newValue);
 }
 
 void AmpButtonBar::paint (Graphics& g)
@@ -86,10 +126,15 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(trebleSlider, Constants::AmpCtrlTrebbleX);
     setAmpComponentBounds(presenceSlider, Constants::AmpCtrlPresenceX);
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
-    setAmpComponentBounds(cabSimSwitch, Constants::AmpCtrlCabSimX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
 #ifdef AMPED_DEBUG
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
 #endif
     inputClipLed.setBounds(50,6, 22, 22);
+    cabSimSwitch.setBounds(Constants::AmpCtrlCabSimX, Constants::ampButtonsY, 90, Constants::ampButtonsHeight);
+}
+
+void AmpButtonBar::updateCabSimValueFromVTS(float newValue) {
+    int switchStatus = (int) newValue;
+    cabSimSwitch.setCurrentStatus(static_cast<ThreeWayIRFileSwitch::SwitchStatus>(switchStatus), false);
 }

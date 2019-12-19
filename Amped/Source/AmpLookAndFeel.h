@@ -36,6 +36,7 @@ protected:
 };
 
 class EffectsLookAndFeel : public AmpLookAndFeelBase {
+
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
             const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
     {
@@ -48,6 +49,26 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
             bool isMouseOverButton,
             bool isButtonDown) override
     {
+    }
+};
+
+class ThreeWaySwitchSliderLookAndFeel : public AmpLookAndFeelBase {
+    void drawLinearSlider (Graphics& g, int x, int y, int width, int height,
+            float sliderPos, float minSliderPos, float maxSliderPos,
+            const Slider::SliderStyle style, Slider& slider) override
+    {
+        AmpLookAndFeelBase::drawLinearSlider(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, slider);
+        Logger::getCurrentLogger()->writeToLog("Draw sliderPos:" + String(sliderPos) + "min:" + String(minSliderPos) + " maxSliderPos:" + String(maxSliderPos));
+
+     //   std::string fileName;
+     //   if (sliderPos < 1.0)
+     //       fileName = "amped_switch62_0000_png";
+     //   else if (sliderPos >= 1.0 && sliderPos < 2.0)
+     //       fileName = "amped_switch62_0010_png";
+     //   else
+     //       fileName = "amped_switch62_0020_png";
+
+     //   drawRotaryS(g, fileName);
     }
 };
 
