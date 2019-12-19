@@ -417,13 +417,22 @@ public:
     CabSimIr(std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
             IRProcessor(settings, makeupGain)
     {
-        loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
+        setupCabIRFile();
     }
 
     void updateInternalSettings() override {
-        if (soundSettings->ampSettings.cabIr.irFileName.length() > 0) {
+        setupCabIRFile();
+        makeupGain = soundSettings->ampSettings.cabIr.gain;
+    }
+
+    void setupCabIRFile() {
+        if (soundSettings->ampSettings.cabIr.overridingIrFileName.length() > 0) {
+            loadIRFile(soundSettings->ampSettings.cabIr.overridingIrFileName);
+            Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.overridingIrFileName);
+        }
+        else {
+            Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.irFileName);
             loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
-            makeupGain = soundSettings->ampSettings.cabIr.gain;
         }
     }
 };

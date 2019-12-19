@@ -78,11 +78,13 @@ class IRSettings
 {
 public:
     String irFileName = "";
+    String overridingIrFileName = "";
     float gain = 6.0;
 
     XmlElement* serializeToXml() {
         XmlElement* settings = new XmlElement ("IRSetting");
         settings->setAttribute("irFileName", irFileName);
+        settings->setAttribute("overridingIrFileName", overridingIrFileName);
         settings->setAttribute("gain", gain);
         return settings;
     }
@@ -90,6 +92,7 @@ public:
     void readFromXml(XmlElement* root, String rootFilePath) {
         auto element = root->getChildByName("IRSetting");
         this->irFileName = getLocalFilename(element->getStringAttribute("irFileName"), rootFilePath);
+        this->overridingIrFileName = element->getStringAttribute("overridingIrFileName");
         this->gain = static_cast<float>(element->getDoubleAttribute("gain", 6.0));
     }
 };

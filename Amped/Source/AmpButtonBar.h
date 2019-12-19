@@ -15,11 +15,13 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpLookAndFeel.h"
 #include "UIConsts.h"
+#include "ThreeWayIRFileSwitch.h"
+
 
 //==============================================================================
 /*
 */
-class AmpButtonBar    : public Component
+class AmpButtonBar    : public Component, public ThreeWayIRFileSwitch::Listener, AudioProcessorValueTreeState::Listener
 {
     typedef AudioProcessorValueTreeState::SliderAttachment SliderAttachment;
     typedef AudioProcessorValueTreeState::ButtonAttachment ButtonAttachment;
@@ -31,10 +33,13 @@ public:
     void paint (Graphics&) override;
     void resized() override;
 
+    virtual void stateChanged (ThreeWayIRFileSwitch*) override;
+
 private:
     void initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment);
     void setAmpComponentBounds(Component& component, int xCoord);
-    
+    virtual void parameterChanged (const String& parameterID, float newValue);
+
 private:
     
     Slider inputSlider;
@@ -61,13 +66,16 @@ private:
     Slider masterSlider;
     std::unique_ptr<SliderAttachment> masterAttachment;
 
-    ToggleButton cabSimSwitch;
-    std::unique_ptr<ButtonAttachment> cabSimAttachment;
+    ThreeWayIRFileSwitch cabSimSwitch;
+    std::unique_ptr<SliderAttachment> cabSimAttachment;
 
     Slider outputSlider;
     std::unique_ptr<SliderAttachment> outputAttachment;
 
     ClipLed inputClipLed;
+
+    AmpedAudioProcessor& ampedProcessor;
+
 
 #ifdef AMPED_DEBUG
     ToggleButton matchIRSwitch;
@@ -75,7 +83,8 @@ private:
 #endif
 
     AudioProcessorValueTreeState& valueTreeState;
-    
+    ThreeWaySwitchSliderLookAndFeel threeWaySliderSwitchLnF;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpButtonBar)
-    
+
+    void updateCabSimValueFromVTS(float newValue);
 };

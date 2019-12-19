@@ -1383,6 +1383,12 @@
         </GROUP>
       </GROUP>
       <GROUP id="{004B61D1-1CFA-016A-7887-63CF0B445860}" name="UIComponents">
+        <FILE id="ycTAI9" name="ThreeWayIRFileSwitch.cpp" compile="1" resource="0"
+              file="Source/ThreeWayIRFileSwitch.cpp"/>
+        <FILE id="KbyAED" name="ThreeWayIRFileSwitch.h" compile="0" resource="0"
+              file="Source/ThreeWayIRFileSwitch.h"/>
+        <FILE id="gbb2Lc" name="ThreeWayButton.h" compile="0" resource="0"
+              file="Source/ThreeWayButton.h"/>
         <FILE id="cnZDps" name="OnOffLeds.h" compile="0" resource="0" file="Source/OnOffLeds.h"/>
         <FILE id="NmMgkv" name="EffectsLookAndFeel.h" compile="0" resource="0"
               file="Source/EffectsLookAndFeel.h"/>
