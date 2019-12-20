@@ -84,7 +84,7 @@ AmpedAudioProcessor::~AmpedAudioProcessor()
 void AmpedAudioProcessor::settingChanged()
 {
     for (auto node : mainAudioProcessors) {
-        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
+        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
     }
     auto editor = getActiveEditor();
     if (editor != nullptr) {
@@ -417,7 +417,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
     initialiseMainGraph();
 
     for (auto node : mainAudioProcessors) {
-        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings();
+        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
     }
 }
 

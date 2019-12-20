@@ -112,7 +112,9 @@ public:
     void getStateInformation (MemoryBlock&) override       {}
     void setStateInformation (const void*, int) override   {}
     
-    virtual void updateInternalSettings() {}
+    virtual void updateInternalSettings(std::shared_ptr<SoundSettings> settings) {
+        this->soundSettings = settings;
+    }
 
     // THis method returns the 1 because we want to process the signal
     // as mono signal as long as possible to save resources.
@@ -186,7 +188,8 @@ public:
     EffectsNGProcessor(std::shared_ptr<SoundSettings> settings) : HornetWrapperBase(settings) {
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        HornetWrapperBase::updateInternalSettings(settings);
     }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -240,7 +243,8 @@ public:
     {
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        HornetWrapperBase::updateInternalSettings(settings);
     }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -330,12 +334,12 @@ public:
     {
         gain.reset();
     }
-    
-    void updateInternalSettings() override {
+
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        AmpedAudioProcessorBase::updateInternalSettings(settings);
         gainMin = soundSettings->gainSettings[processorId].min;
         gainMax = soundSettings->gainSettings[processorId].max;
     }
-
 
     const String getName() const override { return "Input Gain"; }
     
@@ -420,7 +424,8 @@ public:
         setupCabIRFile();
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        IRProcessor::updateInternalSettings(settings);
         setupCabIRFile();
         makeupGain = soundSettings->ampSettings.cabIr.gain;
     }
@@ -446,7 +451,8 @@ public:
         loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        IRProcessor::updateInternalSettings(settings);
         loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
         makeupGain = soundSettings->ampSettings.ampIr.gain;
     }
@@ -471,7 +477,8 @@ public:
         destination.setRP(source.rp);
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        HornetWrapperBase::updateInternalSettings(settings);
         // Input type (mesa, marshall etc)
         tubeAmp.setInputType(soundSettings->ampSettings.inputType);
 
@@ -500,7 +507,7 @@ public:
         tubeAmp.init();
         tubeAmp.setNumChans(1);
         
-        updateInternalSettings();
+        updateInternalSettings(soundSettings);
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -601,7 +608,8 @@ public:
         }
     }
 
-    void updateInternalSettings() override {
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        AmpedAudioProcessorBase::updateInternalSettings(settings);
         EQSettings& eqSettings = soundSettings->ampSettings.eqs[eqType];
 
         if (eqSettings.highIrFileName.length()  > 0) {
