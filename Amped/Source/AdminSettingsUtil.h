@@ -222,6 +222,7 @@ public:
         settings->setAttribute("inputType", inputType);
         settings->setAttribute("hornetDrive", hornetDrive);
         settings->setAttribute("hornetPresence", hornetPresence);
+        settings->setAttribute("masterVolumeMultiplier", masterVolumeMultiplier);
 
         // Ir Settings:
         XmlElement* irsettings = settings->createNewChildElement("IRSettings");
@@ -234,6 +235,7 @@ public:
             eqSettings->addChildElement(eqs[i].serializeToXml());
         }
 
+
         return settings;
     }
 
@@ -243,6 +245,7 @@ public:
         this->inputType = static_cast<PreAmp::EInputType>(element->getIntAttribute("inputType", 0));
         this->hornetDrive = static_cast<float>(element->getDoubleAttribute("hornetDrive", 0.5));
         this->hornetPresence = static_cast<float>(element->getDoubleAttribute("hornetPresence", 0.5));
+        this->masterVolumeMultiplier = static_cast<float>(element->getDoubleAttribute("masterVolumeMultiplier", 1.0));
 
         XmlElement* tubeSettings = element->getChildByName("TubeSettings");
         this->amountOfPreAmpTubes = tubeSettings->getIntAttribute("amountOfPreampTubes", 1);
@@ -269,6 +272,8 @@ public:
             }
         }
     }
+
+    float masterVolumeMultiplier;
 };
 
 class MaxMin
