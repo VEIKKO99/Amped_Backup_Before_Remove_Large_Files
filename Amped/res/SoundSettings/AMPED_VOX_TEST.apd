@@ -27,7 +27,7 @@
                    gain="6.0"/>
       </CabIr>
       <AmpIr>
-        <IRSetting irFileName="memory:AMP_SIM_TESTS\AC30_MATCH_IR.wav"
+        <IRSetting irFileName="memory:AC30_MATCH_IR.wav"
                    gain="6.0"/>
       </AmpIr>
     </IRSettings>

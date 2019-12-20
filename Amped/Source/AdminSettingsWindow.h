@@ -116,6 +116,8 @@ private:
     std::unique_ptr<TextEditor> overSample;
     std::unique_ptr<Label> amtPreAmpTubesLabel;
     std::unique_ptr<TextEditor> amountOfPreampTubes;
+    std::unique_ptr<Label> label2;
+    std::unique_ptr<TextEditor> masterMultiplier;
 
 
     //==============================================================================

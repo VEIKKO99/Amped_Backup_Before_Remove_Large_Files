@@ -236,7 +236,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label5->setColour (TextEditor::textColourId, Colours::black);
     label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label5->setBounds (816, 240, 168, 24);
+    label5->setBounds (808, 269, 168, 24);
 
     hornetDrive.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (hornetDrive.get());
@@ -248,7 +248,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     hornetDrive->setPopupMenuEnabled (true);
     hornetDrive->setText (String());
 
-    hornetDrive->setBounds (824, 272, 47, 24);
+    hornetDrive->setBounds (816, 301, 47, 24);
 
     label8.reset (new Label ("new label",
                              TRANS("Hornet Presence (0.0 - 1.0)\n")));
@@ -259,7 +259,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     label8->setColour (TextEditor::textColourId, Colours::black);
     label8->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label8->setBounds (816, 312, 184, 24);
+    label8->setBounds (808, 341, 184, 24);
 
     hornetPresence.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (hornetPresence.get());
@@ -271,7 +271,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
     hornetPresence->setPopupMenuEnabled (true);
     hornetPresence->setText (String());
 
-    hornetPresence->setBounds (824, 344, 47, 24);
+    hornetPresence->setBounds (816, 373, 47, 24);
 
     presenceEq.reset (new UIEQSettings());
     addAndMakeVisible (presenceEq.get());
@@ -385,6 +385,29 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     amountOfPreampTubes->setBounds (16, 95, 47, 24);
 
+    label2.reset (new Label ("new label",
+                             TRANS("Master Multiplier")));
+    addAndMakeVisible (label2.get());
+    label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label2->setJustificationType (Justification::centredLeft);
+    label2->setEditable (false, false, false);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label2->setBounds (808, 200, 150, 24);
+
+    masterMultiplier.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplier.get());
+    masterMultiplier->setMultiLine (false);
+    masterMultiplier->setReturnKeyStartsNewLine (false);
+    masterMultiplier->setReadOnly (false);
+    masterMultiplier->setScrollbarsShown (true);
+    masterMultiplier->setCaretVisible (true);
+    masterMultiplier->setPopupMenuEnabled (true);
+    masterMultiplier->setText (String());
+
+    masterMultiplier->setBounds (816, 232, 47, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -440,6 +463,8 @@ AdminSettingsWindow::~AdminSettingsWindow()
     overSample = nullptr;
     amtPreAmpTubesLabel = nullptr;
     amountOfPreampTubes = nullptr;
+    label2 = nullptr;
+    masterMultiplier = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -572,6 +597,7 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
     settings->ampSettings.overSample = overSample->getText().getIntValue();
+    settings->ampSettings.masterVolumeMultiplier = masterMultiplier->getText().getFloatValue();
 
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
@@ -621,6 +647,7 @@ void AdminSettingsWindow::setupUI(){
     this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
 
     this->overSample->setText(String(settings->ampSettings.overSample));
+    this->masterMultiplier->setText(String(settings->ampSettings.masterVolumeMultiplier));
 
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
@@ -804,21 +831,21 @@ BEGIN_JUCER_METADATA
              explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <LABEL name="new label" id="3857fe40619377d4" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="816 240 168 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="808 269 168 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Drive (0.0 - 1.0)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="6da8bc166af565b8" memberName="hornetDrive"
-              virtualName="" explicitFocusOrder="0" pos="824 272 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="816 301 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <LABEL name="new label" id="e83a6ccb98be6e9a" memberName="label8" virtualName=""
-         explicitFocusOrder="0" pos="816 312 184 24" edTextCol="ff000000"
+         explicitFocusOrder="0" pos="808 341 184 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Presence (0.0 - 1.0)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="924bcf4c8fd15167" memberName="hornetPresence"
-              virtualName="" explicitFocusOrder="0" pos="824 344 47 24" initialText=""
+              virtualName="" explicitFocusOrder="0" pos="816 373 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="presenceEq" virtualName=""
@@ -865,6 +892,15 @@ BEGIN_JUCER_METADATA
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="550e03298bf4de1d" memberName="amountOfPreampTubes"
               virtualName="" explicitFocusOrder="0" pos="16 95 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="7c92cf76a3554bc5" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="808 200 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Master Multiplier" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="bd0150a8855a2a1f" memberName="masterMultiplier"
+              virtualName="" explicitFocusOrder="0" pos="816 232 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
 </JUCER_COMPONENT>
