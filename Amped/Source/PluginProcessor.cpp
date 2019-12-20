@@ -754,7 +754,19 @@ bool AmpedAudioProcessor::hasEditor() const
 AudioProcessorEditor* AmpedAudioProcessor::createEditor()
 {
     return new AmpedAudioProcessorEditor (*this, parameters);
-}   
+}
+
+void AmpedAudioProcessor::nextSetting()
+{
+    soundSettingsModel.nextSetting();
+    settingChanged();
+}
+
+void AmpedAudioProcessor::prevSetting()
+{
+    soundSettingsModel.prevSetting();
+    settingChanged();
+}
 
 //==============================================================================
 // This creates new instances of the plugin..

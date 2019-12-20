@@ -20,17 +20,57 @@ public:
     }
 
     std::shared_ptr<SoundSettings> getCurrentSetting() {
-        return settings[0];
+        if (currentSound < settings.size())
+            return settings[currentSound];
+        else if (settings.size() > 0)
+            return settings[0];
+        else
+            return nullptr;
+    }
+
+    void nextSetting()
+    {
+        currentSound++;
+        if (currentSound >= settings.size())
+            currentSound = 0;
+    }
+
+    void prevSetting()
+    {
+       currentSound--;
+       if (currentSound <= 0)
+           currentSound = settings.size() -1;
     }
 
 private:
+
+    int currentSound = 1;
+
     void initModel() {
-        auto s = String::createStringFromData(BinaryData::Fluff_5034_apd, BinaryData::Fluff_5034_apdSize);
-        auto oneSound = std::make_shared<SoundSettings>();
-        XmlDocument xmlDocument(s);
-        auto xmlElement = xmlDocument.getDocumentElement();
-        oneSound->readFromXml(xmlElement.get(), "");
-        settings.push_back(oneSound);
+       auto amps = String::createStringFromData(BinaryData::amps_xml, BinaryData::amps_xmlSize);
+       XmlDocument xmlDocument(amps);
+       auto root = xmlDocument.getDocumentElement();
+       auto ampElement = root->getFirstChildElement();
+       while (ampElement != nullptr) {
+           if (!ampElement->getTagName().compare("Amp")) {
+               auto oneAmpFileName = ampElement->getStringAttribute("fileName");
+               int oneAmpDataSize = 0;
+               auto oneAmpData = getBinaryDataWithOriginalFileName(oneAmpFileName, oneAmpDataSize);
+               auto s = String::createStringFromData(oneAmpData, oneAmpDataSize);
+               XmlDocument xmlDocument(s);
+               auto xmlElement = xmlDocument.getDocumentElement();
+               auto oneSound = std::make_shared<SoundSettings>();
+               oneSound->readFromXml(xmlElement.get(), "");
+               settings.push_back(oneSound);
+           }
+           ampElement = ampElement->getNextElement();
+       }
+       // auto s = String::createStringFromData(BinaryData::Fluff_5034_apd, BinaryData::Fluff_5034_apdSize);
+       // auto oneSound = std::make_shared<SoundSettings>();
+       // XmlDocument xmlDocument(s);
+       // auto xmlElement = xmlDocument.getDocumentElement();
+       // oneSound->readFromXml(xmlElement.get(), "");
+       // settings.push_back(oneSound);
     }
 
     std::vector<std::shared_ptr<SoundSettings>> settings;

@@ -7,6 +7,28 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <GROUP id="{A9EDAA1B-5B16-BFBD-0CDC-54DB6E0BFAE5}" name="files"/>
+      <FILE id="EmvJVY" name="AC30_MATCH_IR.wav" compile="0" resource="1"
+            file="res/SoundSettings/files/AC30_MATCH_IR.wav"/>
+      <FILE id="ASfPqv" name="1200x600_AC30TEST.png" compile="0" resource="1"
+            file="res/SoundSettings/files/1200x600_AC30TEST.png"/>
+      <FILE id="TjMbZs" name="1200x600_SILVERTEST.png" compile="0" resource="1"
+            file="res/SoundSettings/files/1200x600_SILVERTEST.png"/>
+      <FILE id="XDAZbz" name="SILVER_MATCH_IR.wav" compile="0" resource="1"
+            file="res/SoundSettings/files/SILVER_MATCH_IR.wav"/>
+      <FILE id="Rapj0G" name="1200x600_fluff_5034_PROJECT2.png" compile="0"
+            resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png"/>
+      <FILE id="A94LJ6" name="ML-VX30-MIX-BRITISH.wav" compile="0" resource="1"
+            file="res/SoundSettings/files/ML-VX30-MIX-BRITISH.wav"/>
+      <FILE id="h9qRZY" name="ML-MARS-PR-M75-MIX-A.wav" compile="0" resource="1"
+            file="res/SoundSettings/files/ML-MARS-PR-M75-MIX-A.wav"/>
+      <FILE id="son1er" name="amps.xml" compile="0" resource="1" file="res/SoundSettings/amps.xml"/>
+      <FILE id="JwGSui" name="AMPED_VOX_TEST.apd" compile="0" resource="1"
+            file="res/SoundSettings/AMPED_VOX_TEST.apd"/>
+      <FILE id="wtVJyU" name="AMPED_MARS_TEST.apd" compile="0" resource="1"
+            file="res/SoundSettings/AMPED_MARS_TEST.apd"/>
+      <FILE id="g8pCKj" name="AMPED_EDVH_TEST.apd" compile="0" resource="1"
+            file="res/SoundSettings/AMPED_EDVH_TEST.apd"/>
       <FILE id="SY3vgL" name="pedal-led-on.png" compile="0" resource="1"
             file="res/pedal-led-on.png"/>
       <GROUP id="{EF1E9526-49EC-4C08-B27C-9DB3A6CB7EB3}" name="amped_knob_pedal_0000">
