@@ -83,6 +83,9 @@ public:
     std::shared_ptr<SoundSettings> getCurrentSettings() override;
 
     FFAU::LevelMeterSource& getMeterSource();
+
+    void nextSetting();
+    void prevSetting();
     // Delay plugin 
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;

@@ -54,6 +54,8 @@ private:
     std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow;
     Label versionLabel;
 
+    TextButton nextAmp;
+    TextButton prevAmp;
 #endif
     ScopedPointer<FFAU::LevelMeter> meter;
     ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;

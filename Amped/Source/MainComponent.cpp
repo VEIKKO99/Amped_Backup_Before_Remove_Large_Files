@@ -25,6 +25,12 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     addAndMakeVisible(adminUIButton);
     adminUIButton.addListener(this);
     addAndMakeVisible (versionLabel);
+    addAndMakeVisible(nextAmp);
+    addAndMakeVisible(prevAmp);
+    nextAmp.setButtonText(">");
+    prevAmp.setButtonText("<");
+    nextAmp.addListener(this);
+    prevAmp.addListener(this);
 #endif
 
     addAndMakeVisible(effectsButton);
@@ -75,6 +81,12 @@ void MainComponent::buttonClicked (Button* button)
     if (button == &effectsButton) {
         effectsBar.setVisible(!effectsBar.isVisible());
     }
+    if (button == &nextAmp) {
+        processor.nextSetting();
+    }
+    if (button == &prevAmp) {
+        processor.prevSetting();
+    }
 #endif
 
 }
@@ -120,6 +132,10 @@ void MainComponent::resized()
     String time (__TIME__);
     versionLabel.setText(date + " - " + time, dontSendNotification);
     versionLabel.setColour (Label::textColourId, Colours::lightgreen);
+
+    prevAmp.setBounds(1000, 80, 40,40);
+    nextAmp.setBounds(1050, 80, 40,40);
+
 #endif
     effectsButton.setButtonText("Effects");
     effectsButton.setBounds(600, 24, 240, 54);
