@@ -74,7 +74,7 @@ void MainComponent::buttonClicked (Button* button)
             adminUIWindow->setUsingNativeTitleBar(false);
             adminUIWindow->setCentrePosition(400, 400);
             adminUIWindow->setResizable(false, false);
-            adminUIWindow->setContentOwned(new AdminSettingsWindow(&processor), true);
+            adminUIWindow->setContentOwned(new AdminSettingsWindow(&processor, &valueTreeState), true);
         }
         adminUIWindow->setVisible(true);
     }

@@ -20,6 +20,7 @@
 #pragma once
 
 //[Headers]     -- You can add your own extra header files here --
+#include <PluginProcessor.h>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AdminSettingsUtil.h"
 #include "UITubeSettings.h"
@@ -56,7 +57,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    AdminSettingsWindow (ISoundSettingsChanged* changed);
+    AdminSettingsWindow(ISoundSettingsChanged* changed, AudioProcessorValueTreeState* state);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -69,6 +70,7 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     ISoundSettingsChanged* changeInterface;
+    AudioProcessorValueTreeState* valueTreeState;
     void updateSettings();
     void setupUI();
     void chooseBGImageFile();
@@ -76,6 +78,11 @@ private:
     String copyFile(String destDirectory, String originalFile);
     void showAlert(String message);
     void loadSettings();
+    void addNewPresetBtnPressed();
+    void prevPresetBtnPressed();
+    void nextPresetBtnPressed();
+    void updatePresetUI();
+    void savePresetBtnPressed();
     //[/UserVariables]
 
     //==============================================================================
@@ -118,10 +125,21 @@ private:
     std::unique_ptr<TextEditor> amountOfPreampTubes;
     std::unique_ptr<Label> label2;
     std::unique_ptr<TextEditor> masterMultiplier;
+    std::unique_ptr<Label> label3;
+    std::unique_ptr<Label> label11;
+    std::unique_ptr<Label> presetNumber;
+    std::unique_ptr<TextEditor> presetNameEditor;
+    std::unique_ptr<Label> label13;
+    std::unique_ptr<TextButton> addNewPresetBtn;
+    std::unique_ptr<TextButton> savePresetBtn2;
+    std::unique_ptr<TextButton> prevPresetBtn;
+    std::unique_ptr<TextButton> nextPresetBtn;
+    std::unique_ptr<TextButton> deletePresetBtn;
 
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)
+
 };
 
 //[EndFile] You can add extra defines here...

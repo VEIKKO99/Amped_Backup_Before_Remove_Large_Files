@@ -408,11 +408,105 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     masterMultiplier->setBounds (816, 232, 47, 24);
 
+    label3.reset (new Label ("new label",
+                             TRANS("Presets\n")));
+    addAndMakeVisible (label3.get());
+    label3->setFont (Font (20.10f, Font::plain).withTypefaceStyle ("Regular"));
+    label3->setJustificationType (Justification::centredLeft);
+    label3->setEditable (false, false, false);
+    label3->setColour (TextEditor::textColourId, Colours::black);
+    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label3->setBounds (16, 744, 150, 24);
+
+    label11.reset (new Label ("new label",
+                              TRANS("Current:\n"
+                              "\n")));
+    addAndMakeVisible (label11.get());
+    label11->setFont (Font (13.50f, Font::plain).withTypefaceStyle ("Regular"));
+    label11->setJustificationType (Justification::centredLeft);
+    label11->setEditable (false, false, false);
+    label11->setColour (TextEditor::textColourId, Colours::black);
+    label11->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label11->setBounds (24, 768, 56, 24);
+
+    presetNumber.reset (new Label ("new label",
+                                   TRANS("NR\n"
+                                   "\n")));
+    addAndMakeVisible (presetNumber.get());
+    presetNumber->setFont (Font (13.50f, Font::plain).withTypefaceStyle ("Regular"));
+    presetNumber->setJustificationType (Justification::centredLeft);
+    presetNumber->setEditable (false, false, false);
+    presetNumber->setColour (TextEditor::textColourId, Colours::black);
+    presetNumber->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    presetNumber->setBounds (80, 768, 56, 24);
+
+    presetNameEditor.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (presetNameEditor.get());
+    presetNameEditor->setMultiLine (false);
+    presetNameEditor->setReturnKeyStartsNewLine (false);
+    presetNameEditor->setReadOnly (false);
+    presetNameEditor->setScrollbarsShown (true);
+    presetNameEditor->setCaretVisible (true);
+    presetNameEditor->setPopupMenuEnabled (true);
+    presetNameEditor->setText (String());
+
+    presetNameEditor->setBounds (80, 800, 216, 24);
+
+    label13.reset (new Label ("new label",
+                              TRANS("Name:\n"
+                              "\n")));
+    addAndMakeVisible (label13.get());
+    label13->setFont (Font (13.50f, Font::plain).withTypefaceStyle ("Regular"));
+    label13->setJustificationType (Justification::centredLeft);
+    label13->setEditable (false, false, false);
+    label13->setColour (TextEditor::textColourId, Colours::black);
+    label13->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label13->setBounds (32, 800, 48, 24);
+
+    addNewPresetBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (addNewPresetBtn.get());
+    addNewPresetBtn->setButtonText (TRANS("Add new"));
+    addNewPresetBtn->addListener (this);
+
+    addNewPresetBtn->setBounds (152, 768, 72, 24);
+
+    savePresetBtn2.reset (new TextButton ("new button"));
+    addAndMakeVisible (savePresetBtn2.get());
+    savePresetBtn2->setButtonText (TRANS("Save"));
+    savePresetBtn2->addListener (this);
+
+    savePresetBtn2->setBounds (152, 840, 144, 24);
+
+    prevPresetBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (prevPresetBtn.get());
+    prevPresetBtn->setButtonText (TRANS("<"));
+    prevPresetBtn->addListener (this);
+
+    prevPresetBtn->setBounds (32, 840, 32, 24);
+
+    nextPresetBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (nextPresetBtn.get());
+    nextPresetBtn->setButtonText (TRANS(">"));
+    nextPresetBtn->addListener (this);
+
+    nextPresetBtn->setBounds (72, 840, 32, 24);
+
+    deletePresetBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (deletePresetBtn.get());
+    deletePresetBtn->setButtonText (TRANS("Delete"));
+    deletePresetBtn->addListener (this);
+
+    deletePresetBtn->setBounds (232, 768, 64, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (1000, 800);
+    setSize (1000, 900);
 
 
     //[Constructor] You can add your own custom stuff here..
@@ -465,6 +559,16 @@ AdminSettingsWindow::~AdminSettingsWindow()
     amountOfPreampTubes = nullptr;
     label2 = nullptr;
     masterMultiplier = nullptr;
+    label3 = nullptr;
+    label11 = nullptr;
+    presetNumber = nullptr;
+    presetNameEditor = nullptr;
+    label13 = nullptr;
+    addNewPresetBtn = nullptr;
+    savePresetBtn2 = nullptr;
+    prevPresetBtn = nullptr;
+    nextPresetBtn = nullptr;
+    deletePresetBtn = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -545,6 +649,35 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         loadSettings();
         //[/UserButtonCode_loadButton]
     }
+    else if (buttonThatWasClicked == addNewPresetBtn.get())
+    {
+        //[UserButtonCode_addNewPresetBtn] -- add your button handler code here..
+        addNewPresetBtnPressed();
+        //[/UserButtonCode_addNewPresetBtn]
+    }
+    else if (buttonThatWasClicked == savePresetBtn2.get())
+    {
+        //[UserButtonCode_savePresetBtn2] -- add your button handler code here..
+        savePresetBtnPressed();
+        //[/UserButtonCode_savePresetBtn2]
+    }
+    else if (buttonThatWasClicked == prevPresetBtn.get())
+    {
+        //[UserButtonCode_prevPresetBtn] -- add your button handler code here..
+        prevPresetBtnPressed();
+        //[/UserButtonCode_prevPresetBtn]
+    }
+    else if (buttonThatWasClicked == nextPresetBtn.get())
+    {
+        //[UserButtonCode_nextPresetBtn] -- add your button handler code here..
+        nextPresetBtnPressed();
+        //[/UserButtonCode_nextPresetBtn]
+    }
+    else if (buttonThatWasClicked == deletePresetBtn.get())
+    {
+        //[UserButtonCode_deletePresetBtn] -- add your button handler code here..
+        //[/UserButtonCode_deletePresetBtn]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -612,9 +745,10 @@ void AdminSettingsWindow::updateSettings() {
 
 }
 
-AdminSettingsWindow::AdminSettingsWindow (ISoundSettingsChanged* changed) : AdminSettingsWindow()
+AdminSettingsWindow::AdminSettingsWindow(ISoundSettingsChanged* changed, AudioProcessorValueTreeState* state) : AdminSettingsWindow()
 {
     changeInterface = changed;
+    valueTreeState = state;
     setupUI();
 }
 
@@ -727,6 +861,53 @@ String AdminSettingsWindow::copyFile(String destDirectory, String originalFile) 
     return destFullName;
 }
 
+void AdminSettingsWindow::updatePresetUI() {
+    auto preset = changeInterface->getCurrentSettings()->getCurrentPreset();
+    if (preset != nullptr) {
+        presetNameEditor->setText(preset->name);
+        String count = "";
+        count += String(changeInterface->getCurrentSettings()->getCurrentPresetIndex()) +" / " +  String(changeInterface->getCurrentSettings()->getPresetCount());
+        presetNumber->setText(count, dontSendNotification);
+    }
+    else
+    {
+        presetNameEditor->setText("Unknown");
+        presetNumber->setText("?", dontSendNotification);
+    }
+}
+
+void AdminSettingsWindow::addNewPresetBtnPressed() {
+    auto state = valueTreeState->copyState();
+    auto name = presetNameEditor->getText();
+
+    auto preset = std::make_shared<PresetSetting>();
+    preset->name = name;
+    preset->xml = state.createXml();
+    changeInterface->getCurrentSettings()->addNewPreset(preset);
+    updatePresetUI();
+}
+
+void AdminSettingsWindow::prevPresetBtnPressed() {
+    changeInterface->getCurrentSettings()->prevPreset();
+    changeInterface->presetChanged();
+    updatePresetUI();
+}
+
+void AdminSettingsWindow::nextPresetBtnPressed() {
+    changeInterface->getCurrentSettings()->nextPreset();
+    changeInterface->presetChanged();
+    updatePresetUI();
+}
+
+void AdminSettingsWindow::savePresetBtnPressed() {
+    auto state = valueTreeState->copyState();
+    auto name = presetNameEditor->getText();
+
+    auto preset = std::make_shared<PresetSetting>();
+    preset->name = name;
+    preset->xml = state.createXml();
+    changeInterface->getCurrentSettings()->replacePreset(preset);
+}
 
 
 //[/MiscUserCode]
@@ -744,7 +925,7 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="AdminSettingsWindow" componentName=""
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
-                 fixedSize="0" initialWidth="1000" initialHeight="800">
+                 fixedSize="0" initialWidth="1000" initialHeight="900">
   <BACKGROUND backgroundColour="ff324144"/>
   <COMBOBOX name="new combo box" id="c0d7bac554763e1" memberName="preInputType"
             virtualName="" explicitFocusOrder="0" pos="8 32 150 24" editable="0"
@@ -903,6 +1084,45 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="816 232 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="dd21f8f550e08c43" memberName="label3" virtualName=""
+         explicitFocusOrder="0" pos="16 744 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Presets&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="20.1" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="7461a8b91adeeac9" memberName="label11" virtualName=""
+         explicitFocusOrder="0" pos="24 768 56 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Current:&#10;&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="59827e14d0d73c4e" memberName="presetNumber"
+         virtualName="" explicitFocusOrder="0" pos="80 768 56 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="NR&#10;&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="7e8d3e0acd4bae9b" memberName="presetNameEditor"
+              virtualName="" explicitFocusOrder="0" pos="80 800 216 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="89ff0943b58fe9a7" memberName="label13" virtualName=""
+         explicitFocusOrder="0" pos="32 800 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Name:&#10;&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTBUTTON name="new button" id="d8a8cf602edaba9c" memberName="addNewPresetBtn"
+              virtualName="" explicitFocusOrder="0" pos="152 768 72 24" buttonText="Add new"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="5399affcc53525e2" memberName="savePresetBtn2"
+              virtualName="" explicitFocusOrder="0" pos="152 840 144 24" buttonText="Save"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="cafb5b4b89b73c4b" memberName="prevPresetBtn"
+              virtualName="" explicitFocusOrder="0" pos="32 840 32 24" buttonText="&lt;"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="da81bab9764a1d1f" memberName="nextPresetBtn"
+              virtualName="" explicitFocusOrder="0" pos="72 840 32 24" buttonText="&gt;"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="68a722602d06936b" memberName="deletePresetBtn"
+              virtualName="" explicitFocusOrder="0" pos="232 768 64 24" buttonText="Delete"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

@@ -18,14 +18,14 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     // initialise any special settings that your component needs.
     setLookAndFeel(&effectsLookAndFeel);
     addAndMakeVisible(onOffButton);
-    onOffButtonAttachment.reset (new ButtonAttachment (valueTreeState, "effects_od_on", onOffButton));
-    initSliderComponent(driveSlider,"effects_od_drive", driveAttachment);
-    initSliderComponent(toneSlider,"effects_od_tone", toneAttachment);
-    initSliderComponent(levelSlider,"effects_od_level", levelAttachment);
+    onOffButtonAttachment.reset (new ButtonAttachment (valueTreeState,VTS_EF_OD_ON, onOffButton));
+    initSliderComponent(driveSlider,VTS_EF_OD_DRIVE, driveAttachment);
+    initSliderComponent(toneSlider,VTS_EF_OD_TONE, toneAttachment);
+    initSliderComponent(levelSlider,VTS_EF_OD_LEVEL, levelAttachment);
 
-    initSliderComponent(ngThreshold,"effects_ng_threshold", ngThresholdAttachment);
+    initSliderComponent(ngThreshold,VTS_EF_NG_THRESHOLD, ngThresholdAttachment);
     addAndMakeVisible(ngOnOffButton);
-    ngOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState, "effects_ng_on", ngOnOffButton));
+    ngOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState, VTS_EF_NG_ON, ngOnOffButton));
 
     addAndMakeVisible(ngOnOffButton);
     addAndMakeVisible(ngLed);
