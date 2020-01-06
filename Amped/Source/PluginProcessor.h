@@ -80,6 +80,8 @@ public:
     void setStateInformation (const void* data, int sizeInBytes) override;
 
     void settingChanged() override;
+    void presetChanged() override;
+
     std::shared_ptr<SoundSettings> getCurrentSettings() override;
 
     FFAU::LevelMeterSource& getMeterSource();

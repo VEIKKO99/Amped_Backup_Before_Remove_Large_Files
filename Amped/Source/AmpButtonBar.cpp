@@ -12,37 +12,30 @@
 #include "AmpButtonBar.h"
 #include "UIConsts.h"
 #include "PluginEditor.h"
-#include "UIConsts.h"
+#include "Consts.h"
 
 //==============================================================================
 AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lookAndFeel, AmpedAudioProcessor& processor) : valueTreeState(vts), ampedProcessor(processor)
 {
    // setLookAndFeel(&lookAndFeel);
 
-    initSliderComponent(inputSlider, "input", inputAttachment);
+    initSliderComponent(inputSlider, VTS_INPUT, inputAttachment);
     addAndMakeVisible(fxSwitch);
-    fxAttachment.reset (new ButtonAttachment (valueTreeState, "fx", fxSwitch));
+    fxAttachment.reset (new ButtonAttachment (valueTreeState, VTS_FX, fxSwitch));
     fxSwitch.setWantsKeyboardFocus(false);
-    initSliderComponent(driveSlider,"drive", driveAttachment);
-    initSliderComponent(bassSlider, "bass", bassAttachment);
-    initSliderComponent(middleSlider, "middle", middleAttachment);
-    initSliderComponent(trebleSlider, "trebble", trebleAttachment);
-    initSliderComponent(presenceSlider, "presence", presenceAttachment);
-    initSliderComponent(masterSlider, "master", masterAttachment);
+    initSliderComponent(driveSlider, VTS_DRIVE, driveAttachment);
+    initSliderComponent(bassSlider, VTS_BASS, bassAttachment);
+    initSliderComponent(middleSlider, VTS_MIDDLE, middleAttachment);
+    initSliderComponent(trebleSlider,  VTS_TREBBLE, trebleAttachment);
+    initSliderComponent(presenceSlider, VTS_PRESENCE, presenceAttachment);
+    initSliderComponent(masterSlider, VTS_MASTER, masterAttachment);
 
     addAndMakeVisible(cabSimSwitch);
     cabSimSwitch.addListener(this);
-    updateCabSimValueFromVTS(*valueTreeState.getRawParameterValue("cabSim_type"));
-    vts.addParameterListener("cabSim_type", this);
-    /*addAndMakeVisible(cabSimSwitch);
-    cabSimSwitch.setWantsKeyboardFocus(false);
-    cabSimSwitch.setSliderStyle(juce::Slider::SliderStyle::LinearVertical);
-    cabSimSwitch.setTextBoxStyle (Slider::NoTextBox, false,0,0);
-    cabSimSwitch.setRange(0.0, 2.0, 1.0);
-    cabSimSwitch.setLookAndFeel(&threeWaySliderSwitchLnF);*/
-    //cabSimAttachment.reset (new SliderAttachment (valueTreeState, "cabSim", cabSimSwitch));
+    updateCabSimValueFromVTS(*valueTreeState.getRawParameterValue(VTS_CAB_SIM_TYPE));
+    vts.addParameterListener(VTS_CAB_SIM_TYPE, this);
 
-    initSliderComponent(outputSlider, "output", outputAttachment);
+    initSliderComponent(outputSlider, VTS_OUTPUT, outputAttachment);
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
     
@@ -62,7 +55,7 @@ AmpButtonBar::~AmpButtonBar()
 {
    // setLookAndFeel(nullptr);
    cabSimSwitch.setLookAndFeel(nullptr);
-   valueTreeState.removeParameterListener("cabSim_type", this);
+   valueTreeState.removeParameterListener(VTS_CAB_SIM_TYPE, this);
 }
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
@@ -86,13 +79,13 @@ void AmpButtonBar::stateChanged (ThreeWayIRFileSwitch*) {
     if (cabSimStatus == ThreeWayIRFileSwitch::IRCustomUserFile)
     {
         ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = cabSimSwitch.getCustomIrFilePath();
-        RangedAudioParameter* param = valueTreeState.getParameter("cabSim_type");
+        RangedAudioParameter* param = valueTreeState.getParameter(VTS_CAB_SIM_TYPE);
         param->setValueNotifyingHost(0.5);
         ampedProcessor.settingChanged();
     }
     else
     {
-        valueTreeState.getParameter("cabSim_type")->setValueNotifyingHost(cabSimStatus);
+        valueTreeState.getParameter(VTS_CAB_SIM_TYPE)->setValueNotifyingHost(cabSimStatus);
         // If we have been using custom (user defined) ir file, remove it:
         if (ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
             ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = "";

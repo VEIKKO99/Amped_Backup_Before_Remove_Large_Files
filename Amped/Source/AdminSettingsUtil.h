@@ -9,6 +9,7 @@
 */
 
 #pragma once
+#include <list>
 #include "original_hornet/TubeAmp.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "Consts.h"
@@ -295,11 +296,78 @@ public:
     }
 };
 
+class PresetSetting {
+public:
+    String name;
+    std::unique_ptr<XmlElement> xml;
+};
+
 class SoundSettings {
 public:
     SoundSettings() {
         gainSettings[GainProcessorId::InputGain].min = -24;
         gainSettings[GainProcessorId::InputGain].max = 24;
+    }
+
+    std::vector<std::shared_ptr<PresetSetting>> presetSettings;
+    int currentSettingIndex = 0;
+
+    void addNewPreset(std::shared_ptr<PresetSetting> setting)
+    {
+       // presetSettings.insert(presetIterator, setting);
+   //    presetSettings.insert(currentSettingIndex, setting);
+        presetSettings.insert(presetSettings.begin()+currentSettingIndex, setting);
+
+    }
+
+    void replacePreset(std::shared_ptr<PresetSetting> setting) {
+        presetSettings.at(currentSettingIndex) = setting;
+    }
+
+    int getPresetCount()
+    {
+        return presetSettings.size();
+    }
+
+    int getCurrentPresetIndex()
+    {
+        return currentSettingIndex;
+    }
+
+    void prevPreset() {
+       if (presetSettings.size() == 0) {
+           currentSettingIndex = 0;
+       }
+       else {
+           currentSettingIndex--;
+           if (currentSettingIndex < 0) {
+               currentSettingIndex = presetSettings.size() -1;
+           }
+       }
+    }
+
+    void nextPreset() {
+        if (presetSettings.size() == 0) {
+            currentSettingIndex = 0;
+        }
+        else {
+            currentSettingIndex++;
+            if (currentSettingIndex >= presetSettings.size()) {
+                currentSettingIndex = 0;
+            }
+        }
+    }
+
+    PresetSetting* getCurrentPreset() {
+        if (currentSettingIndex < presetSettings.size())
+        {
+            return presetSettings[currentSettingIndex].get();
+        }
+        else
+        {
+            return nullptr;
+        }
+
     }
 
     InternalAmpSettings ampSettings;
@@ -308,7 +376,8 @@ public:
     MaxMin gainSettings[GainProcessorId::SIZE];
     UISettings uiSettings;
 
-    std::shared_ptr<XmlElement> serializeToXml() {
+    std::shared_ptr<XmlElement> serializeToXml()
+    {
        auto rootElement = std::make_shared<XmlElement>("SoundSettings");
        rootElement->addChildElement(uiSettings.serializeToXml());
        XmlElement* minMaxElement = new XmlElement("MaxMinSettings");
@@ -320,7 +389,8 @@ public:
        return rootElement;
     }
 
-    void readFromXml(XmlElement* root, String rootFilePath) {
+    void readFromXml(XmlElement* root, String rootFilePath)
+    {
         auto minMaxElements = root->getChildByName("MaxMinSettings");
         uiSettings.readFromXml(root, rootFilePath);
         for (int i = 0; i < minMaxElements->getNumChildElements(); i++) {
@@ -337,6 +407,7 @@ class ISoundSettingsChanged
 public:
     virtual ~ISoundSettingsChanged() {}
     virtual void settingChanged() = 0;
+    virtual void presetChanged() = 0;
     virtual std::shared_ptr<SoundSettings> getCurrentSettings() = 0;
 };
 

@@ -25,29 +25,28 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
 
                     parameters (*this, nullptr, Identifier ("AmpedV100"),
                     {
-                        std::make_unique<AudioParameterFloat> ("input",            // parameterID
+                        std::make_unique<AudioParameterFloat>( VTS_INPUT,            // parameterID
                                                                "Input",            // parameter name
                                                                .0f,              // minimum value
                                                                1.0f,              // maximum value
                                                                0.5f),             // default value
-                        std::make_unique<AudioParameterBool> ("fx",               // parameterID
+                        std::make_unique<AudioParameterBool> (VTS_FX,               // parameterID
                                                               "FX",                // parameter name
                                                               false),              // default value
-                        std::make_unique<AudioParameterFloat> ("drive", "Drive", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("bass","Bass", 0.0f, 1.0f, 0.5f),             
-                        std::make_unique<AudioParameterFloat> ("middle", "Middle", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("trebble", "Trebble", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("presence", "Presence", 0.0f,  1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("master", "Master", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterBool> ("cabSim", "cabSim", false),
-                        std::make_unique<AudioParameterFloat> ("cabSim_type", "Cab Sim", 0.0, 2, (float)ThreeWayIRFileSwitch::SwitchStatus::IRDefault),
-                        std::make_unique<AudioParameterFloat> ("output", "Output", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("effects_od_drive", "OD Drive", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("effects_od_tone", "OD Tone", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> ("effects_od_level", "OD Level", 0.0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterBool> ("effects_od_on", "OD on", false),
-                        std::make_unique<AudioParameterBool> ("effects_ng_on", "NG on", false),
-                        std::make_unique<AudioParameterFloat> ("effects_ng_threshold", "NG Threshold", .0f, 1.0f, 0.5f)
+                        std::make_unique<AudioParameterFloat> (VTS_DRIVE, "Drive", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_BASS,"Bass", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_MIDDLE, "Middle", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_TREBBLE, "Trebble", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_PRESENCE, "Presence", 0.0f,  1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_MASTER, "Master", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_CAB_SIM_TYPE, "Cab Sim", 0.0, 2, (float)ThreeWayIRFileSwitch::SwitchStatus::IRDefault),
+                        std::make_unique<AudioParameterFloat> (VTS_OUTPUT, "Output", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_OD_DRIVE, "OD Drive", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_OD_TONE, "OD Tone", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_OD_LEVEL, "OD Level", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> (VTS_EF_OD_ON, "OD on", false),
+                        std::make_unique<AudioParameterBool> (VTS_EF_NG_ON, "NG on", false),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
@@ -58,23 +57,22 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     mainProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
     preEffectsProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
 
-    inputParameter = parameters.getRawParameterValue ("input");
-    fxParameter = parameters.getRawParameterValue ("fx");
-    driveParameter = parameters.getRawParameterValue ("dirve");
-    bassParameter = parameters.getRawParameterValue ("bass");
-    middleParameter = parameters.getRawParameterValue ("middle");
-    trebleParameter = parameters.getRawParameterValue ("trebble");
-    presenceParameter = parameters.getRawParameterValue ("presence");
-    masterParameter = parameters.getRawParameterValue ("master");
-    cabSimSwitch = parameters.getRawParameterValue("cabSim_type");
-    outputParameter = parameters.getRawParameterValue ("output");
-    driveParameter = parameters.getRawParameterValue ("drive");
-    effects_od_switch = parameters.getRawParameterValue("effects_od_on");
-    effects_ng_switch = parameters.getRawParameterValue("effects_ng_on");
+    inputParameter = parameters.getRawParameterValue (VTS_INPUT);
+    fxParameter = parameters.getRawParameterValue (VTS_FX);
+    driveParameter = parameters.getRawParameterValue (VTS_DRIVE);
+    bassParameter = parameters.getRawParameterValue (VTS_BASS);
+    middleParameter = parameters.getRawParameterValue (VTS_MIDDLE);
+    trebleParameter = parameters.getRawParameterValue (VTS_TREBBLE);
+    presenceParameter = parameters.getRawParameterValue (VTS_PRESENCE);
+    masterParameter = parameters.getRawParameterValue (VTS_MASTER);
+    cabSimSwitch = parameters.getRawParameterValue(VTS_CAB_SIM_TYPE);
+    outputParameter = parameters.getRawParameterValue (VTS_OUTPUT);
+    effects_od_switch = parameters.getRawParameterValue(VTS_EF_OD_ON);
+    effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
 
 #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
-    #endif
+#endif
 }
 
 AmpedAudioProcessor::~AmpedAudioProcessor()
@@ -90,6 +88,14 @@ void AmpedAudioProcessor::settingChanged()
     if (editor != nullptr) {
         editor->repaint();
     }
+}
+
+void AmpedAudioProcessor::presetChanged()
+{
+   auto preset = soundSettingsModel.getCurrentSetting()->getCurrentPreset();
+
+    if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType()))
+        parameters.replaceState (ValueTree::fromXml (*preset->xml));
 }
 
 std::shared_ptr<SoundSettings> AmpedAudioProcessor::getCurrentSettings() {
@@ -232,14 +238,14 @@ void AmpedAudioProcessor::initialisePreEffectsGraph() {
 
     noiseGateNode = preEffectsProcessor->addNode (std::make_unique<EffectsNGProcessor>(soundSettingsModel.getCurrentSetting()));
     EffectsNGProcessor* ngProcessor = (EffectsNGProcessor*) noiseGateNode->getProcessor();
-    ngProcessor->thresholdParam = parameters.getRawParameterValue ("effects_ng_threshold");
+    ngProcessor->thresholdParam = parameters.getRawParameterValue (VTS_EF_NG_THRESHOLD);
     preEffectsAudioProcessors.add(noiseGateNode);
 
     overdriveNode = preEffectsProcessor->addNode (std::make_unique<EffectsODProcessor>(soundSettingsModel.getCurrentSetting()));
     EffectsODProcessor* processor = (EffectsODProcessor*) overdriveNode->getProcessor();
-    processor->driveParameter = parameters.getRawParameterValue ("effects_od_drive");
-    processor->toneParameter = parameters.getRawParameterValue ("effects_od_tone");
-    processor->levelParameter = parameters.getRawParameterValue ("effects_od_level");
+    processor->driveParameter = parameters.getRawParameterValue (VTS_EF_OD_DRIVE);
+    processor->toneParameter = parameters.getRawParameterValue (VTS_EF_OD_TONE);
+    processor->levelParameter = parameters.getRawParameterValue (VTS_EF_OD_LEVEL);
     preEffectsAudioProcessors.add(overdriveNode);
 
     for (auto node : preEffectsAudioProcessors)
