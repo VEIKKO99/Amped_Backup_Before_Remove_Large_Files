@@ -406,8 +406,10 @@ void AmpedAudioProcessor::connectPreEffectsMidiNodes()
 
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-    Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
-
+  //  Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
+    if (getTotalNumInputChannels() < 1) {
+        return;
+    }
     preEffectsProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
             AMPED_MONO_CHANNEL,
             sampleRate, samplesPerBlock);
@@ -431,7 +433,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 //==============================================================================
 void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerBlock)
 {
-    Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
+  //  Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
 
     mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
                                          AMPED_MONO_CHANNEL,

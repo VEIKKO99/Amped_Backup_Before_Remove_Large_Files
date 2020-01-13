@@ -38,7 +38,7 @@ inline String getLocalFilename(String fileName, String rootFilePath) {
         name = fileName.substring (fileName.lastIndexOfChar ('/') + 1);
     }
     String nameWithPath = rootFilePath + name;
-    Logger::getCurrentLogger()->writeToLog("Full local path: " + nameWithPath);
+  //   Logger::getCurrentLogger()->writeToLog("Full local path: " + nameWithPath);
     return nameWithPath;
 }
 
@@ -300,6 +300,18 @@ class PresetSetting {
 public:
     String name;
     std::unique_ptr<XmlElement> xml;
+
+    XmlElement* serializeToXml() {
+        XmlElement* settings = new XmlElement ("Preset");
+        settings->setAttribute("name", name);
+        settings->addChildElement(xml.get());
+        return settings;
+    }
+
+    void readFromXml(XmlElement* element) {
+        this->name = element->getStringAttribute("name");
+        this->xml.reset(element->getFirstChildElement());
+    }
 };
 
 class SoundSettings {
@@ -316,8 +328,17 @@ public:
     {
        // presetSettings.insert(presetIterator, setting);
    //    presetSettings.insert(currentSettingIndex, setting);
-        presetSettings.insert(presetSettings.begin()+currentSettingIndex, setting);
+        if (presetSettings.size() == 0)
+            presetSettings.insert(presetSettings.begin(), setting);
+        else
+            presetSettings.insert(presetSettings.begin() + currentSettingIndex +1, setting);
+    }
 
+    void deleteCurrentPreset() {
+        if (presetSettings.size() > currentSettingIndex) {
+            presetSettings.erase(presetSettings.begin() + currentSettingIndex);
+            currentSettingIndex = 0;
+        }
     }
 
     void replacePreset(std::shared_ptr<PresetSetting> setting) {
@@ -358,6 +379,20 @@ public:
         }
     }
 
+    String getPresetsDebugString() {
+        if (presetSettings.size() > 0) {
+            String presets = "";
+            for (int i = 0;  i < presetSettings.size(); i++)
+            {
+                presets += String(i+1) + ". " + presetSettings[i]->name + "\n";
+            }
+            return presets;
+        }
+        else {
+            return "No presets";
+        }
+    }
+
     PresetSetting* getCurrentPreset() {
         if (currentSettingIndex < presetSettings.size())
         {
@@ -385,7 +420,13 @@ public:
        for (int i = 0; i < GainProcessorId::SIZE; i++) {
            minMaxElement->addChildElement(gainSettings[i].serializeToXml());
        }
-       rootElement->addChildElement(ampSettings.serializeToXml());
+        XmlElement* presetsElement = new XmlElement("Presets");
+        rootElement->addChildElement(presetsElement);
+        for (int i = 0; i < presetSettings.size(); i++) {
+            presetsElement->addChildElement(presetSettings[i]->serializeToXml());
+        }
+
+        rootElement->addChildElement(ampSettings.serializeToXml());
        return rootElement;
     }
 

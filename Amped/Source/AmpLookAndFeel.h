@@ -58,7 +58,7 @@ class ThreeWaySwitchSliderLookAndFeel : public AmpLookAndFeelBase {
             const Slider::SliderStyle style, Slider& slider) override
     {
         AmpLookAndFeelBase::drawLinearSlider(g, x, y, width, height, sliderPos, minSliderPos, maxSliderPos, style, slider);
-        Logger::getCurrentLogger()->writeToLog("Draw sliderPos:" + String(sliderPos) + "min:" + String(minSliderPos) + " maxSliderPos:" + String(maxSliderPos));
+   //     Logger::getCurrentLogger()->writeToLog("Draw sliderPos:" + String(sliderPos) + "min:" + String(minSliderPos) + " maxSliderPos:" + String(maxSliderPos));
 
      //   std::string fileName;
      //   if (sliderPos < 1.0)

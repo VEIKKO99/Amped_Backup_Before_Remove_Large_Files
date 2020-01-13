@@ -96,14 +96,14 @@ public:
  //           return false;
 
  //       return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
-        juce::Logger::getCurrentLogger()->writeToLog("##### printing layouts #####");
+      /*  juce::Logger::getCurrentLogger()->writeToLog("##### printing layouts #####");
 
         for (auto input: layouts.inputBuses) {
             juce::Logger::getCurrentLogger()->writeToLog("INPUT: "+ input.getDescription());
         }
         for (auto input: layouts.outputBuses) {
             juce::Logger::getCurrentLogger()->writeToLog("OUTPUT: "+ input.getDescription());
-        }
+        }*/
 
  return true;
     }
@@ -120,7 +120,7 @@ public:
     // as mono signal as long as possible to save resources.
 
     int getAmpedInputChannelCount() {
-        juce::Logger::getCurrentLogger()->writeToLog("processor graph: getTotalNumInputChannels: " + String(getTotalNumInputChannels()));
+     //   juce::Logger::getCurrentLogger()->writeToLog("processor graph: getTotalNumInputChannels: " + String(getTotalNumInputChannels()));
 
         if (getTotalNumInputChannels() > 0) {
             return 1;
@@ -433,10 +433,10 @@ public:
     void setupCabIRFile() {
         if (soundSettings->ampSettings.cabIr.overridingIrFileName.length() > 0) {
             loadIRFile(soundSettings->ampSettings.cabIr.overridingIrFileName);
-            Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.overridingIrFileName);
+            //Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.overridingIrFileName);
         }
         else {
-            Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.irFileName);
+        //    Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.irFileName);
             loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
         }
     }
