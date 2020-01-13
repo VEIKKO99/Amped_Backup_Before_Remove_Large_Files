@@ -24,10 +24,7 @@
 #include "AdminSettingsWindow.h"
 #include "PluginProcessor.h"
 
-class MainComponent    : public Component
-                        #ifdef AMPED_DEBUG
-                            ,public Button::Listener
-                        #endif
+class MainComponent    : public Component, public Button::Listener
 {
 public:
     MainComponent(AudioProcessorValueTreeState& vts, AmpedAudioProcessor& p);
@@ -57,6 +54,7 @@ private:
     TextButton nextAmp;
     TextButton prevAmp;
 #endif
+
     ScopedPointer<FFAU::LevelMeter> meter;
     ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

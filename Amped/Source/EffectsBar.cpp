@@ -90,16 +90,19 @@ void EffectsBar::paint (Graphics& g)
 
 void EffectsBar::resized()
 {
-    onOffButton.setBounds(440, 165, 120, 80);
-    driveSlider.setBounds(430, 30, 60, 60);
-    toneSlider.setBounds(470, 30, 60, 60);
-    levelSlider.setBounds(510, 30, 60, 60);
+    int driveXOffset = 238;
+    int driveYOffset = 26;
+    onOffButton.setBounds(driveXOffset + 10, driveYOffset + 143, 120, 80);
+    driveSlider.setBounds(driveXOffset, driveYOffset + 8, 60, 60);
+    toneSlider.setBounds(driveXOffset + 40, driveYOffset +8, 60, 60);
+    levelSlider.setBounds(driveXOffset + 80, driveYOffset +8, 60, 60);
+    odLed.setBounds(driveXOffset + 59, driveYOffset, 22, 22);
 
-    ngOnOffButton.setBounds(640, 165, 120, 80);
-    ngThreshold.setBounds(668, 30, 60, 60);
-
-    ngLed.setBounds(688, 22 ,22, 22);
-    odLed.setBounds(489, 22, 22, 22);
+    int ngXOffset = 49;
+    int ngYOffset = 26;
+    ngOnOffButton.setBounds(ngXOffset,  ngYOffset + 143, 120, 80);
+    ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 60, 60);
+    ngLed.setBounds(ngXOffset + 48, ngYOffset ,22, 22);
 
     // This method is where you should set the bounds of any child
     // components that your component contains..

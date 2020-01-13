@@ -502,6 +502,18 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     deletePresetBtn->setBounds (232, 768, 64, 24);
 
+    presetsInfoTextView.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (presetsInfoTextView.get());
+    presetsInfoTextView->setMultiLine (true);
+    presetsInfoTextView->setReturnKeyStartsNewLine (true);
+    presetsInfoTextView->setReadOnly (true);
+    presetsInfoTextView->setScrollbarsShown (true);
+    presetsInfoTextView->setCaretVisible (false);
+    presetsInfoTextView->setPopupMenuEnabled (true);
+    presetsInfoTextView->setText (String());
+
+    presetsInfoTextView->setBounds (312, 744, 296, 120);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -569,6 +581,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     prevPresetBtn = nullptr;
     nextPresetBtn = nullptr;
     deletePresetBtn = nullptr;
+    presetsInfoTextView = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -676,6 +689,7 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == deletePresetBtn.get())
     {
         //[UserButtonCode_deletePresetBtn] -- add your button handler code here..
+        deletePresetBtnPressed();
         //[/UserButtonCode_deletePresetBtn]
     }
 
@@ -866,7 +880,7 @@ void AdminSettingsWindow::updatePresetUI() {
     if (preset != nullptr) {
         presetNameEditor->setText(preset->name);
         String count = "";
-        count += String(changeInterface->getCurrentSettings()->getCurrentPresetIndex()) +" / " +  String(changeInterface->getCurrentSettings()->getPresetCount());
+        count += String(changeInterface->getCurrentSettings()->getCurrentPresetIndex() + 1) +" / " +  String(changeInterface->getCurrentSettings()->getPresetCount());
         presetNumber->setText(count, dontSendNotification);
     }
     else
@@ -874,6 +888,8 @@ void AdminSettingsWindow::updatePresetUI() {
         presetNameEditor->setText("Unknown");
         presetNumber->setText("?", dontSendNotification);
     }
+    presetsInfoTextView->setText(changeInterface->getCurrentSettings()->getPresetsDebugString(), dontSendNotification);
+
 }
 
 void AdminSettingsWindow::addNewPresetBtnPressed() {
@@ -907,6 +923,13 @@ void AdminSettingsWindow::savePresetBtnPressed() {
     preset->name = name;
     preset->xml = state.createXml();
     changeInterface->getCurrentSettings()->replacePreset(preset);
+
+    updatePresetUI();
+}
+
+void AdminSettingsWindow::deletePresetBtnPressed() {
+    changeInterface->getCurrentSettings()->deleteCurrentPreset();
+    updatePresetUI();
 }
 
 
@@ -1123,6 +1146,10 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="68a722602d06936b" memberName="deletePresetBtn"
               virtualName="" explicitFocusOrder="0" pos="232 768 64 24" buttonText="Delete"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTEDITOR name="new text editor" id="cac210cd156d429b" memberName="presetsInfoTextView"
+              virtualName="" explicitFocusOrder="0" pos="312 744 296 120" initialText=""
+              multiline="1" retKeyStartsLine="1" readonly="1" scrollbars="1"
+              caret="0" popupmenu="1"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

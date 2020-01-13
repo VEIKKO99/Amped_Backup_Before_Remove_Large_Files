@@ -32,11 +32,11 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     nextAmp.addListener(this);
     prevAmp.addListener(this);
 #endif
-
     addAndMakeVisible(effectsButton);
     addAndMakeVisible(effectsBar);
     effectsBar.setVisible(false);
     effectsButton.addListener(this);
+    effectsButton.setAlpha(0.0);
 
 //    initInputClipMeter();
 
@@ -64,7 +64,7 @@ void MainComponent::initInputClipMeter() {
 void MainComponent::buttonClicked (Button* button)
 {
     if (button == &effectsButton) {
-
+        effectsBar.setVisible(!effectsBar.isVisible());
     }
 
 #ifdef AMPED_DEBUG
@@ -78,9 +78,7 @@ void MainComponent::buttonClicked (Button* button)
         }
         adminUIWindow->setVisible(true);
     }
-    if (button == &effectsButton) {
-        effectsBar.setVisible(!effectsBar.isVisible());
-    }
+
     if (button == &nextAmp) {
         processor.nextSetting();
     }
@@ -138,7 +136,7 @@ void MainComponent::resized()
 
 #endif
     effectsButton.setButtonText("Effects");
-    effectsButton.setBounds(600, 24, 240, 54);
+    effectsButton.setBounds(1106, 42, 60, 60);
     effectsBar.setBounds(0, 140, 1200, 289);
     // This method is where you should set the bounds of any child
     // components that your component contains..

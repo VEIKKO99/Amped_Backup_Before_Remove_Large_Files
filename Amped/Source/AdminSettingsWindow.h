@@ -83,6 +83,7 @@ private:
     void nextPresetBtnPressed();
     void updatePresetUI();
     void savePresetBtnPressed();
+    void deletePresetBtnPressed();
     //[/UserVariables]
 
     //==============================================================================
@@ -135,11 +136,11 @@ private:
     std::unique_ptr<TextButton> prevPresetBtn;
     std::unique_ptr<TextButton> nextPresetBtn;
     std::unique_ptr<TextButton> deletePresetBtn;
+    std::unique_ptr<TextEditor> presetsInfoTextView;
 
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)
-
 };
 
 //[EndFile] You can add extra defines here...
