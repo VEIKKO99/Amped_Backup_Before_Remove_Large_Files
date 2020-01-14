@@ -86,9 +86,9 @@ AudioProcessorValueTreeState::ButtonAttachment::~ButtonAttachment() {}
 ThreeWayIRFileSwitch::ThreeWayIRFileSwitch ()
 {
     //[Constructor_pre] You can add your own custom stuff here..
-    drawableButtonOff = Drawable::createFromImageData (BinaryData::amped_switch62_0000_png, BinaryData::amped_switch62_0000_pngSize);
+    drawableButtonOff = Drawable::createFromImageData (BinaryData::amped_switch62_0020_png, BinaryData::amped_switch62_0020_pngSize);
     drawableButtonMiddle = Drawable::createFromImageData (BinaryData::amped_switch62_0010_png, BinaryData::amped_switch62_0010_pngSize);
-    drawableButtonOn = Drawable::createFromImageData (BinaryData::amped_switch62_0020_png, BinaryData::amped_switch62_0020_pngSize);
+    drawableButtonOn = Drawable::createFromImageData (BinaryData::amped_switch62_0000_png, BinaryData::amped_switch62_0000_pngSize);
 
     //[/Constructor_pre]
 
@@ -156,6 +156,7 @@ void ThreeWayIRFileSwitch::mouseDown (const MouseEvent& e)
     else {
         openIRFileSelection();
     }
+    repaint();
     //[/UserCode_mouseDown]
 }
 
