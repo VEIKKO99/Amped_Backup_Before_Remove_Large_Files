@@ -722,8 +722,8 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     auto state = parameters.copyState();
     std::unique_ptr<XmlElement> xml (state.createXml());
+    xml->deleteAllChildElementsWithTagName("CustomCabIr");
     if (getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
-        xml->deleteAllChildElementsWithTagName("CustomCabIr");
         xml->createNewChildElement("CustomCabIr")->setAttribute("fileName", getCurrentSettings()->ampSettings.cabIr.overridingIrFileName);
     }
     copyXmlToBinary (*xml, destData);
