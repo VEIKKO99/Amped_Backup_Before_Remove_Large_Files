@@ -13,6 +13,7 @@
 #include "UIConsts.h"
 #include "PluginProcessor.h"
 #include "Consts.h"
+#include "LicenceTools.h"
 
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
@@ -37,6 +38,14 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     effectsBar.setVisible(false);
     effectsButton.addListener(this);
     effectsButton.setAlpha(0.0);
+
+    auto&& licenceTools = LicenceTools::getInstance();
+    licenceTools->isValidLicence();
+    auto challenge = papupata::licensing::Challenge(true).toString();
+    Logger::getCurrentLogger()->writeToLog("Challenge: " + challenge);
+
+    topBar.reset (new AmpTopBar());
+    addAndMakeVisible (topBar.get());
 
 //    initInputClipMeter();
 
@@ -120,8 +129,9 @@ void MainComponent::resized()
 {
     ampButtonBar.setBounds(Constants::AmpButtonBarX, Constants::AmpButtonBarY,
                            Constants::AmpButtonBarW, Constants::AmpButtonBarH);
-    
-    
+
+    topBar->setBounds (0, 0, 1200, 300);
+
 #ifdef AMPED_DEBUG
     adminUIButton.setBounds(80, 80, 100, 40);
     adminUIButton.setButtonText("Admin");
@@ -138,6 +148,7 @@ void MainComponent::resized()
     effectsButton.setButtonText("Effects");
     effectsButton.setBounds(1106, 42, 60, 60);
     effectsBar.setBounds(0, 140, 1200, 289);
+
     // This method is where you should set the bounds of any child
     // components that your component contains..
 

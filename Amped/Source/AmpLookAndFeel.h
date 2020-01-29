@@ -88,6 +88,21 @@ public:
         drawRotaryS(g, fileName);
     }
 
+    Font getTextButtonFont (TextButton&, int buttonHeight) override {
+        auto font = Constants::getAmpedFont();
+        font.setHeight(20.0);
+        return font;
+    }
+
+    void drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
+            bool isMouseOverButton, bool isButtonDown) override
+    {
+        auto buttonArea = button.getLocalBounds();
+
+        g.setColour (isButtonDown ? backgroundColour.withAlpha(0.5f) : backgroundColour);
+        g.fillRect (buttonArea);
+    }
+
     void drawToggleButton (Graphics& g,
                            ToggleButton& button,
                            bool isMouseOverButton,

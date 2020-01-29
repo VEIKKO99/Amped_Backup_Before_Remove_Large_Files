@@ -17,7 +17,9 @@ class Constants
 #else
  //  #define AMPED_DEBUG
 #endif
-    
+
+#define AMPED_FREE
+
 public:
     static const int AmpButtonBarX = 290;
     static const int AmpButtonBarY = 453;
@@ -26,6 +28,14 @@ public:
 #else
     static const int AmpButtonBarW = 880;
 #endif
+
+    static const Font& getAmpedFont()
+    {
+        static Font font (Font (Typeface::createSystemTypefaceFor (BinaryData::WorkSansRegular_ttf,
+                BinaryData::WorkSansRegular_ttfSize)));
+        return font;
+    }
+
     static const int AmpButtonBarH = 90;
     
     
