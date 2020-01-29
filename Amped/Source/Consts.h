@@ -33,7 +33,6 @@ const std::string VTS_EF_OD_ON = "effects_od_on";
 const std::string VTS_EF_NG_ON = "effects_ng_on";
 const std::string VTS_EF_NG_THRESHOLD = "effects_ng_threshold";
 
-
 inline const char* getBinaryDataWithOriginalFileName(String originalFileName, int& dataSizeInBytes) {
     // THis doesn't work with names starting with number
     //    String replaced = originalFileName.replaceCharacter('.', '_');

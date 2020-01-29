@@ -23,6 +23,7 @@
 
 #include "AdminSettingsWindow.h"
 #include "PluginProcessor.h"
+#include "AmpTopBar.h"
 
 class MainComponent    : public Component, public Button::Listener
 {
@@ -45,6 +46,9 @@ private:
     AmpLookAndFeel ampLookAndFeel;
     TextButton effectsButton;
     EffectsBar effectsBar;
+
+    std::unique_ptr<AmpTopBar> topBar;
+
 
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
