@@ -83,6 +83,9 @@ AmpTopBar::AmpTopBar ()
 
 
     //[Constructor] You can add your own custom stuff here..
+
+    pedalBoardBtn->onClick = [this] { togglePedalBoard(); };   // [8]
+
     //[/Constructor]
 }
 
@@ -163,6 +166,16 @@ void AmpTopBar::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
 
 
 //[MiscUserCode] You can add your own definitions of your custom methods or any other code here...
+
+void AmpTopBar::togglePedalBoard()
+{
+    if (mainComponent != nullptr)
+    {
+        mainComponent->toggleEffectsBar();
+    }
+}
+
+
 //[/MiscUserCode]
 
 

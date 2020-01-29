@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SoundSettings>
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:1200x600_fluff_free_evh.png"
+              selectedKnob="1"/>
+  <MaxMinSettings>
+    <MaxMin min="-24.0" max="24.0"/>
+    <MaxMin min="-24.0" max="0.0"/>
+    <MaxMin min="-2.0" max="28.0"/>
+  </MaxMinSettings>
+  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterVolumeMultiplier="1.0">
+    <TubeSettings amountOfPreampTubes="3">
+      <PreAmpTubes>
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+                     tubeType="1"/>
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+                     tubeType="1"/>
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+                     tubeType="1"/>
+      </PreAmpTubes>
+      <PowerAmpTube>
+        <TubeSetting vPlus="468.0" rk="0.0" vk0="0.0" rp="3400.0" lowPassFbk="338.0"
+                     tubeType="15"/>
+      </PowerAmpTube>
+    </TubeSettings>
+    <IRSettings>
+      <CabIr>
+        <IRSetting irFileName="memory:ML-MEGA-OS-Almighty.wav"
+                   overridingIrFileName="" gain="6.0"/>
+      </CabIr>
+      <AmpIr>
+        <IRSetting irFileName="memory:MATCH_IR_5034_40MS.wav"
+                   overridingIrFileName="" gain="6.0"/>
+      </AmpIr>
+    </IRSettings>
+    <EQSettings>
+      <EQSettings lowIrFileName="memory:EVH_EQ_BASS_00_20MS.wav"
+                  highIrFileName="memory:EVH_EQ_BASS_10_20MS.wav"
+                  gain="7.0" realisticGain="1.0"/>
+      <EQSettings lowIrFileName="memory:EVH_EQ_MIDDLE_00_20MS.wav"
+                  highIrFileName="memory:EVH_EQ_MIDDLE_10_20MS.wav"
+                  gain="7.0" realisticGain="1.0"/>
+      <EQSettings lowIrFileName="memory:EVH_EQ_TREBLE_00_20MS.wav"
+                  highIrFileName="memory:EVH_EQ_TREBLE_10_20MS.wav"
+                  gain="5.0" realisticGain="7.0"/>
+      <EQSettings lowIrFileName="memory:EVH_EQ_PRESENCE_00_20MS.wav"
+                  highIrFileName="memory:EVH_EQ_PRESENCE_10_20MS.wav"
+                  gain="5.0" realisticGain="7.0"/>
+    </EQSettings>
+  </InternalAmpSettings>
+</SoundSettings>

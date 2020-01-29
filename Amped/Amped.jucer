@@ -9,6 +9,108 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
+        <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
+          <FILE id="EBtw7Y" name="1200x600_fluff_5034_PROJECT2.png_.png" compile="0"
+                resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png_.png"/>
+          <FILE id="c7uzCs" name="1200x600_fluff_5034_PROJECT2.png__.png" compile="0"
+                resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png__.png"/>
+          <FILE id="J81Fqu" name="1200x600_fluff_5150.png" compile="0" resource="1"
+                file="res/SoundSettings/files/1200x600_fluff_5150.png"/>
+          <FILE id="dYtUkm" name="1200x600_fluff_free_evh.png" compile="0" resource="1"
+                file="res/SoundSettings/files/1200x600_fluff_free_evh.png"/>
+          <FILE id="mEpAfR" name="1200x600_fluff_friedman.png" compile="0" resource="1"
+                file="res/SoundSettings/files/1200x600_fluff_friedman.png"/>
+          <FILE id="w6RVK6" name="1200x600_fluff_rectob.png" compile="0" resource="1"
+                file="res/SoundSettings/files/1200x600_fluff_rectob.png"/>
+          <FILE id="wLzkz8" name="5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_BASS_00_20MS.wav"/>
+          <FILE id="Cvjmrh" name="5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_BASS_10_20MS.wav"/>
+          <FILE id="sJwZit" name="5150_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_MIDDLE_00_20MS.wav"/>
+          <FILE id="XZvzd4" name="5150_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_MIDDLE_10_20MS.wav"/>
+          <FILE id="KQtIFc" name="5150_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_PRESENCE_00_20MS.wav"/>
+          <FILE id="ntQbUn" name="5150_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_PRESENCE_10_20MS.wav"/>
+          <FILE id="YUSk5F" name="5150_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_TREBLE_00_20MS.wav"/>
+          <FILE id="UdpTzR" name="5150_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/5150_EQ_TREBLE_10_20MS.wav"/>
+          <FILE id="OUqB3B" name="BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_BASS_00_20MS.wav"/>
+          <FILE id="nUCCgm" name="BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_BASS_10_20MS.wav"/>
+          <FILE id="yTvEPW" name="BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
+          <FILE id="OkUR4C" name="BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
+          <FILE id="aqD4t8" name="BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
+          <FILE id="k5W05K" name="BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
+          <FILE id="qXEU6E" name="BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
+          <FILE id="bOqODN" name="BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
+          <FILE id="U6xMYZ" name="EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_BASS_00_20MS.wav"/>
+          <FILE id="yYy5nw" name="EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_BASS_10_20MS.wav"/>
+          <FILE id="Vefn3w" name="EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_MIDDLE_00_20MS.wav"/>
+          <FILE id="E7Z7T1" name="EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_MIDDLE_10_20MS.wav"/>
+          <FILE id="dg8Z0n" name="EVH_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_PRESENCE_00_20MS.wav"/>
+          <FILE id="uTEbVQ" name="EVH_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_PRESENCE_10_20MS.wav"/>
+          <FILE id="SzibQN" name="EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_TREBLE_00_20MS.wav"/>
+          <FILE id="pnsCeP" name="EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/EVH_EQ_TREBLE_10_20MS.wav"/>
+          <FILE id="zrGy7B" name="MATCH_IR_5034_40MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/MATCH_IR_5034_40MS.wav"/>
+          <FILE id="DTNnUY" name="MATCH_IR_5150_40MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/MATCH_IR_5150_40MS.wav"/>
+          <FILE id="GO3Vjw" name="MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/MATCH_IR_BUTTERFLUX2_40MS.wav"/>
+          <FILE id="vQGuSh" name="MATCH_IR_RECTOREVF_40MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/MATCH_IR_RECTOREVF_40MS.wav"/>
+          <FILE id="UaATNt" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ML-FRMN-M25-7B-B.wav"/>
+          <FILE id="Bd28Yy" name="ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/ML_USA_BULB_LEGEND_2_200MS.wav"/>
+          <FILE id="KkW3ES" name="ML_USA_BULB_LEGEND_200MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ML_USA_BULB_LEGEND_200MS.wav"/>
+          <FILE id="KwQpCV" name="REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_BASS_00_20MS.wav"/>
+          <FILE id="eVvGgE" name="REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_BASS_10_20MS.wav"/>
+          <FILE id="VsjmFL" name="REVF_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_MIDDLE_00_20MS.wav"/>
+          <FILE id="XeW3vU" name="REVF_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_MIDDLE_10_20MS.wav"/>
+          <FILE id="H1KXek" name="REVF_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_PRESENCE_00_20MS.wav"/>
+          <FILE id="ExoiZO" name="REVF_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_PRESENCE_10_20MS.wav"/>
+          <FILE id="Pq6ysu" name="REVF_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_TREBLE_00_20MS.wav"/>
+          <FILE id="FFSzsG" name="REVF_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/REVF_EQ_TREBLE_10_20MS.wav"/>
+        </GROUP>
+        <FILE id="hDq4id" name="ML-Amped-5034-Fluff.apd" compile="0" resource="1"
+              file="res/SoundSettings/ML-Amped-5034-Fluff.apd"/>
+        <FILE id="Laxjx3" name="ML-Amped-5151-Fluff.apd" compile="0" resource="1"
+              file="res/SoundSettings/ML-Amped-5151-Fluff.apd"/>
+        <FILE id="kPjmKK" name="ML-Amped-Freeman-Fluff.apd" compile="0" resource="1"
+              file="res/SoundSettings/ML-Amped-Freeman-Fluff.apd"/>
+        <FILE id="LiZQGG" name="ML-Amped-Mega-Fluff.apd" compile="0" resource="1"
+              file="res/SoundSettings/ML-Amped-Mega-Fluff.apd"/>
+      </GROUP>
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"
             file="res/WorkSans-Regular.ttf"/>
       <GROUP id="{A9EDAA1B-5B16-BFBD-0CDC-54DB6E0BFAE5}" name="files"/>

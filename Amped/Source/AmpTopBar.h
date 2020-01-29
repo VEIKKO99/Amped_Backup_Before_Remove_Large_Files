@@ -20,6 +20,7 @@
 #pragma once
 
 //[Headers]     -- You can add your own extra header files here --
+#include "MainComponent.h"
 #include "../JuceLibraryCode/JuceHeader.h"
 //[/Headers]
 
@@ -44,6 +45,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    MainComponent* mainComponent = nullptr;
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -55,6 +57,7 @@ public:
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
+    void togglePedalBoard();
     //[/UserVariables]
 
     //==============================================================================

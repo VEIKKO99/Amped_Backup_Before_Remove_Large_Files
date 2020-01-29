@@ -500,14 +500,18 @@ public:
         setupAmp();
     }
 
+  //  int mPrevSampleRate = -1;
     void prepareAmp(double sampleRate, int numOfChannels)
     {
-        tubeAmp.setSampleRate(sampleRate);
-      //  tubeAmp.setOversample(1);
-        tubeAmp.init();
-        tubeAmp.setNumChans(1);
-        
-        updateInternalSettings(soundSettings);
+    //    if (mPrevSampleRate != (int)sampleRate) {
+      //      mPrevSampleRate = (int) sampleRate;
+            tubeAmp.setSampleRate(sampleRate);
+          //  tubeAmp.setOversample(1);
+            tubeAmp.init();
+            tubeAmp.setNumChans(1);
+
+            updateInternalSettings(soundSettings);
+     //   }
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override

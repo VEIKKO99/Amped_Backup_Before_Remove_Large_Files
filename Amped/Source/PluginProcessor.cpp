@@ -406,26 +406,32 @@ void AmpedAudioProcessor::connectPreEffectsMidiNodes()
 
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
-  //  Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
-    if (getTotalNumInputChannels() < 1) {
-        return;
-    }
-    preEffectsProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
-            AMPED_MONO_CHANNEL,
-            sampleRate, samplesPerBlock);
+    if (previousPrepareSampleRate != (int) sampleRate ||
+        previousPrepareSamplesPerBlock != samplesPerBlock)
+    {
+        previousPrepareSampleRate = (int) sampleRate;
+        previousPrepareSamplesPerBlock = samplesPerBlock;
+      //  Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
+        if (getTotalNumInputChannels() < 1) {
+            return;
+        }
+        preEffectsProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+                AMPED_MONO_CHANNEL,
+                sampleRate, samplesPerBlock);
 
-    mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
-            AMPED_MONO_CHANNEL,
-            sampleRate, samplesPerBlock);
+        mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
+                AMPED_MONO_CHANNEL,
+                sampleRate, samplesPerBlock);
 
-    preEffectsProcessor->prepareToPlay (sampleRate, samplesPerBlock);
-    mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+        preEffectsProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+        mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
 
-    initialisePreEffectsGraph();
-    initialiseMainGraph();
+        initialisePreEffectsGraph();
+        initialiseMainGraph();
 
-    for (auto node : mainAudioProcessors) {
-        ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
+        for (auto node : mainAudioProcessors) {
+            ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
+        }
     }
 }
 

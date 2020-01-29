@@ -10,6 +10,7 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "MainComponent.h"
+#include "AmpTopBar.h"
 #include "UIConsts.h"
 #include "PluginProcessor.h"
 #include "Consts.h"
@@ -33,11 +34,8 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     nextAmp.addListener(this);
     prevAmp.addListener(this);
 #endif
-    addAndMakeVisible(effectsButton);
     addAndMakeVisible(effectsBar);
     effectsBar.setVisible(false);
-    effectsButton.addListener(this);
-    effectsButton.setAlpha(0.0);
 
     auto&& licenceTools = LicenceTools::getInstance();
     licenceTools->isValidLicence();
@@ -45,6 +43,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     Logger::getCurrentLogger()->writeToLog("Challenge: " + challenge);
 
     topBar.reset (new AmpTopBar());
+    topBar->mainComponent = this;
     addAndMakeVisible (topBar.get());
 
 //    initInputClipMeter();
@@ -70,11 +69,15 @@ void MainComponent::initInputClipMeter() {
     addAndMakeVisible (meter);
 }
 
+void MainComponent::toggleEffectsBar() {
+    effectsBar.setVisible(!effectsBar.isVisible());
+
+}
 void MainComponent::buttonClicked (Button* button)
 {
-    if (button == &effectsButton) {
+  /*  if (button == &effectsButton) {
         effectsBar.setVisible(!effectsBar.isVisible());
-    }
+    }*/
 
 #ifdef AMPED_DEBUG
     if (button == &adminUIButton) {
@@ -133,20 +136,18 @@ void MainComponent::resized()
     topBar->setBounds (0, 0, 1200, 300);
 
 #ifdef AMPED_DEBUG
-    adminUIButton.setBounds(80, 80, 100, 40);
+    adminUIButton.setBounds(80, 480, 100, 40);
     adminUIButton.setButtonText("Admin");
-    versionLabel.setBounds(620, 90, 200, 30);
+    versionLabel.setBounds(620, 130, 200, 30);
     String date (__DATE__);
     String time (__TIME__);
     versionLabel.setText(date + " - " + time, dontSendNotification);
     versionLabel.setColour (Label::textColourId, Colours::lightgreen);
 
-    prevAmp.setBounds(1000, 80, 40,40);
-    nextAmp.setBounds(1050, 80, 40,40);
+    prevAmp.setBounds(1000, 480, 40,40);
+    nextAmp.setBounds(1050, 480, 40,40);
 
 #endif
-    effectsButton.setButtonText("Effects");
-    effectsButton.setBounds(1106, 42, 60, 60);
     effectsBar.setBounds(0, 140, 1200, 289);
 
     // This method is where you should set the bounds of any child
