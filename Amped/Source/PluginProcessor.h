@@ -124,6 +124,9 @@ private:
                 float* parameter, float makeupGain, EQType type);
 
 
+    int previousPrepareSampleRate;
+    int previousPrepareSamplesPerBlock;
+
 private:
     //==============================================================================
     

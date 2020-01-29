@@ -23,7 +23,7 @@
 
 #include "AdminSettingsWindow.h"
 #include "PluginProcessor.h"
-#include "AmpTopBar.h"
+class AmpTopBar;
 
 class MainComponent    : public Component, public Button::Listener
 {
@@ -35,6 +35,7 @@ public:
     void resized() override;
 
     void buttonClicked (Button* button) override;
+    void toggleEffectsBar();
 
 private:
 
@@ -44,7 +45,7 @@ private:
     AmpButtonBar ampButtonBar;
     AmpedAudioProcessor& processor;
     AmpLookAndFeel ampLookAndFeel;
-    TextButton effectsButton;
+   // TextButton effectsButton;
     EffectsBar effectsBar;
 
     std::unique_ptr<AmpTopBar> topBar;
