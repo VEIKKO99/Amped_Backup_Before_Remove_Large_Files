@@ -35,6 +35,11 @@ public:
             currentSound = 0;
     }
 
+    int currentSettingIndex()
+    {
+        return currentSound;
+    }
+
     void prevSetting()
     {
        currentSound--;
@@ -42,9 +47,26 @@ public:
            currentSound = settings.size() -1;
     }
 
+    int getSize() {
+        return settings.size();
+    }
+
+    std::shared_ptr<SoundSettings> getSettingsWithIndex(int index)
+    {
+        return settings[index];
+    }
+
+    void selectSettingWithIndex(int settingIndex)
+    {
+        if (settingIndex >=0 && settingIndex < settings.size())
+        {
+            currentSound = settingIndex;
+        }
+    }
+
 private:
 
-    int currentSound = 1;
+    int currentSound = 0;
 
     void initModel() {
        auto amps = String::createStringFromData(BinaryData::amps_xml, BinaryData::amps_xmlSize);

@@ -310,7 +310,9 @@ public:
 
     void readFromXml(XmlElement* element) {
         this->name = element->getStringAttribute("name");
-        this->xml.reset(element->getFirstChildElement());
+        // Fix this:
+        auto presetElement = element->getFirstChildElement();
+        this->xml.reset(new XmlElement(* element->getFirstChildElement()));
     }
 };
 
@@ -411,6 +413,8 @@ public:
     MaxMin gainSettings[GainProcessorId::SIZE];
     UISettings uiSettings;
 
+    String name = "Unknown";
+
     std::shared_ptr<XmlElement> serializeToXml()
     {
        auto rootElement = std::make_shared<XmlElement>("SoundSettings");
@@ -432,11 +436,22 @@ public:
 
     void readFromXml(XmlElement* root, String rootFilePath)
     {
+        auto ampName = root->getStringAttribute("name");
+        if (ampName.length() > 0) name = ampName;
         auto minMaxElements = root->getChildByName("MaxMinSettings");
         uiSettings.readFromXml(root, rootFilePath);
         for (int i = 0; i < minMaxElements->getNumChildElements(); i++) {
             if (i < GainProcessorId::SIZE) {
                 gainSettings[i].readFromXml(minMaxElements->getChildElement(i));
+            }
+        }
+        auto presets = root->getChildByName("Presets");
+        if (presets != nullptr)
+        {
+            for (int i = 0; i < presets->getNumChildElements(); i++) {
+                std::shared_ptr<PresetSetting> preset(new PresetSetting());
+                preset->readFromXml(presets->getChildElement(i));
+                presetSettings.push_back(preset);
             }
         }
         ampSettings.readFromXml(root, rootFilePath);

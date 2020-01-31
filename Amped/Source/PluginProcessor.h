@@ -88,6 +88,8 @@ public:
 
     void nextSetting();
     void prevSetting();
+
+    SoundSettingsModel& getSoundSettingsModel();
     // Delay plugin 
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;
@@ -101,8 +103,10 @@ public:
    // PluginParameterLinSlider paramDelayTime;
    // PluginParameterLinSlider paramFeedback;
    // PluginParameterLinSlider paramMix;
-    
-    
+
+
+    void selectSettingWithId(int ampIndex);
+
 private:
     
     void updateGraph();
@@ -126,6 +130,7 @@ private:
 
     int previousPrepareSampleRate;
     int previousPrepareSamplesPerBlock;
+
 
 private:
     //==============================================================================

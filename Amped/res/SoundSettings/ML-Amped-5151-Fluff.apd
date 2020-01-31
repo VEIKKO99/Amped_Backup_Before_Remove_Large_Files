@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<SoundSettings>
+<SoundSettings name="5131">
   <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:1200x600_fluff_5150.png"
               selectedKnob="1"/>
   <MaxMinSettings>

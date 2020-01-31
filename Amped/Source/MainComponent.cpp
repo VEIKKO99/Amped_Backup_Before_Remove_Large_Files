@@ -44,6 +44,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
 
     topBar.reset (new AmpTopBar());
     topBar->mainComponent = this;
+    topBar->setProcessor(&processor);
     addAndMakeVisible (topBar.get());
 
 //    initInputClipMeter();

@@ -22,6 +22,7 @@
 //[Headers]     -- You can add your own extra header files here --
 #include "MainComponent.h"
 #include "../JuceLibraryCode/JuceHeader.h"
+#include "PluginProcessor.h"
 //[/Headers]
 
 
@@ -46,6 +47,8 @@ public:
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
     MainComponent* mainComponent = nullptr;
+    void setProcessor(AmpedAudioProcessor* processor);
+
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -58,17 +61,24 @@ public:
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     void togglePedalBoard();
+    AmpedAudioProcessor* processor = nullptr;
+    void initAmps();
+    void ampChanged();
     //[/UserVariables]
 
     //==============================================================================
     std::unique_ptr<TextButton> licenceManagerBtn;
     std::unique_ptr<TextButton> pedalBoardBtn;
-    std::unique_ptr<ComboBox> comboBox;
-    std::unique_ptr<ComboBox> comboBox2;
+    std::unique_ptr<ComboBox> ampComboBox;
+    std::unique_ptr<ComboBox> presetComboBox;
+    std::unique_ptr<Label> label;
+    std::unique_ptr<Label> label2;
 
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpTopBar)
+
+    void initPresets();
 };
 
 //[EndFile] You can add extra defines here...
