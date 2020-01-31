@@ -797,6 +797,7 @@ void AdminSettingsWindow::setupUI(){
     this->overSample->setText(String(settings->ampSettings.overSample));
     this->masterMultiplier->setText(String(settings->ampSettings.masterVolumeMultiplier));
 
+    updatePresetUI();
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
     //if (settings->ampSettings.ampIr.irFileName.length() > 0)

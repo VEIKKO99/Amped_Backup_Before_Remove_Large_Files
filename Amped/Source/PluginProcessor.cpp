@@ -392,6 +392,11 @@ void AmpedAudioProcessor::connectMainAudioNodes()
     }
 }
 
+SoundSettingsModel& AmpedAudioProcessor::getSoundSettingsModel()
+{
+    return soundSettingsModel;
+}
+
 void AmpedAudioProcessor::connectMidiNodes()
 {
     mainProcessor->addConnection ({ { midiInputNode->nodeID,  AudioProcessorGraph::midiChannelIndex },
@@ -779,6 +784,11 @@ void AmpedAudioProcessor::nextSetting()
 void AmpedAudioProcessor::prevSetting()
 {
     soundSettingsModel.prevSetting();
+    settingChanged();
+}
+
+void AmpedAudioProcessor::selectSettingWithId(int ampIndex) {
+    soundSettingsModel.selectSettingWithIndex(ampIndex);
     settingChanged();
 }
 

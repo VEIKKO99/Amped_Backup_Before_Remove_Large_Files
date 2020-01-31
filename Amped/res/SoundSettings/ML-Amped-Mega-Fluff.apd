@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<SoundSettings>
+<SoundSettings name="MEGA FLUFF">
   <UISettings konbFilename="amped_knob62_rectob_00" mainBackgroundImageFileName="memory:1200x600_fluff_rectob.png"
               selectedKnob="8"/>
   <MaxMinSettings>
