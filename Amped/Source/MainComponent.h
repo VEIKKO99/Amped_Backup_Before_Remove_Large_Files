@@ -37,6 +37,8 @@ public:
     void buttonClicked (Button* button) override;
     void toggleEffectsBar();
 
+    void updateAmpPresetUi();
+
 private:
 
     void initInputClipMeter();

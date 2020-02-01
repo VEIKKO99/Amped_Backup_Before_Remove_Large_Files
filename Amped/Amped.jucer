@@ -13,10 +13,6 @@
             file="res/AMPED_LOGO_25prossaa.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
-          <FILE id="EBtw7Y" name="1200x600_fluff_5034_PROJECT2.png_.png" compile="0"
-                resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png_.png"/>
-          <FILE id="c7uzCs" name="1200x600_fluff_5034_PROJECT2.png__.png" compile="0"
-                resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png__.png"/>
           <FILE id="J81Fqu" name="1200x600_fluff_5150.png" compile="0" resource="1"
                 file="res/SoundSettings/files/1200x600_fluff_5150.png"/>
           <FILE id="dYtUkm" name="1200x600_fluff_free_evh.png" compile="0" resource="1"
@@ -116,13 +112,7 @@
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"
             file="res/WorkSans-Regular.ttf"/>
       <GROUP id="{A9EDAA1B-5B16-BFBD-0CDC-54DB6E0BFAE5}" name="files"/>
-      <FILE id="EmvJVY" name="AC30_MATCH_IR.wav" compile="0" resource="1"
-            file="res/SoundSettings/files/AC30_MATCH_IR.wav"/>
-      <FILE id="Rapj0G" name="1200x600_fluff_5034_PROJECT2.png" compile="0"
-            resource="1" file="res/SoundSettings/files/1200x600_fluff_5034_PROJECT2.png"/>
       <FILE id="son1er" name="amps.xml" compile="0" resource="1" file="res/SoundSettings/amps.xml"/>
-      <FILE id="g8pCKj" name="AMPED_EDVH_TEST.apd" compile="0" resource="1"
-            file="res/SoundSettings/AMPED_EDVH_TEST.apd"/>
       <FILE id="SY3vgL" name="pedal-led-on.png" compile="0" resource="1"
             file="res/pedal-led-on.png"/>
       <GROUP id="{EF1E9526-49EC-4C08-B27C-9DB3A6CB7EB3}" name="amped_knob_pedal_0000">
@@ -246,31 +236,6 @@
               file="res/amped_knob_pedal_0000/amped_knob_pedal_0058.png"/>
         <FILE id="QOpxvv" name="amped_knob_pedal_0059.png" compile="0" resource="1"
               file="res/amped_knob_pedal_0000/amped_knob_pedal_0059.png"/>
-      </GROUP>
-      <GROUP id="{299176D2-9CE7-FE35-3ED2-7E0324FFEB95}" name="SoundSettings">
-        <GROUP id="{42016F50-53E0-2886-F88A-C29DC1E0948A}" name="files"/>
-        <GROUP id="{D6351969-3175-CD3F-323E-BB9045A87E76}" name="SoundSettings">
-          <GROUP id="{0C47FD49-297A-3967-4CE7-E4FAB90FBCE9}" name="files">
-            <FILE id="WOCPOm" name="FLUFF_5034_BASS_00.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_BASS_00.wav"/>
-            <FILE id="SAK1iF" name="FLUFF_5034_BASS_10.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_BASS_10.wav"/>
-            <FILE id="YWegFl" name="FLUFF_5034_MIDDLE_00.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_MIDDLE_00.wav"/>
-            <FILE id="qW3KgU" name="FLUFF_5034_MIDDLE_10.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_MIDDLE_10.wav"/>
-            <FILE id="oJgu9N" name="FLUFF_5034_PRESENCE_00.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_PRESENCE_00.wav"/>
-            <FILE id="ECMbmO" name="FLUFF_5034_PRESENCE_10.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_PRESENCE_10.wav"/>
-            <FILE id="dsKhXt" name="FLUFF_5034_TREBLE_00.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_TREBLE_00.wav"/>
-            <FILE id="REHXXB" name="FLUFF_5034_TREBLE_10.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/FLUFF_5034_TREBLE_10.wav"/>
-            <FILE id="ENXakF" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ML-MEGA-OS-Almighty.wav"/>
-          </GROUP>
-        </GROUP>
       </GROUP>
       <GROUP id="{6702B31C-D20E-AE2F-7470-FFB0D2A87347}" name="amped_knob62_chkn">
         <FILE id="GJvMKm" name="amped_knob62_chknw_0000.png" compile="0" resource="1"

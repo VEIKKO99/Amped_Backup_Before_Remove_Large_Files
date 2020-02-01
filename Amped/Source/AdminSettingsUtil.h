@@ -324,27 +324,27 @@ public:
     }
 
     std::vector<std::shared_ptr<PresetSetting>> presetSettings;
-    int currentSettingIndex = 0;
+    int currentPresetIndex = 0;
 
     void addNewPreset(std::shared_ptr<PresetSetting> setting)
     {
        // presetSettings.insert(presetIterator, setting);
-   //    presetSettings.insert(currentSettingIndex, setting);
+   //    presetSettings.insert(currentPresetIndex, setting);
         if (presetSettings.size() == 0)
             presetSettings.insert(presetSettings.begin(), setting);
         else
-            presetSettings.insert(presetSettings.begin() + currentSettingIndex +1, setting);
+            presetSettings.insert(presetSettings.begin() + currentPresetIndex +1, setting);
     }
 
     void deleteCurrentPreset() {
-        if (presetSettings.size() > currentSettingIndex) {
-            presetSettings.erase(presetSettings.begin() + currentSettingIndex);
-            currentSettingIndex = 0;
+        if (presetSettings.size() > currentPresetIndex) {
+            presetSettings.erase(presetSettings.begin() + currentPresetIndex);
+            currentPresetIndex = 0;
         }
     }
 
     void replacePreset(std::shared_ptr<PresetSetting> setting) {
-        presetSettings.at(currentSettingIndex) = setting;
+        presetSettings.at(currentPresetIndex) = setting;
     }
 
     int getPresetCount()
@@ -354,29 +354,37 @@ public:
 
     int getCurrentPresetIndex()
     {
-        return currentSettingIndex;
+        return currentPresetIndex;
     }
 
     void prevPreset() {
        if (presetSettings.size() == 0) {
-           currentSettingIndex = 0;
+           currentPresetIndex = 0;
        }
        else {
-           currentSettingIndex--;
-           if (currentSettingIndex < 0) {
-               currentSettingIndex = presetSettings.size() -1;
+           currentPresetIndex--;
+           if (currentPresetIndex < 0) {
+               currentPresetIndex = presetSettings.size() -1;
            }
        }
     }
 
+    void setCurrentPresetWithIndex(int newIndex)
+    {
+        if (newIndex >=0 && newIndex < presetSettings.size())
+        {
+            currentPresetIndex = newIndex;
+        }
+    }
+
     void nextPreset() {
         if (presetSettings.size() == 0) {
-            currentSettingIndex = 0;
+            currentPresetIndex = 0;
         }
         else {
-            currentSettingIndex++;
-            if (currentSettingIndex >= presetSettings.size()) {
-                currentSettingIndex = 0;
+            currentPresetIndex++;
+            if (currentPresetIndex >= presetSettings.size()) {
+                currentPresetIndex = 0;
             }
         }
     }
@@ -396,9 +404,9 @@ public:
     }
 
     PresetSetting* getCurrentPreset() {
-        if (currentSettingIndex < presetSettings.size())
+        if (currentPresetIndex < presetSettings.size())
         {
-            return presetSettings[currentSettingIndex].get();
+            return presetSettings[currentPresetIndex].get();
         }
         else
         {

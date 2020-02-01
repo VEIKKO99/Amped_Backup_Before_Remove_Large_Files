@@ -48,6 +48,7 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     MainComponent* mainComponent = nullptr;
     void setProcessor(AmpedAudioProcessor* processor);
+    void updateAmpPresetUi();
 
     //[/UserMethods]
 
@@ -55,7 +56,6 @@ public:
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
-
 
 
 private:
