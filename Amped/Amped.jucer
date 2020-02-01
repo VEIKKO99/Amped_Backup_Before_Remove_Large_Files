@@ -79,6 +79,8 @@
                 file="res/SoundSettings/files/MATCH_IR_RECTOREVF_40MS.wav"/>
           <FILE id="UaATNt" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ML-FRMN-M25-7B-B.wav"/>
+          <FILE id="R9V9Tr" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ML-MEGA-OS-Almighty.wav"/>
           <FILE id="Bd28Yy" name="ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/ML_USA_BULB_LEGEND_2_200MS.wav"/>
           <FILE id="KkW3ES" name="ML_USA_BULB_LEGEND_200MS.wav" compile="0" resource="1"
