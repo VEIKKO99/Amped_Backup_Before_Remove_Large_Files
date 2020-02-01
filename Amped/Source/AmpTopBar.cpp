@@ -34,19 +34,21 @@ AmpTopBar::AmpTopBar ()
 
     licenceManagerBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (licenceManagerBtn.get());
-    licenceManagerBtn->setButtonText (TRANS("LICENCE MANAGER"));
+    licenceManagerBtn->setButtonText (TRANS("LICENSE MANAGER"));
     licenceManagerBtn->addListener (this);
     licenceManagerBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
+    licenceManagerBtn->setColour (TextButton::textColourOffId, Colour (0xfff2f2f2));
 
-    licenceManagerBtn->setBounds (984, 77, 201, 39);
+    licenceManagerBtn->setBounds (972, 77, 200, 39);
 
     pedalBoardBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (pedalBoardBtn.get());
-    pedalBoardBtn->setButtonText (TRANS("PEDAL BOARD"));
+    pedalBoardBtn->setButtonText (TRANS("PEDALBOARD"));
     pedalBoardBtn->addListener (this);
     pedalBoardBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
+    pedalBoardBtn->setColour (TextButton::textColourOffId, Colour (0xfff2f2f2));
 
-    pedalBoardBtn->setBounds (752, 77, 201, 39);
+    pedalBoardBtn->setBounds (740, 77, 200, 39);
 
     ampComboBox.reset (new ComboBox ("new combo box"));
     addAndMakeVisible (ampComboBox.get());
@@ -63,7 +65,7 @@ AmpTopBar::AmpTopBar ()
     ampComboBox->addSeparator();
     ampComboBox->addListener (this);
 
-    ampComboBox->setBounds (8, 77, 200, 39);
+    ampComboBox->setBounds (20, 77, 200, 39);
 
     presetComboBox.reset (new ComboBox ("new combo box"));
     addAndMakeVisible (presetComboBox.get());
@@ -75,7 +77,7 @@ AmpTopBar::AmpTopBar ()
     presetComboBox->addSeparator();
     presetComboBox->addListener (this);
 
-    presetComboBox->setBounds (240, 77, 200, 39);
+    presetComboBox->setBounds (252, 77, 200, 39);
 
     label.reset (new Label ("new label",
                             TRANS("AMP")));
@@ -83,10 +85,11 @@ AmpTopBar::AmpTopBar ()
     label->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     label->setJustificationType (Justification::centred);
     label->setEditable (false, false, false);
+    label->setColour (Label::textColourId, Colour (0xfff2f2f2));
     label->setColour (TextEditor::textColourId, Colours::black);
     label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label->setBounds (8, 50, 200, 24);
+    label->setBounds (20, 50, 200, 24);
 
     label2.reset (new Label ("new label",
                              TRANS("PRESET\n")));
@@ -94,11 +97,13 @@ AmpTopBar::AmpTopBar ()
     label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
     label2->setJustificationType (Justification::centred);
     label2->setEditable (false, false, false);
+    label2->setColour (Label::textColourId, Colour (0xfff2f2f2));
     label2->setColour (TextEditor::textColourId, Colours::black);
     label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    label2->setBounds (240, 50, 200, 24);
+    label2->setBounds (252, 50, 200, 24);
 
+    drawable1 = Drawable::createFromImageData (BinaryData::AMPED_LOGO_25prossaa_png, BinaryData::AMPED_LOGO_25prossaa_pngSize);
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -124,6 +129,7 @@ AmpTopBar::~AmpTopBar()
     presetComboBox = nullptr;
     label = nullptr;
     label2 = nullptr;
+    drawable1 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -135,6 +141,17 @@ void AmpTopBar::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
+
+    {
+        int x = 480, y = 24, width = 231, height = 100;
+        //[UserPaintCustomArguments] Customize the painting arguments here..
+        //[/UserPaintCustomArguments]
+        g.setColour (Colours::black);
+        jassert (drawable1 != 0);
+        if (drawable1 != 0)
+            drawable1->drawWithin (g, Rectangle<int> (x, y, width, height).toFloat(),
+                                   RectanglePlacement::stretchToFit, 1.000f);
+    }
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -177,11 +194,14 @@ void AmpTopBar::comboBoxChanged (ComboBox* comboBoxThatHasChanged)
     if (comboBoxThatHasChanged == ampComboBox.get())
     {
         //[UserComboBoxCode_ampComboBox] -- add your combo box handling code here..
+        ampChanged();
+
         //[/UserComboBoxCode_ampComboBox]
     }
     else if (comboBoxThatHasChanged == presetComboBox.get())
     {
         //[UserComboBoxCode_presetComboBox] -- add your combo box handling code here..
+        presetChanged();
         //[/UserComboBoxCode_presetComboBox]
     }
 
@@ -217,6 +237,18 @@ void AmpTopBar::ampChanged()
     }
 }
 
+void AmpTopBar::presetChanged()
+{
+    if (processor != nullptr)
+    {
+        processor->selectPresetWithId(presetComboBox->getSelectedItemIndex());
+    }
+   // if (processor != nullptr)
+   // {
+   //     processor->selectSettingWithId(ampComboBox->getSelectedItemIndex());
+   // }
+}
+
 void AmpTopBar::initAmps() {
     ampComboBox->clear(dontSendNotification);
     if (processor != nullptr)
@@ -227,7 +259,7 @@ void AmpTopBar::initAmps() {
             ampComboBox->addItem(settings->getSettingsWithIndex(i)->name, i+1); // Combobox ids must start from 1.
         }
         ampComboBox->setSelectedItemIndex(settings->currentSettingIndex(), dontSendNotification);
-        ampComboBox->onChange = [this] { ampChanged(); };
+      //  ampComboBox->onChange = [this] { ampChanged(); };
     }
 }
 
@@ -263,30 +295,33 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="1200" initialHeight="300">
-  <BACKGROUND backgroundColour="323e44"/>
+  <BACKGROUND backgroundColour="323e44">
+    <IMAGE pos="480 24 231 100" resource="BinaryData::AMPED_LOGO_25prossaa_png"
+           opacity="1.0" mode="0"/>
+  </BACKGROUND>
   <TEXTBUTTON name="new button" id="740067d4fd533d47" memberName="licenceManagerBtn"
-              virtualName="" explicitFocusOrder="0" pos="984 77 201 39" bgColOff="ff111111"
-              buttonText="LICENCE MANAGER" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="972 77 200 39" bgColOff="ff111111"
+              textCol="fff2f2f2" buttonText="LICENSE MANAGER" connectedEdges="0"
+              needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="e9a6a188154bda9d" memberName="pedalBoardBtn"
-              virtualName="" explicitFocusOrder="0" pos="752 77 201 39" bgColOff="ff111111"
-              buttonText="PEDAL BOARD" connectedEdges="0" needsCallback="1"
-              radioGroupId="0"/>
+              virtualName="" explicitFocusOrder="0" pos="740 77 200 39" bgColOff="ff111111"
+              textCol="fff2f2f2" buttonText="PEDALBOARD" connectedEdges="0"
+              needsCallback="1" radioGroupId="0"/>
   <COMBOBOX name="new combo box" id="902abde5edcf97b0" memberName="ampComboBox"
-            virtualName="" explicitFocusOrder="0" pos="8 77 200 39" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="20 77 200 39" editable="0"
             layout="36" items="EDVH 5034&#10;RECTIFIED&#10;MARS 2203&#10;FREEMAN&#10;FLUFFERSLAX&#10;&#10;"
             textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <COMBOBOX name="new combo box" id="62b875f834df3cde" memberName="presetComboBox"
-            virtualName="" explicitFocusOrder="0" pos="240 77 200 39" editable="0"
+            virtualName="" explicitFocusOrder="0" pos="252 77 200 39" editable="0"
             layout="36" items="DJENT RHYTH&#10;" textWhenNonSelected="" textWhenNoItems="(no choices)"/>
   <LABEL name="new label" id="346bc6bb8bfb147b" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="8 50 200 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="AMP" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="36"/>
+         explicitFocusOrder="0" pos="20 50 200 24" textCol="fff2f2f2"
+         edTextCol="ff000000" edBkgCol="0" labelText="AMP" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
   <LABEL name="new label" id="a41fe87fd2a1347e" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="240 50 200 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="PRESET&#10;" editableSingleClick="0"
+         explicitFocusOrder="0" pos="252 50 200 24" textCol="fff2f2f2"
+         edTextCol="ff000000" edBkgCol="0" labelText="PRESET&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="36"/>
 </JUCER_COMPONENT>

@@ -107,6 +107,8 @@ public:
 
     void selectSettingWithId(int ampIndex);
 
+    void selectPresetWithId(int index);
+
 private:
     
     void updateGraph();

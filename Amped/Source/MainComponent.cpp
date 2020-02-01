@@ -34,6 +34,11 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     nextAmp.addListener(this);
     prevAmp.addListener(this);
 #endif
+    topBar.reset (new AmpTopBar());
+    topBar->mainComponent = this;
+    topBar->setProcessor(&processor);
+    addAndMakeVisible (topBar.get());
+
     addAndMakeVisible(effectsBar);
     effectsBar.setVisible(false);
 
@@ -42,10 +47,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     auto challenge = papupata::licensing::Challenge(true).toString();
     Logger::getCurrentLogger()->writeToLog("Challenge: " + challenge);
 
-    topBar.reset (new AmpTopBar());
-    topBar->mainComponent = this;
-    topBar->setProcessor(&processor);
-    addAndMakeVisible (topBar.get());
+
 
 //    initInputClipMeter();
 
@@ -72,8 +74,8 @@ void MainComponent::initInputClipMeter() {
 
 void MainComponent::toggleEffectsBar() {
     effectsBar.setVisible(!effectsBar.isVisible());
-
 }
+
 void MainComponent::buttonClicked (Button* button)
 {
   /*  if (button == &effectsButton) {
@@ -99,7 +101,6 @@ void MainComponent::buttonClicked (Button* button)
         processor.prevSetting();
     }
 #endif
-
 }
 
 void MainComponent::paint (Graphics& g)
