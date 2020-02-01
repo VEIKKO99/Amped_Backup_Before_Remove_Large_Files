@@ -7,6 +7,7 @@
 
   ==============================================================================
 */
+#include <type_traits>
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
@@ -85,8 +86,10 @@ void AmpedAudioProcessor::settingChanged()
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
     }
     auto editor = getActiveEditor();
-    if (editor != nullptr) {
+    if (editor != nullptr)
+    {
         editor->repaint();
+        ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
     }
 }
 
@@ -94,8 +97,13 @@ void AmpedAudioProcessor::presetChanged()
 {
    auto preset = soundSettingsModel.getCurrentSetting()->getCurrentPreset();
 
-    if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType()))
-        parameters.replaceState (ValueTree::fromXml (*preset->xml));
+   if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType()))
+       parameters.replaceState (ValueTree::fromXml (*preset->xml));
+    auto editor = getActiveEditor();
+    if (editor != nullptr)
+    {
+        ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
+    }
 }
 
 std::shared_ptr<SoundSettings> AmpedAudioProcessor::getCurrentSettings() {
@@ -793,7 +801,8 @@ void AmpedAudioProcessor::selectSettingWithId(int ampIndex) {
 }
 
 void AmpedAudioProcessor::selectPresetWithId(int index) {
-   // soundSettingsModel.
+    soundSettingsModel.getCurrentSetting()->setCurrentPresetWithIndex(index);
+    presetChanged();
 }
 
 //==============================================================================

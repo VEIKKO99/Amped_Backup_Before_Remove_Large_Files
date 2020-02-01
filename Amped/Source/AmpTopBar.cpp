@@ -274,9 +274,15 @@ void AmpTopBar::initPresets() {
             presetComboBox->addItem(preset->name, index +1); // Combobox ids must start from 1.
             index++;
         }
-      //  ampComboBox->setSelectedItemIndex( processor->getSoundSettingsModel().getCurrentSetting()->pre, dontSendNotification);
-        ampComboBox->onChange = [this] { ampChanged(); };
+        presetComboBox->setSelectedItemIndex( processor->getSoundSettingsModel().getCurrentSetting()->currentPresetIndex, dontSendNotification);
+     //   ampComboBox->onChange = [this] { ampChanged(); };
     }
+}
+
+void AmpTopBar::updateAmpPresetUi()
+{
+    initAmps();
+    initPresets();
 }
 
 //[/MiscUserCode]

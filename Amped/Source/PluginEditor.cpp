@@ -26,6 +26,11 @@ AmpedAudioProcessorEditor::~AmpedAudioProcessorEditor()
 {
 }
 
+void AmpedAudioProcessorEditor::updateAmpPresetUi()
+{
+    mainContainer.updateAmpPresetUi();
+}
+
 //==============================================================================
 void AmpedAudioProcessorEditor::paint (Graphics& g)
 {

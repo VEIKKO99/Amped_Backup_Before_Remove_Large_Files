@@ -26,6 +26,7 @@ public:
     //==============================================================================
     void paint (Graphics&) override;
     void resized() override;
+    void updateAmpPresetUi();
     
 private:
     // This reference is provided as a quick way for your editor to
@@ -34,6 +35,5 @@ private:
     MainComponent mainContainer;
     AudioProcessorValueTreeState& valueTreeState;
 
-    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessorEditor)
 };

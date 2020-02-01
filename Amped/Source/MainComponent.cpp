@@ -158,3 +158,7 @@ void MainComponent::resized()
   //ga  meter->setBounds(10, 10, 400, 400);
 
 }
+
+void MainComponent::updateAmpPresetUi() {
+    topBar->updateAmpPresetUi();
+}
