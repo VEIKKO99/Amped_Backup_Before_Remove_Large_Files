@@ -38,7 +38,6 @@ public:
 
     static const int AmpButtonBarH = 90;
     
-    
     constexpr static const double AmpButtonMax = 59.0;
     constexpr static const double AmpButtonMin = 0.0;
     constexpr static const double AmpButtonInterval = 1.0;

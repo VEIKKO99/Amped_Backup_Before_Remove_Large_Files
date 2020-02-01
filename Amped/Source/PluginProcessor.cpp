@@ -792,6 +792,10 @@ void AmpedAudioProcessor::selectSettingWithId(int ampIndex) {
     settingChanged();
 }
 
+void AmpedAudioProcessor::selectPresetWithId(int index) {
+   // soundSettingsModel.
+}
+
 //==============================================================================
 // This creates new instances of the plugin..
 AudioProcessor* JUCE_CALLTYPE createPluginFilter()

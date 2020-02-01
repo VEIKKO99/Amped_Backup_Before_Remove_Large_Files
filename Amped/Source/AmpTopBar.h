@@ -64,6 +64,8 @@ private:
     AmpedAudioProcessor* processor = nullptr;
     void initAmps();
     void ampChanged();
+    void presetChanged();
+    void initPresets();
     //[/UserVariables]
 
     //==============================================================================
@@ -73,12 +75,11 @@ private:
     std::unique_ptr<ComboBox> presetComboBox;
     std::unique_ptr<Label> label;
     std::unique_ptr<Label> label2;
+    std::unique_ptr<Drawable> drawable1;
 
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpTopBar)
-
-    void initPresets();
 };
 
 //[EndFile] You can add extra defines here...
