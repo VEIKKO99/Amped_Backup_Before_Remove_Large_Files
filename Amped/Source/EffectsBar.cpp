@@ -17,8 +17,8 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     // In your constructor, you should add any child components, and
     // initialise any special settings that your component needs.
     setLookAndFeel(&effectsLookAndFeel);
-    addAndMakeVisible(onOffButton);
     onOffButtonAttachment.reset (new ButtonAttachment (valueTreeState,VTS_EF_OD_ON, onOffButton));
+    addAndMakeVisible(onOffButton);
     initSliderComponent(driveSlider,VTS_EF_OD_DRIVE, driveAttachment);
     initSliderComponent(toneSlider,VTS_EF_OD_TONE, toneAttachment);
     initSliderComponent(levelSlider,VTS_EF_OD_LEVEL, levelAttachment);
@@ -32,6 +32,9 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     addAndMakeVisible(odLed);
     ngOnOffButton.addListener(this);
     onOffButton.addListener(this);
+
+    odLed.setOn(onOffButton.getToggleState());
+    ngLed.setOn(ngOnOffButton.getToggleState());
 }
 
 void EffectsBar::buttonClicked (Button* button)

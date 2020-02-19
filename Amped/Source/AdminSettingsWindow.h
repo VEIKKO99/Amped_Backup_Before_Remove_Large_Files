@@ -65,6 +65,8 @@ public:
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
     void buttonClicked (Button* buttonThatWasClicked) override;
 
+
+
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     ISoundSettingsChanged* changeInterface;
@@ -82,6 +84,7 @@ private:
     void updatePresetUI();
     void savePresetBtnPressed();
     void deletePresetBtnPressed();
+    void encryptFile();
     //[/UserVariables]
 
     //==============================================================================
@@ -135,6 +138,7 @@ private:
     std::unique_ptr<TextButton> nextPresetBtn;
     std::unique_ptr<TextButton> deletePresetBtn;
     std::unique_ptr<TextEditor> presetsInfoTextView;
+    std::unique_ptr<TextButton> encryptFileBtn;
 
 
     //==============================================================================

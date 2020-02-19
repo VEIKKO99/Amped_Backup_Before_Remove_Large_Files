@@ -20,13 +20,9 @@
 #pragma once
 
 //[Headers]     -- You can add your own extra header files here --
-#include "MainComponent.h"
 #include "../JuceLibraryCode/JuceHeader.h"
-#include "PluginProcessor.h"
-#include "LicenceDialog.h"
 //[/Headers]
 
-//class LicenceDialog;
 
 
 //==============================================================================
@@ -37,52 +33,40 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class AmpTopBar  : public Component,
-                   public Button::Listener,
-                   public ComboBox::Listener
+class LicenceDialog  : public Component
 {
 public:
     //==============================================================================
-    AmpTopBar ();
-    ~AmpTopBar();
+    LicenceDialog ();
+    ~LicenceDialog();
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    MainComponent* mainComponent = nullptr;
-    void setProcessor(AmpedAudioProcessor* processor);
-    void updateAmpPresetUi();
-
     //[/UserMethods]
 
     void paint (Graphics& g) override;
     void resized() override;
-    void buttonClicked (Button* buttonThatWasClicked) override;
-    void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
+
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
-    void togglePedalBoard();
-    AmpedAudioProcessor* processor = nullptr;
-    void initAmps();
-    void ampChanged();
-    void presetChanged();
-    void initPresets();
-    void openLicenseDialog();
+    void licenceCodeTextChanged();
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<TextButton> licenceManagerBtn;
-    std::unique_ptr<TextButton> pedalBoardBtn;
-    std::unique_ptr<ComboBox> ampComboBox;
-    std::unique_ptr<ComboBox> presetComboBox;
     std::unique_ptr<Label> label;
-    std::unique_ptr<Label> label2;
-    std::unique_ptr<Drawable> drawable1;
+    std::unique_ptr<Label> label3;
+    std::unique_ptr<Label> label4;
+    std::unique_ptr<Label> licenceCodeLabel;
+    std::unique_ptr<Label> label5;
+    std::unique_ptr<Label> label6;
+    std::unique_ptr<TextEditor> licenceCodeEditor;
+    std::unique_ptr<Component> underline;
 
 
     //==============================================================================
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpTopBar)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (LicenceDialog)
 };
 
 //[EndFile] You can add extra defines here...

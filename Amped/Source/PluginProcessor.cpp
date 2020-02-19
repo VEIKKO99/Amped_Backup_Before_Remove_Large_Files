@@ -234,7 +234,6 @@ void AmpedAudioProcessor::initProcessor(Node::Ptr processor) {
                                             getSampleRate(), getBlockSize());
 }
 
-
 void AmpedAudioProcessor::initialisePreEffectsGraph() {
     preEffectsProcessor->clear();
     preEffectsAudioProcessors.clear();
@@ -289,6 +288,8 @@ FFAU::LevelMeterSource& AmpedAudioProcessor::getMeterSource()
 }
 
 void AmpedAudioProcessor::initialiseMainGraph() {
+    auto curSetting = soundSettingsModel.getCurrentSetting();
+
     mainProcessor->clear();
     mainAudioProcessors.clear();
 
@@ -312,8 +313,6 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->masterParameter = masterParameter;
     mainAudioProcessors.add(ampProcessor);
-
-    auto curSetting = soundSettingsModel.getCurrentSetting();
 
     // Bass eq:
     initEq(bassEq, curSetting->ampSettings.eqs[EQType::kBassEq].lowIrFileName,
@@ -741,6 +740,10 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
 {
     auto state = parameters.copyState();
     std::unique_ptr<XmlElement> xml (state.createXml());
+
+    int ampNr = soundSettingsModel.currentSettingIndex();
+    xml->setAttribute("AmpNr", ampNr);
+
     xml->deleteAllChildElementsWithTagName("CustomCabIr");
     if (getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
         xml->createNewChildElement("CustomCabIr")->setAttribute("fileName", getCurrentSettings()->ampSettings.cabIr.overridingIrFileName);
@@ -757,6 +760,15 @@ void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes
     {
         if (xmlState->hasTagName (parameters.state.getType()))
             parameters.replaceState (ValueTree::fromXml (*xmlState));
+
+        if (xmlState->hasAttribute("AmpNr")) {
+            int ampIndex = xmlState->getIntAttribute("AmpNr", 0);
+            if (! LicenceTools::getInstance()->isValidLicence())
+            {
+                ampIndex = 0;
+            }
+            soundSettingsModel.selectSettingWithIndex(ampIndex);
+        }
 
         auto element = xmlState->getChildByName("CustomCabIr");
         if (element != nullptr)

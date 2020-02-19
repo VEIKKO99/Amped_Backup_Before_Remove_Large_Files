@@ -514,6 +514,13 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     presetsInfoTextView->setBounds (312, 744, 296, 120);
 
+    encryptFileBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (encryptFileBtn.get());
+    encryptFileBtn->setButtonText (TRANS("Encrypt File"));
+    encryptFileBtn->addListener (this);
+
+    encryptFileBtn->setBounds (664, 744, 150, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -582,6 +589,7 @@ AdminSettingsWindow::~AdminSettingsWindow()
     nextPresetBtn = nullptr;
     deletePresetBtn = nullptr;
     presetsInfoTextView = nullptr;
+    encryptFileBtn = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -653,7 +661,6 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_updateButton2] -- add your button handler code here..
         saveSettings();
-
         //[/UserButtonCode_updateButton2]
     }
     else if (buttonThatWasClicked == loadButton.get())
@@ -691,6 +698,12 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         //[UserButtonCode_deletePresetBtn] -- add your button handler code here..
         deletePresetBtnPressed();
         //[/UserButtonCode_deletePresetBtn]
+    }
+    else if (buttonThatWasClicked == encryptFileBtn.get())
+    {
+        //[UserButtonCode_encryptFileBtn] -- add your button handler code here..
+        encryptFile();
+        //[/UserButtonCode_encryptFileBtn]
     }
 
     //[UserbuttonClicked_Post]
@@ -805,6 +818,47 @@ void AdminSettingsWindow::setupUI(){
     //if (settings->ampSettings.cabIr.irFileName.length() > 0)
     //    cabIrLabel->setText(settings->ampSettings.cabIr.irFileName, dontSendNotification);
 
+}
+
+static MemoryBlock encodeString (BlowFish& blowfish, StringRef text)
+{
+    MemoryBlock mb;
+    {
+        MemoryOutputStream out (mb, false);
+        out << text;
+    }
+
+    blowfish.encrypt (mb);
+    return mb;
+}
+
+static String decodeString (BlowFish& blowfish, MemoryBlock mb)
+{
+    blowfish.decrypt (mb);
+    return mb.toString();
+}
+
+void AdminSettingsWindow::encryptFile() {
+    FileChooser myChooser ("Please select file to encrypt.",
+            File::getSpecialLocation (File::userHomeDirectory),
+            "*.*");
+
+    if (myChooser.browseForFileToOpen())
+    {
+        File fileToBeEncrypted (myChooser.getResult());
+        String key = "<color=\"white\"/>";
+        BlowFish blowFish (key.toUTF8(), (int) key.getNumBytesAsUTF8());
+        auto mb = encodeString(blowFish, fileToBeEncrypted.loadFileAsString());
+        auto base64 = mb.toBase64Encoding();
+
+        FileChooser saveChooser ("Set encrypted file name and location",
+                File(fileToBeEncrypted.getFullPathName() + "X"),
+                "*.apdX");
+        if (saveChooser.browseForFileToSave(true)) {
+            File saveFile (saveChooser.getResult());
+            saveFile.replaceWithText(base64);
+        }
+    }
 }
 
 void AdminSettingsWindow::saveSettings() {
@@ -1151,6 +1205,9 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="312 744 296 120" initialText=""
               multiline="1" retKeyStartsLine="1" readonly="1" scrollbars="1"
               caret="0" popupmenu="1"/>
+  <TEXTBUTTON name="new button" id="13b58f3bd9c642c4" memberName="encryptFileBtn"
+              virtualName="" explicitFocusOrder="0" pos="664 744 150 24" buttonText="Encrypt File"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
