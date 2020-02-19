@@ -47,7 +47,9 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     auto challenge = papupata::licensing::Challenge(true).toString();
     Logger::getCurrentLogger()->writeToLog("Challenge: " + challenge);
 
-
+    licenceDialog.reset (new LicenceDialog());
+    licenceDialog->setBounds(400, 20, 440, 480);
+    addChildComponent(licenceDialog.get());
 
 //    initInputClipMeter();
 
@@ -159,6 +161,12 @@ void MainComponent::resized()
 
 }
 
-void MainComponent::updateAmpPresetUi() {
+void MainComponent::updateAmpPresetUi()
+{
     topBar->updateAmpPresetUi();
+}
+
+void MainComponent::openLicenseDialog()
+{
+    licenceDialog->setVisible(!licenceDialog->isVisible());
 }

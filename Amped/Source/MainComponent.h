@@ -13,6 +13,7 @@
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AmpButtonBar.h"
 #include "EffectsBar.h"
+#include "LicenceDialog.h"
 #ifdef AMPED_DEBUG
 #include "AdminSettingsUtil.h"
 #endif
@@ -39,6 +40,8 @@ public:
 
     void updateAmpPresetUi();
 
+    void openLicenseDialog();
+
 private:
 
     void initInputClipMeter();
@@ -61,7 +64,7 @@ private:
     TextButton nextAmp;
     TextButton prevAmp;
 #endif
-
+    std::unique_ptr<LicenceDialog> licenceDialog;
     ScopedPointer<FFAU::LevelMeter> meter;
     ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)

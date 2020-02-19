@@ -20,6 +20,7 @@
 //[Headers] You can add your own extra header files here...
 //[/Headers]
 
+#include <LicenceTools.h>
 #include "AmpTopBar.h"
 
 
@@ -112,9 +113,7 @@ AmpTopBar::AmpTopBar ()
 
 
     //[Constructor] You can add your own custom stuff here..
-
     pedalBoardBtn->onClick = [this] { togglePedalBoard(); };   // [8]
-
     //[/Constructor]
 }
 
@@ -174,6 +173,7 @@ void AmpTopBar::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == licenceManagerBtn.get())
     {
         //[UserButtonCode_licenceManagerBtn] -- add your button handler code here..
+        openLicenseDialog();
         //[/UserButtonCode_licenceManagerBtn]
     }
     else if (buttonThatWasClicked == pedalBoardBtn.get())
@@ -231,9 +231,15 @@ void AmpTopBar::setProcessor(AmpedAudioProcessor* processor)
 
 void AmpTopBar::ampChanged()
 {
-    if (processor != nullptr)
+    if (processor != nullptr )
     {
-        processor->selectSettingWithId(ampComboBox->getSelectedItemIndex());
+        auto selectedIndex = ampComboBox->getSelectedItemIndex();
+        if (!LicenceTools::getInstance()->isValidLicence() && selectedIndex > 0) {
+            openLicenseDialog();
+            selectedIndex = 0;
+            ampComboBox->setSelectedItemIndex(0, dontSendNotification);
+        }
+        processor->selectSettingWithId(selectedIndex);
     }
 }
 
@@ -276,6 +282,14 @@ void AmpTopBar::initPresets() {
         }
         presetComboBox->setSelectedItemIndex( processor->getSoundSettingsModel().getCurrentSetting()->currentPresetIndex, dontSendNotification);
      //   ampComboBox->onChange = [this] { ampChanged(); };
+    }
+}
+
+void AmpTopBar::openLicenseDialog()
+{
+    if (mainComponent != nullptr)
+    {
+        mainComponent->openLicenseDialog();
     }
 }
 

@@ -9,6 +9,8 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <FILE id="ZvwcUS" name="encrypted_test.apdX" compile="0" resource="1"
+            file="res/SoundSettings/encrypted_test.apdX"/>
       <FILE id="Ckkg8i" name="AMPED_LOGO_25prossaa.png" compile="0" resource="1"
             file="res/AMPED_LOGO_25prossaa.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
@@ -77,6 +79,14 @@
                 resource="1" file="res/SoundSettings/files/MATCH_IR_BUTTERFLUX2_40MS.wav"/>
           <FILE id="vQGuSh" name="MATCH_IR_RECTOREVF_40MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/MATCH_IR_RECTOREVF_40MS.wav"/>
+          <FILE id="yriYEp" name="ML-Amped-5034-Fluff.apdX" compile="0" resource="1"
+                file="res/SoundSettings/ML-Amped-5034-Fluff.apdX"/>
+          <FILE id="dZWORz" name="ML-Amped-5151-Fluff.apdX" compile="0" resource="1"
+                file="res/SoundSettings/ML-Amped-5151-Fluff.apdX"/>
+          <FILE id="h32hl1" name="ML-Amped-Freeman-Fluff.apdX" compile="0" resource="1"
+                file="res/SoundSettings/ML-Amped-Freeman-Fluff.apdX"/>
+          <FILE id="MpVRSV" name="ML-Amped-Mega-Fluff.apdX" compile="0" resource="1"
+                file="res/SoundSettings/ML-Amped-Mega-Fluff.apdX"/>
           <FILE id="UaATNt" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ML-FRMN-M25-7B-B.wav"/>
           <FILE id="R9V9Tr" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
@@ -102,14 +112,6 @@
           <FILE id="FFSzsG" name="REVF_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_TREBLE_10_20MS.wav"/>
         </GROUP>
-        <FILE id="hDq4id" name="ML-Amped-5034-Fluff.apd" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-5034-Fluff.apd"/>
-        <FILE id="Laxjx3" name="ML-Amped-5151-Fluff.apd" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-5151-Fluff.apd"/>
-        <FILE id="kPjmKK" name="ML-Amped-Freeman-Fluff.apd" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-Freeman-Fluff.apd"/>
-        <FILE id="LiZQGG" name="ML-Amped-Mega-Fluff.apd" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-Mega-Fluff.apd"/>
       </GROUP>
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"
             file="res/WorkSans-Regular.ttf"/>
@@ -1465,6 +1467,9 @@
         </GROUP>
       </GROUP>
       <GROUP id="{004B61D1-1CFA-016A-7887-63CF0B445860}" name="UIComponents">
+        <FILE id="SqrQNA" name="LicenceDialog.cpp" compile="1" resource="0"
+              file="Source/LicenceDialog.cpp"/>
+        <FILE id="vIbzny" name="LicenceDialog.h" compile="0" resource="0" file="Source/LicenceDialog.h"/>
         <FILE id="nDLKMD" name="AmpTopBar.cpp" compile="1" resource="0" file="Source/AmpTopBar.cpp"/>
         <FILE id="ieipJp" name="AmpTopBar.h" compile="0" resource="0" file="Source/AmpTopBar.h"/>
         <FILE id="ycTAI9" name="ThreeWayIRFileSwitch.cpp" compile="1" resource="0"

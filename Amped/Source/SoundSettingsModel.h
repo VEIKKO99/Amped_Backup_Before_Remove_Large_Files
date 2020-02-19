@@ -9,6 +9,8 @@
 */
 
 #pragma once
+
+#include <LicenceTools.h>
 #include "../JuceLibraryCode/JuceHeader.h"
 #include "AdminSettingsUtil.h"
 
@@ -30,9 +32,10 @@ public:
 
     void nextSetting()
     {
-        currentSound++;
-        if (currentSound >= settings.size())
-            currentSound = 0;
+        auto current = currentSound + 1;
+        if (current >= settings.size())
+            current = 0;
+        selectSettingWithIndex(current);
     }
 
     int currentSettingIndex()
@@ -42,9 +45,10 @@ public:
 
     void prevSetting()
     {
-       currentSound--;
-       if (currentSound <= 0)
-           currentSound = settings.size() -1;
+       auto current = currentSound - 1;
+       if (current <= 0)
+           current = settings.size() -1;
+        selectSettingWithIndex(current);
     }
 
     int getSize() {
@@ -60,6 +64,7 @@ public:
     {
         if (settingIndex >=0 && settingIndex < settings.size())
         {
+            if (settingIndex > 0 && !LicenceTools::getInstance()->isValidLicence()) settingIndex = 0;
             currentSound = settingIndex;
         }
     }
@@ -67,6 +72,12 @@ public:
 private:
 
     int currentSound = 0;
+
+    static String decodeString (BlowFish& blowfish, MemoryBlock mb)
+    {
+        blowfish.decrypt (mb);
+        return mb.toString();
+    }
 
     void initModel() {
        auto amps = String::createStringFromData(BinaryData::amps_xml, BinaryData::amps_xmlSize);
@@ -79,11 +90,19 @@ private:
                int oneAmpDataSize = 0;
                auto oneAmpData = getBinaryDataWithOriginalFileName(oneAmpFileName, oneAmpDataSize);
                auto s = String::createStringFromData(oneAmpData, oneAmpDataSize);
-               XmlDocument xmlDocument(s);
+
+               String key = "<color=\"white\"/>";
+               BlowFish blowFish (key.toUTF8(), (int) key.getNumBytesAsUTF8());
+               MemoryBlock memoryBlock;
+               memoryBlock.fromBase64Encoding (s);
+               auto decoded = decodeString(blowFish, memoryBlock);
+               XmlDocument xmlDocument(decoded);
                auto xmlElement = xmlDocument.getDocumentElement();
-               auto oneSound = std::make_shared<SoundSettings>();
-               oneSound->readFromXml(xmlElement.get(), "");
-               settings.push_back(oneSound);
+               if (xmlElement != nullptr) {
+                   auto oneSound = std::make_shared<SoundSettings>();
+                   oneSound->readFromXml(xmlElement.get(), "");
+                   settings.push_back(oneSound);
+               }
            }
            ampElement = ampElement->getNextElement();
        }

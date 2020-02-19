@@ -37,7 +37,7 @@ inline const char* getBinaryDataWithOriginalFileName(String originalFileName, in
     // THis doesn't work with names starting with number
     //    String replaced = originalFileName.replaceCharacter('.', '_');
     //  return BinaryData::getNamedResource(replaced.toRawUTF8(), dataSizeInBytes);
-    originalFileName = originalFileName.trimCharactersAtStart("memory:");
+    originalFileName = originalFileName.replaceFirstOccurrenceOf("memory:", "");
     const char* resourceNameUTF8 = originalFileName.toRawUTF8();
     for (unsigned int i = 0; i < BinaryData::namedResourceListSize; ++i)
     {
