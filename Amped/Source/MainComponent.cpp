@@ -168,5 +168,14 @@ void MainComponent::updateAmpPresetUi()
 
 void MainComponent::openLicenseDialog()
 {
-    licenceDialog->setVisible(!licenceDialog->isVisible());
+    auto visible = licenceDialog->isVisible();
+    if (visible) {
+        licenceDialog->setVisible(false);
+        licenceDialog->setWantsKeyboardFocus(false);
+    }
+    else
+    {
+        licenceDialog->setVisible(true);
+        licenceDialog->setWantsKeyboardFocus(true);
+    }
 }

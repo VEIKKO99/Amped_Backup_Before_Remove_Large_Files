@@ -78,6 +78,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
 
 AmpedAudioProcessor::~AmpedAudioProcessor()
 {
+    LicenceTools::deleteInstance();
 }
 
 void AmpedAudioProcessor::settingChanged()
@@ -546,11 +547,20 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
     if (layouts.getMainInputChannelSet()  == AudioChannelSet::disabled()
         || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
         return false;
+
+    if (layouts.getMainInputChannelSet() == AudioChannelSet::stereo()
+            && layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())
+        return true;
+
+    if (layouts.getMainInputChannelSet() == AudioChannelSet::mono()
+            && layouts.getMainOutputChannelSet() == AudioChannelSet::stereo())
+        return true;
+
+    if (layouts.getMainInputChannelSet() == AudioChannelSet::mono()
+            && layouts.getMainOutputChannelSet() == AudioChannelSet::mono())
+        return true;
     
-    if (layouts.getMainOutputChannelSet() != AudioChannelSet::stereo())
-        return false;
-    
-    return layouts.getMainInputChannelSet() == layouts.getMainOutputChannelSet();
+    return false;
   
     
  //   if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&

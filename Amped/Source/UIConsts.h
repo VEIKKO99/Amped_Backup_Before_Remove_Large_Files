@@ -13,9 +13,9 @@
 class Constants
 {
 #ifdef JUCE_DEBUG
-   #define AMPED_DEBUG
+  // #define AMPED_DEBUG
 #else
-   #define AMPED_DEBUG
+ //  #define AMPED_DEBUG
 #endif
 
 #define AMPED_FREE
