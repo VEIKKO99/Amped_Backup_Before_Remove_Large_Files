@@ -33,7 +33,9 @@
     Describe your class and how it works here!
                                                                     //[/Comments]
 */
-class LicenceDialog  : public Component
+class LicenceDialog  : public Component,
+                       ModalComponentManager::Callback,
+                       public Button::Listener
 {
 public:
     //==============================================================================
@@ -46,12 +48,15 @@ public:
 
     void paint (Graphics& g) override;
     void resized() override;
+    void buttonClicked (Button* buttonThatWasClicked) override;
+    bool keyPressed (const KeyPress& key) override;
 
 
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     void licenceCodeTextChanged();
+    void modalStateFinished (int returnValue) override;
     //[/UserVariables]
 
     //==============================================================================
@@ -62,7 +67,8 @@ private:
     std::unique_ptr<Label> label5;
     std::unique_ptr<Label> label6;
     std::unique_ptr<TextEditor> licenceCodeEditor;
-    std::unique_ptr<Component> underline;
+    std::unique_ptr<TextButton> copyKeyBtn;
+    std::unique_ptr<TextButton> pasteLicenceBtn;
 
 
     //==============================================================================

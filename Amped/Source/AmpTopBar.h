@@ -26,7 +26,6 @@
 #include "LicenceDialog.h"
 //[/Headers]
 
-//class LicenceDialog;
 
 
 //==============================================================================
@@ -58,6 +57,7 @@ public:
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
     void comboBoxChanged (ComboBox* comboBoxThatHasChanged) override;
+
 
 
 private:

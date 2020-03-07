@@ -20,7 +20,6 @@
 //[Headers] You can add your own extra header files here...
 //[/Headers]
 
-#include <LicenceTools.h>
 #include "AmpTopBar.h"
 
 

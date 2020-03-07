@@ -39,6 +39,12 @@ public:
         return licenceFile->addLicense(std::move(lic));
     }
 
+    papupata::licensing::License* getLicence()
+    {
+        auto&& licenses = licenceFile->getLicenses();
+        return licenses.size() > 0 ? licenses[0] : nullptr;
+    }
+
 private:
     std::unique_ptr<papupata::licensing::LicenseFile> licenceFile;
 
