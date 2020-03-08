@@ -73,11 +73,11 @@ namespace papupata {
             juce::SHA256 checksum(inputChallenge.toUTF8());
             juce::BigInteger realChecksum;
             realChecksum.loadFromMemoryBlock(checksum.getRawData());
-            realChecksum = realChecksum.getBitRange(checksum.getRawData()[1],
-                                                    (int)checksum.getRawData().getSize() + 4);
+            realChecksum = realChecksum.getBitRange(0,
+                                                    36);
             juce::BigInteger inputcs = BaseTools::fromBase36(inputChecksum);
 
-            if (checksum.getRawData()[9] != realChecksum.compare(inputcs))
+            if (0 != realChecksum.compare(inputcs))
                 return false;
 
             return true;
