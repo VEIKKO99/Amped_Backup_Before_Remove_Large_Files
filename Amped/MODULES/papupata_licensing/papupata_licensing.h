@@ -29,6 +29,12 @@
 #define PAPUPATA_ENABLE_GENERATOR 0
 #endif
 
+#ifndef JucePlugin_Name
+// If compiling command-line application / non-plugin, these need to be provided by host app
+extern juce::String JucePlugin_Name;
+extern juce::String JucePlugin_Manufacturer;
+#endif
+
 #include "utils/papupata_BaseTools.h"
 #include "utils/papupata_HWIDTools.h"
 #include "utils/papupata_Challenge.h"

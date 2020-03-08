@@ -43,7 +43,7 @@ namespace papupata {
 					{
 						// Ugly hack for WIN 1903 shit. windows\system32 and other related changed file ids.
 						// Old dirs were moved to \windows.old\windows\system32 and new ones created with new IDs..
-						juce::String regPath("HKEY_CURRENT_USER\\Software\\" JucePlugin_Manufacturer "\\" JucePlugin_Name "\\ID");
+						juce::String regPath(juce::String("HKEY_CURRENT_USER\\Software\\") + juce::String(JucePlugin_Manufacturer) + juce::String("\\") + juce::String(JucePlugin_Name) + juce::String("\\ID"));
 						regPath.append(generate64Bit ? "1" : "0", 1);
 #ifdef JUCE_32BIT
 						regPath.append("0", 1);
@@ -98,7 +98,7 @@ namespace papupata {
                 return val;
             }
 
-            static juce::String getRegistryPath() { return "HKEY_CURRENT_USER\\SOFTWARE\\" JucePlugin_Manufacturer "\\" JucePlugin_Name; }
+            static juce::String getRegistryPath() { return juce::String("HKEY_CURRENT_USER\\SOFTWARE\\") + juce::String(JucePlugin_Manufacturer) + juce::String("\\") + juce::String(JucePlugin_Name); }
             static juce::String getUUIDPath() { return getRegistryPath() + "\\UUID"; }
         };
 
@@ -155,6 +155,38 @@ namespace papupata {
             const juce::ScopedLock myLock(validateLock);
             if (nullptr == pImpl) {
                 pImpl.reset(new HWIDToolsMac());
+            }
+            return pImpl.get();
+        }
+#elif defined JUCE_LINUX
+        class HWIDToolsLinux : public HWIDTools
+        {
+        public:
+            HWIDToolsLinux() {}
+            virtual ~HWIDToolsLinux() {}
+
+            virtual juce::StringArray getDeviceIDs(bool /*generate64Bit*/, bool /*tryPreviousWin*/, bool /*skipWinSystemDir*/) const
+            {
+                juce::StringArray ids;
+		jassert(false);
+
+                return ids;
+            }
+
+            virtual juce::String getUniqueInstallationID(void) const
+            {
+                juce::String val;
+
+		jassert(false);
+
+                return val;
+            }
+        };
+
+        HWIDTools *HWIDTools::getInstance() {
+            const juce::ScopedLock myLock(validateLock);
+            if (nullptr == pImpl) {
+                pImpl.reset(new HWIDToolsLinux());
             }
             return pImpl.get();
         }

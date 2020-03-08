@@ -18,6 +18,12 @@ namespace papupata {
                 }
             }
 
+            License(const juce::String &license, const juce::String& challenge)
+            : licenseString(license)
+            {
+                revalidate(challenge);
+            }
+
             /** Is the license valid?
              * If not, the license field getters may return random data.
              */
