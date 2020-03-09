@@ -91,6 +91,10 @@ juce::OwnedArray<papupata::licensing::Challenge> papupata::licensing::Challenge:
 {
     juce::OwnedArray<papupata::licensing::Challenge> challenges;
     challenges.add(new papupata::licensing::Challenge(true));
+    return challenges;
+/*
+    juce::OwnedArray<papupata::licensing::Challenge> challenges;
+    challenges.add(new papupata::licensing::Challenge(true));
 #ifdef JUCE_WINDOWS
     challenges.add(new papupata::licensing::Challenge(true, false, false));
 	// Windows 1903 blunder check, should be conditional
@@ -99,10 +103,9 @@ juce::OwnedArray<papupata::licensing::Challenge> papupata::licensing::Challenge:
     // Windows 1903 blunder check, should be conditional
     challenges.add(new papupata::licensing::Challenge(false, true, false));
 #endif
-    return challenges;
-}
 
-JUCE_IMPLEMENT_SINGLETON(LicenceTools)
+    return challenges; */
+}
 
 LicenceTools::LicenceTools()
 {
@@ -118,3 +121,5 @@ bool LicenceTools::isValidLicence() {
     return licenceFile->hasValidLicense();
    //return true;
 }
+
+JUCE_IMPLEMENT_SINGLETON(LicenceTools)

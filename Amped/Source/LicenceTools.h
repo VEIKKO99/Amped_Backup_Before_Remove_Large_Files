@@ -24,7 +24,6 @@ public:
 
     bool isValidLicence();
 
-    JUCE_DECLARE_SINGLETON(LicenceTools, false)
 
     /**
      * Install a license.
@@ -45,12 +44,11 @@ public:
         return licenses.size() > 0 ? licenses[0] : nullptr;
     }
 
+    JUCE_DECLARE_SINGLETON(LicenceTools, false)
+
 private:
     std::unique_ptr<papupata::licensing::LicenseFile> licenceFile;
-
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR(LicenceTools)
-
-
 };
 
 
