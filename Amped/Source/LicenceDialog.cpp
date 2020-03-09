@@ -148,9 +148,29 @@ LicenceDialog::LicenceDialog ()
 
     //[Constructor] You can add your own custom stuff here..
     auto challenge = papupata::licensing::Challenge(true).toString();
+    juce::Logger::getCurrentLogger()->writeToLog("challenge1:" + challenge);
+
+    auto challenge2 = papupata::licensing::Challenge(true).toString();
+    juce::Logger::getCurrentLogger()->writeToLog("challenge2:" + challenge2);
+
+    auto challenge3 = papupata::licensing::Challenge(true).toString();
+    juce::Logger::getCurrentLogger()->writeToLog("challenge3:" + challenge3);
 
     licenceCodeLabel->setText(challenge, dontSendNotification);
     licenceCodeEditor->onTextChange = [this] {licenceCodeTextChanged();};
+
+    auto challenge4 = papupata::licensing::Challenge(true).toString();
+    juce::Logger::getCurrentLogger()->writeToLog("challenge4:" + challenge4);
+
+    Component::SafePointer<LicenceDialog> dialog(this);
+    Timer::callAfterDelay(3000, [dialog, this]()
+    {
+        if (dialog != nullptr)
+        {
+            auto challenge5 = papupata::licensing::Challenge(true).toString();
+            juce::Logger::getCurrentLogger()->writeToLog("After Timer: challenge5:" + challenge5);
+        };
+    });
     //[/Constructor]
 }
 
