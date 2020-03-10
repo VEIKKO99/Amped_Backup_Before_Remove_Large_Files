@@ -87,7 +87,7 @@ namespace papupata {
 
             virtual juce::String getUniqueInstallationID(void) const
             {
-                if (!juce::WindowsRegistry::keyExists(getUUIDPath()))
+                if (!juce::WindowsRegistry::valueExists(getUUIDPath()))
                 {
                     juce::WindowsRegistry::setValue(getUUIDPath(), juce::Uuid().toDashedString());
                 }
