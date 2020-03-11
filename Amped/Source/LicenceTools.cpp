@@ -11,6 +11,20 @@
 */
 
 #include "LicenceTools.h"
+#include "UIConsts.h"
+
+
+#ifdef AMPED_DEBUG
+
+//extern juce::String JucePlugin_Name;
+//extern juce::String JucePlugin_Manufacturer;
+#undef JucePlugin_Name
+#define JucePlugin_Name "Amped - Roots - ADMIN VERSION"
+
+//juce::String JucePlugin_Name("Amped - Roots - ADMIN VERSION");
+//juce::String JucePlugin_Manufacturer("ML Sound Labs");
+
+#endif
 
 const unsigned char papupata::licensing::License::exponent[3]{
         0x01 ^ 0xca,
@@ -118,8 +132,11 @@ LicenceTools::~LicenceTools()
 }
 
 bool LicenceTools::isValidLicence() {
+#ifdef AMPED_DEBUG
+	return true;
+#else
     return licenceFile->hasValidLicense();
-   //return true;
+#endif
 }
 
 JUCE_IMPLEMENT_SINGLETON(LicenceTools)
