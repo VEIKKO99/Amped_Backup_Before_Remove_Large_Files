@@ -258,6 +258,8 @@ void LicenceDialog::licenceCodeTextChanged()
         }
         else {
             juce::Logger::getCurrentLogger()->writeToLog("Licence NOT valid");
+            NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Error", "Provided licence is not valid!",
+                    this);
         }
     }
     //else {

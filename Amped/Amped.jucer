@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pllKDb" name="Amped" projectType="audioplug" jucerVersion="5.4.5"
-              pluginFormats="buildAU,buildStandalone,buildVST3" version="0.1.0"
-              companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab"
-              companyWebsite="https://ml-sound-lab.com/" pluginVST3Category="Distortion,Fx,Instrument">
-  <MAINGROUP id="H6VpyL" name="Amped">
+<JUCERPROJECT id="pllKDb" name="Amped - Roots - Beta 1" projectType="audioplug"
+              jucerVersion="5.4.5" pluginFormats="buildAU,buildStandalone,buildVST3"
+              version="0.9.1" companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab"
+              companyWebsite="https://ml-sound-lab.com/" pluginVST3Category="Distortion,Fx,Instrument"
+              pluginManufacturerCode="MLSL" pluginCode="Ampd" pluginAUMainType="'aufx'">
+  <MAINGROUP id="H6VpyL" name="Amped - Roots - Beta 1">
     <GROUP id="{DEEE0891-E3FA-3620-F858-1F386BF0782D}" name="original_hornet">
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
-      <FILE id="Ckkg8i" name="AMPED_LOGO_25prossaa.png" compile="0" resource="1"
-            file="res/AMPED_LOGO_25prossaa.png"/>
+      <FILE id="LfP0HY" name="amped_roots_logo.png" compile="0" resource="1"
+            file="res/amped_roots_logo.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
           <FILE id="J81Fqu" name="1200x600_fluff_5150.png" compile="0" resource="1"
