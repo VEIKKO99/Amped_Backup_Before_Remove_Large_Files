@@ -78,7 +78,15 @@ public:
     AmpLookAndFeel(ISoundSettingsChanged* settings)
     {
         this->settings = settings;
-     //   setColour (Slider::thumbColourId, Colours::red);
+
+        auto comboBoxBgColor = Colour(0xFF1A1A1A);
+        setColour (ComboBox::backgroundColourId, Colour(0xFF111111));
+        setColour (PopupMenu::backgroundColourId, comboBoxBgColor);
+        setColour (ComboBox::outlineColourId, comboBoxBgColor);
+        setColour (ComboBox::textColourId, Colour(0xFFF2F2F2));
+        setColour (PopupMenu::textColourId, Colour(0xFFF2F2F2));
+
+        //   setColour (Slider::thumbColourId, Colours::red);
     }
 
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
@@ -101,6 +109,7 @@ public:
         return font;
     }
 
+
     void drawComboBox(Graphics & g,
         int width, int height,
         bool isButtonDown,
@@ -109,7 +118,9 @@ public:
     {
         auto buttonArea = comboBox.getLocalBounds();
 
-        g.setColour (isButtonDown ? Colour(0xFF111111).withAlpha(0.5f) : Colour(0xFF111111));
+        auto bgColor = findColour (ComboBox::backgroundColourId);
+
+        g.setColour (isButtonDown ? bgColor.withAlpha(0.5f) : bgColor);
         g.fillRect (buttonArea);
     }
 
@@ -120,7 +131,7 @@ public:
     {
         auto area = menuBar.getLocalBounds();
 
-        g.setColour (Colour(0xFF111111));
+        g.setColour (findColour(ComboBox::backgroundColourId));
         g.fillRect (area);
 
       /*  auto colour = menuBar.findColour (TextButton::buttonColourId).withAlpha (0.4f);
@@ -156,12 +167,14 @@ public:
         {
             auto textColour = (textColourToUse == nullptr ? findColour (PopupMenu::textColourId)
                     : *textColourToUse);
+            g.setColour (Colour(0xFF1A1A1A));
+          //  g.fillRect (area);
 
             auto r  = area.reduced (1);
 
             if (isHighlighted && isActive)
             {
-                g.setColour (findColour (PopupMenu::highlightedBackgroundColourId));
+                g.setColour (Colour(0xFF1A1A1A));
                 g.fillRect (r);
 
                 g.setColour (findColour (PopupMenu::highlightedTextColourId));
@@ -169,6 +182,8 @@ public:
             else
             {
                 g.setColour (textColour.withMultipliedAlpha (isActive ? 1.0f : 0.5f));
+
+                //g.setColour (PopupMenu::highlightedTextColourId));
             }
 
 //            r.reduce (jmin (5, area.getWidth() / 20), 0);

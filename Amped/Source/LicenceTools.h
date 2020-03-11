@@ -14,6 +14,18 @@
 
 #include "../JuceLibraryCode/JuceHeader.h"
 
+#ifdef AMPED_DEBUG
+
+//extern juce::String JucePlugin_Name;
+//extern juce::String JucePlugin_Manufacturer;
+#undef JucePlugin_Name
+#define JucePlugin_Name "Amped - Roots - ADMIN VERSION"
+
+//juce::String JucePlugin_Name("Amped - Roots - ADMIN VERSION");
+//juce::String JucePlugin_Manufacturer("ML Sound Labs");
+
+#endif
+
 class LicenceTools {
 
 public:
