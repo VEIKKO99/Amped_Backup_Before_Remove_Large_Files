@@ -182,7 +182,8 @@ ThreeWayIRFileSwitch::SwitchStatus ThreeWayIRFileSwitch::getCurrentStatus() cons
 }
 
 void ThreeWayIRFileSwitch::setCurrentStatus(ThreeWayIRFileSwitch::SwitchStatus newStatus, bool sendUpdate) {
-    if ( ThreeWayIRFileSwitch::currentStatus != newStatus)
+    // We need to send the update if the status has been changed or custom user file changed.
+    if ( ThreeWayIRFileSwitch::currentStatus != newStatus || newStatus == IRCustomUserFile)
     {
         ThreeWayIRFileSwitch::currentStatus = newStatus;
         Component::BailOutChecker checker (this);
