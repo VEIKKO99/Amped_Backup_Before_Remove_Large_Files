@@ -43,13 +43,13 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     effectsBar.setVisible(false);
 
     auto&& licenceTools = LicenceTools::getInstance();
-    licenceTools->isValidLicence();
-    auto challenge = papupata::licensing::Challenge(true).toString();
-    Logger::getCurrentLogger()->writeToLog("Challenge: " + challenge);
 
-    licenceDialog.reset (new LicenceDialog());
-    licenceDialog->setBounds(400, 20, 440, 480);
-    addChildComponent(licenceDialog.get());
+    if (!licenceTools->isValidLicence())
+    {
+        licenceDialog.reset (new LicenceDialog());
+        licenceDialog->setBounds(0, 0, 1200, 600);
+        addChildComponent(licenceDialog.get());
+    }
 
 //    initInputClipMeter();
 
@@ -168,14 +168,22 @@ void MainComponent::updateAmpPresetUi()
 
 void MainComponent::openLicenseDialog()
 {
-    auto visible = licenceDialog->isVisible();
-    if (visible) {
-        licenceDialog->setVisible(false);
-        licenceDialog->setWantsKeyboardFocus(false);
+    auto&& licenceTools = LicenceTools::getInstance();
+    if (!licenceTools->isValidLicence())
+    {
+        auto visible = licenceDialog->isVisible();
+        if (visible) {
+            licenceDialog->setVisible(false);
+            licenceDialog->setWantsKeyboardFocus(false);
+        }
+        else
+        {
+            licenceDialog->setVisible(true);
+            licenceDialog->setWantsKeyboardFocus(true);
+        }
     }
     else
     {
-        licenceDialog->setVisible(true);
-        licenceDialog->setWantsKeyboardFocus(true);
+        LicenceDialog::showLicenseValidDialog(licenceTools->getLicence()->getUserEmail(), this);
     }
 }

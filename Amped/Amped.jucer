@@ -10,6 +10,8 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <FILE id="jITiSs" name="amped_license_background.png" compile="0" resource="1"
+            file="res/amped_license_background.png"/>
       <FILE id="LfP0HY" name="amped_roots_logo.png" compile="0" resource="1"
             file="res/amped_roots_logo.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">

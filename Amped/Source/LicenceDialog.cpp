@@ -34,78 +34,17 @@ LicenceDialog::LicenceDialog ()
     //[Constructor_pre] You can add your own custom stuff here..
     //[/Constructor_pre]
 
-    label.reset (new Label ("new label",
-                            TRANS("TO USE ALL AMPS YOU NEED TO LICENCE THIS PRODUCT ON ML SOUND LAB WEBSITE\n")));
-    addAndMakeVisible (label.get());
-    label->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label->setJustificationType (Justification::centred);
-    label->setEditable (false, false, false);
-    label->setColour (Label::textColourId, Colour (0xfff2f2f2));
-    label->setColour (TextEditor::textColourId, Colours::black);
-    label->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label->setBounds (24, 8, 392, 80);
-
-    label3.reset (new Label ("new label",
-                             TRANS("THANKS FOR YOUR SUPPORT\n")));
-    addAndMakeVisible (label3.get());
-    label3->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label3->setJustificationType (Justification::centred);
-    label3->setEditable (false, false, false);
-    label3->setColour (Label::textColourId, Colour (0xfff2f2f2));
-    label3->setColour (TextEditor::textColourId, Colours::black);
-    label3->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label3->setBounds (16, 88, 408, 24);
-
-    label4.reset (new Label ("new label",
-                             TRANS("You need to copy the following request key \n"
-                             "and use it on ML Sound Lab Website.\n"
-                             "\n")));
-    addAndMakeVisible (label4.get());
-    label4->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label4->setJustificationType (Justification::centred);
-    label4->setEditable (false, false, false);
-    label4->setColour (Label::textColourId, Colour (0xfff2f2f2));
-    label4->setColour (TextEditor::textColourId, Colours::black);
-    label4->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label4->setBounds (16, 144, 408, 48);
-
     licenceCodeLabel.reset (new Label ("new label",
                                        TRANS("THIS-ISNO-TVAL-IDRE-QUES-TKEY-ATAL-LLLL\n")));
     addAndMakeVisible (licenceCodeLabel.get());
-    licenceCodeLabel->setFont (Font (16.00f, Font::plain).withTypefaceStyle ("Regular"));
+    licenceCodeLabel->setFont (Font (13.00f, Font::plain).withTypefaceStyle ("Regular"));
     licenceCodeLabel->setJustificationType (Justification::centred);
     licenceCodeLabel->setEditable (false, false, false);
     licenceCodeLabel->setColour (Label::textColourId, Colour (0xfff2f2f2));
     licenceCodeLabel->setColour (TextEditor::textColourId, Colours::black);
     licenceCodeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    licenceCodeLabel->setBounds (16, 200, 408, 24);
-
-    label5.reset (new Label ("new label",
-                             TRANS("LICENCE KEY:\n")));
-    addAndMakeVisible (label5.get());
-    label5->setFont (Font (16.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label5->setJustificationType (Justification::centred);
-    label5->setEditable (false, false, false);
-    label5->setColour (TextEditor::textColourId, Colours::black);
-    label5->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label5->setBounds (16, 240, 408, 24);
-
-    label6.reset (new Label ("new label",
-                             TRANS("LICENCE KEY:\n")));
-    addAndMakeVisible (label6.get());
-    label6->setFont (Font (16.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label6->setJustificationType (Justification::centred);
-    label6->setEditable (false, false, false);
-    label6->setColour (Label::textColourId, Colour (0xfff2f2f2));
-    label6->setColour (TextEditor::textColourId, Colours::black);
-    label6->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label6->setBounds (16, 240, 408, 24);
+    licenceCodeLabel->setBounds (384, 473, 336, 24);
 
     licenceCodeEditor.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (licenceCodeEditor.get());
@@ -120,7 +59,7 @@ LicenceDialog::LicenceDialog ()
     licenceCodeEditor->setColour (TextEditor::backgroundColourId, Colour (0x00495358));
     licenceCodeEditor->setText (String());
 
-    licenceCodeEditor->setBounds (16, 280, 408, 24);
+    licenceCodeEditor->setBounds (376, 575, 336, 17);
 
     copyKeyBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (copyKeyBtn.get());
@@ -129,7 +68,7 @@ LicenceDialog::LicenceDialog ()
     copyKeyBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
     copyKeyBtn->setColour (TextButton::textColourOffId, Colour (0xf2f2f2f2));
 
-    copyKeyBtn->setBounds (56, 320, 140, 35);
+    copyKeyBtn->setBounds (728, 456, 160, 32);
 
     pasteLicenceBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (pasteLicenceBtn.get());
@@ -137,18 +76,36 @@ LicenceDialog::LicenceDialog ()
     pasteLicenceBtn->addListener (this);
     pasteLicenceBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
 
-    pasteLicenceBtn->setBounds (232, 320, 140, 35);
+    pasteLicenceBtn->setBounds (728, 552, 160, 32);
+
+    buyLicenseBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (buyLicenseBtn.get());
+    buyLicenseBtn->setButtonText (TRANS("BUY LICENSE"));
+    buyLicenseBtn->addListener (this);
+    buyLicenseBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
+    buyLicenseBtn->setColour (TextButton::textColourOffId, Colour (0xf2f2f2f2));
+
+    buyLicenseBtn->setBounds (728, 504, 160, 32);
+
+    hyperlinkButton.reset (new HyperlinkButton (TRANS("WWW:ML-SOUND-LAB.COM"),
+                                                URL ("https://ml-sound-lab.com/")));
+    addAndMakeVisible (hyperlinkButton.get());
+    hyperlinkButton->setTooltip (TRANS("https://ml-sound-lab.com/"));
+    hyperlinkButton->setButtonText (TRANS("WWW:ML-SOUND-LAB.COM"));
+    hyperlinkButton->setColour (HyperlinkButton::textColourId, Colour (0xfff2f2f2));
+
+    hyperlinkButton->setBounds (376, 525, 320, 20);
 
 
     //[UserPreSize]
     //[/UserPreSize]
 
-    setSize (440, 600);
+    setSize (1200, 600);
 
 
     //[Constructor] You can add your own custom stuff here..
     auto challenge = papupata::licensing::Challenge(true).toString();
- 
+
     licenceCodeLabel->setText(challenge, dontSendNotification);
     licenceCodeEditor->onTextChange = [this] {licenceCodeTextChanged();};
 
@@ -160,15 +117,12 @@ LicenceDialog::~LicenceDialog()
     //[Destructor_pre]. You can add your own custom destruction code here..
     //[/Destructor_pre]
 
-    label = nullptr;
-    label3 = nullptr;
-    label4 = nullptr;
     licenceCodeLabel = nullptr;
-    label5 = nullptr;
-    label6 = nullptr;
     licenceCodeEditor = nullptr;
     copyKeyBtn = nullptr;
     pasteLicenceBtn = nullptr;
+    buyLicenseBtn = nullptr;
+    hyperlinkButton = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -181,9 +135,9 @@ void LicenceDialog::paint (Graphics& g)
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
 
-    g.fillAll (Colour (0xff1a1a1a));
-
     //[UserPaint] Add your own custom painting code here..
+    Image background = ImageCache::getFromMemory (BinaryData::amped_license_background_png, BinaryData::amped_license_background_pngSize);
+    g.drawImageAt (background, 0, 0);
     //[/UserPaint]
 }
 
@@ -214,9 +168,26 @@ void LicenceDialog::buttonClicked (Button* buttonThatWasClicked)
         licenceCodeEditor->setText(licenceCode, true);
         //[/UserButtonCode_pasteLicenceBtn]
     }
+    else if (buttonThatWasClicked == buyLicenseBtn.get())
+    {
+        //[UserButtonCode_buyLicenseBtn] -- add your button handler code here..
+        URL("https://ml-sound-lab.com/").launchInDefaultBrowser();
+        //[/UserButtonCode_buyLicenseBtn]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
+}
+
+void LicenceDialog::mouseUp (const MouseEvent& e)
+{
+    //[UserCode_mouseUp] -- Add your code here...
+    juce::Logger::getCurrentLogger()->writeToLog("Mouse Up");
+    if (e.getPosition().getX() < 300 || e.getPosition().getX() > 900) {
+        setVisible(false);
+    }
+
+    //[/UserCode_mouseUp]
 }
 
 bool LicenceDialog::keyPressed (const KeyPress& key)
@@ -240,31 +211,32 @@ void LicenceDialog::modalStateFinished(int returnValue) {
     setVisible(false);
 }
 
+void LicenceDialog::showLicenseValidDialog(String email, Component* parent) {
+    NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licensed for " + email,
+            parent);
+}
+
 void LicenceDialog::licenceCodeTextChanged()
 {
     String enteredText = licenceCodeEditor->getText().trim();
 
-    //if (enteredText.length() == 39)
-    {
-        auto valid = LicenceTools::getInstance()->installLicense(enteredText);
-        if (valid == true) {
-            juce::Logger::getCurrentLogger()->writeToLog("Licence valid");
-            auto licence = LicenceTools::getInstance()->getLicence();
-            NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licenced for " + licence->getUserEmail(),
-                    this);
-            juce::Logger::getCurrentLogger()->writeToLog(licence->getUserEmail());
-            juce::Logger::getCurrentLogger()->writeToLog(licence->getUserName());
-            setVisible(false);
-        }
-        else {
-            juce::Logger::getCurrentLogger()->writeToLog("Licence NOT valid");
-            NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Error", "Provided licence is not valid!",
-                    this);
-        }
+    auto valid = LicenceTools::getInstance()->installLicense(enteredText);
+    if (valid == true) {
+        juce::Logger::getCurrentLogger()->writeToLog("Licence valid");
+        auto licence = LicenceTools::getInstance()->getLicence();
+        showLicenseValidDialog(licence->getUserEmail(), this);
+        //NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licenced for " + licence->getUserEmail(),
+         //       this);
+        juce::Logger::getCurrentLogger()->writeToLog(licence->getUserEmail());
+        juce::Logger::getCurrentLogger()->writeToLog(licence->getUserName());
+        setVisible(false);
     }
-    //else {
+    else {
+        juce::Logger::getCurrentLogger()->writeToLog("Licence NOT valid");
+        NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Error", "Provided licence is not valid!",
+                this);
+    }
 
-    //}
 }
 //[/MiscUserCode]
 
@@ -281,59 +253,39 @@ BEGIN_JUCER_METADATA
 <JUCER_COMPONENT documentType="Component" className="LicenceDialog" componentName=""
                  parentClasses="public Component, ModalComponentManager::Callback"
                  constructorParams="" variableInitialisers="" snapPixels="8" snapActive="1"
-                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="440"
+                 snapShown="1" overlayOpacity="0.330" fixedSize="1" initialWidth="1200"
                  initialHeight="600">
   <METHODS>
     <METHOD name="keyPressed (const KeyPress&amp; key)"/>
+    <METHOD name="mouseUp (const MouseEvent&amp; e)"/>
   </METHODS>
-  <BACKGROUND backgroundColour="ff1a1a1a"/>
-  <LABEL name="new label" id="246a4482c6a6df88" memberName="label" virtualName=""
-         explicitFocusOrder="0" pos="24 8 392 80" textCol="fff2f2f2" edTextCol="ff000000"
-         edBkgCol="0" labelText="TO USE ALL AMPS YOU NEED TO LICENCE THIS PRODUCT ON ML SOUND LAB WEBSITE&#10;"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
-         italic="0" justification="36"/>
-  <LABEL name="new label" id="a3b2c2af07986b11" memberName="label3" virtualName=""
-         explicitFocusOrder="0" pos="16 88 408 24" textCol="fff2f2f2"
-         edTextCol="ff000000" edBkgCol="0" labelText="THANKS FOR YOUR SUPPORT&#10;"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
-         italic="0" justification="36"/>
-  <LABEL name="new label" id="bfeffc6138a9bb71" memberName="label4" virtualName=""
-         explicitFocusOrder="0" pos="16 144 408 48" textCol="fff2f2f2"
-         edTextCol="ff000000" edBkgCol="0" labelText="You need to copy the following request key &#10;and use it on ML Sound Lab Website.&#10;&#10;"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="15.0" kerning="0.0" bold="0"
-         italic="0" justification="36"/>
+  <BACKGROUND backgroundColour="1a1a1a"/>
   <LABEL name="new label" id="4b4c2f291b8c77c9" memberName="licenceCodeLabel"
-         virtualName="" explicitFocusOrder="0" pos="16 200 408 24" textCol="fff2f2f2"
+         virtualName="" explicitFocusOrder="0" pos="384 473 336 24" textCol="fff2f2f2"
          edTextCol="ff000000" edBkgCol="0" labelText="THIS-ISNO-TVAL-IDRE-QUES-TKEY-ATAL-LLLL&#10;"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="16.0" kerning="0.0" bold="0"
-         italic="0" justification="36"/>
-  <LABEL name="new label" id="8018b035e57f7b68" memberName="label5" virtualName=""
-         explicitFocusOrder="0" pos="16 240 408 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="LICENCE KEY:&#10;" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="16.0" kerning="0.0" bold="0" italic="0" justification="36"/>
-  <LABEL name="new label" id="937d91f38fdb0f13" memberName="label6" virtualName=""
-         explicitFocusOrder="0" pos="16 240 408 24" textCol="fff2f2f2"
-         edTextCol="ff000000" edBkgCol="0" labelText="LICENCE KEY:&#10;"
-         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="16.0" kerning="0.0" bold="0"
+         fontname="Default font" fontsize="13.0" kerning="0.0" bold="0"
          italic="0" justification="36"/>
   <TEXTEDITOR name="new text editor" id="78ea782f5152046d" memberName="licenceCodeEditor"
-              virtualName="" explicitFocusOrder="0" pos="16 280 408 24" tooltip="Paste your licence key here"
+              virtualName="" explicitFocusOrder="0" pos="376 575 336 17" tooltip="Paste your licence key here"
               textcol="fff2f2f2" bkgcol="495358" initialText="" multiline="0"
               retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="new button" id="d4ece8f5f05b072" memberName="copyKeyBtn"
-              virtualName="" explicitFocusOrder="0" pos="56 320 140 35" bgColOff="ff111111"
+              virtualName="" explicitFocusOrder="0" pos="728 456 160 32" bgColOff="ff111111"
               textCol="f2f2f2f2" buttonText="COPY REQUEST KEY" connectedEdges="0"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="473c5e2a3ec66319" memberName="pasteLicenceBtn"
-              virtualName="" explicitFocusOrder="0" pos="232 320 140 35" bgColOff="ff111111"
+              virtualName="" explicitFocusOrder="0" pos="728 552 160 32" bgColOff="ff111111"
               buttonText="PASTE LICENCE KEY" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
+  <TEXTBUTTON name="new button" id="7e598643d2278332" memberName="buyLicenseBtn"
+              virtualName="" explicitFocusOrder="0" pos="728 504 160 32" bgColOff="ff111111"
+              textCol="f2f2f2f2" buttonText="BUY LICENSE" connectedEdges="0"
+              needsCallback="1" radioGroupId="0"/>
+  <HYPERLINKBUTTON name="new hyperlink" id="90b7a907a43a1c13" memberName="hyperlinkButton"
+                   virtualName="" explicitFocusOrder="0" pos="376 525 320 20" tooltip="https://ml-sound-lab.com/"
+                   textCol="fff2f2f2" buttonText="WWW:ML-SOUND-LAB.COM" connectedEdges="0"
+                   needsCallback="0" radioGroupId="0" url="https://ml-sound-lab.com/"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA
