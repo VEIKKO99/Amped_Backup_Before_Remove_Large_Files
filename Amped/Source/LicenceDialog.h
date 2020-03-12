@@ -49,9 +49,10 @@ public:
     void paint (Graphics& g) override;
     void resized() override;
     void buttonClicked (Button* buttonThatWasClicked) override;
+    void mouseUp (const MouseEvent& e) override;
     bool keyPressed (const KeyPress& key) override;
 
-
+    static void showLicenseValidDialog(String email, Component* parent);
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
@@ -60,15 +61,12 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    std::unique_ptr<Label> label;
-    std::unique_ptr<Label> label3;
-    std::unique_ptr<Label> label4;
     std::unique_ptr<Label> licenceCodeLabel;
-    std::unique_ptr<Label> label5;
-    std::unique_ptr<Label> label6;
     std::unique_ptr<TextEditor> licenceCodeEditor;
     std::unique_ptr<TextButton> copyKeyBtn;
     std::unique_ptr<TextButton> pasteLicenceBtn;
+    std::unique_ptr<TextButton> buyLicenseBtn;
+    std::unique_ptr<HyperlinkButton> hyperlinkButton;
 
 
     //==============================================================================
