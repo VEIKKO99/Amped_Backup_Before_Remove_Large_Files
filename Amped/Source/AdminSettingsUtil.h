@@ -412,7 +412,6 @@ public:
         {
             return nullptr;
         }
-
     }
 
     InternalAmpSettings ampSettings;
@@ -461,6 +460,8 @@ public:
                 preset->readFromXml(presets->getChildElement(i));
                 presetSettings.push_back(preset);
             }
+            auto defaultPreset = presets->getIntAttribute("defaultPresetIndex", 0);
+            setCurrentPresetWithIndex(defaultPreset);
         }
         ampSettings.readFromXml(root, rootFilePath);
     }

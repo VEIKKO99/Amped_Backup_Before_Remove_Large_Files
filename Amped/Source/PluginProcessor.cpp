@@ -71,6 +71,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     effects_od_switch = parameters.getRawParameterValue(VTS_EF_OD_ON);
     effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
 
+    presetChanged();
 #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
 #endif
@@ -89,8 +90,9 @@ void AmpedAudioProcessor::settingChanged()
     auto editor = getActiveEditor();
     if (editor != nullptr)
     {
+        presetChanged();
         editor->repaint();
-        ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
+        //((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
     }
 }
 
@@ -754,6 +756,9 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
     int ampNr = soundSettingsModel.currentSettingIndex();
     xml->setAttribute("AmpNr", ampNr);
 
+    int presetNr = soundSettingsModel.getCurrentSetting()->getCurrentPresetIndex();
+    xml->setAttribute("presetNr", presetNr);
+
     xml->deleteAllChildElementsWithTagName("CustomCabIr");
     if (getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
         xml->createNewChildElement("CustomCabIr")->setAttribute("fileName", getCurrentSettings()->ampSettings.cabIr.overridingIrFileName);
@@ -765,20 +770,30 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
 // whose contents will have been created by the getStateInformation() call.
 void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
+    Logger::getCurrentLogger()->writeToLog("setStateInformation");
+
     std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     if (xmlState.get() != nullptr)
     {
-        if (xmlState->hasTagName (parameters.state.getType()))
-            parameters.replaceState (ValueTree::fromXml (*xmlState));
-
         if (xmlState->hasAttribute("AmpNr")) {
             int ampIndex = xmlState->getIntAttribute("AmpNr", 0);
             if (! LicenceTools::getInstance()->isValidLicence())
             {
                 ampIndex = 0;
             }
+
+            int presetIndex = -1;
+            if (xmlState->hasAttribute("presetNr")) {
+                presetIndex = xmlState->getIntAttribute("presetNr", -1);
+            }
+
             soundSettingsModel.selectSettingWithIndex(ampIndex);
+            if (presetIndex != -1)
+                soundSettingsModel.getCurrentSetting()->setCurrentPresetWithIndex(presetIndex);
         }
+
+        if (xmlState->hasTagName (parameters.state.getType()))
+            parameters.replaceState (ValueTree::fromXml (*xmlState));
 
         auto element = xmlState->getChildByName("CustomCabIr");
         if (element != nullptr)

@@ -8,7 +8,7 @@
     <MaxMin min="-24.0" max="0.0"/>
     <MaxMin min="-30.0" max="16.0"/>
   </MaxMinSettings>
-  <Presets>
+  <Presets defaultPresetIndex="4">
     <Preset name="DAD ROCK">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
