@@ -9,7 +9,7 @@
     <MaxMin min="-2.0" max="28.0"/>
   </MaxMinSettings>
 
-  <Presets>
+  <Presets defaultPresetIndex="7">
     <Preset name="DAD ROCK">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
@@ -179,7 +179,7 @@
       </AmpedV100>
     </Preset>
   </Presets>
-  
+
   <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterVolumeMultiplier="1.0">
     <TubeSettings amountOfPreampTubes="3">
       <PreAmpTubes>

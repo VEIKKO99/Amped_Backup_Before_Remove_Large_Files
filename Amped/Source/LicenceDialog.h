@@ -44,6 +44,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
+    static void showLicenseValidDialog(String email, Component* parent);
     //[/UserMethods]
 
     void paint (Graphics& g) override;
@@ -52,12 +53,13 @@ public:
     void mouseUp (const MouseEvent& e) override;
     bool keyPressed (const KeyPress& key) override;
 
-    static void showLicenseValidDialog(String email, Component* parent);
+
 
 private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     void licenceCodeTextChanged();
     void modalStateFinished (int returnValue) override;
+
     //[/UserVariables]
 
     //==============================================================================
