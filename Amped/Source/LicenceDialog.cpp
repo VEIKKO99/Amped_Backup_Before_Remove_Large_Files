@@ -165,6 +165,7 @@ void LicenceDialog::buttonClicked (Button* buttonThatWasClicked)
     {
         //[UserButtonCode_pasteLicenceBtn] -- add your button handler code here..
         auto licenceCode = SystemClipboard::getTextFromClipboard();
+        licenceCode = licenceCode.trim();
         licenceCodeEditor->setText(licenceCode, true);
         //[/UserButtonCode_pasteLicenceBtn]
     }
@@ -182,7 +183,6 @@ void LicenceDialog::buttonClicked (Button* buttonThatWasClicked)
 void LicenceDialog::mouseUp (const MouseEvent& e)
 {
     //[UserCode_mouseUp] -- Add your code here...
-    juce::Logger::getCurrentLogger()->writeToLog("Mouse Up");
     if (e.getPosition().getX() < 300 || e.getPosition().getX() > 900) {
         setVisible(false);
     }
@@ -193,7 +193,6 @@ void LicenceDialog::mouseUp (const MouseEvent& e)
 bool LicenceDialog::keyPressed (const KeyPress& key)
 {
     //[UserCode_keyPressed] -- Add your code here...
-    juce::Logger::getCurrentLogger()->writeToLog("Key Pressed");
 
     if (key.getKeyCode() == key.escapeKey) {
         this->setVisible(false);
@@ -222,17 +221,13 @@ void LicenceDialog::licenceCodeTextChanged()
 
     auto valid = LicenceTools::getInstance()->installLicense(enteredText);
     if (valid == true) {
-        juce::Logger::getCurrentLogger()->writeToLog("Licence valid");
         auto licence = LicenceTools::getInstance()->getLicence();
         showLicenseValidDialog(licence->getUserEmail(), this);
         //NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licenced for " + licence->getUserEmail(),
          //       this);
-        juce::Logger::getCurrentLogger()->writeToLog(licence->getUserEmail());
-        juce::Logger::getCurrentLogger()->writeToLog(licence->getUserName());
         setVisible(false);
     }
     else {
-        juce::Logger::getCurrentLogger()->writeToLog("Licence NOT valid");
         NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Error", "Provided licence is not valid!",
                 this);
     }
