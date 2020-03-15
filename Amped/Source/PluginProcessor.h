@@ -79,7 +79,7 @@ public:
     void getStateInformation (MemoryBlock& destData) override;
     void setStateInformation (const void* data, int sizeInBytes) override;
 
-    void settingChanged() override;
+    void settingChanged(bool dontUpdatePreset = false) override;
     void presetChanged() override;
 
     std::shared_ptr<SoundSettings> getCurrentSettings() override;

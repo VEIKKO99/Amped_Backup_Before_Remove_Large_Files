@@ -82,7 +82,7 @@ AmpedAudioProcessor::~AmpedAudioProcessor()
     LicenceTools::deleteInstance();
 }
 
-void AmpedAudioProcessor::settingChanged()
+void AmpedAudioProcessor::settingChanged(bool dontUpdatePreset)
 {
     for (auto node : mainAudioProcessors) {
         ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
@@ -90,7 +90,8 @@ void AmpedAudioProcessor::settingChanged()
     auto editor = getActiveEditor();
     if (editor != nullptr)
     {
-        presetChanged();
+        if (!dontUpdatePreset)
+            presetChanged();
         editor->repaint();
         //((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
     }
