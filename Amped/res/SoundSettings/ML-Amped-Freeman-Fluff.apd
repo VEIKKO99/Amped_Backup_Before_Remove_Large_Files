@@ -156,7 +156,7 @@
         <PARAM id="ampSim" value="0.0"/>
       </AmpedV100>
     </Preset>
-    <Preset name="Fluffs's Preset">
+    <Preset name="Fluff's Preset">
       <AmpedV100>
         <PARAM id="bass" value="0.2699999809265137"/>
         <PARAM id="cabSim_type" value="0.0"/>
