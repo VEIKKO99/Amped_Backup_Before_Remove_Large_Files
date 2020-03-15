@@ -10,7 +10,7 @@
   </MaxMinSettings>
 
   <Presets defaultPresetIndex="7">
-    <Preset name="DAD ROCK">
+    <Preset name="Dad Rock">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.0"/>
@@ -31,7 +31,7 @@
         <PARAM id="trebble" value="0.5"/>
       </AmpedV100>
     </Preset>
-    <Preset name="PUNK ROCK">
+    <Preset name="Punk Rock">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.2599999904632568"/>
@@ -52,7 +52,7 @@
         <PARAM id="trebble" value="0.5799999833106995"/>
       </AmpedV100>
     </Preset>
-    <Preset name="ALTERNATIVE ROCK">
+    <Preset name="Alternative Rock">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.4099999964237213"/>
@@ -73,7 +73,7 @@
         <PARAM id="trebble" value="0.5899999737739563"/>
       </AmpedV100>
     </Preset>
-    <Preset name="THRASH METAL">
+    <Preset name="Thrash Metal">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.0"/>
@@ -94,7 +94,7 @@
         <PARAM id="trebble" value="0.6699999570846558"/>
       </AmpedV100>
     </Preset>
-    <Preset name="NU METAL">
+    <Preset name="Nu Metal">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.5"/>
@@ -115,7 +115,7 @@
         <PARAM id="trebble" value="0.6699999570846558"/>
       </AmpedV100>
     </Preset>
-    <Preset name="METALCORE">
+    <Preset name="Metalcore">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.5799999833106995"/>
@@ -136,7 +136,7 @@
         <PARAM id="trebble" value="0.5"/>
       </AmpedV100>
     </Preset>
-    <Preset name="DJENT KID">
+    <Preset name="Djent Kid">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.4199999868869781"/>
@@ -157,7 +157,7 @@
         <PARAM id="trebble" value="0.5"/>
       </AmpedV100>
     </Preset>
-    <Preset name="DJENTLEMAN">
+    <Preset name="Fluffs's Preset">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.4199999868869781"/>
