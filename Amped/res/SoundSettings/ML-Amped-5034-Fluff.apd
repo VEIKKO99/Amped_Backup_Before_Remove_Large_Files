@@ -157,7 +157,7 @@
         <PARAM id="trebble" value="0.5"/>
       </AmpedV100>
     </Preset>
-    <Preset name="Fluffs's Preset">
+    <Preset name="Fluff's Preset">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
         <PARAM id="bass" value="0.4199999868869781"/>
