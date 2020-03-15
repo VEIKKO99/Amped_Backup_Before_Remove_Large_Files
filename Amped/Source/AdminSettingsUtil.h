@@ -471,7 +471,7 @@ class ISoundSettingsChanged
 {
 public:
     virtual ~ISoundSettingsChanged() {}
-    virtual void settingChanged() = 0;
+    virtual void settingChanged(bool dontUpdatePreset = false) = 0;
     virtual void presetChanged() = 0;
     virtual std::shared_ptr<SoundSettings> getCurrentSettings() = 0;
 };

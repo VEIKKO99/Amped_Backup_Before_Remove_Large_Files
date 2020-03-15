@@ -81,7 +81,7 @@ void AmpButtonBar::stateChanged (ThreeWayIRFileSwitch*) {
         ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = cabSimSwitch.getCustomIrFilePath();
         RangedAudioParameter* param = valueTreeState.getParameter(VTS_CAB_SIM_TYPE);
         param->setValueNotifyingHost(0.5);
-        ampedProcessor.settingChanged();
+        ampedProcessor.settingChanged(true);
     }
     else
     {
@@ -89,7 +89,7 @@ void AmpButtonBar::stateChanged (ThreeWayIRFileSwitch*) {
         // If we have been using custom (user defined) ir file, remove it:
         if (ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName.length() > 0) {
             ampedProcessor.getCurrentSettings()->ampSettings.cabIr.overridingIrFileName = "";
-            ampedProcessor.settingChanged();
+            ampedProcessor.settingChanged(true);
         }
     }
 }
