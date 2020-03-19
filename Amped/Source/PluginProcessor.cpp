@@ -100,9 +100,22 @@ void AmpedAudioProcessor::settingChanged(bool dontUpdatePreset)
 void AmpedAudioProcessor::presetChanged()
 {
    auto preset = soundSettingsModel.getCurrentSetting()->getCurrentPreset();
-
-   if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType()))
-       parameters.replaceState (ValueTree::fromXml (*preset->xml));
+   auto copyCurrent = parameters.copyState();
+   if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType())) {
+       auto presetState = ValueTree::fromXml(*preset->xml);
+       if (presetState.isValid()) {
+          // Copy existing input and output values to new setup:
+           auto inputParamElement = presetState.getChildWithProperty("id", String(VTS_INPUT));
+           if (inputParamElement.isValid()) {
+               inputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_INPUT), nullptr);
+           }
+           auto outputParamElement = presetState.getChildWithProperty("id", String(VTS_OUTPUT));
+           if (outputParamElement.isValid()) {
+               outputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_OUTPUT), nullptr);
+           }
+       }
+       parameters.replaceState(presetState);
+   }
     auto editor = getActiveEditor();
     if (editor != nullptr)
     {
