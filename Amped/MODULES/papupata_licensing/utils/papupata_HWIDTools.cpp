@@ -87,15 +87,18 @@ namespace papupata {
 
             virtual juce::String getUniqueInstallationID(void) const
             {
-                if (!juce::WindowsRegistry::valueExists(getUUIDPath()))
-                {
+				// VEIKKO Last Minute HACK HERE!
+                //if (!juce::WindowsRegistry::valueExists(getUUIDPath()))
+				juce::String val = juce::WindowsRegistry::getValue(getUUIDPath());
+				if (val.length() == 0)
+				{
                     juce::WindowsRegistry::setValue(getUUIDPath(), juce::Uuid().toDashedString());
                 }
 				DBG(getUUIDPath());
-                juce::String val = juce::WindowsRegistry::getValue(getUUIDPath());
-                juce::Logger::outputDebugString(val);
+                juce::String uIID = juce::WindowsRegistry::getValue(getUUIDPath());
+                juce::Logger::outputDebugString(uIID);
 
-                return val;
+                return uIID;
             }
 
             static juce::String getRegistryPath() { return juce::String("HKEY_CURRENT_USER\\SOFTWARE\\") + juce::String(JucePlugin_Manufacturer) + juce::String("\\") + juce::String(JucePlugin_Name); }
