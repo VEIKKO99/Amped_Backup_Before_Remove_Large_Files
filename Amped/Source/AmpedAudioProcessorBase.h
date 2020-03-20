@@ -215,8 +215,8 @@ public:
 
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
-        // Values from 1 to 2
-        effect.SetRatio(1 + (*thresholdParam * 1));
+        // Values from 1 to 5
+        effect.SetRatio(1 + (*thresholdParam * 4));
         effect.Process(interleavedBuffer.get(), numOfSamples);
         //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
 
