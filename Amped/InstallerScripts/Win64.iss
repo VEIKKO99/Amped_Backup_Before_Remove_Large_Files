@@ -5,6 +5,8 @@ AppVersion=0.9.1
 DefaultDirName={cf}
 DefaultGroupName=Amped
 OutputBaseFilename=Amped-Win64Bit
+UninstallFilesDir="{pf}\ML Sound Lab\Amped"
+DisableDirPage=yes
  
 [Files]
 Source: "..\Builds\VisualStudio2019\x64\Release\VST3\Amped - Roots - Beta 1.vst3"; DestDir: "{cf}\VST3"
