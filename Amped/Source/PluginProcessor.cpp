@@ -114,6 +114,10 @@ void AmpedAudioProcessor::presetChanged()
            if (outputParamElement.isValid()) {
                outputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_OUTPUT), nullptr);
            }
+           auto leftRightElement = presetState.getChildWithProperty("id", String(VTS_LEFT_RIGHT_INPUT_SWITCH));
+           if (leftRightElement.isValid()) {
+               leftRightElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_LEFT_RIGHT_INPUT_SWITCH), nullptr);
+           }
        }
        parameters.replaceState(presetState);
    }
@@ -633,7 +637,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
     float* monoPointer[1];
 
-    auto switchToRightInput = *leftRightInputSwitch < 0.5 && buffer.getNumChannels() > 1;
+    auto switchToRightInput = *leftRightInputSwitch > 0.5 && buffer.getNumChannels() > 1;
     // Here we do the switch between left / right on standalone version
     if (switchToRightInput)
     {

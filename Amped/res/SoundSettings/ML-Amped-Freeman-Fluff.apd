@@ -8,53 +8,11 @@
     <MaxMin min="-24.0" max="0.0"/>
     <MaxMin min="-12.0" max="10.0"/>
   </MaxMinSettings>
-  <Presets defaultPresetIndex="2">
-    <Preset name="Dad Rock">
+  <Presets>
+    <Preset name="High Noon">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
-        <PARAM id="bass" value="0.0"/>
-        <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.1700000017881393"/>
-        <PARAM id="effects_ng_on" value="0.0"/>
-        <PARAM id="effects_ng_threshold" value="0.5"/>
-        <PARAM id="effects_od_drive" value="0.5"/>
-        <PARAM id="effects_od_level" value="0.5"/>
-        <PARAM id="effects_od_on" value="0.0"/>
-        <PARAM id="effects_od_tone" value="0.5"/>
-        <PARAM id="fx" value="0.0"/>
-        <PARAM id="input" value="0.5"/>
-        <PARAM id="master" value="0.5"/>
-        <PARAM id="middle" value="1.0"/>
-        <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.1599999964237213"/>
-        <PARAM id="trebble" value="0.5"/>
-      </AmpedV100>
-    </Preset>
-    <Preset name="Punk Rock">
-      <AmpedV100>
-        <PARAM id="ampSim" value="0.0"/>
-        <PARAM id="bass" value="0.3400000035762787"/>
-        <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.3299999833106995"/>
-        <PARAM id="effects_ng_on" value="0.0"/>
-        <PARAM id="effects_ng_threshold" value="0.5"/>
-        <PARAM id="effects_od_drive" value="0.5"/>
-        <PARAM id="effects_od_level" value="0.5"/>
-        <PARAM id="effects_od_on" value="0.0"/>
-        <PARAM id="effects_od_tone" value="0.5"/>
-        <PARAM id="fx" value="0.0"/>
-        <PARAM id="input" value="0.5"/>
-        <PARAM id="master" value="0.5"/>
-        <PARAM id="middle" value="0.7599999904632568"/>
-        <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.1799999922513962"/>
-        <PARAM id="trebble" value="0.5"/>
-      </AmpedV100>
-    </Preset>
-    <Preset name="Alternative Rock">
-      <AmpedV100>
-        <PARAM id="ampSim" value="0.0"/>
-        <PARAM id="bass" value="0.4099999964237213"/>
+        <PARAM id="bass" value="0.5"/>
         <PARAM id="cabSim_type" value="0.0"/>
         <PARAM id="drive" value="0.5"/>
         <PARAM id="effects_ng_on" value="0.0"/>
@@ -66,18 +24,85 @@
         <PARAM id="fx" value="0.0"/>
         <PARAM id="input" value="0.5"/>
         <PARAM id="master" value="0.5"/>
+        <PARAM id="middle" value="0.5"/>
+        <PARAM id="output" value="0.5"/>
+        <PARAM id="presence" value="0.5"/>
+        <PARAM id="trebble" value="0.5"/>
+        <PARAM id="leftRightInputSwitch"/>
+      </AmpedV100>
+    </Preset>
+    <Preset name="Dad Rock">
+      <AmpedV100>
+        <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="bass" value="0.1799999922513962"/>
+        <PARAM id="cabSim_type" value="0.0"/>
+        <PARAM id="drive" value="0.3299999833106995"/>
+        <PARAM id="effects_ng_on" value="0.0"/>
+        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_od_drive" value="0.5"/>
+        <PARAM id="effects_od_level" value="0.5"/>
+        <PARAM id="effects_od_on" value="0.0"/>
+        <PARAM id="effects_od_tone" value="0.5"/>
+        <PARAM id="fx" value="0.0"/>
+        <PARAM id="input" value="0.5"/>
+        <PARAM id="master" value="0.5"/>
+        <PARAM id="middle" value="1.0"/>
+        <PARAM id="output" value="0.5"/>
+        <PARAM id="presence" value="0.1799999922513962"/>
+        <PARAM id="trebble" value="0.5"/>
+        <PARAM id="leftRightInputSwitch"/>
+      </AmpedV100>
+    </Preset>
+    <Preset name="Punk Rock">
+      <AmpedV100>
+        <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="bass" value="0.2699999809265137"/>
+        <PARAM id="cabSim_type" value="0.0"/>
+        <PARAM id="drive" value="0.5"/>
+        <PARAM id="effects_ng_on" value="0.0"/>
+        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_od_drive" value="0.5"/>
+        <PARAM id="effects_od_level" value="0.5"/>
+        <PARAM id="effects_od_on" value="0.0"/>
+        <PARAM id="effects_od_tone" value="0.5"/>
+        <PARAM id="fx" value="0.0"/>
+        <PARAM id="input" value="0.5"/>
+        <PARAM id="master" value="0.5"/>
+        <PARAM id="middle" value="0.7400000095367432"/>
+        <PARAM id="output" value="0.5"/>
+        <PARAM id="presence" value="0.1899999976158142"/>
+        <PARAM id="trebble" value="0.5"/>
+        <PARAM id="leftRightInputSwitch"/>
+      </AmpedV100>
+    </Preset>
+    <Preset name="Alternative Rock">
+      <AmpedV100>
+        <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="bass" value="0.5"/>
+        <PARAM id="cabSim_type" value="0.0"/>
+        <PARAM id="drive" value="0.5999999642372131"/>
+        <PARAM id="effects_ng_on" value="0.0"/>
+        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_od_drive" value="0.5"/>
+        <PARAM id="effects_od_level" value="0.5"/>
+        <PARAM id="effects_od_on" value="0.0"/>
+        <PARAM id="effects_od_tone" value="0.5"/>
+        <PARAM id="fx" value="0.0"/>
+        <PARAM id="input" value="0.5"/>
+        <PARAM id="master" value="0.5"/>
         <PARAM id="middle" value="0.6100000143051147"/>
         <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.1599999964237213"/>
+        <PARAM id="presence" value="0.1499999910593033"/>
         <PARAM id="trebble" value="0.7400000095367432"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
     <Preset name="Thrash Metal">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
-        <PARAM id="bass" value="0.1700000017881393"/>
+        <PARAM id="bass" value="0.1899999976158142"/>
         <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.6899999976158142"/>
+        <PARAM id="drive" value="0.7400000095367432"/>
         <PARAM id="effects_ng_on" value="0.0"/>
         <PARAM id="effects_ng_threshold" value="0.5"/>
         <PARAM id="effects_od_drive" value="0.5"/>
@@ -91,14 +116,15 @@
         <PARAM id="output" value="0.5"/>
         <PARAM id="presence" value="0.2599999904632568"/>
         <PARAM id="trebble" value="0.7400000095367432"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
     <Preset name="Nu Metal">
       <AmpedV100>
         <PARAM id="ampSim" value="0.0"/>
-        <PARAM id="bass" value="0.5"/>
+        <PARAM id="bass" value="0.3999999761581421"/>
         <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.75"/>
+        <PARAM id="drive" value="0.85999995470047"/>
         <PARAM id="effects_ng_on" value="0.0"/>
         <PARAM id="effects_ng_threshold" value="0.5"/>
         <PARAM id="effects_od_drive" value="0.5"/>
@@ -110,59 +136,62 @@
         <PARAM id="master" value="0.5"/>
         <PARAM id="middle" value="0.3999999761581421"/>
         <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.1799999922513962"/>
-        <PARAM id="trebble" value="0.7400000095367432"/>
+        <PARAM id="presence" value="0.0"/>
+        <PARAM id="trebble" value="1.0"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
     <Preset name="Metalcore">
       <AmpedV100>
-        <PARAM id="bass" value="0.6699999570846558"/>
+        <PARAM id="bass" value="0.7400000095367432"/>
         <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.7299999594688416"/>
+        <PARAM id="drive" value="1.0"/>
         <PARAM id="effects_ng_on" value="1.0"/>
-        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_ng_threshold" value="0.1700000017881393"/>
         <PARAM id="effects_od_drive" value="0.0"/>
-        <PARAM id="effects_od_level" value="0.3700000047683716"/>
+        <PARAM id="effects_od_level" value="0.6800000071525574"/>
         <PARAM id="effects_od_on" value="1.0"/>
         <PARAM id="effects_od_tone" value="0.5"/>
         <PARAM id="fx" value="0.0"/>
         <PARAM id="input" value="0.5"/>
         <PARAM id="master" value="0.5"/>
-        <PARAM id="middle" value="0.5"/>
+        <PARAM id="middle" value="0.3499999940395355"/>
         <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.1599999964237213"/>
-        <PARAM id="trebble" value="0.7400000095367432"/>
+        <PARAM id="presence" value="0.0"/>
+        <PARAM id="trebble" value="1.0"/>
         <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
     <Preset name="Djent Kid">
       <AmpedV100>
-        <PARAM id="bass" value="0.3999999761581421"/>
+        <PARAM id="bass" value="0.7099999785423279"/>
         <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.7400000095367432"/>
+        <PARAM id="drive" value="1.0"/>
         <PARAM id="effects_ng_on" value="1.0"/>
-        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_ng_threshold" value="0.3799999952316284"/>
         <PARAM id="effects_od_drive" value="0.5"/>
-        <PARAM id="effects_od_level" value="0.2599999904632568"/>
+        <PARAM id="effects_od_level" value="0.6800000071525574"/>
         <PARAM id="effects_od_on" value="1.0"/>
         <PARAM id="effects_od_tone" value="0.7400000095367432"/>
         <PARAM id="fx" value="0.0"/>
         <PARAM id="input" value="0.5"/>
         <PARAM id="master" value="0.5"/>
-        <PARAM id="middle" value="0.8399999737739563"/>
+        <PARAM id="middle" value="0.85999995470047"/>
         <PARAM id="output" value="0.5"/>
         <PARAM id="presence" value="0.0"/>
-        <PARAM id="trebble" value="0.6699999570846558"/>
+        <PARAM id="trebble" value="1.0"/>
         <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
     <Preset name="Fluff's Preset">
       <AmpedV100>
         <PARAM id="bass" value="0.2699999809265137"/>
         <PARAM id="cabSim_type" value="0.0"/>
-        <PARAM id="drive" value="0.7400000095367432"/>
+        <PARAM id="drive" value="0.8399999737739563"/>
         <PARAM id="effects_ng_on" value="1.0"/>
-        <PARAM id="effects_ng_threshold" value="0.5"/>
+        <PARAM id="effects_ng_threshold" value="0.07999999821186066"/>
         <PARAM id="effects_od_drive" value="0.5"/>
         <PARAM id="effects_od_level" value="0.5"/>
         <PARAM id="effects_od_on" value="0.0"/>
@@ -172,9 +201,10 @@
         <PARAM id="master" value="0.5"/>
         <PARAM id="middle" value="1.0"/>
         <PARAM id="output" value="0.5"/>
-        <PARAM id="presence" value="0.0"/>
-        <PARAM id="trebble" value="0.7400000095367432"/>
+        <PARAM id="presence" value="0.07999999821186066"/>
+        <PARAM id="trebble" value="1.0"/>
         <PARAM id="ampSim" value="0.0"/>
+        <PARAM id="leftRightInputSwitch"/>
       </AmpedV100>
     </Preset>
   </Presets>

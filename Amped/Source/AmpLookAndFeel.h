@@ -62,7 +62,7 @@ class LeftRightSwitchLookAndFeel : public AmpLookAndFeelBase {
         std::string fileName = "";
         Image switchGraphics;
 
-        if (button.getToggleState()) {
+        if (!button.getToggleState()) {
             switchGraphics = ImageCache::getFromMemory(BinaryData::CHANNELLEFT_png, BinaryData::CHANNELLEFT_pngSize);
         }
         else {
