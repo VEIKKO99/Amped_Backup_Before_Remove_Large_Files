@@ -52,6 +52,27 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
     }
 };
 
+class LeftRightSwitchLookAndFeel : public AmpLookAndFeelBase {
+
+    void drawToggleButton (Graphics& g,
+            ToggleButton& button,
+            bool isMouseOverButton,
+            bool isButtonDown) override
+    {
+        std::string fileName = "";
+        Image switchGraphics;
+
+        if (button.getToggleState()) {
+            switchGraphics = ImageCache::getFromMemory(BinaryData::CHANNELLEFT_png, BinaryData::CHANNELLEFT_pngSize);
+        }
+        else {
+            switchGraphics = ImageCache::getFromMemory(BinaryData::CHANNELRIGHT_png, BinaryData::CHANNELRIGHT_pngSize);
+        }
+        g.drawImageAt (switchGraphics, 0, 0);
+    }
+};
+
+
 class ThreeWaySwitchSliderLookAndFeel : public AmpLookAndFeelBase {
     void drawLinearSlider (Graphics& g, int x, int y, int width, int height,
             float sliderPos, float minSliderPos, float maxSliderPos,
