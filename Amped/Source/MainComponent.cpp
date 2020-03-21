@@ -39,6 +39,14 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     topBar->setProcessor(&processor);
     addAndMakeVisible (topBar.get());
 
+    // Left <-> Right switch is only available on standalone version of the app
+    if (JUCEApplication::isStandaloneApp()) {
+        addAndMakeVisible(leftRightSwitch);
+        leftRightAttachment.reset(new ButtonAttachment(vts, VTS_LEFT_RIGHT_INPUT_SWITCH, leftRightSwitch));
+        leftRightSwitch.setWantsKeyboardFocus(false);
+        leftRightSwitch.setLookAndFeel(&lRLookAndFeel);
+    }
+
     addAndMakeVisible(effectsBar);
     effectsBar.setVisible(false);
 
@@ -60,6 +68,9 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
 
 MainComponent::~MainComponent()
 {
+    if (JUCEApplication::isStandaloneApp()) {
+        leftRightSwitch.setLookAndFeel(nullptr);
+    }
     setLookAndFeel(nullptr);
 }
 
@@ -138,6 +149,10 @@ void MainComponent::resized()
                            Constants::AmpButtonBarW, Constants::AmpButtonBarH);
 
     topBar->setBounds (0, 0, 1200, 300);
+
+    if (JUCEApplication::isStandaloneApp()) {
+        leftRightSwitch.setBounds(312, 582, 27, 14);
+    }
 
 #ifdef AMPED_DEBUG
     adminUIButton.setBounds(80, 480, 100, 40);

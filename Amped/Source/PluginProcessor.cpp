@@ -47,6 +47,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> (VTS_EF_OD_LEVEL, "OD Level", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> (VTS_EF_OD_ON, "OD on", false),
                         std::make_unique<AudioParameterBool> (VTS_EF_NG_ON, "NG on", false),
+                        std::make_unique<AudioParameterBool> (VTS_LEFT_RIGHT_INPUT_SWITCH, "Input L/R", false),
                         std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
@@ -70,7 +71,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     outputParameter = parameters.getRawParameterValue (VTS_OUTPUT);
     effects_od_switch = parameters.getRawParameterValue(VTS_EF_OD_ON);
     effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
-
+    leftRightInputSwitch = parameters.getRawParameterValue(VTS_LEFT_RIGHT_INPUT_SWITCH);
     presetChanged();
 #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
@@ -630,10 +631,19 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.clear (i, 0, buffer.getNumSamples());
     }
 
-   // buffer.clear(0,0, buffer.getNumSamples());
-
     float* monoPointer[1];
-    monoPointer[0] = buffer.getWritePointer(0);
+
+    auto switchToRightInput = *leftRightInputSwitch < 0.5 && buffer.getNumChannels() > 1;
+    // Here we do the switch between left / right on standalone version
+    if (switchToRightInput)
+    {
+        monoPointer[0] = buffer.getWritePointer(1);
+    }
+    else
+    {
+        monoPointer[0] = buffer.getWritePointer(0);
+    }
+
     AudioBuffer<float> monoBuffer(monoPointer, 1, buffer.getNumSamples());
 
     processInputGain(monoBuffer);
@@ -659,6 +669,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
     // We copy the mono (left) channel to right channel also:
     if (buffer.getNumChannels() > 1) {
+        if (switchToRightInput) {
+            buffer.copyFrom (0, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
+        }
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
 

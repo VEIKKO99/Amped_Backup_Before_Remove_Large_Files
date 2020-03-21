@@ -50,11 +50,14 @@ private:
     AmpButtonBar ampButtonBar;
     AmpedAudioProcessor& processor;
     AmpLookAndFeel ampLookAndFeel;
-   // TextButton effectsButton;
+    LeftRightSwitchLookAndFeel lRLookAndFeel;
+
     EffectsBar effectsBar;
 
     std::unique_ptr<AmpTopBar> topBar;
 
+    ToggleButton leftRightSwitch;
+    std::unique_ptr<ButtonAttachment> leftRightAttachment;
 
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;

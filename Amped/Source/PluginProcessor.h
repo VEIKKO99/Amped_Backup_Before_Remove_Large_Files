@@ -161,6 +161,8 @@ private:
     float* effects_od_switch = nullptr;
     float* effects_ng_switch = nullptr;
 
+    float* leftRightInputSwitch = nullptr;
+
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
 #endif
