@@ -440,6 +440,10 @@ void AmpedAudioProcessor::connectPreEffectsMidiNodes()
 
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
+  //  Logger::getCurrentLogger()->writeToLog("prepareToPlay in  UPDATE:  " + String(getTotalNumInputChannels()) + " out:" + String(getTotalNumOutputChannels()));
+
+
+
     if (previousPrepareSampleRate != (int) sampleRate ||
         previousPrepareSamplesPerBlock != samplesPerBlock)
     {
@@ -565,6 +569,8 @@ void AmpedAudioProcessor::releaseResources()
 #ifndef JucePlugin_PreferredChannelConfigurations
 bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) const
 {
+    //Logger::getCurrentLogger()->writeToLog("isBusesLayoutSupported " + String((int)layouts.getMainInputChannelSet()) + " out:" + String((int)layouts.getMainOutputChannelSet()));
+
     if (layouts.getMainInputChannelSet()  == AudioChannelSet::disabled()
         || layouts.getMainOutputChannelSet() == AudioChannelSet::disabled())
         return false;
@@ -678,8 +684,6 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         }
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
-
-
 
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
@@ -801,7 +805,7 @@ void AmpedAudioProcessor::getStateInformation (MemoryBlock& destData)
 // whose contents will have been created by the getStateInformation() call.
 void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes)
 {
-    Logger::getCurrentLogger()->writeToLog("setStateInformation");
+ //   Logger::getCurrentLogger()->writeToLog("setStateInformation");
 
     std::unique_ptr<XmlElement> xmlState (getXmlFromBinary (data, sizeInBytes));
     if (xmlState.get() != nullptr)
