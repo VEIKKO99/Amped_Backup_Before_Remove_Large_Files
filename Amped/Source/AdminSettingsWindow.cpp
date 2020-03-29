@@ -865,7 +865,7 @@ void AdminSettingsWindow::saveSettings() {
     updateSettings();
     auto settings = changeInterface->getCurrentSettings();
     auto xml = settings->serializeToXml();
-    Logger::getCurrentLogger()->writeToLog(xml->toString());
+  //  Logger::getCurrentLogger()->writeToLog(xml->toString());
 
     FileChooser myChooser ("Save sound settings to empty directory.",
             File::getSpecialLocation (File::userHomeDirectory),
@@ -876,10 +876,10 @@ void AdminSettingsWindow::saveSettings() {
         xml->writeTo(saveFile);
 
         String filesDirectoryString = saveFile.getParentDirectory().getFullPathName() + File::getSeparatorString()  + "files";
-        Logger::getCurrentLogger()->writeToLog(filesDirectoryString);
+ //       Logger::getCurrentLogger()->writeToLog(filesDirectoryString);
 
         String withTrailingSeparator = File::addTrailingSeparator(filesDirectoryString);
-        Logger::getCurrentLogger()->writeToLog(withTrailingSeparator);
+  //      Logger::getCurrentLogger()->writeToLog(withTrailingSeparator);
 
         File files(withTrailingSeparator);
         if (files.createDirectory().wasOk()) {
