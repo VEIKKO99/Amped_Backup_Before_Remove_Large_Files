@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="pllKDb" name="Amped - Roots" projectType="audioplug" jucerVersion="5.4.5"
-              pluginFormats="buildAU,buildStandalone,buildVST3" version="1.0.0"
+              pluginFormats="buildAU,buildStandalone,buildVST3" version="1.0.1"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
-              pluginCode="Ampd" pluginVSTCategory="kPlugCategUnknown" pluginAUMainType="'aufx'"
-              reportAppUsage="0" displaySplashScreen="0">
+              pluginCode="Ampd" pluginVSTCategory="kPlugCategUnknown" reportAppUsage="0"
+              displaySplashScreen="0" pluginAUMainType="'aufx'">
   <MAINGROUP id="H6VpyL" name="Amped - Roots">
     <GROUP id="{DEEE0891-E3FA-3620-F858-1F386BF0782D}" name="original_hornet">
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
