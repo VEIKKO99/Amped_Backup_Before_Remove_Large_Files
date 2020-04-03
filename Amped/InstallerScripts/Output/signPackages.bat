@@ -1,0 +1,2 @@
+signtool.exe sign /f "C:/users/vetapani/Desktop/sertifikaatti.pfx" /t http://timestamp.comodoca.com/authenticode /p OvejFh4Gm5ywr8 Amped-Win32Bit.exe
+signtool.exe sign /f "C:/users/vetapani/Desktop/sertifikaatti.pfx" /t http://timestamp.comodoca.com/authenticode /p OvejFh4Gm5ywr8 Amped-Win64Bit.exe
