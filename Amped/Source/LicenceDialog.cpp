@@ -104,9 +104,9 @@ LicenceDialog::LicenceDialog ()
 
 
     //[Constructor] You can add your own custom stuff here..
-    auto challenge = papupata::licensing::Challenge(true).toString();
+    cachedChallenge = papupata::licensing::Challenge(true).toString();
 
-    licenceCodeLabel->setText(challenge, dontSendNotification);
+    licenceCodeLabel->setText(cachedChallenge, dontSendNotification);
     licenceCodeEditor->onTextChange = [this] {licenceCodeTextChanged();};
 
     //[/Constructor]
@@ -158,7 +158,23 @@ void LicenceDialog::buttonClicked (Button* buttonThatWasClicked)
     if (buttonThatWasClicked == copyKeyBtn.get())
     {
         //[UserButtonCode_copyKeyBtn] -- add your button handler code here..
-        SystemClipboard::copyTextToClipboard(papupata::licensing::Challenge(true).toString());
+        auto currentChallenge = papupata::licensing::Challenge(true).toString();
+
+        // Because of windows client weird behaviour (challenge can not be fetched from registry very rare cases)
+        // We must check the code here and prevent user for copying it.
+        if (currentChallenge.compare(cachedChallenge) == 0)
+        {
+            // Strings are equal ==> OK
+            SystemClipboard::copyTextToClipboard(papupata::licensing::Challenge(true).toString());
+            NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Copied", "Request key copied to clipboard. You can now buy license from https://ml-sound-lab.com/.",
+                    this);
+        }
+        else
+        {
+            NativeMessageBox::showMessageBoxAsync(AlertWindow::WarningIcon, "Error!", "Request key can not be saved or fetched. Licensing won't work.",
+                    this);
+        }
+
         //[/UserButtonCode_copyKeyBtn]
     }
     else if (buttonThatWasClicked == pasteLicenceBtn.get())

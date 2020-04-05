@@ -393,7 +393,16 @@ public:
         }
         else {
             File irData(irFile);
-            convolutionDsp.loadImpulseResponse(irData, false, false, 0);
+            
+            // Just to check if file input stream is valid. Juce convolution goes crazy (forever loop) if
+            // Stream is not ok (For example no permission in OS X)
+            auto stream = new FileInputStream(irData);
+            auto isOk = stream->openedOk();
+            delete stream;
+
+            if (isOk) {
+                convolutionDsp.loadImpulseResponse(irData, false, false, 0);
+            }
         }
     }
     

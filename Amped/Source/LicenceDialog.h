@@ -59,6 +59,7 @@ private:
     //[UserVariables]   -- You can add your own custom variables in this section.
     void licenceCodeTextChanged();
     void modalStateFinished (int returnValue) override;
+    String cachedChallenge;
 
     //[/UserVariables]
 
@@ -69,6 +70,7 @@ private:
     std::unique_ptr<TextButton> pasteLicenceBtn;
     std::unique_ptr<TextButton> buyLicenseBtn;
     std::unique_ptr<HyperlinkButton> hyperlinkButton;
+
 
 
     //==============================================================================

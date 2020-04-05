@@ -90,6 +90,18 @@ ThreeWayIRFileSwitch::ThreeWayIRFileSwitch ()
     drawableButtonMiddle = Drawable::createFromImageData (BinaryData::amped_switch62_0010_png, BinaryData::amped_switch62_0010_pngSize);
     drawableButtonOn = Drawable::createFromImageData (BinaryData::amped_switch62_0000_png, BinaryData::amped_switch62_0000_pngSize);
 
+    PropertiesFile::Options options;
+
+    options.applicationName     = JucePlugin_Name;
+    options.filenameSuffix      = ".settings";
+    options.osxLibrarySubFolder = "Application Support";
+#if JUCE_LINUX
+    options.folderName          = "~/.config";
+#else
+    options.folderName          = "";
+#endif
+    appProperties.setStorageParameters(options);
+
     //[/Constructor_pre]
 
 
@@ -194,13 +206,50 @@ void ThreeWayIRFileSwitch::setCurrentStatus(ThreeWayIRFileSwitch::SwitchStatus n
     }
 }
 
+File ThreeWayIRFileSwitch::getLastFile()
+{
+    File f;
+    auto settings = appProperties.getUserSettings();
+
+    if (settings != nullptr)
+        f = File (settings->getValue ("ampedLastIRFile"));
+
+    if (f == File())
+        f = File::getSpecialLocation (File::userMusicDirectory);
+
+    return f;
+}
+
+void ThreeWayIRFileSwitch::setLastFile (const FileChooser& fc)
+{
+    auto settings = appProperties.getUserSettings();
+
+    if (settings != nullptr)
+        settings->setValue ("ampedLastIRFile", fc.getResult().getFullPathName());
+}
+
 void ThreeWayIRFileSwitch::openIRFileSelection()
 {
     FileChooser myChooser ("Please select the IR file.",
-            File::getSpecialLocation (File::userHomeDirectory),
+            getLastFile(),
             "*.wav");
     if (myChooser.browseForFileToOpen())
     {
+#ifdef JUCE_MAC
+        // On os x we only allow ir files from music folder.
+        String musicDirectoryPath = File::getSpecialLocation(File::userMusicDirectory).getFullPathName();
+        auto result = myChooser.getResult().getFullPathName();
+
+        if (myChooser.getResult().getFullPathName().contains(String("Music"))) {
+            ; // No op
+        }
+        else {
+            AlertWindow::showMessageBox(AlertWindow::AlertIconType::WarningIcon, "Unupported File Location",
+                    "Due to Apple's file security policies this version of Amped supports impulse file loading only from your user account's Music folder or its subfolders\n\nSuch as: /Users/yourUserName/Music/IRs/my_awesome_cab.wav", "OK", nullptr);
+            return;
+        }
+#endif
+        setLastFile(myChooser);
         AudioFormatManager audioFormatManager;
         audioFormatManager.registerFormat(new WavAudioFormat(), true);
         File irFile (myChooser.getResult());
