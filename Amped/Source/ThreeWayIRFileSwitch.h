@@ -83,6 +83,11 @@ private:
 
     String customIrFilePath;
 
+    ApplicationProperties appProperties;
+
+    File getLastFile();
+    void setLastFile (const FileChooser& fc);
+
     //[/UserVariables]
 
     //==============================================================================

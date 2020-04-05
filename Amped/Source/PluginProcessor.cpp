@@ -842,6 +842,12 @@ void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes
             }
         }
     }
+    auto editor = getActiveEditor();
+    if (editor != nullptr)
+       {
+           ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
+           editor->repaint();
+       }
 }
 
 //==============================================================================
