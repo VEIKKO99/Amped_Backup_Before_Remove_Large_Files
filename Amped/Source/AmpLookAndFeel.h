@@ -292,13 +292,9 @@ public:
         g.setColour (button.findColour (ComboBox::outlineColourId));
         g.drawRoundedRectangle (bounds, cornerSize, 1.0f);
 
-
         g.setColour (Colour(0x4400ffd8));
         g.drawRect (bounds, 0.5f);
-
-
     }
-
 
     void drawToggleButton (Graphics& g,
                            ToggleButton& button,
