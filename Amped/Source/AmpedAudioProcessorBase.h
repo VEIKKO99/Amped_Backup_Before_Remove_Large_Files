@@ -390,6 +390,7 @@ public:
             int dataSize = 0;
             auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
             convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
+            convolutionDsp.reset();
         }
         else {
             File irData(irFile);
@@ -402,8 +403,10 @@ public:
 
             if (isOk) {
                 convolutionDsp.loadImpulseResponse(irData, false, false, 0);
+                convolutionDsp.reset();
             }
         }
+        
     }
     
 private:
@@ -412,6 +415,7 @@ private:
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolutionDsp.prepare(spec);
+        convolutionDsp.reset();
     }
     
 protected:
@@ -619,6 +623,7 @@ public:
             File irData(irFile);
             convolution.loadImpulseResponse(irData, false, false, 0);
         }
+        convolution.reset();
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
@@ -641,7 +646,7 @@ public:
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         dryWet.prepare(spec);
         
-        initInpulseResponseProcessor(loImpulseData, loImpulseDataSize, sampleRate, samplesPerBlock, lowerPotValues );
+        initInpulseResponseProcessor(loImpulseData, loIm pulseDataSize, sampleRate, samplesPerBlock, lowerPotValues );
         initInpulseResponseProcessor(hiImpulseData, hiImpulseDataSize, sampleRate, samplesPerBlock, higherPotValues );
     }
     
@@ -667,8 +672,6 @@ public:
         higherPotValues.reset();
     }
 
-
-
 private:
     void initInpulseResponseProcessor(const char *data, int dataSize, double sampleRate, int samplesPerBlock, Convolution& convolution )
     {
@@ -676,6 +679,7 @@ private:
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolution.prepare(spec);
         convolution.loadImpulseResponse(data, dataSize, false, false, 0, true);
+        convolution.reset();
     }
     
 public:
