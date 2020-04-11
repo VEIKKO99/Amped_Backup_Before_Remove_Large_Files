@@ -270,6 +270,7 @@ public:
         label.setFont (getComboBoxFont (box));
     }
 
+    /*
     void drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
             bool isMouseOverButton, bool isButtonDown) override
     {
@@ -278,6 +279,7 @@ public:
         g.setColour (isButtonDown ? backgroundColour.withAlpha(0.5f) : backgroundColour);
         g.fillRect (buttonArea);
     }
+     */
 
     void drawToggleButton (Graphics& g,
                            ToggleButton& button,
