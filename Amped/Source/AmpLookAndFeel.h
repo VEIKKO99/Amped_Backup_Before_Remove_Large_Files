@@ -270,16 +270,35 @@ public:
         label.setFont (getComboBoxFont (box));
     }
 
-    /*
-    void drawButtonBackground (Graphics& g, Button& button, const Colour& backgroundColour,
-            bool isMouseOverButton, bool isButtonDown) override
-    {
-        auto buttonArea = button.getLocalBounds();
 
-        g.setColour (isButtonDown ? backgroundColour.withAlpha(0.5f) : backgroundColour);
-        g.fillRect (buttonArea);
+    void drawButtonBackground (Graphics& g,
+            Button& button,
+            const Colour& backgroundColour,
+            bool shouldDrawButtonAsHighlighted,
+            bool shouldDrawButtonAsDown) override
+    {
+        auto cornerSize = 0.0f;
+        auto bounds = button.getLocalBounds().toFloat().reduced (0.5f, 0.5f);
+
+        auto baseColour = backgroundColour.withMultipliedSaturation (button.hasKeyboardFocus (true) ? 1.3f : 0.9f)
+                .withMultipliedAlpha (button.isEnabled() ? 1.0f : 0.5f);
+
+        if (shouldDrawButtonAsDown || shouldDrawButtonAsHighlighted)
+            baseColour = baseColour.contrasting (shouldDrawButtonAsDown ? 0.2f : 0.05f);
+
+        g.setColour (baseColour);
+        g.fillRoundedRectangle (bounds, cornerSize);
+
+        g.setColour (button.findColour (ComboBox::outlineColourId));
+        g.drawRoundedRectangle (bounds, cornerSize, 1.0f);
+
+
+        g.setColour (Colour(0x4400ffd8));
+        g.drawRect (bounds, 0.5f);
+
+
     }
-     */
+
 
     void drawToggleButton (Graphics& g,
                            ToggleButton& button,

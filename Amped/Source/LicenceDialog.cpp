@@ -44,7 +44,7 @@ LicenceDialog::LicenceDialog ()
     licenceCodeLabel->setColour (TextEditor::textColourId, Colours::black);
     licenceCodeLabel->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
 
-    licenceCodeLabel->setBounds (384, 473, 336, 24);
+    licenceCodeLabel->setBounds (366, 473, 336, 24);
 
     licenceCodeEditor.reset (new TextEditor ("new text editor"));
     addAndMakeVisible (licenceCodeEditor.get());
@@ -59,7 +59,7 @@ LicenceDialog::LicenceDialog ()
     licenceCodeEditor->setColour (TextEditor::backgroundColourId, Colour (0x00495358));
     licenceCodeEditor->setText (String());
 
-    licenceCodeEditor->setBounds (376, 575, 336, 17);
+    licenceCodeEditor->setBounds (358, 575, 336, 17);
 
     copyKeyBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (copyKeyBtn.get());
@@ -68,7 +68,7 @@ LicenceDialog::LicenceDialog ()
     copyKeyBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
     copyKeyBtn->setColour (TextButton::textColourOffId, Colour (0xf2f2f2f2));
 
-    copyKeyBtn->setBounds (728, 456, 160, 32);
+    copyKeyBtn->setBounds (710, 456, 160, 32);
 
     pasteLicenceBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (pasteLicenceBtn.get());
@@ -76,7 +76,7 @@ LicenceDialog::LicenceDialog ()
     pasteLicenceBtn->addListener (this);
     pasteLicenceBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
 
-    pasteLicenceBtn->setBounds (728, 552, 160, 32);
+    pasteLicenceBtn->setBounds (710, 552, 160, 32);
 
     buyLicenseBtn.reset (new TextButton ("new button"));
     addAndMakeVisible (buyLicenseBtn.get());
@@ -85,7 +85,7 @@ LicenceDialog::LicenceDialog ()
     buyLicenseBtn->setColour (TextButton::buttonColourId, Colour (0xff111111));
     buyLicenseBtn->setColour (TextButton::textColourOffId, Colour (0xf2f2f2f2));
 
-    buyLicenseBtn->setBounds (728, 504, 160, 32);
+    buyLicenseBtn->setBounds (710, 504, 160, 32);
 
     hyperlinkButton.reset (new HyperlinkButton (TRANS("WWW:ML-SOUND-LAB.COM"),
                                                 URL ("https://ml-sound-lab.com/")));
@@ -94,7 +94,7 @@ LicenceDialog::LicenceDialog ()
     hyperlinkButton->setButtonText (TRANS("WWW:ML-SOUND-LAB.COM"));
     hyperlinkButton->setColour (HyperlinkButton::textColourId, Colour (0xfff2f2f2));
 
-    hyperlinkButton->setBounds (376, 525, 320, 20);
+    hyperlinkButton->setBounds (358, 525, 320, 20);
 
 
     //[UserPreSize]
@@ -279,29 +279,29 @@ BEGIN_JUCER_METADATA
   </METHODS>
   <BACKGROUND backgroundColour="1a1a1a"/>
   <LABEL name="new label" id="4b4c2f291b8c77c9" memberName="licenceCodeLabel"
-         virtualName="" explicitFocusOrder="0" pos="384 473 336 24" textCol="fff2f2f2"
+         virtualName="" explicitFocusOrder="0" pos="366 473 336 24" textCol="fff2f2f2"
          edTextCol="ff000000" edBkgCol="0" labelText="THIS-ISNO-TVAL-IDRE-QUES-TKEY-ATAL-LLLL&#10;"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
          fontname="Default font" fontsize="13.0" kerning="0.0" bold="0"
          italic="0" justification="36"/>
   <TEXTEDITOR name="new text editor" id="78ea782f5152046d" memberName="licenceCodeEditor"
-              virtualName="" explicitFocusOrder="0" pos="376 575 336 17" tooltip="Paste your licence key here"
+              virtualName="" explicitFocusOrder="0" pos="358 575 336 17" tooltip="Paste your licence key here"
               textcol="fff2f2f2" bkgcol="495358" initialText="" multiline="0"
               retKeyStartsLine="0" readonly="1" scrollbars="1" caret="0" popupmenu="1"/>
   <TEXTBUTTON name="new button" id="d4ece8f5f05b072" memberName="copyKeyBtn"
-              virtualName="" explicitFocusOrder="0" pos="728 456 160 32" bgColOff="ff111111"
+              virtualName="" explicitFocusOrder="0" pos="710 456 160 32" bgColOff="ff111111"
               textCol="f2f2f2f2" buttonText="COPY REQUEST KEY" connectedEdges="0"
               needsCallback="1" radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="473c5e2a3ec66319" memberName="pasteLicenceBtn"
-              virtualName="" explicitFocusOrder="0" pos="728 552 160 32" bgColOff="ff111111"
+              virtualName="" explicitFocusOrder="0" pos="710 552 160 32" bgColOff="ff111111"
               buttonText="PASTE LICENCE KEY" connectedEdges="0" needsCallback="1"
               radioGroupId="0"/>
   <TEXTBUTTON name="new button" id="7e598643d2278332" memberName="buyLicenseBtn"
-              virtualName="" explicitFocusOrder="0" pos="728 504 160 32" bgColOff="ff111111"
+              virtualName="" explicitFocusOrder="0" pos="710 504 160 32" bgColOff="ff111111"
               textCol="f2f2f2f2" buttonText="BUY LICENSE" connectedEdges="0"
               needsCallback="1" radioGroupId="0"/>
   <HYPERLINKBUTTON name="new hyperlink" id="90b7a907a43a1c13" memberName="hyperlinkButton"
-                   virtualName="" explicitFocusOrder="0" pos="376 525 320 20" tooltip="https://ml-sound-lab.com/"
+                   virtualName="" explicitFocusOrder="0" pos="358 525 320 20" tooltip="https://ml-sound-lab.com/"
                    textCol="fff2f2f2" buttonText="WWW:ML-SOUND-LAB.COM" connectedEdges="0"
                    needsCallback="0" radioGroupId="0" url="https://ml-sound-lab.com/"/>
 </JUCER_COMPONENT>
