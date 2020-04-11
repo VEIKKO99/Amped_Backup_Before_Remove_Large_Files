@@ -110,7 +110,7 @@ public:
     void selectPresetWithId(int index);
 
 private:
-    
+        
     void updateGraph();
 
     void initialiseMainGraph();

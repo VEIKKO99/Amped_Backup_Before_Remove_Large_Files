@@ -134,11 +134,11 @@ protected:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessorBase)
 };
 
-class HornetWrapperBase  : public AmpedAudioProcessorBase {
+class AmpSimWrapperBase  : public AmpedAudioProcessorBase {
 
 protected:
 
-    HornetWrapperBase(std::shared_ptr<SoundSettings> settings): AmpedAudioProcessorBase(settings),
+    AmpSimWrapperBase(std::shared_ptr<SoundSettings> settings): AmpedAudioProcessorBase(settings),
                                                                 interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
     {
     }
@@ -177,19 +177,19 @@ protected:
     std::unique_ptr<double[]> interleavedBuffer;
     static const int INTERLEAVED_DEFAULT_SIZE = 8192 * 2; // Two channels, 8192 samples
 
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (HornetWrapperBase)
+    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpSimWrapperBase)
 
 };
 
 
-class EffectsNGProcessor  : public HornetWrapperBase {
+class EffectsNGProcessor  : public AmpSimWrapperBase {
 
 public:
-    EffectsNGProcessor(std::shared_ptr<SoundSettings> settings) : HornetWrapperBase(settings) {
+    EffectsNGProcessor(std::shared_ptr<SoundSettings> settings) : AmpSimWrapperBase(settings) {
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
-        HornetWrapperBase::updateInternalSettings(settings);
+        AmpSimWrapperBase::updateInternalSettings(settings);
     }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -235,16 +235,16 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EffectsNGProcessor)
 };
 
-class EffectsODProcessor  : public HornetWrapperBase
+class EffectsODProcessor  : public AmpSimWrapperBase
 {
 
 public:
-    EffectsODProcessor(std::shared_ptr<SoundSettings> settings): HornetWrapperBase(settings)
+    EffectsODProcessor(std::shared_ptr<SoundSettings> settings): AmpSimWrapperBase(settings)
     {
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
-        HornetWrapperBase::updateInternalSettings(settings);
+        AmpSimWrapperBase::updateInternalSettings(settings);
     }
 
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
@@ -474,11 +474,11 @@ public:
 
 
 
-class AmpProcessor  : public HornetWrapperBase
+class AmpProcessor  : public AmpSimWrapperBase
 {
 
 public:
-    AmpProcessor(std::shared_ptr<SoundSettings> settings): HornetWrapperBase(settings)
+    AmpProcessor(std::shared_ptr<SoundSettings> settings): AmpSimWrapperBase(settings)
     {
     }
 
@@ -492,7 +492,7 @@ public:
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
-        HornetWrapperBase::updateInternalSettings(settings);
+        AmpSimWrapperBase::updateInternalSettings(settings);
         // Input type (mesa, marshall etc)
         tubeAmp.setInputType(soundSettings->ampSettings.inputType);
 
@@ -507,7 +507,7 @@ public:
         }
         tubeAmp.setAmountOfPreampTubesInUse(soundSettings->ampSettings.amountOfPreAmpTubes);
 
-        tubeAmp.setOversample(soundSettings->ampSettings.overSample);
+        //tubeAmp.setOversample(soundSettings->ampSettings.overSample);
         drive = soundSettings->ampSettings.hornetDrive;
         presence = soundSettings->ampSettings.hornetPresence;
 
@@ -517,15 +517,20 @@ public:
   //  int mPrevSampleRate = -1;
     void prepareAmp(double sampleRate, int numOfChannels)
     {
-    //    if (mPrevSampleRate != (int)sampleRate) {
-      //      mPrevSampleRate = (int) sampleRate;
             tubeAmp.setSampleRate(sampleRate);
-          //  tubeAmp.setOversample(1);
+
+            // We don't want to oversample higher samplerates so much...
+            double oversampleMultiplier = 1.0;
+            if (sampleRate <= 96000.0 && sampleRate > 48000.0) oversampleMultiplier = 0.5;
+            if (sampleRate > 96000.0) oversampleMultiplier = 0.25;
+
+            Logger::getCurrentLogger()->writeToLog("setting oversample to: " + String(soundSettings->ampSettings.overSample * oversampleMultiplier));
+
+            tubeAmp.setOversample(soundSettings->ampSettings.overSample * oversampleMultiplier);
             tubeAmp.init();
             tubeAmp.setNumChans(1);
 
             updateInternalSettings(soundSettings);
-     //   }
     }
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
