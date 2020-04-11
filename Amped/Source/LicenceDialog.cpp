@@ -19,7 +19,7 @@
 
 //[Headers] You can add your own extra header files here...
 #include <LicenceTools.h>
-
+#include "Consts.h"
 //[/Headers]
 
 #include "LicenceDialog.h"
@@ -109,6 +109,13 @@ LicenceDialog::LicenceDialog ()
     licenceCodeLabel->setText(cachedChallenge, dontSendNotification);
     licenceCodeEditor->onTextChange = [this] {licenceCodeTextChanged();};
 
+    auto storeUrl = String(AMPED_STORE_FULL_LICENCE_LINK);
+    hyperlinkButton->setButtonText(storeUrl);
+    hyperlinkButton->setURL(URL(storeUrl));
+    hyperlinkButton->setTooltip (storeUrl);
+
+
+
     //[/Constructor]
 }
 
@@ -188,7 +195,7 @@ void LicenceDialog::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == buyLicenseBtn.get())
     {
         //[UserButtonCode_buyLicenseBtn] -- add your button handler code here..
-        URL("https://ml-sound-lab.com/").launchInDefaultBrowser();
+        URL(String(AMPED_STORE_FULL_LICENCE_LINK)).launchInDefaultBrowser();
         //[/UserButtonCode_buyLicenseBtn]
     }
 
