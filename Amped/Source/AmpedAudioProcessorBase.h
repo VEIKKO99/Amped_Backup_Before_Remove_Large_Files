@@ -390,7 +390,7 @@ public:
             int dataSize = 0;
             auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
             convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
-            convolutionDsp.reset();
+            if (initDone) convolutionDsp.reset();
         }
         else {
             File irData(irFile);
@@ -403,10 +403,9 @@ public:
 
             if (isOk) {
                 convolutionDsp.loadImpulseResponse(irData, false, false, 0);
-                convolutionDsp.reset();
+                if (initDone) convolutionDsp.reset();
             }
         }
-        
     }
     
 private:
@@ -416,6 +415,7 @@ private:
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolutionDsp.prepare(spec);
         convolutionDsp.reset();
+        initDone = true;
     }
     
 protected:
@@ -425,6 +425,7 @@ protected:
 private:
     Convolution convolutionDsp;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (IRProcessor)
+    bool initDone = false;
 };
 
 
@@ -623,7 +624,7 @@ public:
             File irData(irFile);
             convolution.loadImpulseResponse(irData, false, false, 0);
         }
-        convolution.reset();
+        if (initDone) convolution.reset();
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
@@ -646,7 +647,7 @@ public:
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         dryWet.prepare(spec);
         
-        initInpulseResponseProcessor(loImpulseData, loIm pulseDataSize, sampleRate, samplesPerBlock, lowerPotValues );
+        initInpulseResponseProcessor(loImpulseData, loImpulseDataSize, sampleRate, samplesPerBlock, lowerPotValues );
         initInpulseResponseProcessor(hiImpulseData, hiImpulseDataSize, sampleRate, samplesPerBlock, higherPotValues );
     }
     
@@ -680,6 +681,7 @@ private:
         convolution.prepare(spec);
         convolution.loadImpulseResponse(data, dataSize, false, false, 0, true);
         convolution.reset();
+        initDone = true;
     }
     
 public:
@@ -700,6 +702,8 @@ private:
     float realisticEqGain = .0f;
 
     EQType eqType;
+
+    bool initDone = false;
 };
 
 //
