@@ -51,7 +51,8 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
-                        ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
+                        ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false),
+                         std::make_unique<AudioParameterBool> ("eqOnOff", "eqOnOff", false)
                         #endif
                     })
 #endif
@@ -75,6 +76,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     presetChanged();
 #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
+    eqOnOffSwitch = parameters.getRawParameterValue("eqOnOff");
 #endif
 }
 
@@ -670,6 +672,10 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
 #ifdef AMPED_DEBUG
     ampSimIR->setBypassed(*ampSimSwitch > .5);
+    trebleEq->setBypassed(*eqOnOffSwitch > .5);
+    bassEq->setBypassed(*eqOnOffSwitch > .5);
+    middleEq->setBypassed(*eqOnOffSwitch > .5);
+    presenceEq->setBypassed(*eqOnOffSwitch > .5);
 #endif
 
     if (*fxParameter < 0.5) {

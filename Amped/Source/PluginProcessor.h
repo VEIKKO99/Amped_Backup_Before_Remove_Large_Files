@@ -165,6 +165,7 @@ private:
 
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
+    float* eqOnOffSwitch = nullptr;
 #endif
 
     Node::Ptr audioInputPreEffectsNode;

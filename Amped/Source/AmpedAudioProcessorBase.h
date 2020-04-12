@@ -505,9 +505,9 @@ public:
             updateTubeSettings(soundSettings->ampSettings.preAmpTubes[i], tubeAmp.mPreAmp.tubeStage[i]);
             tubeAmp.setTubeType(0, soundSettings->ampSettings.preAmpTubes[i].tubeType);
         }
-        tubeAmp.setAmountOfPreampTubesInUse(soundSettings->ampSettings.amountOfPreAmpTubes);
+    //    tubeAmp.setAmountOfPreampTubesInUse(soundSettings->ampSettings.amountOfPreAmpTubes);//
 
-        //tubeAmp.setOversample(soundSettings->ampSettings.overSample);
+        tubeAmp.setOversample(soundSettings->ampSettings.overSample);
         drive = soundSettings->ampSettings.hornetDrive;
         presence = soundSettings->ampSettings.hornetPresence;
 

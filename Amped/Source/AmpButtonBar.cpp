@@ -44,6 +44,11 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     addAndMakeVisible(matchIRSwitch);
     matchAttachment.reset (new ButtonAttachment (valueTreeState, "ampSim", matchIRSwitch));
     matchIRSwitch.setWantsKeyboardFocus(false);
+
+    addAndMakeVisible(eqOnOffSwitch);
+    eqAttachment.reset (new ButtonAttachment (valueTreeState, "eqOnOff", eqOnOffSwitch));
+    matchIRSwitch.setWantsKeyboardFocus(false);
+
 #endif
 
     inputClipLed.setMeterSource(&processor.getMeterSource());
@@ -122,6 +127,7 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
 #ifdef AMPED_DEBUG
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
+    setAmpComponentBounds(eqOnOffSwitch, Constants::AmpCtrlOutputX + 65 + 40);
 #endif
     inputClipLed.setBounds(50,6, 22, 22);
     cabSimSwitch.setBounds(Constants::AmpCtrlCabSimX, Constants::ampButtonsY, 90, Constants::ampButtonsHeight);

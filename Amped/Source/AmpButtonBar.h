@@ -80,6 +80,9 @@ private:
 #ifdef AMPED_DEBUG
     ToggleButton matchIRSwitch;
     std::unique_ptr<ButtonAttachment> matchAttachment;
+
+     ToggleButton eqOnOffSwitch;
+    std::unique_ptr<ButtonAttachment> eqAttachment;
 #endif
 
     AudioProcessorValueTreeState& valueTreeState;
