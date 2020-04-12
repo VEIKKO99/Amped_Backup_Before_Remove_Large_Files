@@ -163,6 +163,15 @@ private:
 
     float* leftRightInputSwitch = nullptr;
 
+
+    float* _VTS_EF_REVB_ON = nullptr;
+    float* _VTS_EF_REVB_ROOM = nullptr;
+    float* _VTS_EF_REVB_DAMPING = nullptr;
+    float* _VTS_EF_REVB_WLEV = nullptr;
+    float* _VTS_EF_REVB_DLEV = nullptr;
+    float* _VTS_EF_REVB_WIDTH = nullptr;
+    float* _VTS_EF_REVB_FREEZE = nullptr;
+
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
 #endif
@@ -206,5 +215,8 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
 
     FFAU::LevelMeterSource meterSource;
+
+    // Reverb Demo:
+    Reverb reverb;
 
 };

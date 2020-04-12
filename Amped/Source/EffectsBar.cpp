@@ -35,6 +35,21 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
 
     odLed.setOn(onOffButton.getToggleState());
     ngLed.setOn(ngOnOffButton.getToggleState());
+
+    // Reverb Demo:
+
+    initSliderComponent(revbRoom,VTS_EF_REVB_ROOM, revbRoomAttachment);
+    initSliderComponent(revbDamping,VTS_EF_REVB_DAMPING, revbDampingAttachment);
+    initSliderComponent(revbWLev,VTS_EF_REVB_WLEV, revbWLevAttachment);
+    initSliderComponent(revbDLev,VTS_EF_REVB_DLEV, revbDLevAttachment);
+    initSliderComponent(revbWidth,VTS_EF_REVB_WIDTH, revbWidthAttachment);
+    initSliderComponent(revbFreeze,VTS_EF_REVB_FREEZE, revbFreezeAttachment);
+    revbOnOffButton.addListener(this);
+
+    revbOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState,VTS_EF_REVB_ON, revbOnOffButton));
+    addAndMakeVisible(revbOnOffButton);
+    revbLed.setOn(onOffButton.getToggleState());
+
 }
 
 void EffectsBar::buttonClicked (Button* button)
@@ -46,6 +61,10 @@ void EffectsBar::buttonClicked (Button* button)
     else if(button == &ngOnOffButton)
     {
         ngLed.setOn(button->getToggleState());
+    }
+    else if(button == &revbOnOffButton)
+    {
+        revbLed.setOn(button->getToggleState());
     }
 }
 
@@ -107,7 +126,20 @@ void EffectsBar::resized()
     ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 60, 60);
     ngLed.setBounds(ngXOffset + 48, ngYOffset ,22, 22);
 
-    // This method is where you should set the bounds of any child
-    // components that your component contains..
+
+    int revbXOffset = 844;
+    int revYOffset = 20;
+
+
+    // Reverb:
+    revbOnOffButton.setBounds(revbXOffset, revYOffset + 143, 280, 80);
+    revbRoom.setBounds(revbXOffset, revYOffset + 8, 60, 60);
+    revbDamping.setBounds(revbXOffset + 44, revYOffset + 8, 60, 60);
+    revbWLev.setBounds(revbXOffset +88, revYOffset + 8, 60, 60);
+    revbDLev.setBounds(revbXOffset + 132, revYOffset + 8, 60, 60);
+    revbWidth.setBounds(revbXOffset + 176, revYOffset + 8, 60, 60);
+    revbFreeze.setBounds(revbXOffset +220, revYOffset + 8, 60, 60);
+    revbLed.setBounds(revbXOffset + 220, revYOffset, 22,22);
+
 
 }
