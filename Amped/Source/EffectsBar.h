@@ -58,34 +58,19 @@ private:
     OnOffLed ngLed;
     OnOffLed odLed;
 
-
-    // Reverbdemo:
-
-    OnOffLed revbLed;
+    OnOffLed reverbLed;
 
     ToggleButton revbOnOffButton;
     std::unique_ptr<ButtonAttachment> revbOnOffButtonAttachment;
 
-    Slider revbRoom;
-    std::unique_ptr<SliderAttachment> revbRoomAttachment;
+    Slider reverbSizeSlider;
+    std::unique_ptr<SliderAttachment> reverbSizeAttachment;
 
-    Slider revbDamping;
-    std::unique_ptr<SliderAttachment> revbDampingAttachment;
+    Slider reverbToneSlider;
+    std::unique_ptr<SliderAttachment> reverbToneAttachment;
 
-    Slider revbWLev;
-    std::unique_ptr<SliderAttachment> revbWLevAttachment;
-
-    Slider revbDLev;
-    std::unique_ptr<SliderAttachment> revbDLevAttachment;
-
-    Slider revbWidth;
-    std::unique_ptr<SliderAttachment> revbWidthAttachment;
-
-    Slider revbFreeze;
-    std::unique_ptr<SliderAttachment> revbFreezeAttachment;
-
-
-
+    Slider reverbMixSlider;
+    std::unique_ptr<SliderAttachment> reverbMixAttachment;
 
     AudioProcessorValueTreeState& valueTreeState;
 

@@ -130,9 +130,8 @@ private:
                 float* parameter, float makeupGain, EQType type);
 
 
-    int previousPrepareSampleRate;
-    int previousPrepareSamplesPerBlock;
-
+    void initReverb(const double sampleRate);
+    void processReverb(AudioBuffer<float> &buffer);
 
 private:
     //==============================================================================
@@ -161,16 +160,14 @@ private:
     float* effects_od_switch = nullptr;
     float* effects_ng_switch = nullptr;
 
+    // L/R Switch:
     float* leftRightInputSwitch = nullptr;
 
-
-    float* _VTS_EF_REVB_ON = nullptr;
-    float* _VTS_EF_REVB_ROOM = nullptr;
-    float* _VTS_EF_REVB_DAMPING = nullptr;
-    float* _VTS_EF_REVB_WLEV = nullptr;
-    float* _VTS_EF_REVB_DLEV = nullptr;
-    float* _VTS_EF_REVB_WIDTH = nullptr;
-    float* _VTS_EF_REVB_FREEZE = nullptr;
+    // Reverb:
+    float* reverbOnOffParameter = nullptr;
+    float* reverbSizeParameter = nullptr;
+    float* reverbToneParameter = nullptr;
+    float* reverbMixParameter = nullptr;
 
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
@@ -216,7 +213,10 @@ private:
 
     FFAU::LevelMeterSource meterSource;
 
-    // Reverb Demo:
+    // Reverb:
     Reverb reverb;
+    Reverb::Parameters reverbParams;
 
+    int previousPrepareSampleRate;
+    int previousPrepareSamplesPerBlock;
 };
