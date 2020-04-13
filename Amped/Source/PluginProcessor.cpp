@@ -48,17 +48,11 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterBool> (VTS_EF_OD_ON, "OD on", false),
                         std::make_unique<AudioParameterBool> (VTS_EF_NG_ON, "NG on", false),
                         std::make_unique<AudioParameterBool> (VTS_LEFT_RIGHT_INPUT_SWITCH, "Input L/R", false),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f)
-                        
-                        // Reverb:
-                        ,std::make_unique<AudioParameterFloat> (VTS_EF_REVB_ON, VTS_EF_REVB_ON, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_ROOM, VTS_EF_REVB_ROOM, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_DAMPING, VTS_EF_REVB_DAMPING, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_WLEV, VTS_EF_REVB_WLEV, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_DLEV, VTS_EF_REVB_DLEV, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_WIDTH,VTS_EF_REVB_WIDTH, .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_FREEZE,VTS_EF_REVB_FREEZE, .0f, 1.0f, 0.1f),
-
+                        std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> (VTS_EF_REVB_ON, "Reverb On", false),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_SIZE, "Reverb Time", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_TONE, "Reverb Tone", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_MIX, "Reverb Mix", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
@@ -83,13 +77,10 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
     leftRightInputSwitch = parameters.getRawParameterValue(VTS_LEFT_RIGHT_INPUT_SWITCH);
 
-    _VTS_EF_REVB_ON = parameters.getRawParameterValue(VTS_EF_REVB_ON);
-    _VTS_EF_REVB_ROOM = parameters.getRawParameterValue(VTS_EF_REVB_ROOM);
-    _VTS_EF_REVB_DAMPING = parameters.getRawParameterValue(VTS_EF_REVB_DAMPING);
-    _VTS_EF_REVB_WLEV = parameters.getRawParameterValue(VTS_EF_REVB_WLEV);
-    _VTS_EF_REVB_DLEV = parameters.getRawParameterValue(VTS_EF_REVB_DLEV);
-    _VTS_EF_REVB_WIDTH = parameters.getRawParameterValue(VTS_EF_REVB_WIDTH);
-    _VTS_EF_REVB_FREEZE = parameters.getRawParameterValue(VTS_EF_REVB_FREEZE);
+    reverbOnOffParameter = parameters.getRawParameterValue(VTS_EF_REVB_ON);
+    reverbSizeParameter = parameters.getRawParameterValue(VTS_EF_REVB_SIZE);
+    reverbToneParameter = parameters.getRawParameterValue(VTS_EF_REVB_TONE);
+    reverbMixParameter = parameters.getRawParameterValue(VTS_EF_REVB_MIX);
 
     presetChanged();
 #ifdef AMPED_DEBUG
@@ -490,8 +481,14 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
             ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
         }
     }
+    initReverb(sampleRate);
+}
 
+void AmpedAudioProcessor::initReverb(const double sampleRate)
+{
+    reverb.reset();
     reverb.setSampleRate(sampleRate);
+    reverbParams.width = 1.0;
 }
 
 
@@ -706,26 +703,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
 
-    if (*_VTS_EF_REVB_ON < .5)
-    {
-        Reverb::Parameters theReverbParameters;
-        theReverbParameters.dryLevel = *_VTS_EF_REVB_DLEV;
-        theReverbParameters.wetLevel = *_VTS_EF_REVB_WLEV;
-        theReverbParameters.roomSize = *_VTS_EF_REVB_ROOM;
-        theReverbParameters.damping = *_VTS_EF_REVB_DAMPING;
-        theReverbParameters.width = *_VTS_EF_REVB_WIDTH;
-        theReverbParameters.freezeMode = *_VTS_EF_REVB_FREEZE;
-
-        reverb.setParameters(theReverbParameters);
-
-        if (buffer.getNumChannels() > 1) {
-            reverb.processStereo(buffer.getWritePointer(0), buffer.getWritePointer(1),buffer.getNumSamples());
-        }
-        else {
-            reverb.processMono(buffer.getWritePointer(0),buffer.getNumSamples());
-        }
-
-    }
+    processReverb(buffer);
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
@@ -819,6 +797,29 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
 
 
+}
+
+void AmpedAudioProcessor::processReverb(AudioBuffer<float>& buffer)
+{
+    if (*reverbOnOffParameter > .5)
+    {
+        reverbParams.damping = fabs(*reverbToneParameter - 1.0f);
+        reverbParams.roomSize = *reverbSizeParameter;
+        // Make scale to 0 to 0.5 scale:
+        reverbParams.wetLevel = *reverbMixParameter * 0.5f;
+        reverbParams.dryLevel = 0.5f - reverbParams.wetLevel;
+
+        // Logger::getCurrentLogger()->writeToLog("processReverb WLev " + String(reverbParams.wetLevel) + " DLev:" + String(reverbParams.dryLevel));
+
+        reverb.setParameters(reverbParams);
+
+        if (buffer.getNumChannels() > 1) {
+            reverb.processStereo(buffer.getWritePointer(0), buffer.getWritePointer(1),buffer.getNumSamples());
+        }
+        else {
+            reverb.processMono(buffer.getWritePointer(0),buffer.getNumSamples());
+        }
+    }
 }
 
 // You should use this method to store your parameters in the memory block.
