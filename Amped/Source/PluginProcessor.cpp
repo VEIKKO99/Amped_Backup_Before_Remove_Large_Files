@@ -705,7 +705,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
 
-    processReverb(buffer);
+    if (*fxParameter < 0.5) {
+        processReverb(buffer);
+    }
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
