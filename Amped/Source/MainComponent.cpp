@@ -59,6 +59,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
         addChildComponent(licenceDialog.get());
     }
 
+    startTimer(getTimerTime());
 //    initInputClipMeter();
 
 
@@ -72,6 +73,47 @@ MainComponent::~MainComponent()
         leftRightSwitch.setLookAndFeel(nullptr);
     }
     setLookAndFeel(nullptr);
+    stopTimer();
+}
+
+int MainComponent::getTimerTime()
+{
+    auto currentTimeInMs = Time::getCurrentTime().currentTimeMillis();
+    auto time = (currentTimeInMs % 5 + 5) * 1000;
+
+  //  auto time = (currentTimeInMs % 60 + 90) * 1000;
+    Logger::getCurrentLogger()->writeToLog("Timer time " + String(time));
+
+    return time; // time between 90 - 149 seconds
+}
+
+void MainComponent::doCheck()
+{
+    if (processor.getSoundSettingsModel().currentSettingIndex() > 0) {
+        auto&& licenceTools = LicenceTools::getInstance();
+
+        auto license = licenceTools->getLicence();
+        if (license == nullptr) stopA();
+        else
+        {
+            if (license->getUserEmail().length() == 0) stopA();
+            if (license->getUserName().length() == 0) stopA();
+        }
+    }
+}
+
+void MainComponent::stopA()
+{
+    Logger::getCurrentLogger()->writeToLog("STOP");
+    stopTimer();
+    callAfterDelay(7241,[this] {processor.copyProtection = true;});
+}
+
+void MainComponent::timerCallback()
+{
+    //repaint();
+    doCheck();
+    Logger::getCurrentLogger()->writeToLog("Timer callback");
 }
 
 void MainComponent::initInputClipMeter() {
@@ -86,6 +128,7 @@ void MainComponent::initInputClipMeter() {
 }
 
 void MainComponent::toggleEffectsBar() {
+    if (isTimerRunning() == false || getTimerInterval() > 150000) startTimer(getTimerTime());
     effectsBar.setVisible(!effectsBar.isVisible());
 }
 
