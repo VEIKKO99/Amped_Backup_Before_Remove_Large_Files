@@ -90,6 +90,8 @@ public:
     void prevSetting();
 
     SoundSettingsModel& getSoundSettingsModel();
+
+    bool copyProtection = false;
     // Delay plugin 
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;
@@ -206,5 +208,7 @@ private:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpedAudioProcessor)
 
     FFAU::LevelMeterSource meterSource;
+
+
 
 };

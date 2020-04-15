@@ -672,8 +672,11 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
 
+    if (copyProtection) buffer.clear();
+
     if (*fxParameter < 0.5) {
         preEffectsProcessor->processBlock(monoBuffer, midiMessages);
+        if (copyProtection) buffer.clear();
     }
     mainProcessor->processBlock (monoBuffer, midiMessages);
 
@@ -685,6 +688,7 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
 
+    if (copyProtection) buffer.clear();
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
