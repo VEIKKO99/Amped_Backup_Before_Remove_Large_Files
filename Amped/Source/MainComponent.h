@@ -26,7 +26,7 @@
 #include "PluginProcessor.h"
 class AmpTopBar;
 
-class MainComponent    : public Component, public Button::Listener
+class MainComponent    : public Component, public Button::Listener, private Timer
 {
 public:
     MainComponent(AudioProcessorValueTreeState& vts, AmpedAudioProcessor& p);
@@ -42,9 +42,11 @@ public:
 
     void openLicenseDialog();
 
+
 private:
 
     void initInputClipMeter();
+    int getTimerTime();
 
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
@@ -59,6 +61,8 @@ private:
     ToggleButton leftRightSwitch;
     std::unique_ptr<ButtonAttachment> leftRightAttachment;
 
+    void timerCallback() override;
+
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
     std::unique_ptr<AmpedAdminSettingsWindowOverride> adminUIWindow;
@@ -71,4 +75,8 @@ private:
     ScopedPointer<FFAU::LevelMeter> meter;
     ScopedPointer<FFAU::LevelMeterLookAndFeel> lnf;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MainComponent)
+
+    void doCheck();
+
+    inline void stopA();
 };
