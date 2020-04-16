@@ -60,11 +60,17 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     }
 
     startTimer(getTimerTime());
+
+
+    auto font = Constants::getAmpedFont();
+    font.setHeight(12.0);
+    versionNumberLabel.setFont(font);
+    versionNumberLabel.setJustificationType(Justification::right);
+    versionNumberLabel.setColour(juce::Label::textColourId, Colour(0xff666666));
+    versionNumberLabel.setText(JUCEApplication::getInstance()->getApplicationVersion(), dontSendNotification);
+
+    addAndMakeVisible(versionNumberLabel);
 //    initInputClipMeter();
-
-
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
 }
 
 MainComponent::~MainComponent()
@@ -76,13 +82,11 @@ MainComponent::~MainComponent()
     stopTimer();
 }
 
-int MainComponent::getTimerTime()
+long MainComponent::getTimerTime()
 {
     auto currentTimeInMs = Time::getCurrentTime().currentTimeMillis();
-    auto time = (currentTimeInMs % 5 + 5) * 1000;
-
-  //  auto time = (currentTimeInMs % 60 + 90) * 1000;
-    Logger::getCurrentLogger()->writeToLog("Timer time " + String(time));
+  //  auto time = (currentTimeInMs % 5 + 5) * 1000;
+    auto time = (currentTimeInMs % 60 + 90) * 1000;
 
     return time; // time between 90 - 149 seconds
 }
@@ -104,16 +108,13 @@ void MainComponent::doCheck()
 
 void MainComponent::stopA()
 {
-    Logger::getCurrentLogger()->writeToLog("STOP");
     stopTimer();
     callAfterDelay(7241,[this] {processor.copyProtection = true;});
 }
 
 void MainComponent::timerCallback()
 {
-    //repaint();
     doCheck();
-    Logger::getCurrentLogger()->writeToLog("Timer callback");
 }
 
 void MainComponent::initInputClipMeter() {
@@ -212,6 +213,7 @@ void MainComponent::resized()
 #endif
     effectsBar.setBounds(0, 140, 1200, 289);
 
+    versionNumberLabel.setBounds(1135, 580, 60,20);
     // This method is where you should set the bounds of any child
     // components that your component contains..
 

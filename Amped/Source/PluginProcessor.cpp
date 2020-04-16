@@ -52,7 +52,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterBool> (VTS_EF_REVB_ON, "Reverb On", false),
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_SIZE, "Reverb Time", .0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_TONE, "Reverb Tone", .0f, 1.0f, 0.5f),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_MIX, "Reverb Mix", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_MIX, "Reverb Mix", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)

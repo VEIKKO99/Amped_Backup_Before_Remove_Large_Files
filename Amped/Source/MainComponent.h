@@ -46,7 +46,7 @@ public:
 private:
 
     void initInputClipMeter();
-    int getTimerTime();
+    long getTimerTime();
 
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
@@ -62,6 +62,8 @@ private:
     std::unique_ptr<ButtonAttachment> leftRightAttachment;
 
     void timerCallback() override;
+
+    Label versionNumberLabel;
 
 #ifdef AMPED_DEBUG
     TextButton adminUIButton;
