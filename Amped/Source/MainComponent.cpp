@@ -67,7 +67,7 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
     versionNumberLabel.setFont(font);
     versionNumberLabel.setJustificationType(Justification::right);
     versionNumberLabel.setColour(juce::Label::textColourId, Colour(0xff666666));
-    versionNumberLabel.setText(JUCEApplication::getInstance()->getApplicationVersion(), dontSendNotification);
+    versionNumberLabel.setText(JucePlugin_VersionString, dontSendNotification);
 
     addAndMakeVisible(versionNumberLabel);
 //    initInputClipMeter();

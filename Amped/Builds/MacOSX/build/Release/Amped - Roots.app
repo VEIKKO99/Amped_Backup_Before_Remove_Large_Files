@@ -1,0 +1,1 @@
+/Users/veikko/Library/Developer/Xcode/DerivedData/Amped_-_Roots-gtqnqrihyflowkbdihwmxcrusekn/Build/Intermediates.noindex/ArchiveIntermediates/Amped - Roots - All/InstallationBuildProductsLocation/Applications/Amped - Roots.app
