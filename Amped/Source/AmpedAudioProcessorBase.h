@@ -524,7 +524,7 @@ public:
             if (sampleRate <= 96000.0 && sampleRate > 48000.0) oversampleMultiplier = 0.5;
             if (sampleRate > 96000.0) oversampleMultiplier = 0.25;
 
-            Logger::getCurrentLogger()->writeToLog("setting oversample to: " + String(soundSettings->ampSettings.overSample * oversampleMultiplier));
+            //Logger::getCurrentLogger()->writeToLog("setting oversample to: " + String(soundSettings->ampSettings.overSample * oversampleMultiplier));
 
             tubeAmp.setOversample(soundSettings->ampSettings.overSample * oversampleMultiplier);
             tubeAmp.init();
