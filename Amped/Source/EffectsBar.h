@@ -58,6 +58,20 @@ private:
     OnOffLed ngLed;
     OnOffLed odLed;
 
+    OnOffLed reverbLed;
+
+    ToggleButton revbOnOffButton;
+    std::unique_ptr<ButtonAttachment> revbOnOffButtonAttachment;
+
+    Slider reverbSizeSlider;
+    std::unique_ptr<SliderAttachment> reverbSizeAttachment;
+
+    Slider reverbToneSlider;
+    std::unique_ptr<SliderAttachment> reverbToneAttachment;
+
+    Slider reverbMixSlider;
+    std::unique_ptr<SliderAttachment> reverbMixAttachment;
+
     AudioProcessorValueTreeState& valueTreeState;
 
     EffectsLookAndFeel effectsLookAndFeel;

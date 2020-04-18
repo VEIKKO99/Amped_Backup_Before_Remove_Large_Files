@@ -663,6 +663,7 @@ public:
         dsp::ProcessContextReplacing<float> context (block);
         float dryWetValue = fabs(*eqValue * 2 - 1);
         dryWet.dryGainParam = dryWetValue;
+    //    Logger::getCurrentLogger()->writeToLog("DryWetValue: " +  String(dryWetValue));
         if (*eqValue < 0.5)
             lowerPotValues.process(context);
         else
@@ -707,7 +708,6 @@ private:
     float realisticEqGain = .0f;
 
     EQType eqType;
-
     bool initDone = false;
 };
 

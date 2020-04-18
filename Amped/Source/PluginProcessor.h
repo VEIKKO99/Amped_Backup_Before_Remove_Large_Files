@@ -31,9 +31,9 @@ public:
     ~AmpedAudioProcessor();
 
     void extracted(double sampleRate, int samplesPerBlock);
-    
+
     void extracted(const char *data, double sampleRate, int samplesPerBlock, int size);
-    
+
 //==============================================================================
     void prepareToPlay_temp (double sampleRate, int samplesPerBlock);
     void prepareToPlay (double sampleRate, int samplesPerBlock) override;
@@ -44,15 +44,15 @@ public:
     bool isBusesLayoutSupported (const BusesLayout& layouts) const override;
    #endif
 
-    
+
     void processBlock_temp (AudioBuffer<double>& buffer,
                             MidiBuffer& midiMessages);
-    
+
     void processBlock (AudioBuffer<float>&, MidiBuffer&) override;
-    
+
    // void processBlock (AudioBuffer<double>& buffer,
    //                            MidiBuffer& midiMessages) override;
-    
+
     //virtual bool supportsDoublePrecisionProcessing() const override;
 
 
@@ -90,16 +90,18 @@ public:
     void prevSetting();
 
     SoundSettingsModel& getSoundSettingsModel();
-    // Delay plugin 
+
+    bool copyProtection = false;
+    // Delay plugin
   //  AudioSampleBuffer delayBuffer;
   //  int delayBufferSamples;
   //  int delayBufferChannels;
   //  int delayWritePosition;
-    
+
     //======================================
-    
+
     //PluginParametersManager parameters;
-    
+
    // PluginParameterLinSlider paramDelayTime;
    // PluginParameterLinSlider paramFeedback;
    // PluginParameterLinSlider paramMix;
@@ -110,7 +112,7 @@ public:
     void selectPresetWithId(int index);
 
 private:
-        
+
     void updateGraph();
 
     void initialiseMainGraph();
@@ -130,25 +132,24 @@ private:
                 float* parameter, float makeupGain, EQType type);
 
 
-    int previousPrepareSampleRate;
-    int previousPrepareSamplesPerBlock;
-
+    void initReverb(const double sampleRate);
+    void processReverb(AudioBuffer<float> &buffer);
 
 private:
     //==============================================================================
-    
+
     void setupAmp();
 
     std::unique_ptr<AmpedMonoAudioGraph> preEffectsProcessor;
     std::unique_ptr<AmpedMonoAudioGraph> mainProcessor;
     void initProcessor(Node::Ptr processor);
-    
+
     //TubeAmp tubeAmp;
     AudioProcessorValueTreeState parameters;
-    
+
     float* inputParameter = nullptr;
     float* fxParameter = nullptr;
-    
+
     float* driveParameter = nullptr;
     float* bassParameter = nullptr;
     float* middleParameter = nullptr;
@@ -161,7 +162,14 @@ private:
     float* effects_od_switch = nullptr;
     float* effects_ng_switch = nullptr;
 
+    // L/R Switch:
     float* leftRightInputSwitch = nullptr;
+
+    // Reverb:
+    float* reverbOnOffParameter = nullptr;
+    float* reverbSizeParameter = nullptr;
+    float* reverbToneParameter = nullptr;
+    float* reverbMixParameter = nullptr;
 
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
@@ -179,23 +187,23 @@ private:
     Node::Ptr audioOutputNode;
     Node::Ptr midiInputNode;
     Node::Ptr midiOutputNode;
-    
+
     Node::Ptr gainProcessor;
     Node::Ptr driveProcessor;
 
     Node::Ptr ampProcessor;
-    
+
     Node::Ptr bassEq;
     Node::Ptr middleEq;
     Node::Ptr trebleEq;
 
     Node::Ptr presenceEq;
-    
+
     Node::Ptr ampSimIR;
     Node::Ptr cabSimIR;
-    
+
     Node::Ptr outputGainProcessor;
-    
+
     ReferenceCountedArray<Node> mainAudioProcessors;
     ReferenceCountedArray<Node> preEffectsAudioProcessors;
 
@@ -207,4 +215,10 @@ private:
 
     FFAU::LevelMeterSource meterSource;
 
+    // Reverb:
+    Reverb reverb;
+    Reverb::Parameters reverbParams;
+
+    int previousPrepareSampleRate;
+    int previousPrepareSamplesPerBlock;
 };

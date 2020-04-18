@@ -59,11 +59,18 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
         addChildComponent(licenceDialog.get());
     }
 
+    startTimer(getTimerTime());
+
+
+    auto font = Constants::getAmpedFont();
+    font.setHeight(12.0);
+    versionNumberLabel.setFont(font);
+    versionNumberLabel.setJustificationType(Justification::right);
+    versionNumberLabel.setColour(juce::Label::textColourId, Colour(0xff666666));
+    versionNumberLabel.setText(JUCEApplication::getInstance()->getApplicationVersion(), dontSendNotification);
+
+    addAndMakeVisible(versionNumberLabel);
 //    initInputClipMeter();
-
-
-    // In your constructor, you should add any child components, and
-    // initialise any special settings that your component needs.
 }
 
 MainComponent::~MainComponent()
@@ -72,6 +79,42 @@ MainComponent::~MainComponent()
         leftRightSwitch.setLookAndFeel(nullptr);
     }
     setLookAndFeel(nullptr);
+    stopTimer();
+}
+
+long MainComponent::getTimerTime()
+{
+    auto currentTimeInMs = Time::getCurrentTime().currentTimeMillis();
+  //  auto time = (currentTimeInMs % 5 + 5) * 1000;
+    auto time = (currentTimeInMs % 60 + 90) * 1000;
+
+    return time; // time between 90 - 149 seconds
+}
+
+void MainComponent::doCheck()
+{
+    if (processor.getSoundSettingsModel().currentSettingIndex() > 0) {
+        auto&& licenceTools = LicenceTools::getInstance();
+
+        auto license = licenceTools->getLicence();
+        if (license == nullptr) stopA();
+        else
+        {
+            if (license->getUserEmail().length() == 0) stopA();
+            if (license->getUserName().length() == 0) stopA();
+        }
+    }
+}
+
+void MainComponent::stopA()
+{
+    stopTimer();
+    callAfterDelay(7241,[this] {processor.copyProtection = true;});
+}
+
+void MainComponent::timerCallback()
+{
+    doCheck();
 }
 
 void MainComponent::initInputClipMeter() {
@@ -86,6 +129,7 @@ void MainComponent::initInputClipMeter() {
 }
 
 void MainComponent::toggleEffectsBar() {
+    if (isTimerRunning() == false || getTimerInterval() > 150000) startTimer(getTimerTime());
     effectsBar.setVisible(!effectsBar.isVisible());
 }
 
@@ -169,6 +213,7 @@ void MainComponent::resized()
 #endif
     effectsBar.setBounds(0, 140, 1200, 289);
 
+    versionNumberLabel.setBounds(1135, 580, 60,20);
     // This method is where you should set the bounds of any child
     // components that your component contains..
 

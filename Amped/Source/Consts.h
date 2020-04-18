@@ -36,6 +36,13 @@ const std::string VTS_EF_OD_ON = "effects_od_on";
 const std::string VTS_EF_NG_ON = "effects_ng_on";
 const std::string VTS_EF_NG_THRESHOLD = "effects_ng_threshold";
 
+// Reverb:
+const std::string VTS_EF_REVB_ON = "effects_reverb_on";
+const std::string VTS_EF_REVB_SIZE = "effects_reverb_time";
+const std::string VTS_EF_REVB_TONE = "effects_reverb_tone";
+const std::string VTS_EF_REVB_MIX = "effects_reverb_mix";
+
+
 inline const char* getBinaryDataWithOriginalFileName(String originalFileName, int& dataSizeInBytes) {
     // THis doesn't work with names starting with number
     //    String replaced = originalFileName.replaceCharacter('.', '_');

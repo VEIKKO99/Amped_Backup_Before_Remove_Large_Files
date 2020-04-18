@@ -35,6 +35,18 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
 
     odLed.setOn(onOffButton.getToggleState());
     ngLed.setOn(ngOnOffButton.getToggleState());
+
+    // Reverb Demo:
+
+    initSliderComponent(reverbSizeSlider,VTS_EF_REVB_SIZE, reverbSizeAttachment);
+    initSliderComponent(reverbToneSlider,VTS_EF_REVB_TONE, reverbToneAttachment);
+    initSliderComponent(reverbMixSlider,VTS_EF_REVB_MIX, reverbMixAttachment);
+    revbOnOffButton.addListener(this);
+
+    revbOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState,VTS_EF_REVB_ON, revbOnOffButton));
+    addAndMakeVisible(revbOnOffButton);
+    addAndMakeVisible(reverbLed);
+    reverbLed.setOn(revbOnOffButton.getToggleState());
 }
 
 void EffectsBar::buttonClicked (Button* button)
@@ -46,6 +58,10 @@ void EffectsBar::buttonClicked (Button* button)
     else if(button == &ngOnOffButton)
     {
         ngLed.setOn(button->getToggleState());
+    }
+    else if(button == &revbOnOffButton)
+    {
+        reverbLed.setOn(button->getToggleState());
     }
 }
 
@@ -61,6 +77,7 @@ void EffectsBar::initSliderComponent(Slider& slider, String vtsName, std::unique
 
     addAndMakeVisible(slider);
 }
+
 EffectsBar::~EffectsBar()
 {
     setLookAndFeel(nullptr);
@@ -68,31 +85,14 @@ EffectsBar::~EffectsBar()
 
 void EffectsBar::paint (Graphics& g)
 {
-    /* This demo code just fills the component's background and
-       draws some placeholder text to get you started.
-
-       You should replace everything in this method with your own
-       drawing code..
-    */
     Image background;
     background = ImageCache::getFromMemory (BinaryData::_1200x289pedals_png, BinaryData::_1200x289pedals_pngSize);
     g.drawImageAt(background, 0, 0);
-
-
-  /*  g.fillAll (getLookAndFeel().findColour (ResizableWindow::backgroundColourId));   // clear the background
-
-    g.setColour (Colours::grey);
-    g.drawRect (getLocalBounds(), 1);   // draw an outline around the component
-
-    g.setColour (Colours::white);
-    g.setFont (14.0f);
-    g.drawText ("EffectsBar", getLocalBounds(),
-                Justification::centred, true);   // draw some placeholder text
-                */
 }
 
 void EffectsBar::resized()
 {
+    // Overdrive:
     int driveXOffset = 238;
     int driveYOffset = 26;
     onOffButton.setBounds(driveXOffset + 10, driveYOffset + 143, 120, 80);
@@ -101,13 +101,19 @@ void EffectsBar::resized()
     levelSlider.setBounds(driveXOffset + 80, driveYOffset +8, 60, 60);
     odLed.setBounds(driveXOffset + 59, driveYOffset, 22, 22);
 
+    // Noise gate:
     int ngXOffset = 49;
     int ngYOffset = 26;
     ngOnOffButton.setBounds(ngXOffset,  ngYOffset + 143, 120, 80);
     ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 60, 60);
     ngLed.setBounds(ngXOffset + 48, ngYOffset ,22, 22);
 
-    // This method is where you should set the bounds of any child
-    // components that your component contains..
-
+    // Reverb:
+    int revbXOffset = 1032;
+    int revYOffset = 26;
+    revbOnOffButton.setBounds(revbXOffset + 10, revYOffset + 143, 120, 80);
+    reverbSizeSlider.setBounds(revbXOffset -2, revYOffset + 8, 60, 60);
+    reverbToneSlider.setBounds(revbXOffset + 40, revYOffset + 8, 60, 60);
+    reverbMixSlider.setBounds(revbXOffset + 80, revYOffset + 8, 60, 60);
+    reverbLed.setBounds(revbXOffset + 58, revYOffset, 22,22);
 }

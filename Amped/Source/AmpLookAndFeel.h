@@ -49,6 +49,9 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
             bool isMouseOverButton,
             bool isButtonDown) override
     {
+    //    auto buttonArea = button.getLocalBounds();
+    //    auto bgColor = Colours::red;
+    //    g.fillRect (buttonArea);
     }
 };
 

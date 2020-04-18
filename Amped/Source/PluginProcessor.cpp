@@ -48,7 +48,11 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterBool> (VTS_EF_OD_ON, "OD on", false),
                         std::make_unique<AudioParameterBool> (VTS_EF_NG_ON, "NG on", false),
                         std::make_unique<AudioParameterBool> (VTS_LEFT_RIGHT_INPUT_SWITCH, "Input L/R", false),
-                        std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f)
+                        std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> (VTS_EF_REVB_ON, "Reverb On", false),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_SIZE, "Reverb Time", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_TONE, "Reverb Tone", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_REVB_MIX, "Reverb Mix", .0f, 1.0f, 0.5f)
 
 #ifdef AMPED_DEBUG
                         ,std::make_unique<AudioParameterBool> ("ampSim", "ampSim", false)
@@ -72,6 +76,12 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     effects_od_switch = parameters.getRawParameterValue(VTS_EF_OD_ON);
     effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
     leftRightInputSwitch = parameters.getRawParameterValue(VTS_LEFT_RIGHT_INPUT_SWITCH);
+
+    reverbOnOffParameter = parameters.getRawParameterValue(VTS_EF_REVB_ON);
+    reverbSizeParameter = parameters.getRawParameterValue(VTS_EF_REVB_SIZE);
+    reverbToneParameter = parameters.getRawParameterValue(VTS_EF_REVB_TONE);
+    reverbMixParameter = parameters.getRawParameterValue(VTS_EF_REVB_MIX);
+
     presetChanged();
 #ifdef AMPED_DEBUG
     ampSimSwitch = parameters.getRawParameterValue ("ampSim");
@@ -208,19 +218,19 @@ void AmpedAudioProcessor::changeProgramName (int index, const String& newName)
         samples[i][j] = static_cast<float> (buf[j]);
     }
  }
- 
+
  dsp::AudioBlock<float> block (samples, buffer.getNumChannels(), buffer.getNumSamples());
  dsp::ProcessContextReplacing<float> context (block);
  //   context.isBypassed = *middleParameter > 0.5;
  context.isBypassed = false;
- 
+
  ampSim.process(context);
  cabSim.process(context);
- 
+
  for(int i = 0; i < buffer.getNumChannels(); ++i)
  {
     double* buf = buffer.getWritePointer(i);
- 
+
     for (int j = 0; j < buffer.getNumSamples(); j++)
     {
         buf[j] = samples[i][j];
@@ -244,7 +254,7 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, String lowBinFileName,
     eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowData, lowDataSize,
                                            highData, highDataSize,
                                            soundSettingsModel.getCurrentSetting(), makeupGain, type));
-    
+
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
     mainAudioProcessors.add(eq);
@@ -319,7 +329,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     audioOutputNode = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::audioOutputNode));
     midiInputNode   = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiInputNode));
     midiOutputNode  = mainProcessor->addNode (std::make_unique<AudioGraphIOProcessor> (AudioGraphIOProcessor::midiOutputNode));
-    
+
     // Input gain:
   //  gainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettings, GainProcessorId::InputGain));
   //  ((GainProcessor*)gainProcessor->getProcessor())->gainValue = inputParameter;
@@ -328,10 +338,10 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     driveProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettingsModel.getCurrentSetting(), GainProcessorId::DriveGain));
     ((GainProcessor*)driveProcessor->getProcessor())->gainValue = driveParameter;
     mainAudioProcessors.add(driveProcessor);
-    
+
     // Tube amp:
     ampProcessor = mainProcessor->addNode(std::make_unique<AmpProcessor>(soundSettingsModel.getCurrentSetting()));
-    
+
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->masterParameter = masterParameter;
     mainAudioProcessors.add(ampProcessor);
@@ -345,7 +355,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     initEq(middleEq, curSetting->ampSettings.eqs[EQType::kMiddleEq].lowIrFileName,
                      curSetting->ampSettings.eqs[EQType::kMiddleEq].highIrFileName,
             middleParameter, 6.5f, EQType::kMiddleEq);
-    
+
     // Treble eq:
     initEq(trebleEq, curSetting->ampSettings.eqs[EQType::kTrebleEq].lowIrFileName,
             curSetting->ampSettings.eqs[EQType::kTrebleEq].highIrFileName,
@@ -363,7 +373,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     // Cab sim:
     cabSimIR = mainProcessor->addNode(std::make_unique<CabSimIr>(soundSettingsModel.getCurrentSetting(), soundSettingsModel.getCurrentSetting()->ampSettings.cabIr.gain));
     mainAudioProcessors.add(cabSimIR);
-    
+
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettingsModel.getCurrentSetting(), GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     mainAudioProcessors.add(outputGainProcessor);
@@ -396,7 +406,7 @@ void AmpedAudioProcessor::connectMainAudioNodes()
 {
     for (auto connection : mainProcessor->getConnections())
         mainProcessor->removeConnection (connection);
-    
+
     for (int channel = 0; channel < AMPED_MONO_CHANNEL; ++channel) {
         mainProcessor->addConnection ({ { audioInputNode->nodeID,  channel },
             { driveProcessor->nodeID, channel } });
@@ -471,6 +481,14 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
             ((AmpedAudioProcessorBase*)node->getProcessor())->updateInternalSettings(getCurrentSettings());
         }
     }
+    initReverb(sampleRate);
+}
+
+void AmpedAudioProcessor::initReverb(const double sampleRate)
+{
+    reverb.reset();
+    reverb.setSampleRate(sampleRate);
+    reverbParams.width = 1.0;
 }
 
 
@@ -482,25 +500,25 @@ void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerB
     mainProcessor->setPlayConfigDetails (AMPED_MONO_CHANNEL,
                                          AMPED_MONO_CHANNEL,
                                          sampleRate, samplesPerBlock);
-    
+
     mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
     initialiseMainGraph();
 
-    
-    
-    
+
+
+
  //   void HoRNetGuitarKit::Reset()
  //   {
  //       TRACE;
      //   IMutexLock lock(this);
-        
+
 /*    tubeAmp.setSampleRate(sampleRate);
     tubeAmp.setOversample(1);
     tubeAmp.init();
     tubeAmp.setNumChans(2);
-    
-    
-    
+
+
+
 
 
    // tubeAmp.setHighGainStageActive(true);
@@ -513,42 +531,42 @@ void AmpedAudioProcessor::prepareToPlay_temp (double sampleRate, int samplesPerB
         //tubeAmp.init();
         //tubeAmp.setOversample(1);
         //tubeAmp.setNumChans(1);
-        
+
         //mMicSim.setSampleRate(GetSampleRate());
         //mMicSim.init();
         //mMicSim.setOversample(1);
         //mMicSim.setNumChans(1);
-        
+
        // for (int i = 0; i < kNumParams; i++) {
        //     OnParamChange(i, false);
        // }
-        
+
   //  }
-    
-    
+
+
   //  AudioProcessor::ProcessingPrecision precision = getProcessingPrecision();
 
-    
-    
+
+
    /*
     Demo delay plugin code below:
-    
+
     const double smoothTime = 1e-3;
     //paramDelayTime.reset (sampleRate, smoothTime);
     //paramFeedback.reset (sampleRate, smoothTime);
     //paramMix.reset (sampleRate, smoothTime);
-    
+
     //======================================
-    
+
     float maxDelayTime = 2.0;
     delayBufferSamples = (int)(maxDelayTime * (float)sampleRate) + 1;
     if (delayBufferSamples < 1)
         delayBufferSamples = 1;
-    
+
     delayBufferChannels = getTotalNumInputChannels();
     delayBuffer.setSize (delayBufferChannels, delayBufferSamples);
     delayBuffer.clear();
-    
+
     delayWritePosition = 0;
     */
 
@@ -586,15 +604,15 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
     if (layouts.getMainInputChannelSet() == AudioChannelSet::mono()
             && layouts.getMainOutputChannelSet() == AudioChannelSet::mono())
         return true;
-    
+
     return false;
-  
-    
+
+
  //   if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
  //       layouts.getMainOutputChannelSet() == AudioChannelSet::mono()) {
  //           return true;
  //   }
-    
+
     // Support mono in and mono or stereo out only:
   /*  if (layouts.getMainInputChannelSet() == AudioChannelSet::mono() &&
         (layouts.getMainOutputChannelSet() == AudioChannelSet::mono() ||
@@ -635,6 +653,8 @@ inline void AmpedAudioProcessor::processInputGain(AudioBuffer<float>& buffer) {
 
 void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+   // Logger::getCurrentLogger()->writeToLog("EQ: B:" +  String(*bassParameter) + " M: "+String(*middleParameter) + " T:"+String(*trebleParameter) + " PR:" + String(*presenceParameter));
+
     // If we have more outputchannels than input channels we must clear them, they might contain garbage.
     for (int i = getTotalNumInputChannels(); i < getTotalNumOutputChannels(); ++i)
     {
@@ -672,8 +692,11 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
 
+    if (copyProtection) buffer.clear();
+
     if (*fxParameter < 0.5) {
         preEffectsProcessor->processBlock(monoBuffer, midiMessages);
+        if (copyProtection) buffer.clear();
     }
     mainProcessor->processBlock (monoBuffer, midiMessages);
 
@@ -685,6 +708,11 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
 
+    if (*fxParameter < 0.5) {
+        processReverb(buffer);
+    }
+
+    if (copyProtection) buffer.clear();
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 
@@ -778,6 +806,29 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
 
 
+}
+
+void AmpedAudioProcessor::processReverb(AudioBuffer<float>& buffer)
+{
+    if (*reverbOnOffParameter > .5)
+    {
+        reverbParams.damping = fabs(*reverbToneParameter - 1.0f);
+        reverbParams.roomSize = *reverbSizeParameter;
+        // Make scale to 0 to 0.5 scale:
+        reverbParams.wetLevel = *reverbMixParameter * 0.5f;
+        reverbParams.dryLevel = 0.5f - reverbParams.wetLevel;
+
+        // Logger::getCurrentLogger()->writeToLog("processReverb WLev " + String(reverbParams.wetLevel) + " DLev:" + String(reverbParams.dryLevel));
+
+        reverb.setParameters(reverbParams);
+
+        if (buffer.getNumChannels() > 1) {
+            reverb.processStereo(buffer.getWritePointer(0), buffer.getWritePointer(1),buffer.getNumSamples());
+        }
+        else {
+            reverb.processMono(buffer.getWritePointer(0),buffer.getNumSamples());
+        }
+    }
 }
 
 // You should use this method to store your parameters in the memory block.
@@ -899,7 +950,7 @@ void AmpedAudioProcessor::interleaveSamples (double** source, double* dest, int 
     {
         auto i = chan;
         auto src = source [chan];
-        
+
         for (int j = 0; j < numSamples; ++j)
         {
             dest [i] = src [j];
@@ -914,7 +965,7 @@ void AmpedAudioProcessor::deinterleaveSamples (double* source, double** dest, in
     {
         auto i = chan;
         auto dst = dest [chan];
-        
+
         for (int j = 0; j < numSamples; ++j)
         {
             dst [j] = source [i];
