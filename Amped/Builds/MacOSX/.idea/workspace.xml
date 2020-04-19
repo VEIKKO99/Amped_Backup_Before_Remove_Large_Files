@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c879f80c-c5f9-421a-9481-bd9fe12f1ee9" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Amped.jucer" beforeDir="false" afterPath="$PROJECT_DIR$/../../Amped.jucer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Source/AmpedAudioProcessorBase.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../Source/AmpedAudioProcessorBase.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Amped - Roots.xcodeproj/xcuserdata/veikko.xcuserdatad/xcschemes/xcschememanagement.plist" beforeDir="false" afterPath="$PROJECT_DIR$/Amped - Roots.xcodeproj/xcuserdata/veikko.xcuserdatad/xcschemes/xcschememanagement.plist" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -11,6 +11,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="macos_x86_64" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
@@ -32,6 +33,12 @@
         </RuleState>
       </list>
     </option>
+  </component>
+  <component name="RunManager" selected="Application.Amped - Roots - AAX">
+    <list>
+      <item itemvalue="Application.Amped - Roots - AAX" />
+      <item itemvalue="Application.Amped - Roots - All" />
+    </list>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -74,6 +81,8 @@
       <workItem from="1586930088864" duration="2529000" />
       <workItem from="1586959852262" duration="7966000" />
       <workItem from="1587050916937" duration="3393000" />
+      <workItem from="1587286046247" duration="876000" />
+      <workItem from="1587295038597" duration="81000" />
     </task>
     <servers />
   </component>
