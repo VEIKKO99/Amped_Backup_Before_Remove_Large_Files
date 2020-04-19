@@ -2,6 +2,21 @@
 
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
+    <Filter Include="Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44">
+      <UniqueIdentifier>{E76257BE-929D-2358-27FF-6682103101C3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48">
+      <UniqueIdentifier>{46016CEA-099B-CA2E-4ED8-E090920C1936}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88">
+      <UniqueIdentifier>{2742F1E7-F1F4-BFC5-AFA6-CE61855380BD}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96">
+      <UniqueIdentifier>{B13E7834-9F4A-92F3-CA1C-584BDA21CB7F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192">
+      <UniqueIdentifier>{9878D1E1-D03D-F0AF-1B6B-A6307BD51FF9}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Amped - Roots\Resources\SoundSettings\files">
       <UniqueIdentifier>{2A809C7E-95AA-FBF6-B99A-4BDC1EF98011}</UniqueIdentifier>
     </Filter>
@@ -2629,6 +2644,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\BinaryData3.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\JuceLibraryCode\BinaryData4.cpp">
+      <Filter>JUCE Library Code</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\JuceLibraryCode\include_ff_meters_LevelMeter.cpp">
       <Filter>JUCE Library Code</Filter>
     </ClCompile>
@@ -5224,6 +5242,606 @@
     </None>
     <None Include="..\..\res\amped_roots_logo.png">
       <Filter>Amped - Roots\Resources</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_5150_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_BUTTERSLX_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_EVH_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_MATCH_IR_5034_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_MATCH_IR_5150_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_MATCH_IR_BUTTERFLUX2_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_MATCH_IR_RECTOREVF_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_ML-FRMN-M25-7B-B.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_ML-MEGA-OS-Almighty.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_ML_USA_BULB_LEGEND_2_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_ML_USA_BULB_LEGEND_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_44\44_REVF_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_44</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_5150_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_BUTTERSLX_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_EVH_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_MATCH_IR_5034_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_MATCH_IR_5150_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_MATCH_IR_BUTTERFLUX2_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_MATCH_IR_RECTOREVF_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_ML-FRMN-M25-7B-B.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_ML-MEGA-OS-Almighty.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_ML_USA_BULB_LEGEND_2_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_ML_USA_BULB_LEGEND_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_48\48_REVF_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_48</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_5150_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_BUTTERSLX_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_EVH_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_MATCH_IR_5034_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_MATCH_IR_5150_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_MATCH_IR_BUTTERFLUX2_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_MATCH_IR_RECTOREVF_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_ML-FRMN-M25-7B-B.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_ML-MEGA-OS-Almighty.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_ML_USA_BULB_LEGEND_2_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_ML_USA_BULB_LEGEND_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_88\88_REVF_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_88</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_5150_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_BUTTERSLX_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_EVH_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_MATCH_IR_5034_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_MATCH_IR_5150_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_MATCH_IR_BUTTERFLUX2_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_MATCH_IR_RECTOREVF_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_ML-FRMN-M25-7B-B.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_ML-MEGA-OS-Almighty.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_ML_USA_BULB_LEGEND_2_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_ML_USA_BULB_LEGEND_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_96\96_REVF_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_96</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_5150_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_BUTTERSLX_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_EVH_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_MATCH_IR_5034_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_MATCH_IR_5150_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_MATCH_IR_BUTTERFLUX2_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_MATCH_IR_RECTOREVF_40MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_ML-FRMN-M25-7B-B.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_ML-MEGA-OS-Almighty.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_ML_USA_BULB_LEGEND_2_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_ML_USA_BULB_LEGEND_200MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_BASS_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_BASS_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_MIDDLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_MIDDLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_PRESENCE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_PRESENCE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_TREBLE_00_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
+    </None>
+    <None Include="..\..\res\SoundSettings\files\ROOTS_WAV_192\192_REVF_EQ_TREBLE_10_20MS.wav">
+      <Filter>Amped - Roots\Resources\SoundSettings\files\ROOTS_WAV_192</Filter>
     </None>
     <None Include="..\..\res\SoundSettings\files\1200x600_fluff_5150.png">
       <Filter>Amped - Roots\Resources\SoundSettings\files</Filter>

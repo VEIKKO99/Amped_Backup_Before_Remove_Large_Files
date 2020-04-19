@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E05313A7-112D-4582-B2B2-0A224D41D5BC"
-            shouldBeEnabled = "Yes"
+            uuid = "76D5B563-7E17-4481-9CE7-D3BE019E011A"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../Source/PluginEditor.cpp"
+            filePath = "../../Source/AmpedAudioProcessorBase.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "AmpedAudioProcessorEditor::AmpedAudioProcessorEditor(p, vts)"
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+            landmarkName = "AmpSimIr(settings)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6E82CDB-54F7-4369-83A5-B8D5C2116F56"
-            shouldBeEnabled = "Yes"
+            uuid = "D687D212-5793-47D9-BE13-8EC8D5BBF458"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../Source/MainComponent.cpp"
+            filePath = "../../Source/AmpedAudioProcessorBase.h"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "MainComponent::MainComponent(vts, p)"
+            startingLineNumber = "484"
+            endingLineNumber = "484"
+            landmarkName = "updateInternalSettings(settings)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
