@@ -82,13 +82,13 @@
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
             <FILE id="ti5f3k" name="44_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="ahjKEP" name="44_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+            <FILE id="FUH6xk" name="44_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_44/44_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="nNsduz" name="44_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+            <FILE id="UfC6cF" name="44_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_44/44_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="HAdljW" name="44_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+            <FILE id="crYF0U" name="44_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="dMqh4L" name="44_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
+            <FILE id="j9NiH6" name="44_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_200MS.wav"/>
             <FILE id="NgY34z" name="44_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_BASS_00_20MS.wav"/>
@@ -164,13 +164,13 @@
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
             <FILE id="yXuuAA" name="48_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="hgIsuj" name="48_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+            <FILE id="sv6k4M" name="48_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_48/48_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="oymtGz" name="48_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+            <FILE id="LWMKyS" name="48_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_48/48_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="COqjel" name="48_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+            <FILE id="NuwXL4" name="48_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="dBJI8W" name="48_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
+            <FILE id="LGG8E5" name="48_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_200MS.wav"/>
             <FILE id="IydkAq" name="48_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_BASS_00_20MS.wav"/>
@@ -246,13 +246,13 @@
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
             <FILE id="omlJZU" name="88_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="Li4vS5" name="88_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+            <FILE id="q3PwVx" name="88_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_88/88_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="aDeoqX" name="88_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+            <FILE id="uLeaeE" name="88_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_88/88_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="frwvlx" name="88_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+            <FILE id="SJWsJR" name="88_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="RfflNG" name="88_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
+            <FILE id="YNHiwX" name="88_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_ML_USA_BULB_LEGEND_200MS.wav"/>
             <FILE id="pRroOP" name="88_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_BASS_00_20MS.wav"/>
@@ -328,13 +328,13 @@
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
             <FILE id="TNhvgd" name="96_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="oLOvjW" name="96_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+            <FILE id="hRujbb" name="96_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_96/96_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="DMaTj3" name="96_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+            <FILE id="pWKSZJ" name="96_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_96/96_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="fGQBz2" name="96_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+            <FILE id="bEBraJ" name="96_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="QJrtsd" name="96_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
+            <FILE id="fJPaC1" name="96_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_200MS.wav"/>
             <FILE id="n2dZas" name="96_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_BASS_00_20MS.wav"/>
@@ -410,13 +410,13 @@
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
             <FILE id="sXoRIH" name="192_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="zh3Vm7" name="192_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+            <FILE id="xqeKIp" name="192_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_192/192_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="CmTbjH" name="192_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+            <FILE id="ymHo25" name="192_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_192/192_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="BWvjy2" name="192_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+            <FILE id="Wws6Su" name="192_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="gLhkKE" name="192_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
+            <FILE id="fv6lej" name="192_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
                   resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_200MS.wav"/>
             <FILE id="sZrtCE" name="192_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                   file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_BASS_00_20MS.wav"/>

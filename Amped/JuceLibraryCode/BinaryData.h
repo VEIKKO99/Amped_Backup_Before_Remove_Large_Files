@@ -21,208 +21,208 @@ namespace BinaryData
     const int            amped_roots_logo_pngSize = 13137;
 
     extern const char*   _44_5150_EQ_BASS_00_20MS_wav;
-    const int            _44_5150_EQ_BASS_00_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_BASS_00_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_BASS_10_20MS_wav;
-    const int            _44_5150_EQ_BASS_10_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_BASS_10_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_MIDDLE_00_20MS_wav;
-    const int            _44_5150_EQ_MIDDLE_00_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_MIDDLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_MIDDLE_10_20MS_wav;
-    const int            _44_5150_EQ_MIDDLE_10_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_MIDDLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_PRESENCE_00_20MS_wav;
-    const int            _44_5150_EQ_PRESENCE_00_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_PRESENCE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_PRESENCE_10_20MS_wav;
-    const int            _44_5150_EQ_PRESENCE_10_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_PRESENCE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_TREBLE_00_20MS_wav;
-    const int            _44_5150_EQ_TREBLE_00_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_TREBLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_5150_EQ_TREBLE_10_20MS_wav;
-    const int            _44_5150_EQ_TREBLE_10_20MS_wavSize = 2726;
+    const int            _44_5150_EQ_TREBLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_BASS_00_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_BASS_10_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_MIDDLE_00_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_MIDDLE_10_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_PRESENCE_00_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_PRESENCE_10_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_TREBLE_00_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_BUTTERSLX_EQ_TREBLE_10_20MS_wav;
-    const int            _44_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 2726;
+    const int            _44_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_BASS_00_20MS_wav;
-    const int            _44_EVH_EQ_BASS_00_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_BASS_00_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_BASS_10_20MS_wav;
-    const int            _44_EVH_EQ_BASS_10_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_BASS_10_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_MIDDLE_00_20MS_wav;
-    const int            _44_EVH_EQ_MIDDLE_00_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_MIDDLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_MIDDLE_10_20MS_wav;
-    const int            _44_EVH_EQ_MIDDLE_10_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_MIDDLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_PRESENCE_00_20MS_wav;
-    const int            _44_EVH_EQ_PRESENCE_00_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_PRESENCE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_PRESENCE_10_20MS_wav;
-    const int            _44_EVH_EQ_PRESENCE_10_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_PRESENCE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_TREBLE_00_20MS_wav;
-    const int            _44_EVH_EQ_TREBLE_00_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_TREBLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_EVH_EQ_TREBLE_10_20MS_wav;
-    const int            _44_EVH_EQ_TREBLE_10_20MS_wavSize = 2726;
+    const int            _44_EVH_EQ_TREBLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_MATCH_IR_5034_40MS_wav;
-    const int            _44_MATCH_IR_5034_40MS_wavSize = 5372;
+    const int            _44_MATCH_IR_5034_40MS_wavSize = 5368;
 
     extern const char*   _44_MATCH_IR_5150_40MS_wav;
-    const int            _44_MATCH_IR_5150_40MS_wavSize = 5372;
+    const int            _44_MATCH_IR_5150_40MS_wavSize = 5368;
 
     extern const char*   _44_MATCH_IR_BUTTERFLUX2_40MS_wav;
-    const int            _44_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 5372;
+    const int            _44_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 5368;
 
     extern const char*   _44_MATCH_IR_RECTOREVF_40MS_wav;
-    const int            _44_MATCH_IR_RECTOREVF_40MS_wavSize = 5372;
+    const int            _44_MATCH_IR_RECTOREVF_40MS_wavSize = 5368;
 
     extern const char*   _44_MLFRMNM257BB_wav;
-    const int            _44_MLFRMNM257BB_wavSize = 26540;
+    const int            _44_MLFRMNM257BB_wavSize = 28876;
 
     extern const char*   _44_MLMEGAOSAlmighty_wav;
-    const int            _44_MLMEGAOSAlmighty_wavSize = 26540;
+    const int            _44_MLMEGAOSAlmighty_wavSize = 30636;
 
     extern const char*   _44_ML_USA_BULB_LEGEND_2_200MS_wav;
-    const int            _44_ML_USA_BULB_LEGEND_2_200MS_wavSize = 26540;
+    const int            _44_ML_USA_BULB_LEGEND_2_200MS_wavSize = 30642;
 
     extern const char*   _44_ML_USA_BULB_LEGEND_200MS_wav;
-    const int            _44_ML_USA_BULB_LEGEND_200MS_wavSize = 26540;
+    const int            _44_ML_USA_BULB_LEGEND_200MS_wavSize = 30642;
 
     extern const char*   _44_REVF_EQ_BASS_00_20MS_wav;
-    const int            _44_REVF_EQ_BASS_00_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_BASS_00_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_BASS_10_20MS_wav;
-    const int            _44_REVF_EQ_BASS_10_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_BASS_10_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_MIDDLE_00_20MS_wav;
-    const int            _44_REVF_EQ_MIDDLE_00_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_MIDDLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_MIDDLE_10_20MS_wav;
-    const int            _44_REVF_EQ_MIDDLE_10_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_MIDDLE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_PRESENCE_00_20MS_wav;
-    const int            _44_REVF_EQ_PRESENCE_00_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_PRESENCE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_PRESENCE_10_20MS_wav;
-    const int            _44_REVF_EQ_PRESENCE_10_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_PRESENCE_10_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_TREBLE_00_20MS_wav;
-    const int            _44_REVF_EQ_TREBLE_00_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_TREBLE_00_20MS_wavSize = 5368;
 
     extern const char*   _44_REVF_EQ_TREBLE_10_20MS_wav;
-    const int            _44_REVF_EQ_TREBLE_10_20MS_wavSize = 2726;
+    const int            _44_REVF_EQ_TREBLE_10_20MS_wavSize = 5368;
 
     extern const char*   _48_5150_EQ_BASS_00_20MS_wav;
-    const int            _48_5150_EQ_BASS_00_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_BASS_00_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_BASS_10_20MS_wav;
-    const int            _48_5150_EQ_BASS_10_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_BASS_10_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_MIDDLE_00_20MS_wav;
-    const int            _48_5150_EQ_MIDDLE_00_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_MIDDLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_MIDDLE_10_20MS_wav;
-    const int            _48_5150_EQ_MIDDLE_10_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_MIDDLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_PRESENCE_00_20MS_wav;
-    const int            _48_5150_EQ_PRESENCE_00_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_PRESENCE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_PRESENCE_10_20MS_wav;
-    const int            _48_5150_EQ_PRESENCE_10_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_PRESENCE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_TREBLE_00_20MS_wav;
-    const int            _48_5150_EQ_TREBLE_00_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_TREBLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_5150_EQ_TREBLE_10_20MS_wav;
-    const int            _48_5150_EQ_TREBLE_10_20MS_wavSize = 2960;
+    const int            _48_5150_EQ_TREBLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_BASS_00_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_BASS_10_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_MIDDLE_00_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_MIDDLE_10_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_PRESENCE_00_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_PRESENCE_10_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_TREBLE_00_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_BUTTERSLX_EQ_TREBLE_10_20MS_wav;
-    const int            _48_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 2960;
+    const int            _48_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_BASS_00_20MS_wav;
-    const int            _48_EVH_EQ_BASS_00_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_BASS_00_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_BASS_10_20MS_wav;
-    const int            _48_EVH_EQ_BASS_10_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_BASS_10_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_MIDDLE_00_20MS_wav;
-    const int            _48_EVH_EQ_MIDDLE_00_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_MIDDLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_MIDDLE_10_20MS_wav;
-    const int            _48_EVH_EQ_MIDDLE_10_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_MIDDLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_PRESENCE_00_20MS_wav;
-    const int            _48_EVH_EQ_PRESENCE_00_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_PRESENCE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_PRESENCE_10_20MS_wav;
-    const int            _48_EVH_EQ_PRESENCE_10_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_PRESENCE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_TREBLE_00_20MS_wav;
-    const int            _48_EVH_EQ_TREBLE_00_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_TREBLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_EVH_EQ_TREBLE_10_20MS_wav;
-    const int            _48_EVH_EQ_TREBLE_10_20MS_wavSize = 2960;
+    const int            _48_EVH_EQ_TREBLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_MATCH_IR_5034_40MS_wav;
-    const int            _48_MATCH_IR_5034_40MS_wavSize = 5840;
+    const int            _48_MATCH_IR_5034_40MS_wavSize = 5836;
 
     extern const char*   _48_MATCH_IR_5150_40MS_wav;
-    const int            _48_MATCH_IR_5150_40MS_wavSize = 5840;
+    const int            _48_MATCH_IR_5150_40MS_wavSize = 5836;
 
     extern const char*   _48_MATCH_IR_BUTTERFLUX2_40MS_wav;
-    const int            _48_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 5840;
+    const int            _48_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 5836;
 
     extern const char*   _48_MATCH_IR_RECTOREVF_40MS_wav;
-    const int            _48_MATCH_IR_RECTOREVF_40MS_wavSize = 5840;
+    const int            _48_MATCH_IR_RECTOREVF_40MS_wavSize = 5836;
 
     extern const char*   _48_MLFRMNM257BB_wav;
     const int            _48_MLFRMNM257BB_wavSize = 28876;
@@ -237,340 +237,340 @@ namespace BinaryData
     const int            _48_ML_USA_BULB_LEGEND_200MS_wavSize = 30642;
 
     extern const char*   _48_REVF_EQ_BASS_00_20MS_wav;
-    const int            _48_REVF_EQ_BASS_00_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_BASS_00_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_BASS_10_20MS_wav;
-    const int            _48_REVF_EQ_BASS_10_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_BASS_10_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_MIDDLE_00_20MS_wav;
-    const int            _48_REVF_EQ_MIDDLE_00_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_MIDDLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_MIDDLE_10_20MS_wav;
-    const int            _48_REVF_EQ_MIDDLE_10_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_MIDDLE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_PRESENCE_00_20MS_wav;
-    const int            _48_REVF_EQ_PRESENCE_00_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_PRESENCE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_PRESENCE_10_20MS_wav;
-    const int            _48_REVF_EQ_PRESENCE_10_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_PRESENCE_10_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_TREBLE_00_20MS_wav;
-    const int            _48_REVF_EQ_TREBLE_00_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_TREBLE_00_20MS_wavSize = 5836;
 
     extern const char*   _48_REVF_EQ_TREBLE_10_20MS_wav;
-    const int            _48_REVF_EQ_TREBLE_10_20MS_wavSize = 2960;
+    const int            _48_REVF_EQ_TREBLE_10_20MS_wavSize = 5836;
 
     extern const char*   _88_5150_EQ_BASS_00_20MS_wav;
-    const int            _88_5150_EQ_BASS_00_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_BASS_00_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_BASS_10_20MS_wav;
-    const int            _88_5150_EQ_BASS_10_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_BASS_10_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_MIDDLE_00_20MS_wav;
-    const int            _88_5150_EQ_MIDDLE_00_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_MIDDLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_MIDDLE_10_20MS_wav;
-    const int            _88_5150_EQ_MIDDLE_10_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_MIDDLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_PRESENCE_00_20MS_wav;
-    const int            _88_5150_EQ_PRESENCE_00_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_PRESENCE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_PRESENCE_10_20MS_wav;
-    const int            _88_5150_EQ_PRESENCE_10_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_PRESENCE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_TREBLE_00_20MS_wav;
-    const int            _88_5150_EQ_TREBLE_00_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_TREBLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_5150_EQ_TREBLE_10_20MS_wav;
-    const int            _88_5150_EQ_TREBLE_10_20MS_wavSize = 5372;
+    const int            _88_5150_EQ_TREBLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_BASS_00_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_BASS_10_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_MIDDLE_00_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_MIDDLE_10_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_PRESENCE_00_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_PRESENCE_10_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_TREBLE_00_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_BUTTERSLX_EQ_TREBLE_10_20MS_wav;
-    const int            _88_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 5372;
+    const int            _88_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_BASS_00_20MS_wav;
-    const int            _88_EVH_EQ_BASS_00_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_BASS_00_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_BASS_10_20MS_wav;
-    const int            _88_EVH_EQ_BASS_10_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_BASS_10_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_MIDDLE_00_20MS_wav;
-    const int            _88_EVH_EQ_MIDDLE_00_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_MIDDLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_MIDDLE_10_20MS_wav;
-    const int            _88_EVH_EQ_MIDDLE_10_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_MIDDLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_PRESENCE_00_20MS_wav;
-    const int            _88_EVH_EQ_PRESENCE_00_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_PRESENCE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_PRESENCE_10_20MS_wav;
-    const int            _88_EVH_EQ_PRESENCE_10_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_PRESENCE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_TREBLE_00_20MS_wav;
-    const int            _88_EVH_EQ_TREBLE_00_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_TREBLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_EVH_EQ_TREBLE_10_20MS_wav;
-    const int            _88_EVH_EQ_TREBLE_10_20MS_wavSize = 5372;
+    const int            _88_EVH_EQ_TREBLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_MATCH_IR_5034_40MS_wav;
-    const int            _88_MATCH_IR_5034_40MS_wavSize = 10664;
+    const int            _88_MATCH_IR_5034_40MS_wavSize = 10660;
 
     extern const char*   _88_MATCH_IR_5150_40MS_wav;
-    const int            _88_MATCH_IR_5150_40MS_wavSize = 10664;
+    const int            _88_MATCH_IR_5150_40MS_wavSize = 10660;
 
     extern const char*   _88_MATCH_IR_BUTTERFLUX2_40MS_wav;
-    const int            _88_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 10664;
+    const int            _88_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 10660;
 
     extern const char*   _88_MATCH_IR_RECTOREVF_40MS_wav;
-    const int            _88_MATCH_IR_RECTOREVF_40MS_wavSize = 10664;
+    const int            _88_MATCH_IR_RECTOREVF_40MS_wavSize = 10660;
 
     extern const char*   _88_MLFRMNM257BB_wav;
-    const int            _88_MLFRMNM257BB_wavSize = 53000;
+    const int            _88_MLFRMNM257BB_wavSize = 28876;
 
     extern const char*   _88_MLMEGAOSAlmighty_wav;
-    const int            _88_MLMEGAOSAlmighty_wavSize = 53000;
+    const int            _88_MLMEGAOSAlmighty_wavSize = 30636;
 
     extern const char*   _88_ML_USA_BULB_LEGEND_2_200MS_wav;
-    const int            _88_ML_USA_BULB_LEGEND_2_200MS_wavSize = 53000;
+    const int            _88_ML_USA_BULB_LEGEND_2_200MS_wavSize = 30642;
 
     extern const char*   _88_ML_USA_BULB_LEGEND_200MS_wav;
-    const int            _88_ML_USA_BULB_LEGEND_200MS_wavSize = 53000;
+    const int            _88_ML_USA_BULB_LEGEND_200MS_wavSize = 30642;
 
     extern const char*   _88_REVF_EQ_BASS_00_20MS_wav;
-    const int            _88_REVF_EQ_BASS_00_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_BASS_00_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_BASS_10_20MS_wav;
-    const int            _88_REVF_EQ_BASS_10_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_BASS_10_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_MIDDLE_00_20MS_wav;
-    const int            _88_REVF_EQ_MIDDLE_00_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_MIDDLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_MIDDLE_10_20MS_wav;
-    const int            _88_REVF_EQ_MIDDLE_10_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_MIDDLE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_PRESENCE_00_20MS_wav;
-    const int            _88_REVF_EQ_PRESENCE_00_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_PRESENCE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_PRESENCE_10_20MS_wav;
-    const int            _88_REVF_EQ_PRESENCE_10_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_PRESENCE_10_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_TREBLE_00_20MS_wav;
-    const int            _88_REVF_EQ_TREBLE_00_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_TREBLE_00_20MS_wavSize = 10660;
 
     extern const char*   _88_REVF_EQ_TREBLE_10_20MS_wav;
-    const int            _88_REVF_EQ_TREBLE_10_20MS_wavSize = 5372;
+    const int            _88_REVF_EQ_TREBLE_10_20MS_wavSize = 10660;
 
     extern const char*   _96_5150_EQ_BASS_00_20MS_wav;
-    const int            _96_5150_EQ_BASS_00_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_BASS_00_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_BASS_10_20MS_wav;
-    const int            _96_5150_EQ_BASS_10_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_BASS_10_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_MIDDLE_00_20MS_wav;
-    const int            _96_5150_EQ_MIDDLE_00_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_MIDDLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_MIDDLE_10_20MS_wav;
-    const int            _96_5150_EQ_MIDDLE_10_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_MIDDLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_PRESENCE_00_20MS_wav;
-    const int            _96_5150_EQ_PRESENCE_00_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_PRESENCE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_PRESENCE_10_20MS_wav;
-    const int            _96_5150_EQ_PRESENCE_10_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_PRESENCE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_TREBLE_00_20MS_wav;
-    const int            _96_5150_EQ_TREBLE_00_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_TREBLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_5150_EQ_TREBLE_10_20MS_wav;
-    const int            _96_5150_EQ_TREBLE_10_20MS_wavSize = 5840;
+    const int            _96_5150_EQ_TREBLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_BASS_00_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_BASS_10_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_MIDDLE_00_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_MIDDLE_10_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_PRESENCE_00_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_PRESENCE_10_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_TREBLE_00_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_BUTTERSLX_EQ_TREBLE_10_20MS_wav;
-    const int            _96_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 5840;
+    const int            _96_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_BASS_00_20MS_wav;
-    const int            _96_EVH_EQ_BASS_00_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_BASS_00_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_BASS_10_20MS_wav;
-    const int            _96_EVH_EQ_BASS_10_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_BASS_10_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_MIDDLE_00_20MS_wav;
-    const int            _96_EVH_EQ_MIDDLE_00_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_MIDDLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_MIDDLE_10_20MS_wav;
-    const int            _96_EVH_EQ_MIDDLE_10_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_MIDDLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_PRESENCE_00_20MS_wav;
-    const int            _96_EVH_EQ_PRESENCE_00_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_PRESENCE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_PRESENCE_10_20MS_wav;
-    const int            _96_EVH_EQ_PRESENCE_10_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_PRESENCE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_TREBLE_00_20MS_wav;
-    const int            _96_EVH_EQ_TREBLE_00_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_TREBLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_EVH_EQ_TREBLE_10_20MS_wav;
-    const int            _96_EVH_EQ_TREBLE_10_20MS_wavSize = 5840;
+    const int            _96_EVH_EQ_TREBLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_MATCH_IR_5034_40MS_wav;
-    const int            _96_MATCH_IR_5034_40MS_wavSize = 11600;
+    const int            _96_MATCH_IR_5034_40MS_wavSize = 11596;
 
     extern const char*   _96_MATCH_IR_5150_40MS_wav;
-    const int            _96_MATCH_IR_5150_40MS_wavSize = 11600;
+    const int            _96_MATCH_IR_5150_40MS_wavSize = 11596;
 
     extern const char*   _96_MATCH_IR_BUTTERFLUX2_40MS_wav;
-    const int            _96_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 11600;
+    const int            _96_MATCH_IR_BUTTERFLUX2_40MS_wavSize = 11596;
 
     extern const char*   _96_MATCH_IR_RECTOREVF_40MS_wav;
-    const int            _96_MATCH_IR_RECTOREVF_40MS_wavSize = 11600;
+    const int            _96_MATCH_IR_RECTOREVF_40MS_wavSize = 11596;
 
     extern const char*   _96_MLFRMNM257BB_wav;
-    const int            _96_MLFRMNM257BB_wavSize = 57680;
+    const int            _96_MLFRMNM257BB_wavSize = 28876;
 
     extern const char*   _96_MLMEGAOSAlmighty_wav;
-    const int            _96_MLMEGAOSAlmighty_wavSize = 57680;
+    const int            _96_MLMEGAOSAlmighty_wavSize = 30636;
 
     extern const char*   _96_ML_USA_BULB_LEGEND_2_200MS_wav;
-    const int            _96_ML_USA_BULB_LEGEND_2_200MS_wavSize = 57680;
+    const int            _96_ML_USA_BULB_LEGEND_2_200MS_wavSize = 30642;
 
     extern const char*   _96_ML_USA_BULB_LEGEND_200MS_wav;
-    const int            _96_ML_USA_BULB_LEGEND_200MS_wavSize = 57680;
+    const int            _96_ML_USA_BULB_LEGEND_200MS_wavSize = 30642;
 
     extern const char*   _96_REVF_EQ_BASS_00_20MS_wav;
-    const int            _96_REVF_EQ_BASS_00_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_BASS_00_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_BASS_10_20MS_wav;
-    const int            _96_REVF_EQ_BASS_10_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_BASS_10_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_MIDDLE_00_20MS_wav;
-    const int            _96_REVF_EQ_MIDDLE_00_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_MIDDLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_MIDDLE_10_20MS_wav;
-    const int            _96_REVF_EQ_MIDDLE_10_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_MIDDLE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_PRESENCE_00_20MS_wav;
-    const int            _96_REVF_EQ_PRESENCE_00_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_PRESENCE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_PRESENCE_10_20MS_wav;
-    const int            _96_REVF_EQ_PRESENCE_10_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_PRESENCE_10_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_TREBLE_00_20MS_wav;
-    const int            _96_REVF_EQ_TREBLE_00_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_TREBLE_00_20MS_wavSize = 11596;
 
     extern const char*   _96_REVF_EQ_TREBLE_10_20MS_wav;
-    const int            _96_REVF_EQ_TREBLE_10_20MS_wavSize = 5840;
+    const int            _96_REVF_EQ_TREBLE_10_20MS_wavSize = 11596;
 
     extern const char*   _192_5150_EQ_BASS_00_20MS_wav;
-    const int            _192_5150_EQ_BASS_00_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_BASS_00_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_BASS_10_20MS_wav;
-    const int            _192_5150_EQ_BASS_10_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_BASS_10_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_MIDDLE_00_20MS_wav;
-    const int            _192_5150_EQ_MIDDLE_00_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_MIDDLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_MIDDLE_10_20MS_wav;
-    const int            _192_5150_EQ_MIDDLE_10_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_MIDDLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_PRESENCE_00_20MS_wav;
-    const int            _192_5150_EQ_PRESENCE_00_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_PRESENCE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_PRESENCE_10_20MS_wav;
-    const int            _192_5150_EQ_PRESENCE_10_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_PRESENCE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_TREBLE_00_20MS_wav;
-    const int            _192_5150_EQ_TREBLE_00_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_TREBLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_5150_EQ_TREBLE_10_20MS_wav;
-    const int            _192_5150_EQ_TREBLE_10_20MS_wavSize = 11600;
+    const int            _192_5150_EQ_TREBLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_BASS_00_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_BASS_00_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_BASS_10_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_BASS_10_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_MIDDLE_00_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_MIDDLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_MIDDLE_10_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_MIDDLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_PRESENCE_00_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_PRESENCE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_PRESENCE_10_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_PRESENCE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_TREBLE_00_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_TREBLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_BUTTERSLX_EQ_TREBLE_10_20MS_wav;
-    const int            _192_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 11600;
+    const int            _192_BUTTERSLX_EQ_TREBLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_BASS_00_20MS_wav;
-    const int            _192_EVH_EQ_BASS_00_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_BASS_00_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_BASS_10_20MS_wav;
-    const int            _192_EVH_EQ_BASS_10_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_BASS_10_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_MIDDLE_00_20MS_wav;
-    const int            _192_EVH_EQ_MIDDLE_00_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_MIDDLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_MIDDLE_10_20MS_wav;
-    const int            _192_EVH_EQ_MIDDLE_10_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_MIDDLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_PRESENCE_00_20MS_wav;
-    const int            _192_EVH_EQ_PRESENCE_00_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_PRESENCE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_PRESENCE_10_20MS_wav;
-    const int            _192_EVH_EQ_PRESENCE_10_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_PRESENCE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_TREBLE_00_20MS_wav;
-    const int            _192_EVH_EQ_TREBLE_00_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_TREBLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_EVH_EQ_TREBLE_10_20MS_wav;
-    const int            _192_EVH_EQ_TREBLE_10_20MS_wavSize = 11600;
+    const int            _192_EVH_EQ_TREBLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_MATCH_IR_5034_40MS_wav;
     const int            _192_MATCH_IR_5034_40MS_wavSize = 23120;
@@ -585,40 +585,40 @@ namespace BinaryData
     const int            _192_MATCH_IR_RECTOREVF_40MS_wavSize = 23120;
 
     extern const char*   _192_MLFRMNM257BB_wav;
-    const int            _192_MLFRMNM257BB_wavSize = 115280;
+    const int            _192_MLFRMNM257BB_wavSize = 28876;
 
     extern const char*   _192_MLMEGAOSAlmighty_wav;
-    const int            _192_MLMEGAOSAlmighty_wavSize = 115280;
+    const int            _192_MLMEGAOSAlmighty_wavSize = 30636;
 
     extern const char*   _192_ML_USA_BULB_LEGEND_2_200MS_wav;
-    const int            _192_ML_USA_BULB_LEGEND_2_200MS_wavSize = 115280;
+    const int            _192_ML_USA_BULB_LEGEND_2_200MS_wavSize = 30642;
 
     extern const char*   _192_ML_USA_BULB_LEGEND_200MS_wav;
-    const int            _192_ML_USA_BULB_LEGEND_200MS_wavSize = 115280;
+    const int            _192_ML_USA_BULB_LEGEND_200MS_wavSize = 30642;
 
     extern const char*   _192_REVF_EQ_BASS_00_20MS_wav;
-    const int            _192_REVF_EQ_BASS_00_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_BASS_00_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_BASS_10_20MS_wav;
-    const int            _192_REVF_EQ_BASS_10_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_BASS_10_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_MIDDLE_00_20MS_wav;
-    const int            _192_REVF_EQ_MIDDLE_00_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_MIDDLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_MIDDLE_10_20MS_wav;
-    const int            _192_REVF_EQ_MIDDLE_10_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_MIDDLE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_PRESENCE_00_20MS_wav;
-    const int            _192_REVF_EQ_PRESENCE_00_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_PRESENCE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_PRESENCE_10_20MS_wav;
-    const int            _192_REVF_EQ_PRESENCE_10_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_PRESENCE_10_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_TREBLE_00_20MS_wav;
-    const int            _192_REVF_EQ_TREBLE_00_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_TREBLE_00_20MS_wavSize = 23120;
 
     extern const char*   _192_REVF_EQ_TREBLE_10_20MS_wav;
-    const int            _192_REVF_EQ_TREBLE_10_20MS_wavSize = 11600;
+    const int            _192_REVF_EQ_TREBLE_10_20MS_wavSize = 23120;
 
     extern const char*   _1200x600_fluff_5150_png;
     const int            _1200x600_fluff_5150_pngSize = 803868;
