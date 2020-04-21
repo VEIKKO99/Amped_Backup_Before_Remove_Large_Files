@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="pllKDb" name="Amped - Roots" projectType="audioplug" jucerVersion="5.4.5"
-              pluginFormats="buildAAX,buildAU,buildStandalone,buildVST3" version="1.2.0"
+              pluginFormats="buildAU,buildStandalone,buildVST3" version="1.2.0"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
               pluginCode="Ampd" pluginVSTCategory="kPlugCategUnknown" reportAppUsage="0"

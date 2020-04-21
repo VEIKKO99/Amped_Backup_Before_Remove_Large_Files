@@ -9,10 +9,6 @@
 			isa = PBXBuildFile;
 			fileRef = CA9D535BD1840C245B2623CB;
 		};
-		07D983031FC067D30BBFD1BD = {
-			isa = PBXBuildFile;
-			fileRef = 4C41B090A6A5F041A5C92EF1;
-		};
 		3652B863A96729F0606E5AA4 = {
 			isa = PBXBuildFile;
 			fileRef = 2075296B6EE69AC5E2CB920F;
@@ -189,10 +185,6 @@
 			isa = PBXBuildFile;
 			fileRef = B6389F1629D8ADA70FD1AB5A;
 		};
-		673452E05D7E529B443266F4 = {
-			isa = PBXBuildFile;
-			fileRef = 79E3C2530C9D029D1A118DAF;
-		};
 		71CD70A0F25CD9C03C1B59F2 = {
 			isa = PBXBuildFile;
 			fileRef = 81F3E2E7C36CED950DD17308;
@@ -289,6 +281,13 @@
 			name = "amped_knob62_mars_0003.png";
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0003.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		0195E573583B1E39FDD9BB4A = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_plugin_client";
+			path = "~/JUCE/modules/juce_audio_plugin_client";
+			sourceTree = "<absolute>";
 		};
 		01EE3C04777EA6861EC7A495 = {
 			isa = PBXFileReference;
@@ -612,13 +611,6 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_PRESENCE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		0E59F567BD6BB1CAF82C8773 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_dsp";
-			path = "/Applications/JUCE/modules/juce_dsp";
-			sourceTree = "<absolute>";
-		};
 		0E872568194F2D2190669453 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -864,13 +856,6 @@
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0026.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		14DD073D5E77DC5203DC0A05 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_opengl";
-			path = "/Applications/JUCE/modules/juce_opengl";
-			sourceTree = "<absolute>";
-		};
 		14F560C4400D2D7BD24B091E = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -1095,13 +1080,6 @@
 			path = "../../res/SoundSettings/files/ML-FRMN-M25-7B-B.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		1D78BF6B4BCC9290620CB425 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_gui_basics";
-			path = "/Applications/JUCE/modules/juce_gui_basics";
-			sourceTree = "<absolute>";
-		};
 		1D989D329EDC349E1CBFEA40 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -1304,6 +1282,13 @@
 			name = "amped_knob62_marss_0029.png";
 			path = "../../res/amped_knob62_marss/amped_knob62_marss_0029.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		266D89792C35652E8C1CE105 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_basics";
+			path = "~/JUCE/modules/juce_audio_basics";
+			sourceTree = "<absolute>";
 		};
 		2695B7C10B09ED9D17F1A5E5 = {
 			isa = PBXFileReference;
@@ -1570,13 +1555,6 @@
 			name = KT88.h;
 			path = "../../Source/original_hornet/tube_tables/KT88.h";
 			sourceTree = "SOURCE_ROOT";
-		};
-		31E2E2A9B446D5F192CC4E6B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_graphics";
-			path = "/Applications/JUCE/modules/juce_graphics";
-			sourceTree = "<absolute>";
 		};
 		3215BEDF7C61068862A4D78F = {
 			isa = PBXFileReference;
@@ -2040,6 +2018,13 @@
 			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0004.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		40B3D2BF02E39E1B65542814 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_graphics";
+			path = "~/JUCE/modules/juce_graphics";
+			sourceTree = "<absolute>";
+		};
 		40F8AEA3CE458EC18BE61999 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2299,6 +2284,13 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0018.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		4A0AD6B9E3DD5F3ECC6ED31A = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_extra";
+			path = "~/JUCE/modules/juce_gui_extra";
+			sourceTree = "<absolute>";
+		};
 		4AAF39F6FAAF57CA40F9C294 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2388,13 +2380,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_recto_0034.png";
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0034.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		4E069639F9A16670198EBACE = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-Standalone_Plugin.plist";
-			path = "Info-Standalone_Plugin.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
 		4E2A2610106CA248FB77DB47 = {
@@ -2495,6 +2480,27 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_MIDDLE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
+		513952DAD7F5192EB4C7414D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "88_REVF_EQ_PRESENCE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_PRESENCE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		51495943AFC68D5BD873FBB3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob_pedal_0022.png";
+			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0022.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		51CE1DA68D81CC0F687C29FD = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info-VST3.plist";
+			path = "Info-VST3.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
 		51D1651BF39979BF4D3ECD1A = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -2565,6 +2571,13 @@
 			path = "../../res/amped_knob62_marss/amped_knob62_marss_0048.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		540F2CF63806E0A6DDD5D8E3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "192_ML_USA_BULB_LEGEND_200MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_200MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		543989E8755B385A607D543B = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2593,6 +2606,13 @@
 			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0032.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		54AAEA17F4D1022FC6DE18E9 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_mars_0029.png";
+			path = "../../res/amped_knob62_mars/amped_knob62_mars_0029.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		5513E4BF876E63388F42B4F2 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -2600,165 +2620,18 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_PRESENCE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
+		554D4ABA02833EEEED14A3C4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_events";
+			path = "~/JUCE/modules/juce_events";
+			sourceTree = "<absolute>";
+		};
 		557045006EB607AE89C70304 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = "amped_knob62_frmn_0035.png";
 			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0035.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5736A06A30EAC8CC5D76F011 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "96_ML_USA_BULB_LEGEND_200MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_200MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		58B55CFDC3918FB9E05811DA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_frmn_0059.png";
-			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0059.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		58F8F3E5323544EB2B239093 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mars_0044.png";
-			path = "../../res/amped_knob62_mars/amped_knob62_mars_0044.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		595D3CE4FEC363BE58FA2ED8 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "96_5150_EQ_PRESENCE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_PRESENCE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		59B4C45F1B809FE9CACE0BC5 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0013.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0013.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		59D1A4C7F17DB4DB629D6C71 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0014.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0014.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5AD2F29B5A0228CFF45FD759 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-AU.plist";
-			path = "Info-AU.plist";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5AD3192090499EA81EDCF6F4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_5150_EQ_PRESENCE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5B8B56C2780D8F22C67F8306 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0001.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0001.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5C0ED1A980A997E9EA9C8C44 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0016.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0016.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5F0603F07BCBDCE5B51DB628 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0003.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0003.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		63B5EDF6424C0CE347248D2E = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "1200x600_fluff_free_evh.png";
-			path = "../../res/SoundSettings/files/1200x600_fluff_free_evh.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		7291040F2352E552B0D5FD35 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		7453833A0A86CF3FD7D0DE21 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_5150_EQ_PRESENCE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		CA9D535BD1840C245B2623CB = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = "Amped - Roots.vst3";
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		4C41B090A6A5F041A5C92EF1 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = "Amped - Roots.aaxplugin";
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		2075296B6EE69AC5E2CB920F = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.cfbundle;
-			includeInIndex = 0;
-			path = "Amped - Roots.component";
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		513952DAD7F5192EB4C7414D = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "88_REVF_EQ_PRESENCE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_PRESENCE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		51495943AFC68D5BD873FBB3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob_pedal_0022.png";
-			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0022.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		51CE1DA68D81CC0F687C29FD = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-VST3.plist";
-			path = "Info-VST3.plist";
-			sourceTree = "SOURCE_ROOT";
-		};
-		540F2CF63806E0A6DDD5D8E3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "192_ML_USA_BULB_LEGEND_200MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_200MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		54AAEA17F4D1022FC6DE18E9 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mars_0029.png";
-			path = "../../res/amped_knob62_mars/amped_knob62_mars_0029.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5570A615D466C67D737C9F01 = {
@@ -2796,12 +2669,12 @@
 			path = ../../Source/PluginProcessor.h;
 			sourceTree = "SOURCE_ROOT";
 		};
-		56F4CD1D5CE3BD0ABE255CBB = {
+		5736A06A30EAC8CC5D76F011 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_data_structures";
-			path = "/Applications/JUCE/modules/juce_data_structures";
-			sourceTree = "<absolute>";
+			lastKnownFileType = file.wav;
+			name = "96_ML_USA_BULB_LEGEND_200MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_200MS.wav";
+			sourceTree = "SOURCE_ROOT";
 		};
 		57F783C3FFEB96605E4044CE = {
 			isa = PBXFileReference;
@@ -2824,13 +2697,6 @@
 			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0003.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		5884851665835465DB31D520 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_core";
-			path = "/Applications/JUCE/modules/juce_core";
-			sourceTree = "<absolute>";
-		};
 		589DB934B6B0740608F87560 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -2838,11 +2704,11 @@
 			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0011.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		58A8A555FDFDFB9DEE24675E = {
+		58F8F3E5323544EB2B239093 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
-			name = "amped_knob62_frmn_0040.png";
-			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0040.png";
+			name = "amped_knob62_mars_0044.png";
+			path = "../../res/amped_knob62_mars/amped_knob62_mars_0044.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5910778760DAA5DCFF1D54CD = {
@@ -2852,18 +2718,32 @@
 			path = "../../res/SoundSettings/files/BUTTERSLX_EQ_TREBLE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
+		595D3CE4FEC363BE58FA2ED8 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "96_5150_EQ_PRESENCE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_PRESENCE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		59B4C45F1B809FE9CACE0BC5 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0013.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0013.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		59D1A4C7F17DB4DB629D6C71 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0014.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0014.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		5A50F9654E1BCA6DE4872C9A = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = "amped_knob62_mega_0005.png";
 			path = "../../res/amped_knob62_mega/amped_knob62_mega_0005.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5AAE6FF960060251CC2893AF = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "96_REVF_EQ_TREBLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_TREBLE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5AC4CFB8B48F666222628E4F = {
@@ -2873,18 +2753,18 @@
 			path = "../../res/amped_knob62_marss/amped_knob62_marss_0039.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		5ADD85165732F0FC45AFDEA0 = {
+		5AD2F29B5A0228CFF45FD759 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_MATCH_IR_BUTTERFLUX2_40MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_BUTTERFLUX2_40MS.wav";
+			lastKnownFileType = text.plist.xml;
+			name = "Info-AU.plist";
+			path = "Info-AU.plist";
 			sourceTree = "SOURCE_ROOT";
 		};
-		5B292B973404FE6D64022640 = {
+		5AD3192090499EA81EDCF6F4 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
-			name = "96_BUTTERSLX_EQ_BASS_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_BASS_00_20MS.wav";
+			name = "44_5150_EQ_PRESENCE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5BB93C4DF29A5DFBEB7260B8 = {
@@ -2892,13 +2772,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_mars_0007.png";
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0007.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		5BF13D1F03BDCA8458DD8EFA = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_rectob_0025.png";
-			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0025.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5C3E56098E62E4A5FDC820E0 = {
@@ -2920,6 +2793,97 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob_pedal_0031.png";
 			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0031.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5F42C9D947B3379DB5E911E0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "5150_EQ_PRESENCE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/5150_EQ_PRESENCE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		696B9B1D4D51E65795C897E0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = DiscRecording.framework;
+			path = System/Library/Frameworks/DiscRecording.framework;
+			sourceTree = SDKROOT;
+		};
+		CA9D535BD1840C245B2623CB = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = "Amped - Roots.vst3";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		2075296B6EE69AC5E2CB920F = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.cfbundle;
+			includeInIndex = 0;
+			path = "Amped - Roots.component";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		4E069639F9A16670198EBACE = {
+			isa = PBXFileReference;
+			lastKnownFileType = text.plist.xml;
+			name = "Info-Standalone_Plugin.plist";
+			path = "Info-Standalone_Plugin.plist";
+			sourceTree = "SOURCE_ROOT";
+		};
+		58A8A555FDFDFB9DEE24675E = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_frmn_0040.png";
+			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0040.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		58B55CFDC3918FB9E05811DA = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_frmn_0059.png";
+			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0059.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5AAE6FF960060251CC2893AF = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "96_REVF_EQ_TREBLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_TREBLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5ADD85165732F0FC45AFDEA0 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_MATCH_IR_BUTTERFLUX2_40MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_BUTTERFLUX2_40MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5B292B973404FE6D64022640 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "96_BUTTERSLX_EQ_BASS_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_BASS_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5B8B56C2780D8F22C67F8306 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0001.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0001.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5BF13D1F03BDCA8458DD8EFA = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_rectob_0025.png";
+			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0025.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		5C0ED1A980A997E9EA9C8C44 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0016.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0016.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5CC8A0BBEC7FF0E53D976347 = {
@@ -2971,11 +2935,11 @@
 			path = "../../res/amped_switch62/amped_switch62_0018.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		5F42C9D947B3379DB5E911E0 = {
+		5F0603F07BCBDCE5B51DB628 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "5150_EQ_PRESENCE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/5150_EQ_PRESENCE_10_20MS.wav";
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0003.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0003.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		5F576ABB15DFED7FB049BAC2 = {
@@ -3026,6 +2990,13 @@
 			name = "amped_knob62_marss_0058.png";
 			path = "../../res/amped_knob62_marss/amped_knob62_marss_0058.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		60CB231885B82CEF3A702928 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_opengl";
+			path = "~/JUCE/modules/juce_opengl";
+			sourceTree = "<absolute>";
 		};
 		60DEC897A04ED884350FEB8A = {
 			isa = PBXFileReference;
@@ -3109,6 +3080,13 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_chknb_0015.png";
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0015.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		63B5EDF6424C0CE347248D2E = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "1200x600_fluff_free_evh.png";
+			path = "../../res/SoundSettings/files/1200x600_fluff_free_evh.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		640429A974783AC1CD6FDCAD = {
@@ -3202,13 +3180,6 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0048.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		65F1E5809F0003F4C7745B59 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_plugin_client";
-			path = "/Applications/JUCE/modules/juce_audio_plugin_client";
-			sourceTree = "<absolute>";
-		};
 		66435753A19A92D0858A18E2 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -3272,13 +3243,6 @@
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0004.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		696B9B1D4D51E65795C897E0 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework;
-			name = DiscRecording.framework;
-			path = System/Library/Frameworks/DiscRecording.framework;
-			sourceTree = SDKROOT;
-		};
 		696C93152C3EF31825AA9583 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -3299,6 +3263,13 @@
 			name = "amped_knob62_recto_0005.png";
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0005.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		69B80889F05D65BF0C402F01 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_core";
+			path = "~/JUCE/modules/juce_core";
+			sourceTree = "<absolute>";
 		};
 		6A002B91BFF2CE3738D7EE51 = {
 			isa = PBXFileReference;
@@ -3566,6 +3537,13 @@
 			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0055.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		7291040F2352E552B0D5FD35 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		729E4251DEDCCB17BBE467D6 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -3620,6 +3598,13 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_frmn_0006.png";
 			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0006.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		7453833A0A86CF3FD7D0DE21 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "44_5150_EQ_PRESENCE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		7501BBD0DDCB6BED754EB093 = {
@@ -3734,6 +3719,13 @@
 			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0051.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		793A8A64E498943946B92129 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "CHANNEL-RIGHT.png";
+			path = "../../res/CHANNEL-RIGHT.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		7963F9DD9273D330BC2C3123 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -3753,13 +3745,6 @@
 			lastKnownFileType = sourcecode.cpp.cpp;
 			name = CompExp.cpp;
 			path = ../../Source/Effects/CompExp/CompExp.cpp;
-			sourceTree = "SOURCE_ROOT";
-		};
-		79E3C2530C9D029D1A118DAF = {
-			isa = PBXFileReference;
-			lastKnownFileType = sourcecode.cpp.objcpp;
-			name = "include_juce_audio_plugin_client_AAX.mm";
-			path = "../../JuceLibraryCode/include_juce_audio_plugin_client_AAX.mm";
 			sourceTree = "SOURCE_ROOT";
 		};
 		7A1A39B855B142B805321BB4 = {
@@ -4126,13 +4111,6 @@
 			path = "../../res/amped_switch62/amped_switch62_0012.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		873B1C7B52ADDE9EA8E9E81E = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_basics";
-			path = "/Applications/JUCE/modules/juce_audio_basics";
-			sourceTree = "<absolute>";
-		};
 		875A4254FAC5FBC6E0E3C941 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -4287,6 +4265,13 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0052.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		8CB324426E90D5C6E0D7A454 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_ML_USA_BULB_LEGEND_2_200MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_2_200MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		8CD13688F17E5CEF7086F502 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -4413,19 +4398,12 @@
 			path = "../../Source/original_hornet/TDFII.h";
 			sourceTree = "SOURCE_ROOT";
 		};
-		9262C1706CE73C0B128756C0 = {
+		9246D3918CB63D2CB87EEE66 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_utils";
-			path = "/Applications/JUCE/modules/juce_audio_utils";
-			sourceTree = "<absolute>";
-		};
-		92F9FD2FEF3060A46EF3F128 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_devices";
-			path = "/Applications/JUCE/modules/juce_audio_devices";
-			sourceTree = "<absolute>";
+			lastKnownFileType = image.png;
+			name = "amped_knob62_frmn_0050.png";
+			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0050.png";
+			sourceTree = "SOURCE_ROOT";
 		};
 		932875876C9B70DCEA78A8E8 = {
 			isa = PBXFileReference;
@@ -4504,6 +4482,13 @@
 			path = "../../res/amped_knob62_marss/amped_knob62_marss_0024.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		970E0003795CFB55958A3340 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_BUTTERSLX_EQ_TREBLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_TREBLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		970E6AFBA1B50E47F49ECA67 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -4516,6 +4501,13 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_dizl_0023.png";
 			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0023.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		978969F82385B9D01B68C746 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_frmn_0055.png";
+			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0055.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		97C4DAFBD6DC6C15AD64BE69 = {
@@ -4609,6 +4601,13 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0054.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		99E5164FA09580B2A34DC7DD = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_dizl_0015.png";
+			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0015.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		9A21EC5254513609EB177163 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4621,6 +4620,13 @@
 			lastKnownFileType = file.wav;
 			name = "BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
 			path = "../../res/SoundSettings/files/BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9AC682A4E34930035AE0ADB1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_REVF_EQ_TREBLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		9AC97385F8327EF4A3815BF1 = {
@@ -4665,6 +4671,13 @@
 			path = "../../JuceLibraryCode/include_papupata_licensing.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
+		9E434132D10A9C01BE12A4F6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0021.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0021.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		9E5D9E801909E121D0CE2C37 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -4679,6 +4692,13 @@
 			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0003.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		9E969027FAF201BB30790BAA = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "ML-MEGA-OS-Almighty.wav";
+			path = "../../res/SoundSettings/files/ML-MEGA-OS-Almighty.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		9ECDEBC0A1FD0F6328D0D73F = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -4691,6 +4711,20 @@
 			lastKnownFileType = file.wav;
 			name = "44_5150_EQ_MIDDLE_10_20MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_MIDDLE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9EE1417890EB16BC01654AB3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_REVF_EQ_TREBLE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		9F0005C7303D5870CDF038E1 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_frmn_0056.png";
+			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0056.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A020BD361BBA64A09E8B36E9 = {
@@ -4721,6 +4755,13 @@
 			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0020.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A124D80394695E3477933318 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "192_REVF_EQ_TREBLE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_TREBLE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A142F16259C393FC431BF2B5 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -4749,11 +4790,25 @@
 			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0050.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A2A023D5D7A1EF8634CEE444 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknb_0010.png";
+			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0010.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A37E9C614D4E0EF832169C68 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
 			name = "88_BUTTERSLX_EQ_BASS_10_20MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_BASS_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A3D3FB3F985400E3D0A7EEB2 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob_pedal_0009.png";
+			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0009.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A3E81CCF39D7651B2C963BCE = {
@@ -4763,11 +4818,11 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_2_200MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		A45790FCC36E64C7664CACAB = {
+		A4805ED03DA60AA289E141A4 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file;
-			name = "juce_gui_extra";
-			path = "/Applications/JUCE/modules/juce_gui_extra";
+			name = "juce_data_structures";
+			path = "~/JUCE/modules/juce_data_structures";
 			sourceTree = "<absolute>";
 		};
 		A48192BA8B0B2F78628EFA3F = {
@@ -4775,6 +4830,20 @@
 			lastKnownFileType = file.wav;
 			name = "88_BUTTERSLX_EQ_PRESENCE_10_20MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_PRESENCE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A4B196D74729F955A9753A2D = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A4D493800EE012F3557A76C6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_chknw_0005.png";
+			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0005.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A4E40A2D8C2A5CB58DCECD48 = {
@@ -4805,6 +4874,20 @@
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0016.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A6D99E024B92EE472379567D = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_dizl_0043.png";
+			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0043.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A6E89B0E95CBE0654EB7AED7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_ML-FRMN-M25-7B-B.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_ML-FRMN-M25-7B-B.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A7031556ED0DEA55332E55FC = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -4812,11 +4895,25 @@
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0032.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		A742E8C1D2EE6067044C8151 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob_pedal_0001.png";
+			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0001.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		A84EDC81B949965BA262E9A1 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = "amped_knob62_mars_0053.png";
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0053.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		A889F5EF5E6CBD20E0DCC55C = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_rectob_0047.png";
+			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0047.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A989185236568562BB1D1416 = {
@@ -4838,188 +4935,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_roots_logo.png";
 			path = "../../res/amped_roots_logo.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		AA85C8918E6DD22D96D2579B = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_rectob_0020.png";
-			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0020.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		AAB526868207C79C624BC5C3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_marss_0023.png";
-			path = "../../res/amped_knob62_marss/amped_knob62_marss_0023.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B58EB67E761A5CEEC0883048 = {
-			isa = PBXFileReference;
-			lastKnownFileType = wrapper.framework;
-			name = IOKit.framework;
-			path = System/Library/Frameworks/IOKit.framework;
-			sourceTree = SDKROOT;
-		};
-		C2B260B48FCC2E798CD2C1D6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mars_0051.png";
-			path = "../../res/amped_knob62_mars/amped_knob62_mars_0051.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		D9470378600DB279F943B335 = {
-			isa = PBXFileReference;
-			explicitFileType = wrapper.application;
-			includeInIndex = 0;
-			path = "Amped - Roots.app";
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		26191D08DE506F1617CF2B84 = {
-			isa = PBXFileReference;
-			explicitFileType = archive.ar;
-			includeInIndex = 0;
-			path = "libAmped - Roots.a";
-			sourceTree = "BUILT_PRODUCTS_DIR";
-		};
-		793A8A64E498943946B92129 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "CHANNEL-RIGHT.png";
-			path = "../../res/CHANNEL-RIGHT.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		8CB324426E90D5C6E0D7A454 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_ML_USA_BULB_LEGEND_2_200MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_2_200MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9246D3918CB63D2CB87EEE66 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_frmn_0050.png";
-			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0050.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		970E0003795CFB55958A3340 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_BUTTERSLX_EQ_TREBLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_TREBLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		978969F82385B9D01B68C746 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_frmn_0055.png";
-			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0055.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		99E5164FA09580B2A34DC7DD = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_dizl_0015.png";
-			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0015.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9AC682A4E34930035AE0ADB1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_REVF_EQ_TREBLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9E434132D10A9C01BE12A4F6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0021.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0021.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9E969027FAF201BB30790BAA = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "ML-MEGA-OS-Almighty.wav";
-			path = "../../res/SoundSettings/files/ML-MEGA-OS-Almighty.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9EE1417890EB16BC01654AB3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_REVF_EQ_TREBLE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		9F0005C7303D5870CDF038E1 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_frmn_0056.png";
-			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0056.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A124D80394695E3477933318 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "192_REVF_EQ_TREBLE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_TREBLE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A2A023D5D7A1EF8634CEE444 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknb_0010.png";
-			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0010.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A3D3FB3F985400E3D0A7EEB2 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob_pedal_0009.png";
-			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0009.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A4B196D74729F955A9753A2D = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A4D493800EE012F3557A76C6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_chknw_0005.png";
-			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0005.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A6D99E024B92EE472379567D = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_dizl_0043.png";
-			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0043.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A6E89B0E95CBE0654EB7AED7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_ML-FRMN-M25-7B-B.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_ML-FRMN-M25-7B-B.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A742E8C1D2EE6067044C8151 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob_pedal_0001.png";
-			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0001.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		A889F5EF5E6CBD20E0DCC55C = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_rectob_0047.png";
-			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0047.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		A9A1DCBCE560C658F0167B78 = {
@@ -5057,11 +4972,25 @@
 			path = "../../res/amped_knob62_mega/amped_knob62_mega_0045.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		AA85C8918E6DD22D96D2579B = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_rectob_0020.png";
+			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0020.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		AA962669A2A930D384DEB862 = {
 			isa = PBXFileReference;
 			lastKnownFileType = text.plist.xml;
 			name = "Amped - Roots.entitlements";
 			path = "Amped - Roots.entitlements";
+			sourceTree = "SOURCE_ROOT";
+		};
+		AAB526868207C79C624BC5C3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_marss_0023.png";
+			path = "../../res/amped_knob62_marss/amped_knob62_marss_0023.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		AADA8347CB729429C69EF5C4 = {
@@ -5197,13 +5126,6 @@
 			path = "../../Source/original_hornet/DspFilter.cpp";
 			sourceTree = "SOURCE_ROOT";
 		};
-		B14E93D3AC91BC7C39F8F37A = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_processors";
-			path = "/Applications/JUCE/modules/juce_audio_processors";
-			sourceTree = "<absolute>";
-		};
 		B1556630D5ECE06831A90A75 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5260,13 +5182,6 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_PRESENCE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		B2F95A178DC359E8AB879EE2 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_events";
-			path = "/Applications/JUCE/modules/juce_events";
-			sourceTree = "<absolute>";
-		};
 		B332330458DFC80264C8E965 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5316,6 +5231,13 @@
 			path = "../../res/amped_knob62_mega/amped_knob62_mega_0013.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		B58EB67E761A5CEEC0883048 = {
+			isa = PBXFileReference;
+			lastKnownFileType = wrapper.framework;
+			name = IOKit.framework;
+			path = System/Library/Frameworks/IOKit.framework;
+			sourceTree = SDKROOT;
+		};
 		B5998E939778D27FE0F6F490 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5335,13 +5257,6 @@
 			lastKnownFileType = sourcecode.cpp.objcpp;
 			name = "include_juce_audio_formats.mm";
 			path = "../../JuceLibraryCode/include_juce_audio_formats.mm";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B643CE4FE1130CF4A1B25CF3 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		B648AA04BAB8DC6A0FBC5AED = {
@@ -5377,13 +5292,6 @@
 			lastKnownFileType = file.wav;
 			name = "192_REVF_EQ_MIDDLE_00_20MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_MIDDLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		B6C3EF081E3789AC256E65D7 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "EVH_EQ_MIDDLE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/EVH_EQ_MIDDLE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		B6C6451DD691004A063B83A4 = {
@@ -5498,6 +5406,13 @@
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0056.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		BB56DBB24487D15F8D147870 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_dsp";
+			path = "~/JUCE/modules/juce_dsp";
+			sourceTree = "<absolute>";
+		};
 		BB715FC1C327CC2E5EA391B5 = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -5505,12 +5420,12 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_MIDDLE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		BBF0B0A0BFDFADDBE4AB5D78 = {
+		BBED9F774B424387E0640271 = {
 			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
+			lastKnownFileType = file;
+			name = "juce_audio_devices";
+			path = "~/JUCE/modules/juce_audio_devices";
+			sourceTree = "<absolute>";
 		};
 		BBF26D645E8EDFA8403292C2 = {
 			isa = PBXFileReference;
@@ -5531,20 +5446,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_chknw_0054.png";
 			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0054.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		BCC32DAB811AD58728C44E87 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "EVH_EQ_PRESENCE_10_20MS.wav";
-			path = "../../res/SoundSettings/files/EVH_EQ_PRESENCE_10_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		BCD6902F0869719F7CADC77A = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mega_0049.png";
-			path = "../../res/amped_knob62_mega/amped_knob62_mega_0049.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		BD2637C979CF19E1E3BAEC34 = {
@@ -5568,13 +5469,6 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0053.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		BD706054DA943817D70AB2A4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_audio_formats";
-			path = "/Applications/JUCE/modules/juce_audio_formats";
-			sourceTree = "<absolute>";
-		};
 		BE00C534940018B3CDAF2DF4 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5596,13 +5490,6 @@
 			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0016.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		BF851C5B796295C11109C3D6 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mars_0048.png";
-			path = "../../res/amped_knob62_mars/amped_knob62_mars_0048.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		BFE9BC75F48D6229A539A1AB = {
 			isa = PBXFileReference;
 			lastKnownFileType = file.wav;
@@ -5615,13 +5502,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_recto_0047.png";
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0047.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C001A7B85B91A323D7F548CC = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_knob62_mega_0057.png";
-			path = "../../res/amped_knob62_mega/amped_knob62_mega_0057.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C06512CEB615CFEBE97FAA26 = {
@@ -5645,6 +5525,132 @@
 			path = "../../res/amped_knob62_dizl/amped_knob62_dizl_0024.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		C342FFEBFF9F88866F4104DB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "44_5150_EQ_MIDDLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_MIDDLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C491C675C1B996F80579C310 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_REVF_EQ_BASS_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_BASS_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C4F4CE4AD1D8B2F05839BE2B = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "88_5150_EQ_PRESENCE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_PRESENCE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C543E04A80D1FC3BF74D579B = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_5150_EQ_TREBLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_TREBLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C610E928CAF64D09B00CA8E4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "44_ML_USA_BULB_LEGEND_200MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_200MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C765E17F3E1D4ED9C2B5DD33 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		CA8F4AB098C1024F4E3D46BB = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "48_REVF_EQ_PRESENCE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_PRESENCE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		CCB19DCA36BC65BDDE21B71C = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "88_MATCH_IR_5034_40MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_5034_40MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		D8BF846542ED6D64E53E6432 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_icon_1024.png";
+			path = "../../res/app_icons/amped_icon_1024.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		D9470378600DB279F943B335 = {
+			isa = PBXFileReference;
+			explicitFileType = wrapper.application;
+			includeInIndex = 0;
+			path = "Amped - Roots.app";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		26191D08DE506F1617CF2B84 = {
+			isa = PBXFileReference;
+			explicitFileType = archive.ar;
+			includeInIndex = 0;
+			path = "libAmped - Roots.a";
+			sourceTree = "BUILT_PRODUCTS_DIR";
+		};
+		B643CE4FE1130CF4A1B25CF3 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		B6C3EF081E3789AC256E65D7 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "EVH_EQ_MIDDLE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/EVH_EQ_MIDDLE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		BBF0B0A0BFDFADDBE4AB5D78 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav";
+			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		BCC32DAB811AD58728C44E87 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file.wav;
+			name = "EVH_EQ_PRESENCE_10_20MS.wav";
+			path = "../../res/SoundSettings/files/EVH_EQ_PRESENCE_10_20MS.wav";
+			sourceTree = "SOURCE_ROOT";
+		};
+		BCD6902F0869719F7CADC77A = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_mega_0049.png";
+			path = "../../res/amped_knob62_mega/amped_knob62_mega_0049.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		BF851C5B796295C11109C3D6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_mars_0048.png";
+			path = "../../res/amped_knob62_mars/amped_knob62_mars_0048.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C001A7B85B91A323D7F548CC = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_mega_0057.png";
+			path = "../../res/amped_knob62_mega/amped_knob62_mega_0057.png";
+			sourceTree = "SOURCE_ROOT";
+		};
 		C24183E57EB46BEB66555BEB = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5664,6 +5670,13 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob62_rectob_0057.png";
 			path = "../../res/amped_knob62_rectob/amped_knob62_rectob_0057.png";
+			sourceTree = "SOURCE_ROOT";
+		};
+		C2B260B48FCC2E798CD2C1D6 = {
+			isa = PBXFileReference;
+			lastKnownFileType = image.png;
+			name = "amped_knob62_mars_0051.png";
+			path = "../../res/amped_knob62_mars/amped_knob62_mars_0051.png";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C2C1CDD8F01E3C1D1E327A45 = {
@@ -5701,13 +5714,6 @@
 			path = "../../res/SoundSettings/files/5150_EQ_BASS_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		C342FFEBFF9F88866F4104DB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_5150_EQ_MIDDLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_MIDDLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
 		C37C375DB8300101E0D84EAF = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5734,13 +5740,6 @@
 			lastKnownFileType = file.wav;
 			name = "96_ML-FRMN-M25-7B-B.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_ML-FRMN-M25-7B-B.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C491C675C1B996F80579C310 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_REVF_EQ_BASS_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_BASS_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C4A2DE89C5EAFFC44D2DB7E9 = {
@@ -5771,13 +5770,6 @@
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0032.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		C4F4CE4AD1D8B2F05839BE2B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "88_5150_EQ_PRESENCE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_PRESENCE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
 		C51CB8894FE5C496542674FF = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -5792,25 +5784,11 @@
 			path = "../../res/amped_knob62_chknb/amped_knob62_chknb_0002.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		C543E04A80D1FC3BF74D579B = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_5150_EQ_TREBLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_TREBLE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
 		C57DCF34D6F84F87FDEFCB0B = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
 			name = "amped_knob62_mars_0018.png";
 			path = "../../res/amped_knob62_mars/amped_knob62_mars_0018.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C610E928CAF64D09B00CA8E4 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "44_ML_USA_BULB_LEGEND_200MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_200MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C670B13AB53AA249ACE988DE = {
@@ -5832,13 +5810,6 @@
 			lastKnownFileType = image.png;
 			name = "amped_knob_pedal_0010.png";
 			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0010.png";
-			sourceTree = "SOURCE_ROOT";
-		};
-		C765E17F3E1D4ED9C2B5DD33 = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
 		C7DCD91E96D068C6E3AE0E05 = {
@@ -5932,13 +5903,6 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		CA8F4AB098C1024F4E3D46BB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "48_REVF_EQ_PRESENCE_00_20MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_PRESENCE_00_20MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
 		CAAB1EDC6B7E2B13E2650586 = {
 			isa = PBXFileReference;
 			lastKnownFileType = sourcecode.c.h;
@@ -6016,13 +5980,6 @@
 			path = ../../res/SoundSettings/amps.xml;
 			sourceTree = "SOURCE_ROOT";
 		};
-		CCB19DCA36BC65BDDE21B71C = {
-			isa = PBXFileReference;
-			lastKnownFileType = file.wav;
-			name = "88_MATCH_IR_5034_40MS.wav";
-			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_5034_40MS.wav";
-			sourceTree = "SOURCE_ROOT";
-		};
 		CD18DA5D2878240088BC5FD8 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -6093,6 +6050,13 @@
 			path = "../../res/amped_knob_pedal_0000/amped_knob_pedal_0038.png";
 			sourceTree = "SOURCE_ROOT";
 		};
+		CED3896E324BED7D9E99E16A = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_utils";
+			path = "~/JUCE/modules/juce_audio_utils";
+			sourceTree = "<absolute>";
+		};
 		CF8576F6D8DA7FBC56471CCD = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -6162,6 +6126,13 @@
 			name = "amped_knob62_frmn_0001.png";
 			path = "../../res/amped_knob62_frmn/amped_knob62_frmn_0001.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		D0BCD3E22B05ED9C9C175FDA = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_formats";
+			path = "~/JUCE/modules/juce_audio_formats";
+			sourceTree = "<absolute>";
 		};
 		D0FEB72E9B18A20DBA9FC284 = {
 			isa = PBXFileReference;
@@ -6380,13 +6351,6 @@
 			path = "../../res/amped_knob62_recto/amped_knob62_recto_0014.png";
 			sourceTree = "SOURCE_ROOT";
 		};
-		D8BF846542ED6D64E53E6432 = {
-			isa = PBXFileReference;
-			lastKnownFileType = image.png;
-			name = "amped_icon_1024.png";
-			path = "../../res/app_icons/amped_icon_1024.png";
-			sourceTree = "SOURCE_ROOT";
-		};
 		D918A5AC22A2BAC71B607FF2 = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -6414,13 +6378,6 @@
 			name = "88_EVH_EQ_PRESENCE_00_20MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_PRESENCE_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
-		};
-		DA6FA3B372CF965668CB20AB = {
-			isa = PBXFileReference;
-			lastKnownFileType = file;
-			name = "juce_cryptography";
-			path = "/Applications/JUCE/modules/juce_cryptography";
-			sourceTree = "<absolute>";
 		};
 		DAB3A9F70610A7D7F736A3B3 = {
 			isa = PBXFileReference;
@@ -6470,6 +6427,13 @@
 			name = "48_MATCH_IR_5034_40MS.wav";
 			path = "../../res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_5034_40MS.wav";
 			sourceTree = "SOURCE_ROOT";
+		};
+		DC3530E24AC37BA7DB92EEBF = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_cryptography";
+			path = "~/JUCE/modules/juce_cryptography";
+			sourceTree = "<absolute>";
 		};
 		DC3F84FB1E3ED57699BC9543 = {
 			isa = PBXFileReference;
@@ -6547,6 +6511,13 @@
 			name = "amped_knob62_chknw_0031.png";
 			path = "../../res/amped_knob62_chkn/amped_knob62_chknw_0031.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		DEA80666CEB0FD73A7404DF4 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_gui_basics";
+			path = "~/JUCE/modules/juce_gui_basics";
+			sourceTree = "<absolute>";
 		};
 		DED5350B4EE73E466F4610C5 = {
 			isa = PBXFileReference;
@@ -7367,13 +7338,6 @@
 			path = "../../res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_BASS_00_20MS.wav";
 			sourceTree = "SOURCE_ROOT";
 		};
-		FD3CB1B37E74DB2E388B1839 = {
-			isa = PBXFileReference;
-			lastKnownFileType = text.plist.xml;
-			name = "Info-AAX.plist";
-			path = "Info-AAX.plist";
-			sourceTree = "SOURCE_ROOT";
-		};
 		FD4377997E31C91735C7D87E = {
 			isa = PBXFileReference;
 			lastKnownFileType = image.png;
@@ -7450,6 +7414,13 @@
 			name = "1200x600_fluff_rectob.png";
 			path = "../../res/SoundSettings/files/1200x600_fluff_rectob.png";
 			sourceTree = "SOURCE_ROOT";
+		};
+		FFCC254A456983A079AEA765 = {
+			isa = PBXFileReference;
+			lastKnownFileType = file;
+			name = "juce_audio_processors";
+			path = "~/JUCE/modules/juce_audio_processors";
+			sourceTree = "<absolute>";
 		};
 		FFCC8C3EC620D5FE983206FB = {
 			isa = PBXFileReference;
@@ -8631,21 +8602,21 @@
 			isa = PBXGroup;
 			children = (
 				B62B559347A19DAB1DECC692,
-				873B1C7B52ADDE9EA8E9E81E,
-				92F9FD2FEF3060A46EF3F128,
-				BD706054DA943817D70AB2A4,
-				65F1E5809F0003F4C7745B59,
-				B14E93D3AC91BC7C39F8F37A,
-				9262C1706CE73C0B128756C0,
-				5884851665835465DB31D520,
-				DA6FA3B372CF965668CB20AB,
-				56F4CD1D5CE3BD0ABE255CBB,
-				0E59F567BD6BB1CAF82C8773,
-				B2F95A178DC359E8AB879EE2,
-				31E2E2A9B446D5F192CC4E6B,
-				1D78BF6B4BCC9290620CB425,
-				A45790FCC36E64C7664CACAB,
-				14DD073D5E77DC5203DC0A05,
+				266D89792C35652E8C1CE105,
+				BBED9F774B424387E0640271,
+				D0BCD3E22B05ED9C9C175FDA,
+				0195E573583B1E39FDD9BB4A,
+				FFCC254A456983A079AEA765,
+				CED3896E324BED7D9E99E16A,
+				69B80889F05D65BF0C402F01,
+				DC3530E24AC37BA7DB92EEBF,
+				A4805ED03DA60AA289E141A4,
+				BB56DBB24487D15F8D147870,
+				554D4ABA02833EEEED14A3C4,
+				40B3D2BF02E39E1B65542814,
+				DEA80666CEB0FD73A7404DF4,
+				4A0AD6B9E3DD5F3ECC6ED31A,
+				60CB231885B82CEF3A702928,
 				AF3440498A37900BA5C8D2BC,
 			);
 			name = "JUCE Modules";
@@ -8664,7 +8635,6 @@
 				1403CBD506B3F522B9256B59,
 				D0771420DAAF953B02ABC983,
 				B6389F1629D8ADA70FD1AB5A,
-				79E3C2530C9D029D1A118DAF,
 				81F3E2E7C36CED950DD17308,
 				762041992206D5BE8EAA1368,
 				330C5D330A73CF594EF0390D,
@@ -8693,7 +8663,6 @@
 			isa = PBXGroup;
 			children = (
 				51CE1DA68D81CC0F687C29FD,
-				FD3CB1B37E74DB2E388B1839,
 				5AD2F29B5A0228CFF45FD759,
 				4E069639F9A16670198EBACE,
 				F32A3BD83FDC603B85C87833,
@@ -8726,7 +8695,6 @@
 			isa = PBXGroup;
 			children = (
 				CA9D535BD1840C245B2623CB,
-				4C41B090A6A5F041A5C92EF1,
 				2075296B6EE69AC5E2CB920F,
 				D9470378600DB279F943B335,
 				26191D08DE506F1617CF2B84,
@@ -8795,15 +8763,12 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -8854,15 +8819,12 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-VST3.plist;
@@ -8877,133 +8839,6 @@
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				USE_HEADERMAP = NO;
 				WRAPPER_EXTENSION = vst3;
-			};
-			name = Release;
-		};
-		1B0AC13808A4C9BA274B3AF2 = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "Amped - Roots.entitlements";
-				CODE_SIGN_IDENTITY = "";
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
-				COPY_PHASE_STRIP = NO;
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = /;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_DEBUG=1",
-					"DEBUG=1",
-					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=1.2.0",
-					"JUCE_APP_VERSION_HEX=0x10200",
-					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
-					"JucePlugin_Build_RTAS=0",
-					"JucePlugin_Build_AAX=1",
-					"JucePlugin_Build_Standalone=0",
-					"JucePlugin_Build_Unity=0",
-				);
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
-					"../../Source",
-					"/Applications/JUCE/modules",
-					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info-AAX.plist;
-				INFOPLIST_PREPROCESS = NO;
-				INSTALL_PATH = "/Library/Application Support/Avid/Audio/Plug-Ins/";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../../../Amped/../../../AAX_SDK_2p3p2/Libs/Debug\"",
-				);
-				LIBRARY_STYLE = Bundle;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_LDFLAGS = "-bundle -lAAXLibrary_libcpp -lAmped\\ -\\ Roots";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MLSoundLab.AmpedRoots;
-				PRODUCT_NAME = "Amped - Roots";
-				USE_HEADERMAP = NO;
-				WRAPPER_EXTENSION = aaxplugin;
-			};
-			name = Debug;
-		};
-		C84034F537954042881EE523 = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_CXX_LANGUAGE_STANDARD = "c++14";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_LINK_OBJC_RUNTIME = NO;
-				CODE_SIGN_ENTITLEMENTS = "Amped - Roots.entitlements";
-				CODE_SIGN_IDENTITY = "Developer ID Application";
-				COMBINE_HIDPI_IMAGES = YES;
-				CONFIGURATION_BUILD_DIR = "$(PROJECT_DIR)/build/$(CONFIGURATION)";
-				DEAD_CODE_STRIPPING = YES;
-				DEPLOYMENT_LOCATION = YES;
-				DSTROOT = /;
-				ENABLE_HARDENED_RUNTIME = YES;
-				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
-				GCC_OPTIMIZATION_LEVEL = 3;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"_NDEBUG=1",
-					"NDEBUG=1",
-					"JUCER_XCODE_MAC_F6D2F4CF=1",
-					"JUCE_APP_VERSION=1.2.0",
-					"JUCE_APP_VERSION_HEX=0x10200",
-					"JucePlugin_Build_VST=0",
-					"JucePlugin_Build_VST3=0",
-					"JucePlugin_Build_AU=0",
-					"JucePlugin_Build_AUv3=0",
-					"JucePlugin_Build_RTAS=0",
-					"JucePlugin_Build_AAX=1",
-					"JucePlugin_Build_Standalone=0",
-					"JucePlugin_Build_Unity=0",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
-				GENERATE_PKGINFO_FILE = YES;
-				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
-					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
-					"../../Source",
-					"/Applications/JUCE/modules",
-					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = Info-AAX.plist;
-				INFOPLIST_PREPROCESS = NO;
-				INSTALL_PATH = "/Library/Application Support/Avid/Audio/Plug-Ins/";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"../../../Amped/../../../AAX_SDK_2p3p2/Libs/Release\"",
-				);
-				LIBRARY_STYLE = Bundle;
-				LLVM_LTO = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.11;
-				OTHER_LDFLAGS = "-bundle -lAAXLibrary_libcpp -lAmped\\ -\\ Roots";
-				PRODUCT_BUNDLE_IDENTIFIER = com.MLSoundLab.AmpedRoots;
-				PRODUCT_NAME = "Amped - Roots";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				USE_HEADERMAP = NO;
-				WRAPPER_EXTENSION = aaxplugin;
 			};
 			name = Release;
 		};
@@ -9041,15 +8876,12 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -9101,15 +8933,12 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GENERATE_PKGINFO_FILE = YES;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-AU.plist;
@@ -9159,15 +8988,12 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -9212,15 +9038,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = Info-Standalone_Plugin.plist;
@@ -9260,22 +9083,19 @@
 					"JucePlugin_Build_AU=1",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
-					"JucePlugin_Build_AAX=1",
+					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -9312,7 +9132,7 @@
 					"JucePlugin_Build_AU=1",
 					"JucePlugin_Build_AUv3=0",
 					"JucePlugin_Build_RTAS=0",
-					"JucePlugin_Build_AAX=1",
+					"JucePlugin_Build_AAX=0",
 					"JucePlugin_Build_Standalone=1",
 					"JucePlugin_Build_Unity=0",
 					"JUCE_SHARED_CODE=1",
@@ -9320,15 +9140,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = (
-					"/Applications/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
+					"$(HOME)/JUCE/modules/juce_audio_processors/format_types/VST3_SDK",
 					"../../JuceLibraryCode",
-					"../../../../../AAX_SDK_2p3p2",
-					"../../../../../AAX_SDK_2p3p2/Interfaces",
-					"../../../../../AAX_SDK_2p3p2/Interfaces/ACF",
 					"../../Source",
-					"/Applications/JUCE/modules",
+					"$(HOME)/JUCE/modules",
 					"../../MODULES",
-					"/Applications/JUCE/modules/juce_audio_plugin_client",
+					"$(HOME)/JUCE/modules/juce_audio_plugin_client",
 					"$(inherited)",
 				);
 				INSTALL_PATH = "@executable_path/../Frameworks";
@@ -9438,10 +9255,6 @@
 			isa = PBXTargetDependency;
 			target = 880D24FA47D41F3EFEB2B937;
 		};
-		B583A8DD6C58BCA97E1FB41A = {
-			isa = PBXTargetDependency;
-			target = C158D3F46A61D22665B6101C;
-		};
 		A4F07E766D514CF3D69EA2D2 = {
 			isa = PBXTargetDependency;
 			target = 24C45A583145EDA08B888D8B;
@@ -9479,7 +9292,6 @@
 			buildRules = ( );
 			dependencies = (
 				2294706B23AB70D23C431951,
-				B583A8DD6C58BCA97E1FB41A,
 				A4F07E766D514CF3D69EA2D2,
 				50696E5CAB6CFA4DDE83FEE7,
 				75ED469649ED764A92D92142,
@@ -9547,68 +9359,6 @@
 			name = "Amped - Roots - VST3";
 			productName = "Amped - Roots";
 			productReference = CA9D535BD1840C245B2623CB;
-			productType = "com.apple.product-type.bundle";
-		};
-		F4AC2AE600F68B8531C1F82B = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				1B0AC13808A4C9BA274B3AF2,
-				C84034F537954042881EE523,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Debug;
-		};
-		AAF5A3EBF9CCF06B349B4CFE = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C404C83C0E8683179EE9E227,
-				C37B19300B45A58CD7095497,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B5F1D5825582FDCB70358203 = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				673452E05D7E529B443266F4,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8AD40AF8FB44BE556E1CB9F1 = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8A2DBBE566B1FB6470F4AD50,
-				C23AC7E76AE3A2230165D498,
-				2D57CA600CD0E0C30D4811CA,
-				34D3F532D12E675ACA2985CC,
-				F8E561FF9B6CE04C382CE251,
-				0AAD32EA90ADE9D836BC6605,
-				3E706EBD35AED6D19C630E21,
-				8453663A99CFDAD134BEF538,
-				94C3EE51EB0AE6DF9F655CB1,
-				4F55B1307C2F328C63928371,
-				45EF1CEF36A269BEB6056321,
-				F946AE3CF69A07DAA9CC212F,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		C158D3F46A61D22665B6101C = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F4AC2AE600F68B8531C1F82B;
-			buildPhases = (
-				AAF5A3EBF9CCF06B349B4CFE,
-				B5F1D5825582FDCB70358203,
-				8AD40AF8FB44BE556E1CB9F1,
-			);
-			buildRules = ( );
-			dependencies = (
-				75ED469649ED764A92D92142,
-			);
-			name = "Amped - Roots - AAX";
-			productName = "Amped - Roots";
-			productReference = 4C41B090A6A5F041A5C92EF1;
 			productType = "com.apple.product-type.bundle";
 		};
 		1FDCA3A254B44C74A23778CB = {
@@ -9818,13 +9568,13 @@
 		2A0D96750E328BA3BD144DD6 = {
 			isa = PBXProject;
 			buildConfigurationList = BF493697D7E6663F3956372C;
-			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "ML Sound Lab"; TargetAttributes = { 74EE9249300D06558B3A25A8 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };880D24FA47D41F3EFEB2B937 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };C158D3F46A61D22665B6101C = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };24C45A583145EDA08B888D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };13569D00B3075DD39D0F0FB6 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };D0971FC0BFFD58243A2EA341 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; }; }; };
+			attributes = { LastUpgradeCheck = 1100; ORGANIZATIONNAME = "ML Sound Lab"; TargetAttributes = { 74EE9249300D06558B3A25A8 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };880D24FA47D41F3EFEB2B937 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };24C45A583145EDA08B888D8B = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };13569D00B3075DD39D0F0FB6 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; };D0971FC0BFFD58243A2EA341 = { SystemCapabilities = {com.apple.ApplicationGroups.iOS = { enabled = 0; }; com.apple.InAppPurchase = { enabled = 0; }; com.apple.InterAppAudio = { enabled = 0; }; com.apple.Push = { enabled = 0; }; com.apple.Sandbox = { enabled = 0; }; com.apple.HardenedRuntime = { enabled = 1; }; }; }; }; };
 			compatibilityVersion = "Xcode 3.2";
 			hasScannedForEncodings = 0;
 			mainGroup = FC3624A44F7B4B73006CCCAC;
 			projectDirPath = "";
 			projectRoot = "";
-			targets = (74EE9249300D06558B3A25A8, 880D24FA47D41F3EFEB2B937, C158D3F46A61D22665B6101C, 24C45A583145EDA08B888D8B, 13569D00B3075DD39D0F0FB6, D0971FC0BFFD58243A2EA341);
+			targets = (74EE9249300D06558B3A25A8, 880D24FA47D41F3EFEB2B937, 24C45A583145EDA08B888D8B, 13569D00B3075DD39D0F0FB6, D0971FC0BFFD58243A2EA341);
 			knownRegions = (en, Base);
 		};
 	};

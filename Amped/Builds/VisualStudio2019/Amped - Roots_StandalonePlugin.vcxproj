@@ -65,7 +65,7 @@
     <ClCompile>
       <Optimization>Disabled</Optimization>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\SDKs\AAX;C:\SDKs\AAX\Interfaces;C:\SDKs\AAX\Interfaces\ACF;..\..\Source;C:\JUCE\modules;..\..\MODULES;C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\vetapani\Desktop\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\Source;C:\Users\vetapani\Desktop\JUCE\modules;..\..\MODULES;C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;DEBUG;_DEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.2.0;JUCE_APP_VERSION_HEX=0x10200;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -109,7 +109,7 @@
     </Midl>
     <ClCompile>
       <Optimization>Full</Optimization>
-      <AdditionalIncludeDirectories>C:\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;C:\SDKs\AAX;C:\SDKs\AAX\Interfaces;C:\SDKs\AAX\Interfaces\ACF;..\..\Source;C:\JUCE\modules;..\..\MODULES;C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\vetapani\Desktop\JUCE\modules\juce_audio_processors\format_types\VST3_SDK;..\..\JuceLibraryCode;..\..\Source;C:\Users\vetapani\Desktop\JUCE\modules;..\..\MODULES;C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;WIN32;_WINDOWS;NDEBUG;JUCER_VS2019_78A5026=1;JUCE_APP_VERSION=1.2.0;JUCE_APP_VERSION_HEX=0x10200;JucePlugin_Build_VST=0;JucePlugin_Build_VST3=0;JucePlugin_Build_AU=0;JucePlugin_Build_AUv3=0;JucePlugin_Build_RTAS=0;JucePlugin_Build_AAX=0;JucePlugin_Build_Standalone=1;JucePlugin_Build_Unity=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
@@ -149,6 +149,9 @@
     <ClCompile Include="..\..\JuceLibraryCode\include_juce_audio_plugin_client_Standalone.cpp"/>
   </ItemGroup>
   <ItemGroup/>
+  <ItemGroup>
+    <None Include=".\icon.ico"/>
+  </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include=".\resources.rc"/>
   </ItemGroup>
