@@ -2640,7 +2640,7 @@ namespace BinaryData
     const int            _1200x289pedals_pngSize = 212361;
 
     extern const char*   tube_transfer_py;
-    const int            tube_transfer_pySize = 15142;
+    const int            tube_transfer_pySize = 14794;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
     const int namedResourceListSize = 878;

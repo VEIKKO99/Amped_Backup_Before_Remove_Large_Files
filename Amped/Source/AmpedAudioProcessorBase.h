@@ -571,7 +571,7 @@ public:
     //    float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
 
         tubeAmp.setPreGain(drive);
-        tubeAmp.setMasterVolume(*masterParameter);
+        tubeAmp.setMasterVolume(*masterParameter * 67);
         tubeAmp.setPresence(presence);
         
         tubeAmp.setDryWet(1.0);
