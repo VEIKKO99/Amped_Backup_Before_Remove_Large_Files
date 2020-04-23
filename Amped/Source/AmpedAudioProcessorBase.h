@@ -552,6 +552,43 @@ public:
             updateInternalSettings(soundSettings);
     }
     
+    inline float calculateMasterVolume()
+    {
+        float min = 0.0;
+        float max = 0.0;
+        float scaledGain = 0.0;
+        
+        if (*gainParameter < 0.25)
+        {
+            min = soundSettings->ampSettings.masterMultiplierOff;
+            max = soundSettings->ampSettings.masterMultiplier025;
+            scaledGain = *gainParameter;
+        }
+        else if (*gainParameter >= 0.25 && *gainParameter < 0.50)
+        {
+            min = soundSettings->ampSettings.masterMultiplier025;
+            max = soundSettings->ampSettings.masterMultiplier050;
+            scaledGain = *gainParameter - 0.25;
+        }
+        else if (*gainParameter >= 0.50 && *gainParameter < 0.75)
+        {
+            min = soundSettings->ampSettings.masterMultiplier050;
+            max = soundSettings->ampSettings.masterMultiplier075;
+            scaledGain = *gainParameter - 0.50;
+        }
+        else
+        {
+            min = soundSettings->ampSettings.masterMultiplier075;
+            max = soundSettings->ampSettings.masterMultiplier100;
+            scaledGain = *gainParameter - 0.75;
+        }
+        
+        float scaledMasterVolume =  ((max - min) * 4.0 * scaledGain + min) * *masterParameter;
+        Logger::getCurrentLogger()->writeToLog("Scaled Master Volume" + String(scaledMasterVolume));
+
+        return scaledMasterVolume;
+    }
+    
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
     {
         int numOfChannels = getTotalNumInputChannels();
@@ -573,7 +610,7 @@ public:
     //    float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
 
         tubeAmp.setPreGain(drive);
-        tubeAmp.setMasterVolume(*masterParameter * 67);
+        //tubeAmp.setMasterVolume(calculateMasterVolume());
         tubeAmp.setPresence(presence);
         
         tubeAmp.setDryWet(1.0);
@@ -589,12 +626,13 @@ public:
         
         interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
 
-        tubeAmp.setMasterVolume(*masterParameter * soundSettings->ampSettings.masterVolumeMultiplier);
+        tubeAmp.setMasterVolume(calculateMasterVolume());
         tubeAmp.process(interleavedBuffer.get(), numOfSamples);
         
         deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
                                                  numOfSamples, numOfChannels);
     }
+
     
     void reset() override
     {
@@ -609,6 +647,7 @@ public:
     float presence = 0.5f;
     float* masterParameter = nullptr;
     float* outputParameter = nullptr;
+    float* gainParameter = nullptr;
 
 private:
     

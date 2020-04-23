@@ -191,6 +191,12 @@ public:
 
     EQSettings eqs[kEQSize];
     
+    float masterMultiplierOff = 0.0;
+    float masterMultiplier025 = 1.0;
+    float masterMultiplier050 = 1.0;
+    float masterMultiplier075 = 1.0;
+    float masterMultiplier100 = 1.0;
+
 public:
     InternalAmpSettings() {
         /*
@@ -223,8 +229,13 @@ public:
         settings->setAttribute("inputType", inputType);
         settings->setAttribute("hornetDrive", hornetDrive);
         settings->setAttribute("hornetPresence", hornetPresence);
-        settings->setAttribute("masterVolumeMultiplier", masterVolumeMultiplier);
-
+        //settings->setAttribute("masterVolumeMultiplier", masterVolumeMultiplier);
+        settings->setAttribute("masterMultiplierOff", masterMultiplierOff);
+        settings->setAttribute("masterMultiplier025", masterMultiplier025);
+        settings->setAttribute("masterMultiplier050", masterMultiplier050);
+        settings->setAttribute("masterMultiplier075", masterMultiplier075);
+        settings->setAttribute("masterMultiplier100", masterMultiplier100);
+        
         // Ir Settings:
         XmlElement* irsettings = settings->createNewChildElement("IRSettings");
         irsettings->createNewChildElement("CabIr")->addChildElement(cabIr.serializeToXml());
@@ -246,8 +257,14 @@ public:
         this->inputType = static_cast<PreAmp::EInputType>(element->getIntAttribute("inputType", 0));
         this->hornetDrive = static_cast<float>(element->getDoubleAttribute("hornetDrive", 0.5));
         this->hornetPresence = static_cast<float>(element->getDoubleAttribute("hornetPresence", 0.5));
-        this->masterVolumeMultiplier = static_cast<float>(element->getDoubleAttribute("masterVolumeMultiplier", 1.0));
-
+       // this->masterVolumeMultiplier = static_cast<float>(element->getDoubleAttribute("masterVolumeMultiplier", 1.0));
+        
+        this->masterMultiplierOff = static_cast<float>(element->getDoubleAttribute("masterMultiplierOff", 0.0));
+        this->masterMultiplier025 = static_cast<float>(element->getDoubleAttribute("masterMultiplier025", 1.0));
+        this->masterMultiplier050 = static_cast<float>(element->getDoubleAttribute("masterMultiplier050", 1.0));
+        this->masterMultiplier075 = static_cast<float>(element->getDoubleAttribute("masterMultiplier075", 1.0));
+        this->masterMultiplier100 = static_cast<float>(element->getDoubleAttribute("masterMultiplier100", 1.0));
+               
         XmlElement* tubeSettings = element->getChildByName("TubeSettings");
         this->amountOfPreAmpTubes = tubeSettings->getIntAttribute("amountOfPreampTubes", 1);
 
@@ -273,8 +290,6 @@ public:
             }
         }
     }
-
-    float masterVolumeMultiplier;
 };
 
 class MaxMin

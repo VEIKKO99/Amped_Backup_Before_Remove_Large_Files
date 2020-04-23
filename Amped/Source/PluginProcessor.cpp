@@ -342,6 +342,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
 
     AmpProcessor* amp = (AmpProcessor*) ampProcessor->getProcessor();
     amp->masterParameter = masterParameter;
+    amp->gainParameter = driveParameter;
     mainAudioProcessors.add(ampProcessor);
 
     // Bass eq:
