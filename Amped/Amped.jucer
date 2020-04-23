@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <JUCERPROJECT id="pllKDb" name="Amped - Roots" projectType="audioplug" jucerVersion="5.4.5"
-              pluginFormats="buildAU,buildStandalone,buildVST3" version="1.2.0"
+              pluginFormats="buildAU,buildStandalone,buildVST3" version="1.2.2"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
               pluginCode="Ampd" pluginVSTCategory="kPlugCategUnknown" reportAppUsage="0"
@@ -25,416 +25,6 @@
             file="res/amped_roots_logo.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
-          <GROUP id="{CF372E49-16E7-2C26-00BC-91661E5E1032}" name="ROOTS_WAV_44">
-            <FILE id="XsFgSp" name="44_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_BASS_00_20MS.wav"/>
-            <FILE id="iehK7d" name="44_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_BASS_10_20MS.wav"/>
-            <FILE id="TZy2Se" name="44_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="UoxyEc" name="44_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="EOUa40" name="44_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="IF8KsN" name="44_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="uoztbT" name="44_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="W2uiFv" name="44_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_5150_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="RSh2wy" name="44_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-            <FILE id="tKvW07" name="44_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-            <FILE id="MnP1O4" name="44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="NOwmBL" name="44_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="zrmFKO" name="44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="gKfJGn" name="44_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="fhEOLl" name="44_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="Jp6WwK" name="44_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="J6a6cw" name="44_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_BASS_00_20MS.wav"/>
-            <FILE id="m1uQ57" name="44_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_BASS_10_20MS.wav"/>
-            <FILE id="sPUWgq" name="44_EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="y6C2BY" name="44_EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="cOfs4T" name="44_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="JnbGWT" name="44_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="KTTenl" name="44_EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="rViq3R" name="44_EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_EVH_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="WDkd9a" name="44_MATCH_IR_5034_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_5034_40MS.wav"/>
-            <FILE id="Z8EbPn" name="44_MATCH_IR_5150_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_5150_40MS.wav"/>
-            <FILE id="MnVVTS" name="44_MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-            <FILE id="ti5f3k" name="44_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="FUH6xk" name="44_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="UfC6cF" name="44_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="crYF0U" name="44_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="j9NiH6" name="44_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_ML_USA_BULB_LEGEND_200MS.wav"/>
-            <FILE id="NgY34z" name="44_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_BASS_00_20MS.wav"/>
-            <FILE id="Z2GSV9" name="44_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_BASS_10_20MS.wav"/>
-            <FILE id="WnrEdg" name="44_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="jDUlhH" name="44_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="kvfpNc" name="44_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="c3aT6E" name="44_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="HG8ekN" name="44_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="CewmQU" name="44_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_44/44_REVF_EQ_TREBLE_10_20MS.wav"/>
-          </GROUP>
-          <GROUP id="{92B4D88E-FADA-817C-B5F2-A1DE43B8C601}" name="ROOTS_WAV_48">
-            <FILE id="dSpLsZ" name="48_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_BASS_00_20MS.wav"/>
-            <FILE id="FxUgBH" name="48_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_BASS_10_20MS.wav"/>
-            <FILE id="CoVWQX" name="48_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="dDyyJ7" name="48_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="MbNoSy" name="48_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="QQWd40" name="48_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="znhZdS" name="48_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="unMNPo" name="48_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_5150_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="PTuEJK" name="48_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-            <FILE id="PSmsAd" name="48_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-            <FILE id="NtWnFw" name="48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="bwGwnP" name="48_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="u5TToK" name="48_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="WQWHRa" name="48_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="oGzuM3" name="48_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="KOwVfB" name="48_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="Yp2atc" name="48_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_BASS_00_20MS.wav"/>
-            <FILE id="BvPXZW" name="48_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_BASS_10_20MS.wav"/>
-            <FILE id="J1MVlX" name="48_EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="z73miN" name="48_EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="wfT4GM" name="48_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="cnShag" name="48_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="CSpmP2" name="48_EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="s1KjEt" name="48_EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_EVH_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="OvC4A7" name="48_MATCH_IR_5034_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_5034_40MS.wav"/>
-            <FILE id="hyGux4" name="48_MATCH_IR_5150_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_5150_40MS.wav"/>
-            <FILE id="ugPJuR" name="48_MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-            <FILE id="yXuuAA" name="48_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="sv6k4M" name="48_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="LWMKyS" name="48_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="NuwXL4" name="48_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="LGG8E5" name="48_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_ML_USA_BULB_LEGEND_200MS.wav"/>
-            <FILE id="IydkAq" name="48_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_BASS_00_20MS.wav"/>
-            <FILE id="iBoqBY" name="48_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_BASS_10_20MS.wav"/>
-            <FILE id="R6YVSg" name="48_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="f82a5C" name="48_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="JG4ptm" name="48_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="gRJ5qc" name="48_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="HASkzp" name="48_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="LNYpsq" name="48_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_48/48_REVF_EQ_TREBLE_10_20MS.wav"/>
-          </GROUP>
-          <GROUP id="{EBB950F6-8C6C-42B0-0439-6ABB13A4FDB7}" name="ROOTS_WAV_88">
-            <FILE id="bGAG8s" name="88_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_BASS_00_20MS.wav"/>
-            <FILE id="kPFzKj" name="88_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_BASS_10_20MS.wav"/>
-            <FILE id="VRrH4X" name="88_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="CwfWxw" name="88_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="xZRnNa" name="88_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="eWCw2w" name="88_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="KFU86B" name="88_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="K2iTUe" name="88_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_5150_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="jHcXFb" name="88_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-            <FILE id="BaiTpF" name="88_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-            <FILE id="JuUVul" name="88_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="WlfbWr" name="88_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="gGNqPJ" name="88_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="fTvkQ6" name="88_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="vLqfpk" name="88_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="s9O1Ew" name="88_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="pNeUOb" name="88_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_BASS_00_20MS.wav"/>
-            <FILE id="YCD5gs" name="88_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_BASS_10_20MS.wav"/>
-            <FILE id="Kj7nen" name="88_EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="TKuPzg" name="88_EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="llbngv" name="88_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="HeuZqC" name="88_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="YaOotv" name="88_EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="SdzKKz" name="88_EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_EVH_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="TZESzF" name="88_MATCH_IR_5034_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_5034_40MS.wav"/>
-            <FILE id="JNQxpW" name="88_MATCH_IR_5150_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_5150_40MS.wav"/>
-            <FILE id="MeIwM0" name="88_MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-            <FILE id="omlJZU" name="88_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="q3PwVx" name="88_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="uLeaeE" name="88_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="SJWsJR" name="88_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="YNHiwX" name="88_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_ML_USA_BULB_LEGEND_200MS.wav"/>
-            <FILE id="pRroOP" name="88_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_BASS_00_20MS.wav"/>
-            <FILE id="usNTs2" name="88_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_BASS_10_20MS.wav"/>
-            <FILE id="Qg0LXz" name="88_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="RHJ48v" name="88_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="lE8k8b" name="88_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="diPnnY" name="88_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="BVFo11" name="88_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="je8lqF" name="88_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_88/88_REVF_EQ_TREBLE_10_20MS.wav"/>
-          </GROUP>
-          <GROUP id="{0ED8A857-AB10-558C-D978-9D2588BF1CBD}" name="ROOTS_WAV_96">
-            <FILE id="dnq9PB" name="96_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_BASS_00_20MS.wav"/>
-            <FILE id="Apmlfu" name="96_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_BASS_10_20MS.wav"/>
-            <FILE id="VMZjqb" name="96_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="aA9kdq" name="96_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="N6NJcN" name="96_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="aEStKd" name="96_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="BDsHOX" name="96_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="KjMBHb" name="96_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_5150_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="I8cbK3" name="96_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-            <FILE id="XWLhfP" name="96_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-            <FILE id="OQviPU" name="96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="NSEEMk" name="96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="GsFnXl" name="96_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="IQEW19" name="96_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="mmVXji" name="96_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="TpZLlF" name="96_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="iPEufO" name="96_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_BASS_00_20MS.wav"/>
-            <FILE id="kWrvuA" name="96_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_BASS_10_20MS.wav"/>
-            <FILE id="qcAAGo" name="96_EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="ofMjU5" name="96_EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="xIZfCv" name="96_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="wbfXWn" name="96_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="DFSSqg" name="96_EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="KFRkU9" name="96_EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_EVH_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="EMWzba" name="96_MATCH_IR_5034_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_5034_40MS.wav"/>
-            <FILE id="lJYcug" name="96_MATCH_IR_5150_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_5150_40MS.wav"/>
-            <FILE id="gxZuVl" name="96_MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-            <FILE id="TNhvgd" name="96_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="hRujbb" name="96_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="pWKSZJ" name="96_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="bEBraJ" name="96_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="fJPaC1" name="96_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_ML_USA_BULB_LEGEND_200MS.wav"/>
-            <FILE id="n2dZas" name="96_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_BASS_00_20MS.wav"/>
-            <FILE id="xtnztO" name="96_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_BASS_10_20MS.wav"/>
-            <FILE id="gyTeqS" name="96_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="b4i4eJ" name="96_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="hTATzU" name="96_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="R3YIwI" name="96_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="mT0FoC" name="96_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="XWqmVJ" name="96_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_96/96_REVF_EQ_TREBLE_10_20MS.wav"/>
-          </GROUP>
-          <GROUP id="{21AE81F3-84C3-2CC0-8554-93607AF0B293}" name="ROOTS_WAV_192">
-            <FILE id="b7CsIF" name="192_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_BASS_00_20MS.wav"/>
-            <FILE id="seDxGp" name="192_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_BASS_10_20MS.wav"/>
-            <FILE id="bkQEVo" name="192_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="i8tyM1" name="192_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="fPKmbZ" name="192_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="FcYGNV" name="192_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="MW7FzW" name="192_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="oBNtcZ" name="192_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_5150_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="uZJtLg" name="192_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-            <FILE id="xZKnAx" name="192_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-            <FILE id="pZUZsK" name="192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="DBXV4P" name="192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="YSh3qZ" name="192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="oOKAfR" name="192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="PRG90v" name="192_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="KJij2u" name="192_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="KtpIEo" name="192_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_BASS_00_20MS.wav"/>
-            <FILE id="FsFSPs" name="192_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_BASS_10_20MS.wav"/>
-            <FILE id="paMsGp" name="192_EVH_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="EIEehG" name="192_EVH_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="AI7sY7" name="192_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="lDNvd8" name="192_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="KUjZR2" name="192_EVH_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="CgQRDB" name="192_EVH_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_EVH_EQ_TREBLE_10_20MS.wav"/>
-            <FILE id="zMu3sB" name="192_MATCH_IR_5034_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_5034_40MS.wav"/>
-            <FILE id="M7ZjjJ" name="192_MATCH_IR_5150_40MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_5150_40MS.wav"/>
-            <FILE id="wU4Luw" name="192_MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-            <FILE id="sXoRIH" name="192_MATCH_IR_RECTOREVF_40MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_MATCH_IR_RECTOREVF_40MS.wav"/>
-            <FILE id="xqeKIp" name="192_ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_ML-FRMN-M25-7B-B.wav"/>
-            <FILE id="ymHo25" name="192_ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_ML-MEGA-OS-Almighty.wav"/>
-            <FILE id="Wws6Su" name="192_ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_2_200MS.wav"/>
-            <FILE id="fv6lej" name="192_ML_USA_BULB_LEGEND_200MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_ML_USA_BULB_LEGEND_200MS.wav"/>
-            <FILE id="sZrtCE" name="192_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_BASS_00_20MS.wav"/>
-            <FILE id="L4beDm" name="192_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                  file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_BASS_10_20MS.wav"/>
-            <FILE id="d5xqzD" name="192_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_MIDDLE_00_20MS.wav"/>
-            <FILE id="XYwfin" name="192_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_MIDDLE_10_20MS.wav"/>
-            <FILE id="zsnJJo" name="192_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_PRESENCE_00_20MS.wav"/>
-            <FILE id="WJ8twV" name="192_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_PRESENCE_10_20MS.wav"/>
-            <FILE id="jQHK82" name="192_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_TREBLE_00_20MS.wav"/>
-            <FILE id="X9rMcf" name="192_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                  resource="1" file="res/SoundSettings/files/ROOTS_WAV_192/192_REVF_EQ_TREBLE_10_20MS.wav"/>
-          </GROUP>
           <FILE id="J81Fqu" name="1200x600_fluff_5150.png" compile="0" resource="1"
                 file="res/SoundSettings/files/1200x600_fluff_5150.png"/>
           <FILE id="dYtUkm" name="1200x600_fluff_free_evh.png" compile="0" resource="1"
@@ -443,61 +33,61 @@
                 file="res/SoundSettings/files/1200x600_fluff_friedman.png"/>
           <FILE id="w6RVK6" name="1200x600_fluff_rectob.png" compile="0" resource="1"
                 file="res/SoundSettings/files/1200x600_fluff_rectob.png"/>
-          <FILE id="wLzkz8" name="5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+          <FILE id="x7K4MX" name="5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_BASS_00_20MS.wav"/>
-          <FILE id="Cvjmrh" name="5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+          <FILE id="kL1pw0" name="5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_BASS_10_20MS.wav"/>
-          <FILE id="sJwZit" name="5150_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="HIM7x3" name="5150_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="XZvzd4" name="5150_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="THZYuf" name="5150_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="KQtIFc" name="5150_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="wRnsoR" name="5150_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="ntQbUn" name="5150_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="rJVAhR" name="5150_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="YUSk5F" name="5150_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="l1vsi4" name="5150_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="UdpTzR" name="5150_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="Rzfsuh" name="5150_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/5150_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="OUqB3B" name="BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
+          <FILE id="FA5xno" name="BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-          <FILE id="nUCCgm" name="BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
+          <FILE id="ILjwfO" name="BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-          <FILE id="yTvEPW" name="BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
+          <FILE id="KKABR3" name="BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="OkUR4C" name="BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
+          <FILE id="iPUCPx" name="BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="aqD4t8" name="BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
+          <FILE id="mtyUOj" name="BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="k5W05K" name="BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
+          <FILE id="DaYQ2D" name="BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="qXEU6E" name="BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
+          <FILE id="eREXeY" name="BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="bOqODN" name="BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
+          <FILE id="IrDsxb" name="BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="U6xMYZ" name="EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+          <FILE id="rxMV9h" name="EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_BASS_00_20MS.wav"/>
-          <FILE id="yYy5nw" name="EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+          <FILE id="pU3B6h" name="EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_BASS_10_20MS.wav"/>
-          <FILE id="Vefn3w" name="EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="DyGrxj" name="EVH_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="E7Z7T1" name="EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="jEzmkp" name="EVH_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="dg8Z0n" name="EVH_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="MW9s5M" name="EVH_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="uTEbVQ" name="EVH_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="HEwgIB" name="EVH_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="SzibQN" name="EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="UyOenE" name="EVH_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="pnsCeP" name="EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="jciXIh" name="EVH_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/EVH_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="zrGy7B" name="MATCH_IR_5034_40MS.wav" compile="0" resource="1"
+          <FILE id="rbhB39" name="MATCH_IR_5034_40MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/MATCH_IR_5034_40MS.wav"/>
-          <FILE id="DTNnUY" name="MATCH_IR_5150_40MS.wav" compile="0" resource="1"
+          <FILE id="Ow6rsy" name="MATCH_IR_5150_40MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/MATCH_IR_5150_40MS.wav"/>
-          <FILE id="GO3Vjw" name="MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
+          <FILE id="AnPDho" name="MATCH_IR_BUTTERFLUX2_40MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/MATCH_IR_BUTTERFLUX2_40MS.wav"/>
-          <FILE id="vQGuSh" name="MATCH_IR_RECTOREVF_40MS.wav" compile="0" resource="1"
+          <FILE id="yaaBYg" name="MATCH_IR_RECTOREVF_40MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/MATCH_IR_RECTOREVF_40MS.wav"/>
           <FILE id="yriYEp" name="ML-Amped-5034-Fluff.apdX" compile="0" resource="1"
                 file="res/SoundSettings/ML-Amped-5034-Fluff.apdX"/>
@@ -507,29 +97,29 @@
                 file="res/SoundSettings/ML-Amped-Freeman-Fluff.apdX"/>
           <FILE id="MpVRSV" name="ML-Amped-Mega-Fluff.apdX" compile="0" resource="1"
                 file="res/SoundSettings/ML-Amped-Mega-Fluff.apdX"/>
-          <FILE id="UaATNt" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
+          <FILE id="mtaooQ" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ML-FRMN-M25-7B-B.wav"/>
-          <FILE id="R9V9Tr" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
+          <FILE id="h0oS69" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ML-MEGA-OS-Almighty.wav"/>
-          <FILE id="Bd28Yy" name="ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
+          <FILE id="CRP22U" name="ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
                 resource="1" file="res/SoundSettings/files/ML_USA_BULB_LEGEND_2_200MS.wav"/>
-          <FILE id="KkW3ES" name="ML_USA_BULB_LEGEND_200MS.wav" compile="0" resource="1"
+          <FILE id="ACtV5m" name="ML_USA_BULB_LEGEND_200MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ML_USA_BULB_LEGEND_200MS.wav"/>
-          <FILE id="KwQpCV" name="REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
+          <FILE id="gMZZZU" name="REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_BASS_00_20MS.wav"/>
-          <FILE id="eVvGgE" name="REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
+          <FILE id="U3FNlr" name="REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_BASS_10_20MS.wav"/>
-          <FILE id="VsjmFL" name="REVF_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="mNpuwf" name="REVF_EQ_MIDDLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="XeW3vU" name="REVF_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="uGsvkI" name="REVF_EQ_MIDDLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="H1KXek" name="REVF_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="oZz953" name="REVF_EQ_PRESENCE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="ExoiZO" name="REVF_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="H2ACgZ" name="REVF_EQ_PRESENCE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="Pq6ysu" name="REVF_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
+          <FILE id="hz2Q7V" name="REVF_EQ_TREBLE_00_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="FFSzsG" name="REVF_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
+          <FILE id="cX2keQ" name="REVF_EQ_TREBLE_10_20MS.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/REVF_EQ_TREBLE_10_20MS.wav"/>
         </GROUP>
       </GROUP>

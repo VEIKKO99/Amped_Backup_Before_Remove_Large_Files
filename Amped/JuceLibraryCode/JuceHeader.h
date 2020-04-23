@@ -54,7 +54,7 @@ namespace ProjectInfo
 {
     const char* const  projectName    = "Amped - Roots";
     const char* const  companyName    = "ML Sound Lab";
-    const char* const  versionString  = "1.2.0";
-    const int          versionNumber  = 0x10200;
+    const char* const  versionString  = "1.2.2";
+    const int          versionNumber  = 0x10202;
 }
 #endif

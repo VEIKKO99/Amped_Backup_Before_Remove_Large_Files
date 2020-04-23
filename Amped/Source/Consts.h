@@ -60,15 +60,17 @@ inline const char* getBinaryDataWithOriginalFileName(String originalFileName, in
     return nullptr;
 };
 
+/*
 inline const char* getBinaryDataWithOriginalFileName(String originalFileName, int& dataSizeInBytes, double sampleR) {
     int sampleRate = (int)(sampleR + 0.5);
     
     String prefix = "192_"; // <== Default
- //   if (sampleRate < 48000) prefix = "44_";
- //   else if (sampleRate >= 48000 && sampleRate < 88200) prefix = "48_";
- //   else if (sampleRate >= 88200 && sampleRate < 96000) prefix = "88_";
- //   else if (sampleRate >= 96000 && sampleRate < 192000) prefix = "96_";
- //   else if (sampleRate > 96000) prefix = "192_";
+    if (sampleRate < 48000) prefix = "44_";
+    else if (sampleRate >= 48000 && sampleRate < 88200) prefix = "48_";
+    else if (sampleRate >= 88200 && sampleRate < 96000) prefix = "88_";
+    else if (sampleRate >= 96000 && sampleRate < 192000) prefix = "96_";
+    else if (sampleRate > 96000) prefix = "192_";
     
     return getBinaryDataWithOriginalFileName(prefix + originalFileName, dataSizeInBytes);
 };
+*/

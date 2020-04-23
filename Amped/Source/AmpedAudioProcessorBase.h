@@ -394,7 +394,9 @@ public:
         if ((int)lastKnownSampleRate  <= 0) return;
         if (usedIR.startsWith("memory:")) {
             int dataSize = 0;
-            auto data = getBinaryDataWithOriginalFileName(usedIR, dataSize, lastKnownSampleRate);
+//            auto data = getBinaryDataWithOriginalFileName(usedIR, dataSize, lastKnownSampleRate);
+            auto data = getBinaryDataWithOriginalFileName(usedIR, dataSize);
+
             convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
             convolutionDsp.reset();
         }
@@ -620,18 +622,11 @@ class EQWithIR: public AmpedAudioProcessorBase
 {
 public:
     
-    EQWithIR(/*const char *lowPotImpulseData, int lowPotImpulseDataSize,
-             const char *highPotImpulseData, int highPotImpulseDataSize,*/
-             std::shared_ptr<SoundSettings> settings,
+    EQWithIR(std::shared_ptr<SoundSettings> settings,
              float makeupGain = .0f,
              EQType eqType = kBassEq) : AmpedAudioProcessorBase(settings)
     {
         this->eqType = eqType;
-     /*   this->loImpulseData = lowPotImpulseData;
-        this->loImpulseDataSize = lowPotImpulseDataSize;
-        
-        this->hiImpulseData = highPotImpulseData;
-        this->hiImpulseDataSize = highPotImpulseDataSize;*/
         this->makeupGain = makeupGain;
     }
     ~EQWithIR() = default;
@@ -639,8 +634,8 @@ public:
     void loadIRFile(String irFile, Convolution& convolution) {
         if (irFile.startsWith("memory:")) {
             int dataSize = 0;
-            //auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
-            auto data = getBinaryDataWithOriginalFileName(irFile, dataSize, lastKnownSampleRate);
+            auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
+            //auto data = getBinaryDataWithOriginalFileName(irFile, dataSize, lastKnownSampleRate);
             if (data != nullptr) {
                 convolution.loadImpulseResponse(data, dataSize, false, false, 0);
             }
@@ -726,13 +721,6 @@ private:
     DryWetDsp dryWet;
     Convolution lowerPotValues;
     Convolution higherPotValues;
-    
-  //  const char *hiImpulseData = nullptr;
-  //  int hiImpulseDataSize = 0;
-    
-  //  const char *loImpulseData = nullptr;
-  //  int loImpulseDataSize = 0;
-
     float makeupGain = .0f;
     float realisticEqGain = .0f;
     
@@ -742,171 +730,4 @@ private:
     bool initDone = false;
 };
 
-//
-//class EQWithIR :public AmpedAudioProcessorBase
-//{
-//public:
-//
-//    EQWithIR()
-//    {
-//        impulseResponseBuffer.setSize (1, maxIRSampleSize, false, false, true);
-//    };
-//    ~EQWithIR() = default;
-//
-//    void prepareToPlay (double sampleRate, int samplesPerBlock) override
-//    {
-//        int numOfChannels = getTotalNumInputChannels();
-//        dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
-//        dryWet.prepare(spec);
-//   //     lowPotFIR.state = dsp::IIR::Coefficients<float>::makeHighPass(sampleRate, 5000.0);
-//
-//        lowPotFIR.prepare(spec);
-//        highPotFIR.prepare(spec);
-//
-//
-//        //BinaryData::MATCHIR_wav, BinaryData::MATCHIR_wavSize
-//
-//
-//        if (! (copyAudioStreamInAudioBuffer (new MemoryInputStream (BinaryData::MATCHIR_wav, /*(size_t)*/ BinaryData::MATCHIR_wavSize, false))))
-//        {
-//            Logger::getCurrentLogger()->writeToLog("EQWithIR::copyAudioStreamInAudioBuffer fails");
-//        }
-//
-//    }
-//
-//
-//    /** Converts the data from an audio file into a stereo audio buffer of floats, and
-//     performs resampling if necessary.
-//     */
-//    bool copyAudioStreamInAudioBuffer (InputStream* stream)
-//    {
-//        AudioFormatManager manager;
-//        manager.registerBasicFormats();
-//
-//        std::unique_ptr<AudioFormatReader> formatReader (manager.createReaderFor(stream));
-//        if (formatReader != nullptr)
-//        {
-//            int numOfChannels = formatReader->numChannels;
-//            if (numOfChannels != 1) {
-//                Logger::getCurrentLogger()->writeToLog("EQWithIR::copyAudioStreamInAudioBuffer impulse file has channel count != 1");
-//            }
-//          //  int sampleRate = formatReader->sampleRate;
-//
-//            // Tässä voi lyhentää samplejen määrää johonkin pienempään mitä impulssifilessä ois.
-//            // currentInfo.originalSize = static_cast<int> (jmin (maximumTimeInSamples, formatReader->lengthInSamples));
-//
-//            int64 originalSize = formatReader->lengthInSamples;
-//            formatReader->read (&(impulseResponseBuffer), 0, (int) originalSize, 0, true, false);
-//
-//            //using NumericType = typename SampleTypeHelpers::ElementType<SampleType>::Type;
-//
-//            /*lowPotFIR.state*/
-//            //dsp::IIR::Coefficients(impulseResponseBuffer.getReadPointer(0), 1048);
-//            //lowPotFIR.state = dsp::FIR::Coefficients<float>(impulseResponseBuffer.getReadPointer(0), 1048);
-//
-//
-//            std::make_unique< dsp::FIR::Coefficients<float>>(impulseResponseBuffer.getReadPointer(0), 1048);
-//
-//
-//     //       dsp::FIR::Filter<float> filter(std::make_unique< dsp::FIR::Coefficients<float>>(impulseResponseBuffer.getReadPointer(0), 1048));
-//
-//
-//
-//
-//      //      FIR::Filter<float>::Filter(Coefficients< NumericType > * CoefficientsToUse)
-//
-//
-//
-//
-//
-//            return true;
-//        }
-//
-//        return false;
-//
-//       /* AudioFormatManager manager;
-//        manager.registerBasicFormats();
-//        std::unique_ptr<AudioFormatReader> formatReader (manager.createReaderFor (stream));
-//
-//        if (formatReader != nullptr)
-//        {
-//            currentInfo.originalNumChannels = formatReader->numChannels > 1 ? 2 : 1;
-//            currentInfo.originalSampleRate = formatReader->sampleRate;
-//            currentInfo.originalSize = static_cast<int> (jmin (maximumTimeInSamples, formatReader->lengthInSamples));
-//
-//            impulseResponseOriginal.clear();
-//            formatReader->read (&(impulseResponseOriginal), 0, (int) currentInfo.originalSize, 0, true, currentInfo.originalNumChannels > 1);
-//
-//            return true;
-//        }
-//
-//        return false;*/
-//    }
-//
-//    void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
-//    {
-//        dryWet.setDryBuffer(buffer);
-//        dryWet.dryGainParam = *eqValue;
-//        dsp::AudioBlock<float> block(buffer);
-//        dsp::ProcessContextReplacing<float> context (block);
-//
-//        lowPotFIR.process(context);
-//        dryWet.process(context);
-//
-//
-//      /*  dsp::AudioBlock<float> block (buffer);
-//        dsp::ProcessContextReplacing<float> context (block);
-//
-//        wetGain.setGainLinear(wetDry);
-//        dryGain.setGainLinear(1.0f - wetDry);
-//
-//        wetGain.process(context);
-//
-//        dsp::AudioBlock<float> dryBlock(dryBuffer);
-//        dsp::ProcessContextReplacing<float> dryContext(dryBlock);
-//        dryGain.process(dryContext);
-//
-//        context.getOutputBlock().add(dryBlock);*/
-//    }
-//   /* void process(const dsp::ProcessContextReplacing<float>& context) noexcept override
-//    {
-//        wetGain.params->gain = params->wetDry;
-//        dryGain.params->gain = 1.0f - params->wetDry;
-//
-//        wetGain.process(context);
-//
-//        dsp::AudioBlock<float> dryBlock(dryBuffer);
-//        dsp::ProcessContextReplacing<float> dryContext(dryBlock);
-//        dryGain.process(dryContext);
-//
-//        context.getOutputBlock().add(dryBlock);
-//    }
-//    */
-//    void reset() noexcept override
-//    {
-//
-//    }
-//
-//    float* eqValue = nullptr;
-//
-//
-//
-//
-//private:
-//
-//    using AMPEQ = dsp::ProcessorDuplicator<dsp::FIR::Filter<float>, dsp::FIR::Coefficients<float>>;
-//
-//    AMPEQ lowPotFIR;
-//    AMPEQ highPotFIR;
-//    //dsp::ProcessorDuplicator<dsp::IIR::Filter<float>,dsp::ProcessorState> lowPotFIR;
-//    //dsp::ProcessorDuplicator<dsp::IIR::Filter<float>,dsp::ProcessorState> highPotFIR;
-//
-//   // lowPotFIR = dsp::ProcessorDuplicator<dsp::FIR::Filter<float>>;
-//   // highPotFIR = dsp::ProcessorDuplicator<dsp::FIR::Filter<float>>;
-//
-//    DryWetDsp dryWet;
-//
-//    AudioBuffer<float> impulseResponseBuffer;
-//    int maxIRSampleSize = 10 * 48000;
-//};
 

@@ -7,7 +7,7 @@
 #include <windows.h>
 
 VS_VERSION_INFO VERSIONINFO
-FILEVERSION  1,2,0,0
+FILEVERSION  1,2,2,0
 BEGIN
   BLOCK "StringFileInfo"
   BEGIN
@@ -16,9 +16,9 @@ BEGIN
       VALUE "CompanyName",  "ML Sound Lab\0"
       VALUE "LegalCopyright",  "Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy\0"
       VALUE "FileDescription",  "Amped - Roots\0"
-      VALUE "FileVersion",  "1.2.0\0"
+      VALUE "FileVersion",  "1.2.2\0"
       VALUE "ProductName",  "Amped - Roots\0"
-      VALUE "ProductVersion",  "1.2.0\0"
+      VALUE "ProductVersion",  "1.2.2\0"
     END
   END
 
