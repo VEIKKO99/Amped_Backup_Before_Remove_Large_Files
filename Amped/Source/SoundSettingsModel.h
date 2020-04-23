@@ -18,7 +18,8 @@ class SoundSettingsModel {
 
 public:
     SoundSettingsModel() {
-         initModel();
+        Logger::getCurrentLogger()->writeToLog("SoundSettingsModel INIT");
+        initModel();
     }
 
     std::shared_ptr<SoundSettings> getCurrentSetting() {

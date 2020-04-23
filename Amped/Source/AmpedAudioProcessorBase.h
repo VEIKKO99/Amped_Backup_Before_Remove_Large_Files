@@ -366,7 +366,11 @@ public:
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
     {
-        initInpulseResponseProcessor(sampleRate, samplesPerBlock);
+        Logger::getCurrentLogger()->writeToLog("IRProcessor prepareToPlay");
+        lastKnownSampleRate = sampleRate;
+        // Sometime Juce AudioGraph calls this method with 0 samplerate.
+        if ((int)lastKnownSampleRate  > 0)
+            initInpulseResponseProcessor(sampleRate, samplesPerBlock);
     }
     
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
@@ -385,15 +389,17 @@ public:
     
     const String getName() const override { return "IR"; }
 
-    void loadIRFile(String irFile) {
-        if (irFile.startsWith("memory:")) {
+    void loadIRFile() {
+        // Load only if sample rate is valid:
+        if ((int)lastKnownSampleRate  <= 0) return;
+        if (usedIR.startsWith("memory:")) {
             int dataSize = 0;
-            auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
+            auto data = getBinaryDataWithOriginalFileName(usedIR, dataSize, lastKnownSampleRate);
             convolutionDsp.loadImpulseResponse(data, dataSize, false, false, 0);
-            if (initDone) convolutionDsp.reset();
+            convolutionDsp.reset();
         }
         else {
-            File irData(irFile);
+            File irData(usedIR);
             
             // Just to check if file input stream is valid. Juce convolution goes crazy (forever loop) if
             // Stream is not ok (For example no permission in OS X)
@@ -414,6 +420,7 @@ private:
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolutionDsp.prepare(spec);
+        loadIRFile();
         convolutionDsp.reset();
         initDone = true;
     }
@@ -422,10 +429,14 @@ protected:
     
     float makeupGain = .0f;
     
+protected:
+    String usedIR;
+
 private:
     Convolution convolutionDsp;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (IRProcessor)
     bool initDone = false;
+    double lastKnownSampleRate = 0.0;
 };
 
 
@@ -446,12 +457,16 @@ public:
 
     void setupCabIRFile() {
         if (soundSettings->ampSettings.cabIr.overridingIrFileName.length() > 0) {
-            loadIRFile(soundSettings->ampSettings.cabIr.overridingIrFileName);
+            usedIR = soundSettings->ampSettings.cabIr.overridingIrFileName;
+            loadIRFile();
+           // loadIRFile(soundSettings->ampSettings.cabIr.overridingIrFileName);
             //Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.overridingIrFileName);
         }
         else {
+            usedIR = soundSettings->ampSettings.cabIr.irFileName;
+            loadIRFile();
         //    Logger::getCurrentLogger()->writeToLog("setupCabIRFile: " +  soundSettings->ampSettings.cabIr.irFileName);
-            loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
+            //loadIRFile(soundSettings->ampSettings.cabIr.irFileName);
         }
     }
 };
@@ -462,12 +477,14 @@ public:
     AmpSimIr(std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
             IRProcessor(settings, makeupGain)
     {
-        loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
+        loadIRFile();
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
         IRProcessor::updateInternalSettings(settings);
-        loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
+        usedIR = soundSettings->ampSettings.ampIr.irFileName;
+        loadIRFile();
+       // loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
         makeupGain = soundSettings->ampSettings.ampIr.gain;
     }
 };
@@ -554,7 +571,7 @@ public:
     //    float scaledDrive = (gainMax - gainMin) * *driveParameter + gainMin;
 
         tubeAmp.setPreGain(drive);
-        tubeAmp.setMasterVolume(*masterParameter);
+        tubeAmp.setMasterVolume(*masterParameter * 67);
         tubeAmp.setPresence(presence);
         
         tubeAmp.setDryWet(1.0);
@@ -603,18 +620,18 @@ class EQWithIR: public AmpedAudioProcessorBase
 {
 public:
     
-    EQWithIR(const char *lowPotImpulseData, int lowPotImpulseDataSize,
-             const char *highPotImpulseData, int highPotImpulseDataSize,
+    EQWithIR(/*const char *lowPotImpulseData, int lowPotImpulseDataSize,
+             const char *highPotImpulseData, int highPotImpulseDataSize,*/
              std::shared_ptr<SoundSettings> settings,
              float makeupGain = .0f,
              EQType eqType = kBassEq) : AmpedAudioProcessorBase(settings)
     {
         this->eqType = eqType;
-        this->loImpulseData = lowPotImpulseData;
+     /*   this->loImpulseData = lowPotImpulseData;
         this->loImpulseDataSize = lowPotImpulseDataSize;
         
         this->hiImpulseData = highPotImpulseData;
-        this->hiImpulseDataSize = highPotImpulseDataSize;
+        this->hiImpulseDataSize = highPotImpulseDataSize;*/
         this->makeupGain = makeupGain;
     }
     ~EQWithIR() = default;
@@ -622,25 +639,33 @@ public:
     void loadIRFile(String irFile, Convolution& convolution) {
         if (irFile.startsWith("memory:")) {
             int dataSize = 0;
-            auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
-            convolution.loadImpulseResponse(data, dataSize, false, false, 0);
+            //auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
+            auto data = getBinaryDataWithOriginalFileName(irFile, dataSize, lastKnownSampleRate);
+            if (data != nullptr) {
+                convolution.loadImpulseResponse(data, dataSize, false, false, 0);
+            }
+            else {
+                 Logger::getCurrentLogger()->writeToLog("ERROR in EQ settings");
+            }
         }
         else {
             File irData(irFile);
             convolution.loadImpulseResponse(irData, false, false, 0);
         }
-        if (initDone) convolution.reset();
+        convolution.reset();
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
         AmpedAudioProcessorBase::updateInternalSettings(settings);
         EQSettings& eqSettings = soundSettings->ampSettings.eqs[eqType];
 
-        if (eqSettings.highIrFileName.length()  > 0) {
-            loadIRFile(eqSettings.highIrFileName, higherPotValues);
-        }
-        if (eqSettings.lowIrFileName.length() > 0) {
-            loadIRFile(eqSettings.lowIrFileName, lowerPotValues);
+        if (initDone) {
+            if (eqSettings.highIrFileName.length()  > 0) {
+                loadIRFile(eqSettings.highIrFileName, higherPotValues);
+            }
+            if (eqSettings.lowIrFileName.length() > 0) {
+                loadIRFile(eqSettings.lowIrFileName, lowerPotValues);
+            }
         }
         makeupGain = eqSettings.gain;
         realisticEqGain = eqSettings.realisticGain;
@@ -648,12 +673,14 @@ public:
 
     void prepareToPlay(double sampleRate, int samplesPerBlock) override
     {
+        lastKnownSampleRate = sampleRate;
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         dryWet.prepare(spec);
         
-        initInpulseResponseProcessor(loImpulseData, loImpulseDataSize, sampleRate, samplesPerBlock, lowerPotValues );
-        initInpulseResponseProcessor(hiImpulseData, hiImpulseDataSize, sampleRate, samplesPerBlock, higherPotValues );
+        EQSettings& eqSettings = soundSettings->ampSettings.eqs[eqType];
+        initInpulseResponseProcessor(eqSettings.lowIrFileName, sampleRate, samplesPerBlock, lowerPotValues );
+        initInpulseResponseProcessor(eqSettings.highIrFileName, sampleRate, samplesPerBlock, higherPotValues );
     }
     
     void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
@@ -669,6 +696,7 @@ public:
         else
             higherPotValues.process(context);
         buffer.applyGain(makeupGain + *eqValue * realisticEqGain);
+        
         dryWet.process(context);
     }
     
@@ -680,14 +708,15 @@ public:
     }
 
 private:
-    void initInpulseResponseProcessor(const char *data, int dataSize, double sampleRate, int samplesPerBlock, Convolution& convolution )
+    void initInpulseResponseProcessor(String irFileName, double sampleRate, int samplesPerBlock, Convolution& convolution )
     {
         int numOfChannels = getTotalNumInputChannels();
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), static_cast<uint32>(numOfChannels)};
         convolution.prepare(spec);
-        convolution.loadImpulseResponse(data, dataSize, false, false, 0, true);
-        convolution.reset();
         initDone = true;
+        //convolution.loadImpulseResponse(data, dataSize, false, false, 0, true);
+        loadIRFile(irFileName, convolution);
+        convolution.reset();
     }
     
 public:
@@ -698,14 +727,16 @@ private:
     Convolution lowerPotValues;
     Convolution higherPotValues;
     
-    const char *hiImpulseData = nullptr;
-    int hiImpulseDataSize = 0;
+  //  const char *hiImpulseData = nullptr;
+  //  int hiImpulseDataSize = 0;
     
-    const char *loImpulseData = nullptr;
-    int loImpulseDataSize = 0;
+  //  const char *loImpulseData = nullptr;
+  //  int loImpulseDataSize = 0;
 
     float makeupGain = .0f;
     float realisticEqGain = .0f;
+    
+    double lastKnownSampleRate = 0.0;
 
     EQType eqType;
     bool initDone = false;

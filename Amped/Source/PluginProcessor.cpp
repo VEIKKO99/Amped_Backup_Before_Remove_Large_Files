@@ -245,15 +245,13 @@ void AmpedAudioProcessor::initEq(Node::Ptr& eq, String lowBinFileName,
                                                 float* parameter,
                                                 float makeupGain = .0f, EQType type = EQType::kBassEq)
 {
-    int lowDataSize = 0;
-    auto* lowData = getBinaryDataWithOriginalFileName (lowBinFileName, lowDataSize);
+//    int lowDataSize = 0;
+//    auto* lowData = getBinaryDataWithOriginalFileName (lowBinFileName, lowDataSize);
 
-    int highDataSize = 0;
-    auto* highData = getBinaryDataWithOriginalFileName (highBinFileName, highDataSize);
+//    int highDataSize = 0;
+//    auto* highData = getBinaryDataWithOriginalFileName (highBinFileName, highDataSize);
 
-    eq = mainProcessor->addNode(std::make_unique<EQWithIR>(lowData, lowDataSize,
-                                           highData, highDataSize,
-                                           soundSettingsModel.getCurrentSetting(), makeupGain, type));
+    eq = mainProcessor->addNode(std::make_unique<EQWithIR>(soundSettingsModel.getCurrentSetting(), makeupGain, type));
 
     EQWithIR* eqIr = (EQWithIR*) eq->getProcessor();
     eqIr->eqValue = parameter;
