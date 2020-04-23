@@ -584,7 +584,7 @@ public:
         }
         
         float scaledMasterVolume =  ((max - min) * 4.0 * scaledGain + min) * *masterParameter;
-        Logger::getCurrentLogger()->writeToLog("Scaled Master Volume" + String(scaledMasterVolume));
+       // Logger::getCurrentLogger()->writeToLog("Scaled Master Volume" + String(scaledMasterVolume));
 
         return scaledMasterVolume;
     }
