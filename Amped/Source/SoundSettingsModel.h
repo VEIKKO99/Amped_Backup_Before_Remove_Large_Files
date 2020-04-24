@@ -18,7 +18,7 @@ class SoundSettingsModel {
 
 public:
     SoundSettingsModel() {
-        Logger::getCurrentLogger()->writeToLog("SoundSettingsModel INIT");
+      //  Logger::getCurrentLogger()->writeToLog("SoundSettingsModel INIT");
         initModel();
     }
 

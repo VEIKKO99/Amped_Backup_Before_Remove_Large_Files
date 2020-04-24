@@ -366,7 +366,7 @@ public:
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
     {
-        Logger::getCurrentLogger()->writeToLog("IRProcessor prepareToPlay");
+  //      Logger::getCurrentLogger()->writeToLog("IRProcessor prepareToPlay");
         lastKnownSampleRate = sampleRate;
         // Sometime Juce AudioGraph calls this method with 0 samplerate.
         if ((int)lastKnownSampleRate  > 0)
@@ -679,7 +679,7 @@ public:
                 convolution.loadImpulseResponse(data, dataSize, false, false, 0);
             }
             else {
-                 Logger::getCurrentLogger()->writeToLog("ERROR in EQ settings");
+     //            Logger::getCurrentLogger()->writeToLog("ERROR in EQ settings");
             }
         }
         else {

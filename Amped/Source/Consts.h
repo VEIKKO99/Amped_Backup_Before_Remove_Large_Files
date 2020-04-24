@@ -53,7 +53,7 @@ inline const char* getBinaryDataWithOriginalFileName(String originalFileName, in
     {
         if (strcmp(BinaryData::originalFilenames[i], resourceNameUTF8) == 0) {
             //return BinaryData::namedResourceList[i];
-            Logger::getCurrentLogger()->writeToLog(resourceNameUTF8);
+    //        Logger::getCurrentLogger()->writeToLog(resourceNameUTF8);
             return BinaryData::getNamedResource(BinaryData::namedResourceList[i], dataSizeInBytes);
         }
     }
