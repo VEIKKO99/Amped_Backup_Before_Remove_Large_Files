@@ -1515,7 +1515,7 @@
     </GROUP>
   </MAINGROUP>
   <EXPORTFORMATS>
-    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="oGsHoJ" bigIcon="V5KcLs"
+    <XCODE_MAC targetFolder="Builds/MacOSX" smallIcon="zhHyxu" bigIcon="zRI9EJ"
                hardenedRuntime="1" microphonePermissionNeeded="1" hardenedRuntimeOptions="com.apple.security.device.audio-input"
                aaxFolder="../../../AAX_SDK_2p3p2">
       <CONFIGURATIONS>
