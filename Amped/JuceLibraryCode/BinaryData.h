@@ -8,6 +8,12 @@
 
 namespace BinaryData
 {
+    extern const char*   amped_icon_128_png;
+    const int            amped_icon_128_pngSize = 5119;
+
+    extern const char*   amped_icon_1024_png;
+    const int            amped_icon_1024_pngSize = 21547;
+
     extern const char*   CHANNELRIGHT_png;
     const int            CHANNELRIGHT_pngSize = 2948;
 
@@ -2040,10 +2046,10 @@ namespace BinaryData
     const int            _1200x289pedals_pngSize = 212361;
 
     extern const char*   tube_transfer_py;
-    const int            tube_transfer_pySize = 14794;
+    const int            tube_transfer_pySize = 15142;
 
     // Number of elements in the namedResourceList and originalFileNames arrays.
-    const int namedResourceListSize = 678;
+    const int namedResourceListSize = 680;
 
     // Points to the start of a list of resource names.
     extern const char* namedResourceList[];

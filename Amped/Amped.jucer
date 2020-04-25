@@ -11,14 +11,14 @@
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <FILE id="zhHyxu" name="amped_icon_128.png" compile="0" resource="1"
+            file="res/app_icons/amped_icon_128.png"/>
+      <FILE id="zRI9EJ" name="amped_icon_1024.png" compile="0" resource="1"
+            file="res/app_icons/amped_icon_1024.png"/>
       <FILE id="Y5myHf" name="CHANNEL-RIGHT.png" compile="0" resource="1"
             file="res/CHANNEL-RIGHT.png"/>
       <FILE id="omCeWM" name="CHANNEL-LEFT.png" compile="0" resource="1"
             file="res/CHANNEL-LEFT.png"/>
-      <FILE id="oGsHoJ" name="amped_icon_128.png" compile="0" resource="0"
-            file="res/app_icons/amped_icon_128.png"/>
-      <FILE id="V5KcLs" name="amped_icon_1024.png" compile="0" resource="0"
-            file="res/app_icons/amped_icon_1024.png"/>
       <FILE id="jITiSs" name="amped_license_background.png" compile="0" resource="1"
             file="res/amped_license_background.png"/>
       <FILE id="LfP0HY" name="amped_roots_logo.png" compile="0" resource="1"
@@ -1542,7 +1542,7 @@
         <MODULEPATH id="papupata_licensing" path="MODULES"/>
       </MODULEPATHS>
     </XCODE_MAC>
-    <VS2019 targetFolder="Builds/VisualStudio2019">
+    <VS2019 targetFolder="Builds/VisualStudio2019" smallIcon="zhHyxu" bigIcon="zRI9EJ">
       <CONFIGURATIONS>
         <CONFIGURATION isDebug="1" name="Debug" headerPath="C:\Users\vetapani\Desktop\asiosdk_2.3.3_2019-06-14\common"
                        useRuntimeLibDLL="0"/>
