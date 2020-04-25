@@ -5,9 +5,10 @@
               selectedKnob="3"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
-    <MaxMin min="-24.0" max="0.0"/>
-    <MaxMin min="-12.0" max="10.0"/>
+    <MaxMin min="-29.0" max="-5.0"/>
+    <MaxMin min="0.0" max="0.0"/>
   </MaxMinSettings>
+
   <Presets>
     <Preset name="High Noon">
       <AmpedV100>
@@ -208,14 +209,15 @@
       </AmpedV100>
     </Preset>
   </Presets>
-  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterVolumeMultiplier="1.0">
-    <TubeSettings amountOfPreampTubes="3">
+
+  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterMultiplierOff="0.0"
+                       masterMultiplier025="20.0" masterMultiplier050="50.0" masterMultiplier075="175.0"
+                       masterMultiplier100="210.0">
+    <TubeSettings amountOfPreampTubes="2">
       <PreAmpTubes>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="125.0"
                      tubeType="1"/>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
-                     tubeType="1"/>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="125.0"
                      tubeType="1"/>
       </PreAmpTubes>
       <PowerAmpTube>
@@ -229,23 +231,23 @@
                    overridingIrFileName="" gain="6.0"/>
       </CabIr>
       <AmpIr>
-        <IRSetting irFileName="memory:MATCH_IR_BUTTERFLUX2_40MS.wav"
+        <IRSetting irFileName="memory:AMP_freeman.wav"
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
     <EQSettings>
-      <EQSettings lowIrFileName="memory:BUTTERSLX_EQ_BASS_00_20MS.wav"
-                  highIrFileName="memory:BUTTERSLX_EQ_BASS_10_20MS.wav"
-                  gain="7.0" realisticGain="1.0"/>
-      <EQSettings lowIrFileName="memory:BUTTERSLX_EQ_MIDDLE_00_20MS.wav"
-                  highIrFileName="memory:BUTTERSLX_EQ_MIDDLE_10_20MS.wav"
-                  gain="7.0" realisticGain="1.0"/>
-      <EQSettings lowIrFileName="memory:BUTTERSLX_EQ_TREBLE_00_20MS.wav"
-                  highIrFileName="memory:BUTTERSLX_EQ_TREBLE_10_20MS.wav"
-                  gain="5.0" realisticGain="7.0"/>
-      <EQSettings lowIrFileName="memory:BUTTERSLX_EQ_PRESENCE_00_20MS.wav"
-                  highIrFileName="memory:BUTTERSLX_EQ_PRESENCE_10_20MS.wav"
-                  gain="5.0" realisticGain="7.0"/>
+      <EQSettings lowIrFileName="memory:192_BUTTERSLX_EQ_BASS_00_20MS.wav"
+                  highIrFileName="memory:192_BUTTERSLX_EQ_BASS_10_20MS.wav"
+                  gain="6.0" realisticGain="0.0"/>
+      <EQSettings lowIrFileName="memory:192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"
+                  highIrFileName="memory:192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"
+                  gain="6.0" realisticGain="1.0"/>
+      <EQSettings lowIrFileName="memory:192_BUTTERSLX_EQ_TREBLE_00_20MS.wav"
+                  highIrFileName="memory:192_BUTTERSLX_EQ_TREBLE_10_20MS.wav"
+                  gain="2.0" realisticGain="13.0"/>
+      <EQSettings lowIrFileName="memory:192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"
+                  highIrFileName="memory:192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"
+                  gain="3.0" realisticGain="10.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>

@@ -125,8 +125,6 @@ private:
     std::unique_ptr<TextEditor> overSample;
     std::unique_ptr<Label> amtPreAmpTubesLabel;
     std::unique_ptr<TextEditor> amountOfPreampTubes;
-    std::unique_ptr<Label> label2;
-    std::unique_ptr<TextEditor> masterMultiplier;
     std::unique_ptr<Label> label3;
     std::unique_ptr<Label> label11;
     std::unique_ptr<Label> presetNumber;
@@ -139,6 +137,17 @@ private:
     std::unique_ptr<TextButton> deletePresetBtn;
     std::unique_ptr<TextEditor> presetsInfoTextView;
     std::unique_ptr<TextButton> encryptFileBtn;
+    std::unique_ptr<Label> label12;
+    std::unique_ptr<TextEditor> masterMultiplierOff;
+    std::unique_ptr<TextEditor> masterMultiplier025;
+    std::unique_ptr<TextEditor> masterMultiplier050;
+    std::unique_ptr<TextEditor> masterMultiplier075;
+    std::unique_ptr<TextEditor> masterMultiplier100;
+    std::unique_ptr<Label> label14;
+    std::unique_ptr<Label> label15;
+    std::unique_ptr<Label> label16;
+    std::unique_ptr<Label> label17;
+    std::unique_ptr<Label> label18;
 
 
     //==============================================================================

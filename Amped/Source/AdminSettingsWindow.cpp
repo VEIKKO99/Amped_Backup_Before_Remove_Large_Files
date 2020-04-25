@@ -161,7 +161,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     powerAmpTubeSettings.reset (new UITubeSettings());
     addAndMakeVisible (powerAmpTubeSettings.get());
-    powerAmpTubeSettings->setBounds (8, 376, 680, 144);
+    powerAmpTubeSettings->setBounds (8, 272, 680, 143);
 
     knobTypeComboBox.reset (new ComboBox ("new combo box"));
     addAndMakeVisible (knobTypeComboBox.get());
@@ -385,29 +385,6 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     amountOfPreampTubes->setBounds (16, 95, 47, 24);
 
-    label2.reset (new Label ("new label",
-                             TRANS("Master Multiplier")));
-    addAndMakeVisible (label2.get());
-    label2->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
-    label2->setJustificationType (Justification::centredLeft);
-    label2->setEditable (false, false, false);
-    label2->setColour (TextEditor::textColourId, Colours::black);
-    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
-
-    label2->setBounds (808, 200, 150, 24);
-
-    masterMultiplier.reset (new TextEditor ("new text editor"));
-    addAndMakeVisible (masterMultiplier.get());
-    masterMultiplier->setMultiLine (false);
-    masterMultiplier->setReturnKeyStartsNewLine (false);
-    masterMultiplier->setReadOnly (false);
-    masterMultiplier->setScrollbarsShown (true);
-    masterMultiplier->setCaretVisible (true);
-    masterMultiplier->setPopupMenuEnabled (true);
-    masterMultiplier->setText (String());
-
-    masterMultiplier->setBounds (816, 232, 47, 24);
-
     label3.reset (new Label ("new label",
                              TRANS("Presets\n")));
     addAndMakeVisible (label3.get());
@@ -521,6 +498,132 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     encryptFileBtn->setBounds (664, 744, 150, 24);
 
+    label12.reset (new Label ("new label",
+                              TRANS("Master multiplier\n")));
+    addAndMakeVisible (label12.get());
+    label12->setFont (Font (15.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label12->setJustificationType (Justification::centredLeft);
+    label12->setEditable (false, false, false);
+    label12->setColour (TextEditor::textColourId, Colours::black);
+    label12->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label12->setBounds (8, 424, 150, 24);
+
+    masterMultiplierOff.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplierOff.get());
+    masterMultiplierOff->setMultiLine (false);
+    masterMultiplierOff->setReturnKeyStartsNewLine (false);
+    masterMultiplierOff->setReadOnly (false);
+    masterMultiplierOff->setScrollbarsShown (true);
+    masterMultiplierOff->setCaretVisible (true);
+    masterMultiplierOff->setPopupMenuEnabled (true);
+    masterMultiplierOff->setText (String());
+
+    masterMultiplierOff->setBounds (16, 448, 48, 24);
+
+    masterMultiplier025.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplier025.get());
+    masterMultiplier025->setMultiLine (false);
+    masterMultiplier025->setReturnKeyStartsNewLine (false);
+    masterMultiplier025->setReadOnly (false);
+    masterMultiplier025->setScrollbarsShown (true);
+    masterMultiplier025->setCaretVisible (true);
+    masterMultiplier025->setPopupMenuEnabled (true);
+    masterMultiplier025->setText (String());
+
+    masterMultiplier025->setBounds (80, 448, 48, 24);
+
+    masterMultiplier050.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplier050.get());
+    masterMultiplier050->setMultiLine (false);
+    masterMultiplier050->setReturnKeyStartsNewLine (false);
+    masterMultiplier050->setReadOnly (false);
+    masterMultiplier050->setScrollbarsShown (true);
+    masterMultiplier050->setCaretVisible (true);
+    masterMultiplier050->setPopupMenuEnabled (true);
+    masterMultiplier050->setText (String());
+
+    masterMultiplier050->setBounds (144, 448, 48, 24);
+
+    masterMultiplier075.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplier075.get());
+    masterMultiplier075->setMultiLine (false);
+    masterMultiplier075->setReturnKeyStartsNewLine (false);
+    masterMultiplier075->setReadOnly (false);
+    masterMultiplier075->setScrollbarsShown (true);
+    masterMultiplier075->setCaretVisible (true);
+    masterMultiplier075->setPopupMenuEnabled (true);
+    masterMultiplier075->setText (String());
+
+    masterMultiplier075->setBounds (208, 448, 48, 24);
+
+    masterMultiplier100.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (masterMultiplier100.get());
+    masterMultiplier100->setMultiLine (false);
+    masterMultiplier100->setReturnKeyStartsNewLine (false);
+    masterMultiplier100->setReadOnly (false);
+    masterMultiplier100->setScrollbarsShown (true);
+    masterMultiplier100->setCaretVisible (true);
+    masterMultiplier100->setPopupMenuEnabled (true);
+    masterMultiplier100->setText (String());
+
+    masterMultiplier100->setBounds (272, 448, 48, 24);
+
+    label14.reset (new Label ("new label",
+                              TRANS("Off\n")));
+    addAndMakeVisible (label14.get());
+    label14->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label14->setJustificationType (Justification::centredLeft);
+    label14->setEditable (false, false, false);
+    label14->setColour (TextEditor::textColourId, Colours::black);
+    label14->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label14->setBounds (16, 472, 32, 24);
+
+    label15.reset (new Label ("new label",
+                              TRANS("Klo 09")));
+    addAndMakeVisible (label15.get());
+    label15->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label15->setJustificationType (Justification::centredLeft);
+    label15->setEditable (false, false, false);
+    label15->setColour (TextEditor::textColourId, Colours::black);
+    label15->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label15->setBounds (80, 472, 32, 24);
+
+    label16.reset (new Label ("new label",
+                              TRANS("Klo 12")));
+    addAndMakeVisible (label16.get());
+    label16->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label16->setJustificationType (Justification::centredLeft);
+    label16->setEditable (false, false, false);
+    label16->setColour (TextEditor::textColourId, Colours::black);
+    label16->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label16->setBounds (144, 472, 32, 24);
+
+    label17.reset (new Label ("new label",
+                              TRANS("Klo 15")));
+    addAndMakeVisible (label17.get());
+    label17->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label17->setJustificationType (Justification::centredLeft);
+    label17->setEditable (false, false, false);
+    label17->setColour (TextEditor::textColourId, Colours::black);
+    label17->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label17->setBounds (208, 472, 32, 24);
+
+    label18.reset (new Label ("new label",
+                              TRANS("Full")));
+    addAndMakeVisible (label18.get());
+    label18->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label18->setJustificationType (Justification::centredLeft);
+    label18->setEditable (false, false, false);
+    label18->setColour (TextEditor::textColourId, Colours::black);
+    label18->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label18->setBounds (272, 472, 32, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -576,8 +679,6 @@ AdminSettingsWindow::~AdminSettingsWindow()
     overSample = nullptr;
     amtPreAmpTubesLabel = nullptr;
     amountOfPreampTubes = nullptr;
-    label2 = nullptr;
-    masterMultiplier = nullptr;
     label3 = nullptr;
     label11 = nullptr;
     presetNumber = nullptr;
@@ -590,6 +691,17 @@ AdminSettingsWindow::~AdminSettingsWindow()
     deletePresetBtn = nullptr;
     presetsInfoTextView = nullptr;
     encryptFileBtn = nullptr;
+    label12 = nullptr;
+    masterMultiplierOff = nullptr;
+    masterMultiplier025 = nullptr;
+    masterMultiplier050 = nullptr;
+    masterMultiplier075 = nullptr;
+    masterMultiplier100 = nullptr;
+    label14 = nullptr;
+    label15 = nullptr;
+    label16 = nullptr;
+    label17 = nullptr;
+    label18 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -757,7 +869,13 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.hornetPresence = hornetPresence->getText().getFloatValue();
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
     settings->ampSettings.overSample = overSample->getText().getIntValue();
-    settings->ampSettings.masterVolumeMultiplier = masterMultiplier->getText().getFloatValue();
+    //settings->ampSettings.masterVolumeMultiplier = masterMultiplier->getText().getFloatValue();
+    
+    settings->ampSettings.masterMultiplierOff = masterMultiplierOff->getText().getFloatValue();
+    settings->ampSettings.masterMultiplier025 = masterMultiplier025->getText().getFloatValue();
+    settings->ampSettings.masterMultiplier050 = masterMultiplier050->getText().getFloatValue();
+    settings->ampSettings.masterMultiplier075 = masterMultiplier075->getText().getFloatValue();
+    settings->ampSettings.masterMultiplier100 = masterMultiplier100->getText().getFloatValue();
 
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
@@ -808,7 +926,13 @@ void AdminSettingsWindow::setupUI(){
     this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
 
     this->overSample->setText(String(settings->ampSettings.overSample));
-    this->masterMultiplier->setText(String(settings->ampSettings.masterVolumeMultiplier));
+    
+    this->masterMultiplierOff->setText(String(settings->ampSettings.masterMultiplierOff));
+    this->masterMultiplier025->setText(String(settings->ampSettings.masterMultiplier025));
+    this->masterMultiplier050->setText(String(settings->ampSettings.masterMultiplier050));
+    this->masterMultiplier075->setText(String(settings->ampSettings.masterMultiplier075));
+    this->masterMultiplier100->setText(String(settings->ampSettings.masterMultiplier100));
+
 
     updatePresetUI();
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
@@ -1058,7 +1182,7 @@ BEGIN_JUCER_METADATA
              explicitFocusOrder="0" pos="8 128 680 145" sourceFile="UITubeSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="85421bade1ef9019" memberName="powerAmpTubeSettings"
-             virtualName="" explicitFocusOrder="0" pos="8 376 680 144" sourceFile="UITubeSettings.cpp"
+             virtualName="" explicitFocusOrder="0" pos="8 272 680 143" sourceFile="UITubeSettings.cpp"
              constructorParams=""/>
   <COMBOBOX name="new combo box" id="392db2e92c1aaa72" memberName="knobTypeComboBox"
             virtualName="" explicitFocusOrder="0" pos="184 32 150 24" editable="0"
@@ -1153,15 +1277,6 @@ BEGIN_JUCER_METADATA
               virtualName="" explicitFocusOrder="0" pos="16 95 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
-  <LABEL name="new label" id="7c92cf76a3554bc5" memberName="label2" virtualName=""
-         explicitFocusOrder="0" pos="808 200 150 24" edTextCol="ff000000"
-         edBkgCol="0" labelText="Master Multiplier" editableSingleClick="0"
-         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
-  <TEXTEDITOR name="new text editor" id="bd0150a8855a2a1f" memberName="masterMultiplier"
-              virtualName="" explicitFocusOrder="0" pos="816 232 47 24" initialText=""
-              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
-              caret="1" popupmenu="1"/>
   <LABEL name="new label" id="dd21f8f550e08c43" memberName="label3" virtualName=""
          explicitFocusOrder="0" pos="16 744 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Presets&#10;" editableSingleClick="0"
@@ -1208,6 +1323,56 @@ BEGIN_JUCER_METADATA
   <TEXTBUTTON name="new button" id="13b58f3bd9c642c4" memberName="encryptFileBtn"
               virtualName="" explicitFocusOrder="0" pos="664 744 150 24" buttonText="Encrypt File"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <LABEL name="new label" id="7354f9859b54d6b2" memberName="label12" virtualName=""
+         explicitFocusOrder="0" pos="8 424 150 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Master multiplier&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="a74a924c1c05a549" memberName="masterMultiplierOff"
+              virtualName="" explicitFocusOrder="0" pos="16 448 48 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="a2b825ac03876d57" memberName="masterMultiplier025"
+              virtualName="" explicitFocusOrder="0" pos="80 448 48 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="b471811294dc26a1" memberName="masterMultiplier050"
+              virtualName="" explicitFocusOrder="0" pos="144 448 48 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="262993a527fb8b0c" memberName="masterMultiplier075"
+              virtualName="" explicitFocusOrder="0" pos="208 448 48 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <TEXTEDITOR name="new text editor" id="4e826f40cf92f63c" memberName="masterMultiplier100"
+              virtualName="" explicitFocusOrder="0" pos="272 448 48 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="9d50855d2327dc0e" memberName="label14" virtualName=""
+         explicitFocusOrder="0" pos="16 472 32 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Off&#10;" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="d33a252f3c7f81e2" memberName="label15" virtualName=""
+         explicitFocusOrder="0" pos="80 472 32 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Klo 09" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="dbc1f15c98940d6d" memberName="label16" virtualName=""
+         explicitFocusOrder="0" pos="144 472 32 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Klo 12" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="baa6b6509b402b12" memberName="label17" virtualName=""
+         explicitFocusOrder="0" pos="208 472 32 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Klo 15" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="ca97b5ce248c0e2c" memberName="label18" virtualName=""
+         explicitFocusOrder="0" pos="272 472 32 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Full" editableSingleClick="0" editableDoubleClick="0"
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

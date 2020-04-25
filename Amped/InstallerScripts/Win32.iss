@@ -3,7 +3,7 @@ WelcomeLabel2=This is the Amped Roots Free installer. Remember to use the 64bit 
 
 [Setup]
 AppName=Amped - Roots
-AppVersion=1.0.2
+AppVersion=1.2.2
 DefaultDirName={commonpf32}
 DefaultGroupName=Amped
 OutputBaseFilename=Amped-Win32Bit

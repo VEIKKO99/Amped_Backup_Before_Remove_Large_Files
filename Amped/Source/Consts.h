@@ -53,8 +53,24 @@ inline const char* getBinaryDataWithOriginalFileName(String originalFileName, in
     {
         if (strcmp(BinaryData::originalFilenames[i], resourceNameUTF8) == 0) {
             //return BinaryData::namedResourceList[i];
+    //        Logger::getCurrentLogger()->writeToLog(resourceNameUTF8);
             return BinaryData::getNamedResource(BinaryData::namedResourceList[i], dataSizeInBytes);
         }
     }
     return nullptr;
 };
+
+/*
+inline const char* getBinaryDataWithOriginalFileName(String originalFileName, int& dataSizeInBytes, double sampleR) {
+    int sampleRate = (int)(sampleR + 0.5);
+    
+    String prefix = "192_"; // <== Default
+    if (sampleRate < 48000) prefix = "44_";
+    else if (sampleRate >= 48000 && sampleRate < 88200) prefix = "48_";
+    else if (sampleRate >= 88200 && sampleRate < 96000) prefix = "88_";
+    else if (sampleRate >= 96000 && sampleRate < 192000) prefix = "96_";
+    else if (sampleRate > 96000) prefix = "192_";
+    
+    return getBinaryDataWithOriginalFileName(prefix + originalFileName, dataSizeInBytes);
+};
+*/

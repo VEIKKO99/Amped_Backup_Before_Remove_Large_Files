@@ -5,9 +5,9 @@
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
-    <MaxMin min="-24.0" max="0.0"/>
-    <MaxMin min="-2.0" max="28.0"/>
-  </MaxMienSettings>
+    <MaxMin min="-29.0" max="-5.0"/>
+    <MaxMin min="0.0" max="0.0"/>
+  </MaxMinSettings>
 
   <Presets>
     <Preset name="High Noon">
@@ -210,19 +210,19 @@
     </Preset>
   </Presets>
 
-  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterVolumeMultiplier="1.0">
-    <TubeSettings amountOfPreampTubes="3">
+  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterMultiplierOff="0.0"
+                       masterMultiplier025="40.0" masterMultiplier050="350.0" masterMultiplier075="1500.0"
+                       masterMultiplier100="2300.0">
+    <TubeSettings amountOfPreampTubes="2">
       <PreAmpTubes>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="60.0"
                      tubeType="1"/>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
-                     tubeType="1"/>
-        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="65.0"
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="60.0"
                      tubeType="1"/>
       </PreAmpTubes>
       <PowerAmpTube>
         <TubeSetting vPlus="468.0" rk="0.0" vk0="0.0" rp="3400.0" lowPassFbk="338.0"
-                     tubeType="15"/>
+                     tubeType="14"/>
       </PowerAmpTube>
     </TubeSettings>
     <IRSettings>
@@ -231,23 +231,23 @@
                    overridingIrFileName="" gain="6.0"/>
       </CabIr>
       <AmpIr>
-        <IRSetting irFileName="memory:MATCH_IR_5034_40MS.wav"
+        <IRSetting irFileName="memory:AMP_5034.wav"
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
     <EQSettings>
-      <EQSettings lowIrFileName="memory:EVH_EQ_BASS_00_20MS.wav"
-                  highIrFileName="memory:EVH_EQ_BASS_10_20MS.wav"
-                  gain="7.0" realisticGain="1.0"/>
-      <EQSettings lowIrFileName="memory:EVH_EQ_MIDDLE_00_20MS.wav"
-                  highIrFileName="memory:EVH_EQ_MIDDLE_10_20MS.wav"
-                  gain="7.0" realisticGain="1.0"/>
-      <EQSettings lowIrFileName="memory:EVH_EQ_TREBLE_00_20MS.wav"
-                  highIrFileName="memory:EVH_EQ_TREBLE_10_20MS.wav"
-                  gain="5.0" realisticGain="7.0"/>
-      <EQSettings lowIrFileName="memory:EVH_EQ_PRESENCE_00_20MS.wav"
-                  highIrFileName="memory:EVH_EQ_PRESENCE_10_20MS.wav"
-                  gain="5.0" realisticGain="7.0"/>
+      <EQSettings lowIrFileName="memory:192_EVH_EQ_BASS_00_20MS.wav"
+                  highIrFileName="memory:192_EVH_EQ_BASS_10_20MS.wav"
+                  gain="6.0" realisticGain="0.0"/>
+      <EQSettings lowIrFileName="memory:192_EVH_EQ_MIDDLE_00_20MS.wav"
+                  highIrFileName="memory:192_EVH_EQ_MIDDLE_10_20MS.wav"
+                  gain="6.0" realisticGain="0.0"/>
+      <EQSettings lowIrFileName="memory:192_EVH_EQ_TREBLE_00_20MS.wav"
+                  highIrFileName="memory:192_EVH_EQ_TREBLE_10_20MS.wav"
+                  gain="2.5" realisticGain="5.5"/>
+      <EQSettings lowIrFileName="memory:192_EVH_EQ_PRESENCE_00_20MS.wav"
+                  highIrFileName="memory:192_EVH_EQ_PRESENCE_10_20MS.wav"
+                  gain="3.5" realisticGain="18.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>
