@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<SoundSettings name="CAMO CLEAN">
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_camo.png"
+              selectedKnob="1"/>
+  <MaxMinSettings>
+    <MaxMin min="-24.0" max="24.0"/>
+    <MaxMin min="-24.0" max="0.0"/>
+    <MaxMin min="0.0" max="0.0"/>
+  </MaxMinSettings>
+  <Presets/>
+  <InternalAmpSettings inputType="0" hornetDrive="1.0" hornetPresence="0.5" masterMultiplierOff="0.0"
+                       masterMultiplier025="1.5" masterMultiplier050="5.0" masterMultiplier075="12.5"
+                       masterMultiplier100="20.0">
+    <TubeSettings amountOfPreampTubes="1">
+      <PreAmpTubes>
+        <TubeSetting vPlus="250.0" rk="2700.0" vk0="2.5" rp="100000.0" lowPassFbk="0.0"
+                     tubeType="1"/>
+      </PreAmpTubes>
+      <PowerAmpTube>
+        <TubeSetting vPlus="468.0" rk="0.0" vk0="0.0" rp="3400.0" lowPassFbk="338.0"
+                     tubeType="13"/>
+      </PowerAmpTube>
+    </TubeSettings>
+    <IRSettings>
+      <CabIr>
+        <IRSetting irFileName="memory:ML-MARS-PR-M75-MIX-A.wav"
+                   overridingIrFileName="" gain="6.0"/>
+      </CabIr>
+      <AmpIr>
+        <IRSetting irFileName="memory:ARCHON_CLEAN.wav"
+                   overridingIrFileName="" gain="6.0"/>
+      </AmpIr>
+    </IRSettings>
+    <EQSettings>
+      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav"
+                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav"
+                  gain="7.0" realisticGain="0.0"/>
+      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav"
+                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav"
+                  gain="6.0" realisticGain="0.5"/>
+      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav"
+                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav"
+                  gain="3.0" realisticGain="6.0"/>
+      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"
+                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"
+                  gain="3.0" realisticGain="16.0"/>
+    </EQSettings>
+  </InternalAmpSettings>
+</SoundSettings>

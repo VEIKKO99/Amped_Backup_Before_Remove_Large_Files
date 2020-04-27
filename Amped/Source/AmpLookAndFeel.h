@@ -116,7 +116,10 @@ public:
     void drawRotarySlider (Graphics& g, int x, int y, int width, int height, float sliderPos,
                            const float rotaryStartAngle, const float rotaryEndAngle, Slider& slider) override
     {
-        std::string fileName = getKnobResourceFilename(sliderPos, settings->getCurrentSettings()->uiSettings.getCurrentKnobName().toStdString());
+        // In this amp we have only one know style:
+        std::string fileName = getKnobResourceFilename(sliderPos, "archon_knob_00");
+
+        //std::string fileName = getKnobResourceFilename(sliderPos, settings->getCurrentSettings()->uiSettings.getCurrentKnobName().toStdString());
         drawRotaryS(g, fileName);
     }
 
@@ -313,10 +316,10 @@ public:
         std::string fileName = "";
         
         if (button.getToggleState()) {
-             fileName = "amped_switch62_0020_png";
+             fileName = "archon_big3way_down_png";
         }
         else {
-            fileName = "amped_switch62_0000_png";
+            fileName = "archon_big3way_up_png";
         }
         
         int dataSize;

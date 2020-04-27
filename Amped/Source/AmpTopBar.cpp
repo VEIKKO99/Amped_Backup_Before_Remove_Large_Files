@@ -103,7 +103,6 @@ AmpTopBar::AmpTopBar ()
 
     label2->setBounds (252, 50, 200, 24);
 
-    drawable1 = Drawable::createFromImageData (BinaryData::amped_roots_logo_png, BinaryData::amped_roots_logo_pngSize);
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -127,7 +126,6 @@ AmpTopBar::~AmpTopBar()
     presetComboBox = nullptr;
     label = nullptr;
     label2 = nullptr;
-    drawable1 = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -139,17 +137,6 @@ void AmpTopBar::paint (Graphics& g)
 {
     //[UserPrePaint] Add your own custom painting code here..
     //[/UserPrePaint]
-
-    {
-        int x = 497, y = 18, width = 205, height = 131;
-        //[UserPaintCustomArguments] Customize the painting arguments here..
-        //[/UserPaintCustomArguments]
-        g.setColour (Colours::black);
-        jassert (drawable1 != 0);
-        if (drawable1 != 0)
-            drawable1->drawWithin (g, Rectangle<int> (x, y, width, height).toFloat(),
-                                   RectanglePlacement::stretchToFit, 1.000f);
-    }
 
     //[UserPaint] Add your own custom painting code here..
     //[/UserPaint]
@@ -314,10 +301,7 @@ BEGIN_JUCER_METADATA
                  parentClasses="public Component" constructorParams="" variableInitialisers=""
                  snapPixels="8" snapActive="1" snapShown="1" overlayOpacity="0.330"
                  fixedSize="1" initialWidth="1200" initialHeight="300">
-  <BACKGROUND backgroundColour="323e44">
-    <IMAGE pos="497 18 205 131" resource="BinaryData::amped_roots_logo_png"
-           opacity="1.0" mode="0"/>
-  </BACKGROUND>
+  <BACKGROUND backgroundColour="323e44"/>
   <TEXTBUTTON name="new button" id="740067d4fd533d47" memberName="licenceManagerBtn"
               virtualName="" explicitFocusOrder="0" pos="972 77 200 39" bgColOff="ff111111"
               textCol="fff2f2f2" buttonText="LICENSE MANAGER" connectedEdges="0"

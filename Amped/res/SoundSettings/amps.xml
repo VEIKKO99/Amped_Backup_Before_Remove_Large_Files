@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Amps>
-  <Amp fileName="ML-Amped-5034-Fluff.apdX"/>
-  <Amp fileName="ML-Amped-5151-Fluff.apdX"/>
-  <Amp fileName="ML-Amped-Freeman-Fluff.apdX"/>
-  <Amp fileName="ML-Amped-Mega-Fluff.apdX"/>
+  <Amp fileName="BLUECLEAN.apd"/>
+  <Amp fileName="BLUELEAD.apd"/>
+  <Amp fileName="CAMOCLEAN.apd"/>
+  <Amp fileName="CAMOLEAD.apd"/>
 </Amps>

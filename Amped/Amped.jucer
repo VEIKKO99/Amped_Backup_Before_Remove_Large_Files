@@ -1,16 +1,152 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pllKDb" name="Amped - Roots" projectType="audioplug" jucerVersion="5.4.5"
-              pluginFormats="buildAAX,buildAU,buildStandalone,buildVST3" version="1.2.2"
+<JUCERPROJECT id="pllKDb" name="Amped - Ark" projectType="audioplug" jucerVersion="5.4.5"
+              pluginFormats="buildAU,buildStandalone,buildVST3" version="0.1.0"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
-              pluginCode="Ampd" pluginVSTCategory="kPlugCategUnknown" reportAppUsage="0"
+              pluginCode="AmpA" pluginVSTCategory="kPlugCategUnknown" reportAppUsage="0"
               displaySplashScreen="0" pluginAUMainType="'aufx'">
-  <MAINGROUP id="H6VpyL" name="Amped - Roots">
+  <MAINGROUP id="H6VpyL" name="Amped - Ark">
     <GROUP id="{DEEE0891-E3FA-3620-F858-1F386BF0782D}" name="original_hornet">
       <GROUP id="{2949A45D-C98C-6B86-293A-35E35EC449F4}" name="tube_tables"/>
     </GROUP>
     <GROUP id="{AE8DAE2A-BA4D-44EF-D646-54A32466A1A3}" name="Resources">
+      <FILE id="QgwXcs" name="CAMOLEAD.apd" compile="0" resource="1" file="res/SoundSettings/CAMOLEAD.apd"/>
+      <FILE id="hCzhVG" name="CAMOCLEAN.apd" compile="0" resource="1" file="res/SoundSettings/CAMOCLEAN.apd"/>
+      <FILE id="e1hrkz" name="BLUECLEAN.apd" compile="0" resource="1" file="res/SoundSettings/BLUECLEAN.apd"/>
+      <FILE id="z6F84B" name="BLUELEAD.apd" compile="0" resource="1" file="res/SoundSettings/BLUELEAD.apd"/>
+      <GROUP id="{FE4DE425-A788-D542-1762-40158DDEA2A1}" name="Ark_Knobs_Switches">
+        <FILE id="Krhxp9" name="archon_big3way_down.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_big3way_down.png"/>
+        <FILE id="zMS8Bx" name="archon_big3way_middle.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_big3way_middle.png"/>
+        <FILE id="DQSd3s" name="archon_big3way_up.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_big3way_up.png"/>
+        <FILE id="fkzQFI" name="archon_knob_0000.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0000.png"/>
+        <FILE id="hCVeDO" name="archon_knob_0001.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0001.png"/>
+        <FILE id="kpDYUz" name="archon_knob_0002.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0002.png"/>
+        <FILE id="w3qX2D" name="archon_knob_0003.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0003.png"/>
+        <FILE id="V0HGPE" name="archon_knob_0004.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0004.png"/>
+        <FILE id="R0BZgp" name="archon_knob_0005.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0005.png"/>
+        <FILE id="czV4kz" name="archon_knob_0006.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0006.png"/>
+        <FILE id="lVme8b" name="archon_knob_0007.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0007.png"/>
+        <FILE id="NCzsPe" name="archon_knob_0008.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0008.png"/>
+        <FILE id="JEIMr5" name="archon_knob_0009.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0009.png"/>
+        <FILE id="Qx1ygm" name="archon_knob_0010.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0010.png"/>
+        <FILE id="Ty6NxF" name="archon_knob_0011.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0011.png"/>
+        <FILE id="h8Y8PU" name="archon_knob_0012.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0012.png"/>
+        <FILE id="gWolys" name="archon_knob_0013.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0013.png"/>
+        <FILE id="b4HKnD" name="archon_knob_0014.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0014.png"/>
+        <FILE id="H6ysJW" name="archon_knob_0015.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0015.png"/>
+        <FILE id="mYSYrw" name="archon_knob_0016.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0016.png"/>
+        <FILE id="c78eXd" name="archon_knob_0017.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0017.png"/>
+        <FILE id="kcw4IK" name="archon_knob_0018.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0018.png"/>
+        <FILE id="uVKXUs" name="archon_knob_0019.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0019.png"/>
+        <FILE id="yTdSMP" name="archon_knob_0020.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0020.png"/>
+        <FILE id="frWaHF" name="archon_knob_0021.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0021.png"/>
+        <FILE id="dTR1sa" name="archon_knob_0022.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0022.png"/>
+        <FILE id="YVh6D7" name="archon_knob_0023.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0023.png"/>
+        <FILE id="R0W3Lx" name="archon_knob_0024.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0024.png"/>
+        <FILE id="mHcr1n" name="archon_knob_0025.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0025.png"/>
+        <FILE id="RYUBaF" name="archon_knob_0026.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0026.png"/>
+        <FILE id="opPEJq" name="archon_knob_0027.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0027.png"/>
+        <FILE id="FqyagV" name="archon_knob_0028.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0028.png"/>
+        <FILE id="Mp3JVU" name="archon_knob_0029.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0029.png"/>
+        <FILE id="oCQTzi" name="archon_knob_0030.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0030.png"/>
+        <FILE id="qhXtjP" name="archon_knob_0031.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0031.png"/>
+        <FILE id="LGUZX0" name="archon_knob_0032.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0032.png"/>
+        <FILE id="bCTqac" name="archon_knob_0033.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0033.png"/>
+        <FILE id="qX8enz" name="archon_knob_0034.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0034.png"/>
+        <FILE id="YbhlUy" name="archon_knob_0035.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0035.png"/>
+        <FILE id="lq8mx9" name="archon_knob_0036.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0036.png"/>
+        <FILE id="k9gkga" name="archon_knob_0037.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0037.png"/>
+        <FILE id="RT7uaK" name="archon_knob_0038.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0038.png"/>
+        <FILE id="jD2pD5" name="archon_knob_0039.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0039.png"/>
+        <FILE id="wupBOh" name="archon_knob_0040.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0040.png"/>
+        <FILE id="KPMzNe" name="archon_knob_0041.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0041.png"/>
+        <FILE id="yxvnJT" name="archon_knob_0042.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0042.png"/>
+        <FILE id="AV242c" name="archon_knob_0043.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0043.png"/>
+        <FILE id="y1pszW" name="archon_knob_0044.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0044.png"/>
+        <FILE id="VY9hbs" name="archon_knob_0045.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0045.png"/>
+        <FILE id="shNvfw" name="archon_knob_0046.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0046.png"/>
+        <FILE id="aYzWR1" name="archon_knob_0047.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0047.png"/>
+        <FILE id="PJIHBS" name="archon_knob_0048.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0048.png"/>
+        <FILE id="vs5YaM" name="archon_knob_0049.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0049.png"/>
+        <FILE id="gO5gjE" name="archon_knob_0050.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0050.png"/>
+        <FILE id="JcMrkX" name="archon_knob_0051.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0051.png"/>
+        <FILE id="NyL6GB" name="archon_knob_0052.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0052.png"/>
+        <FILE id="JikQ97" name="archon_knob_0053.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0053.png"/>
+        <FILE id="CLRFbE" name="archon_knob_0054.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0054.png"/>
+        <FILE id="UGFEoy" name="archon_knob_0055.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0055.png"/>
+        <FILE id="sps0wZ" name="archon_knob_0056.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0056.png"/>
+        <FILE id="ESPrG3" name="archon_knob_0057.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0057.png"/>
+        <FILE id="Eb28lm" name="archon_knob_0058.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0058.png"/>
+        <FILE id="ONc9aZ" name="archon_knob_0059.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_knob_0059.png"/>
+        <FILE id="WAy2g1" name="archon_small3way_down.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_small3way_down.png"/>
+        <FILE id="vImNir" name="archon_small3way_up.png" compile="0" resource="1"
+              file="res/Ark_Knobs_Switches/archon_small3way_up.png"/>
+      </GROUP>
       <FILE id="zhHyxu" name="amped_icon_128.png" compile="0" resource="1"
             file="res/app_icons/amped_icon_128.png"/>
       <FILE id="zRI9EJ" name="amped_icon_1024.png" compile="0" resource="1"
@@ -21,107 +157,65 @@
             file="res/CHANNEL-LEFT.png"/>
       <FILE id="jITiSs" name="amped_license_background.png" compile="0" resource="1"
             file="res/amped_license_background.png"/>
-      <FILE id="LfP0HY" name="amped_roots_logo.png" compile="0" resource="1"
-            file="res/amped_roots_logo.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
-          <FILE id="HJYhCa" name="192_5150_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_5150_EQ_BASS_00_20MS.wav"/>
-          <FILE id="Js57mz" name="192_5150_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_5150_EQ_BASS_10_20MS.wav"/>
-          <FILE id="pueyL0" name="192_5150_EQ_MIDDLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="dK9IxY" name="192_5150_EQ_MIDDLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="uDjGW1" name="192_5150_EQ_PRESENCE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="ErMNvm" name="192_5150_EQ_PRESENCE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="PPXwUR" name="192_5150_EQ_TREBLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="EBAhJr" name="192_5150_EQ_TREBLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_5150_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="ip4PCa" name="192_BUTTERSLX_EQ_BASS_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_BASS_00_20MS.wav"/>
-          <FILE id="EE25vX" name="192_BUTTERSLX_EQ_BASS_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_BASS_10_20MS.wav"/>
-          <FILE id="gMgvwQ" name="192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="wej7Yi" name="192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="s84tc9" name="192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="cxTEEV" name="192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="LTqwbC" name="192_BUTTERSLX_EQ_TREBLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="kH9dqa" name="192_BUTTERSLX_EQ_TREBLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_BUTTERSLX_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="OMVXXf" name="192_EVH_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_EVH_EQ_BASS_00_20MS.wav"/>
-          <FILE id="sN1suI" name="192_EVH_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_EVH_EQ_BASS_10_20MS.wav"/>
-          <FILE id="VuwcpW" name="192_EVH_EQ_MIDDLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="RVM9N7" name="192_EVH_EQ_MIDDLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="TlDR93" name="192_EVH_EQ_PRESENCE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="z5tBgI" name="192_EVH_EQ_PRESENCE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="BWHLZT" name="192_EVH_EQ_TREBLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="dw40WK" name="192_EVH_EQ_TREBLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_EVH_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="p80DrC" name="192_REVF_EQ_BASS_00_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_REVF_EQ_BASS_00_20MS.wav"/>
-          <FILE id="iGT72a" name="192_REVF_EQ_BASS_10_20MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/192_REVF_EQ_BASS_10_20MS.wav"/>
-          <FILE id="rLqN5A" name="192_REVF_EQ_MIDDLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_MIDDLE_00_20MS.wav"/>
-          <FILE id="wtPCf2" name="192_REVF_EQ_MIDDLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_MIDDLE_10_20MS.wav"/>
-          <FILE id="x7dkAB" name="192_REVF_EQ_PRESENCE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_PRESENCE_00_20MS.wav"/>
-          <FILE id="gMD52P" name="192_REVF_EQ_PRESENCE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_PRESENCE_10_20MS.wav"/>
-          <FILE id="paBdsV" name="192_REVF_EQ_TREBLE_00_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_TREBLE_00_20MS.wav"/>
-          <FILE id="xhYcUJ" name="192_REVF_EQ_TREBLE_10_20MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_REVF_EQ_TREBLE_10_20MS.wav"/>
-          <FILE id="SgMVoz" name="1200x600_fluff_5150.png" compile="0" resource="1"
-                file="res/SoundSettings/files/1200x600_fluff_5150.png"/>
-          <FILE id="In4eIB" name="1200x600_fluff_free_evh.png" compile="0" resource="1"
-                file="res/SoundSettings/files/1200x600_fluff_free_evh.png"/>
-          <FILE id="ddPqQU" name="1200x600_fluff_friedman.png" compile="0" resource="1"
-                file="res/SoundSettings/files/1200x600_fluff_friedman.png"/>
-          <FILE id="aPOnFR" name="1200x600_fluff_rectob.png" compile="0" resource="1"
-                file="res/SoundSettings/files/1200x600_fluff_rectob.png"/>
-          <FILE id="JieohK" name="AMP_5034.wav" compile="0" resource="1" file="res/SoundSettings/files/AMP_5034.wav"/>
-          <FILE id="m6Wocu" name="AMP_5151.wav" compile="0" resource="1" file="res/SoundSettings/files/AMP_5151.wav"/>
-          <FILE id="Bd8Yt2" name="AMP_freeman.wav" compile="0" resource="1" file="res/SoundSettings/files/AMP_freeman.wav"/>
-          <FILE id="alLFLO" name="AMP_mega.wav" compile="0" resource="1" file="res/SoundSettings/files/AMP_mega.wav"/>
-          <FILE id="QQ9A9P" name="ML-FRMN-M25-7B-B.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/ML-FRMN-M25-7B-B.wav"/>
-          <FILE id="rKTAj1" name="ML-MEGA-OS-Almighty.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/ML-MEGA-OS-Almighty.wav"/>
-          <FILE id="AAuGQs" name="ML_USA_BULB_LEGEND_2_200MS.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/ML_USA_BULB_LEGEND_2_200MS.wav"/>
-          <FILE id="OqZAly" name="ML_USA_BULB_LEGEND_200MS.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/ML_USA_BULB_LEGEND_200MS.wav"/>
+          <FILE id="oAAhV5" name="192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav"/>
+          <FILE id="ZwhnAp" name="192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav"/>
+          <FILE id="pD2Fne" name="192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms.wav"/>
+          <FILE id="aM0wsi" name="192_ARCHON_EQ_CLEAN_DEPTH_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_DEPTH_FULL_10ms.wav"/>
+          <FILE id="QyZln3" name="192_ARCHON_EQ_CLEAN_DEPTH_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_DEPTH_OFF_10ms.wav"/>
+          <FILE id="BRvz7l" name="192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav"/>
+          <FILE id="xLRfvl" name="192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav"/>
+          <FILE id="NFxp1l" name="192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"
+                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"/>
+          <FILE id="Kpc1ur" name="192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"
+                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"/>
+          <FILE id="ThQSZJ" name="192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav"/>
+          <FILE id="iM3ySp" name="192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav"/>
+          <FILE id="hru9UJ" name="192_ARCHON_EQ_LEAD_BASS_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BASS_FULL_10ms.wav"/>
+          <FILE id="WXWU14" name="192_ARCHON_EQ_LEAD_BASS_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BASS_OFF_10ms.wav"/>
+          <FILE id="Uhbwql" name="192_ARCHON_EQ_LEAD_BRIGHT_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BRIGHT_OFF_10ms.wav"/>
+          <FILE id="QJjrKO" name="192_ARCHON_EQ_LEAD_DEPTH_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_DEPTH_FULL_10ms.wav"/>
+          <FILE id="BNua7V" name="192_ARCHON_EQ_LEAD_DEPTH_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_DEPTH_OFF_10ms.wav"/>
+          <FILE id="tsbnB6" name="192_ARCHON_EQ_LEAD_MIDDLE_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_MIDDLE_FULL_10ms.wav"/>
+          <FILE id="TQsKSG" name="192_ARCHON_EQ_LEAD_MIDDLE_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_MIDDLE_OFF_10ms.wav"/>
+          <FILE id="nNIVcH" name="192_ARCHON_EQ_LEAD_PRESENCE_FULL_10ms.wav"
+                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_PRESENCE_FULL_10ms.wav"/>
+          <FILE id="l1t5ss" name="192_ARCHON_EQ_LEAD_PRESENCE_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_PRESENCE_OFF_10ms.wav"/>
+          <FILE id="tcDgW9" name="192_ARCHON_EQ_LEAD_TREBLE_FULL_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_TREBLE_FULL_10ms.wav"/>
+          <FILE id="fMDoyx" name="192_ARCHON_EQ_LEAD_TREBLE_OFF_10ms.wav" compile="0"
+                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_TREBLE_OFF_10ms.wav"/>
+          <FILE id="UBQ9wp" name="archon_blue.png" compile="0" resource="1" file="res/SoundSettings/files/archon_blue.png"/>
+          <FILE id="Qhljed" name="archon_camo.png" compile="0" resource="1" file="res/SoundSettings/files/archon_camo.png"/>
+          <FILE id="ScNZ99" name="ARCHON_CLEAN.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ARCHON_CLEAN.wav"/>
+          <FILE id="yHB9Ka" name="ARCHON_LEAD.wav" compile="0" resource="1" file="res/SoundSettings/files/ARCHON_LEAD.wav"/>
+          <FILE id="Q4IWV6" name="ML-MARS-PR-M75-MIX-A.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ML-MARS-PR-M75-MIX-A.wav"/>
+          <FILE id="KCxiAs" name="ML-MEGA-DJENT-MIX-GRIND.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ML-MEGA-DJENT-MIX-GRIND.wav"/>
         </GROUP>
-        <FILE id="Q1uclq" name="ML-Amped-5034-Fluff.apdX" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-5034-Fluff.apdX"/>
-        <FILE id="iDlqMG" name="ML-Amped-5151-Fluff.apdX" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-5151-Fluff.apdX"/>
-        <FILE id="qUj6B1" name="ML-Amped-Freeman-Fluff.apdX" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-Freeman-Fluff.apdX"/>
-        <FILE id="k0od1n" name="ML-Amped-Mega-Fluff.apdX" compile="0" resource="1"
-              file="res/SoundSettings/ML-Amped-Mega-Fluff.apdX"/>
       </GROUP>
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"
             file="res/WorkSans-Regular.ttf"/>
-      <GROUP id="{A9EDAA1B-5B16-BFBD-0CDC-54DB6E0BFAE5}" name="files"/>
       <FILE id="son1er" name="amps.xml" compile="0" resource="1" file="res/SoundSettings/amps.xml"/>
       <FILE id="SY3vgL" name="pedal-led-on.png" compile="0" resource="1"
             file="res/pedal-led-on.png"/>
@@ -247,1149 +341,6 @@
         <FILE id="QOpxvv" name="amped_knob_pedal_0059.png" compile="0" resource="1"
               file="res/amped_knob_pedal_0000/amped_knob_pedal_0059.png"/>
       </GROUP>
-      <GROUP id="{6702B31C-D20E-AE2F-7470-FFB0D2A87347}" name="amped_knob62_chkn">
-        <FILE id="GJvMKm" name="amped_knob62_chknw_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0000.png"/>
-        <FILE id="GnaaBG" name="amped_knob62_chknw_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0001.png"/>
-        <FILE id="febCRc" name="amped_knob62_chknw_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0002.png"/>
-        <FILE id="ahQ6Zy" name="amped_knob62_chknw_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0003.png"/>
-        <FILE id="YNnhig" name="amped_knob62_chknw_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0004.png"/>
-        <FILE id="mAj284" name="amped_knob62_chknw_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0005.png"/>
-        <FILE id="TSWiPK" name="amped_knob62_chknw_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0006.png"/>
-        <FILE id="TRSbhA" name="amped_knob62_chknw_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0007.png"/>
-        <FILE id="WBtRL8" name="amped_knob62_chknw_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0008.png"/>
-        <FILE id="lIA0si" name="amped_knob62_chknw_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0009.png"/>
-        <FILE id="PuCEtr" name="amped_knob62_chknw_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0010.png"/>
-        <FILE id="C72JdO" name="amped_knob62_chknw_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0011.png"/>
-        <FILE id="oJXeNT" name="amped_knob62_chknw_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0012.png"/>
-        <FILE id="r1jMP0" name="amped_knob62_chknw_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0013.png"/>
-        <FILE id="LszteP" name="amped_knob62_chknw_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0014.png"/>
-        <FILE id="UAZPpW" name="amped_knob62_chknw_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0015.png"/>
-        <FILE id="U1n2Ej" name="amped_knob62_chknw_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0016.png"/>
-        <FILE id="FVTNXn" name="amped_knob62_chknw_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0017.png"/>
-        <FILE id="Tywu9b" name="amped_knob62_chknw_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0018.png"/>
-        <FILE id="JAvArw" name="amped_knob62_chknw_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0019.png"/>
-        <FILE id="rbtkqT" name="amped_knob62_chknw_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0020.png"/>
-        <FILE id="DJKJf9" name="amped_knob62_chknw_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0021.png"/>
-        <FILE id="chOorA" name="amped_knob62_chknw_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0022.png"/>
-        <FILE id="tNY6Tb" name="amped_knob62_chknw_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0023.png"/>
-        <FILE id="mnUll6" name="amped_knob62_chknw_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0024.png"/>
-        <FILE id="fHjZub" name="amped_knob62_chknw_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0025.png"/>
-        <FILE id="LOJE5Y" name="amped_knob62_chknw_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0026.png"/>
-        <FILE id="rQmoO1" name="amped_knob62_chknw_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0027.png"/>
-        <FILE id="Qdlrl6" name="amped_knob62_chknw_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0028.png"/>
-        <FILE id="X4QWFr" name="amped_knob62_chknw_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0029.png"/>
-        <FILE id="FGFwBx" name="amped_knob62_chknw_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0030.png"/>
-        <FILE id="ZrRCUi" name="amped_knob62_chknw_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0031.png"/>
-        <FILE id="h96uxQ" name="amped_knob62_chknw_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0032.png"/>
-        <FILE id="weG7rW" name="amped_knob62_chknw_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0033.png"/>
-        <FILE id="Dc8u50" name="amped_knob62_chknw_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0034.png"/>
-        <FILE id="IsAh0j" name="amped_knob62_chknw_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0035.png"/>
-        <FILE id="s2eYyd" name="amped_knob62_chknw_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0036.png"/>
-        <FILE id="iBEE1F" name="amped_knob62_chknw_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0037.png"/>
-        <FILE id="y5eDnC" name="amped_knob62_chknw_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0038.png"/>
-        <FILE id="jhsKcb" name="amped_knob62_chknw_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0039.png"/>
-        <FILE id="LKsEDh" name="amped_knob62_chknw_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0040.png"/>
-        <FILE id="KOtfW1" name="amped_knob62_chknw_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0041.png"/>
-        <FILE id="iWCbq7" name="amped_knob62_chknw_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0042.png"/>
-        <FILE id="vq2XDo" name="amped_knob62_chknw_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0043.png"/>
-        <FILE id="TgxVz5" name="amped_knob62_chknw_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0044.png"/>
-        <FILE id="rpCVPJ" name="amped_knob62_chknw_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0045.png"/>
-        <FILE id="vVp1vz" name="amped_knob62_chknw_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0046.png"/>
-        <FILE id="oaI4vK" name="amped_knob62_chknw_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0047.png"/>
-        <FILE id="EwiawO" name="amped_knob62_chknw_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0048.png"/>
-        <FILE id="dfOfy3" name="amped_knob62_chknw_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0049.png"/>
-        <FILE id="hZLiFU" name="amped_knob62_chknw_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0050.png"/>
-        <FILE id="DhnqXX" name="amped_knob62_chknw_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0051.png"/>
-        <FILE id="YTGcoB" name="amped_knob62_chknw_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0052.png"/>
-        <FILE id="NP23eJ" name="amped_knob62_chknw_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0053.png"/>
-        <FILE id="npV4ho" name="amped_knob62_chknw_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0054.png"/>
-        <FILE id="rxnhPx" name="amped_knob62_chknw_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0055.png"/>
-        <FILE id="qlf1Kq" name="amped_knob62_chknw_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0056.png"/>
-        <FILE id="F4tWEe" name="amped_knob62_chknw_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0057.png"/>
-        <FILE id="sC6D7K" name="amped_knob62_chknw_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0058.png"/>
-        <FILE id="fGq4fn" name="amped_knob62_chknw_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_chkn/amped_knob62_chknw_0059.png"/>
-      </GROUP>
-      <GROUP id="{BBC07640-5958-7BA1-0C2B-FDA94E8031E0}" name="amped_knob62_chknb">
-        <FILE id="CchRsN" name="amped_knob62_chknb_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0000.png"/>
-        <FILE id="qszEMh" name="amped_knob62_chknb_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0001.png"/>
-        <FILE id="d8Z5gH" name="amped_knob62_chknb_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0002.png"/>
-        <FILE id="MGgJwk" name="amped_knob62_chknb_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0003.png"/>
-        <FILE id="NleNSL" name="amped_knob62_chknb_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0004.png"/>
-        <FILE id="ROwbjk" name="amped_knob62_chknb_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0005.png"/>
-        <FILE id="xFkjYo" name="amped_knob62_chknb_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0006.png"/>
-        <FILE id="cYVeyo" name="amped_knob62_chknb_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0007.png"/>
-        <FILE id="kwIKmo" name="amped_knob62_chknb_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0008.png"/>
-        <FILE id="F4x8bt" name="amped_knob62_chknb_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0009.png"/>
-        <FILE id="FlXDTU" name="amped_knob62_chknb_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0010.png"/>
-        <FILE id="QnaWUo" name="amped_knob62_chknb_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0011.png"/>
-        <FILE id="Ij9e88" name="amped_knob62_chknb_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0012.png"/>
-        <FILE id="wTXTpg" name="amped_knob62_chknb_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0013.png"/>
-        <FILE id="bz6x2H" name="amped_knob62_chknb_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0014.png"/>
-        <FILE id="cba3rF" name="amped_knob62_chknb_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0015.png"/>
-        <FILE id="ASOFXe" name="amped_knob62_chknb_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0016.png"/>
-        <FILE id="DviQmi" name="amped_knob62_chknb_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0017.png"/>
-        <FILE id="Ee1D01" name="amped_knob62_chknb_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0018.png"/>
-        <FILE id="WVTJdP" name="amped_knob62_chknb_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0019.png"/>
-        <FILE id="TII9jy" name="amped_knob62_chknb_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0020.png"/>
-        <FILE id="V4gWwc" name="amped_knob62_chknb_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0021.png"/>
-        <FILE id="cqzGtl" name="amped_knob62_chknb_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0022.png"/>
-        <FILE id="DiB2hz" name="amped_knob62_chknb_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0023.png"/>
-        <FILE id="Zy8ik3" name="amped_knob62_chknb_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0024.png"/>
-        <FILE id="Q2F6qo" name="amped_knob62_chknb_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0025.png"/>
-        <FILE id="VvMpJl" name="amped_knob62_chknb_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0026.png"/>
-        <FILE id="UooQdO" name="amped_knob62_chknb_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0027.png"/>
-        <FILE id="vvhtj5" name="amped_knob62_chknb_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0028.png"/>
-        <FILE id="eUDKzc" name="amped_knob62_chknb_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0029.png"/>
-        <FILE id="Vl7nqR" name="amped_knob62_chknb_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0030.png"/>
-        <FILE id="UPQBPf" name="amped_knob62_chknb_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0031.png"/>
-        <FILE id="EM14XT" name="amped_knob62_chknb_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0032.png"/>
-        <FILE id="SdpsND" name="amped_knob62_chknb_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0033.png"/>
-        <FILE id="tmqUeO" name="amped_knob62_chknb_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0034.png"/>
-        <FILE id="zyiOeZ" name="amped_knob62_chknb_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0035.png"/>
-        <FILE id="mn2Gog" name="amped_knob62_chknb_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0036.png"/>
-        <FILE id="Wc7m0H" name="amped_knob62_chknb_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0037.png"/>
-        <FILE id="LWASXD" name="amped_knob62_chknb_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0038.png"/>
-        <FILE id="pqzj8m" name="amped_knob62_chknb_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0039.png"/>
-        <FILE id="lFLTaK" name="amped_knob62_chknb_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0040.png"/>
-        <FILE id="pAX5Q4" name="amped_knob62_chknb_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0041.png"/>
-        <FILE id="z01LKi" name="amped_knob62_chknb_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0042.png"/>
-        <FILE id="YZaDIY" name="amped_knob62_chknb_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0043.png"/>
-        <FILE id="kYbVaT" name="amped_knob62_chknb_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0044.png"/>
-        <FILE id="axbw8Z" name="amped_knob62_chknb_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0045.png"/>
-        <FILE id="M1PzRH" name="amped_knob62_chknb_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0046.png"/>
-        <FILE id="zBHqxs" name="amped_knob62_chknb_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0047.png"/>
-        <FILE id="B6YvWh" name="amped_knob62_chknb_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0048.png"/>
-        <FILE id="ZOoitW" name="amped_knob62_chknb_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0049.png"/>
-        <FILE id="ewcHmW" name="amped_knob62_chknb_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0050.png"/>
-        <FILE id="y7y6iY" name="amped_knob62_chknb_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0051.png"/>
-        <FILE id="EZu5u8" name="amped_knob62_chknb_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0052.png"/>
-        <FILE id="bF2X1z" name="amped_knob62_chknb_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0053.png"/>
-        <FILE id="Bx6veX" name="amped_knob62_chknb_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0054.png"/>
-        <FILE id="oMvRkO" name="amped_knob62_chknb_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0055.png"/>
-        <FILE id="cfVCdW" name="amped_knob62_chknb_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0056.png"/>
-        <FILE id="AWEFS4" name="amped_knob62_chknb_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0057.png"/>
-        <FILE id="D7NDED" name="amped_knob62_chknb_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0058.png"/>
-        <FILE id="iwHW9y" name="amped_knob62_chknb_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_chknb/amped_knob62_chknb_0059.png"/>
-      </GROUP>
-      <GROUP id="{87812CE1-5801-4EB5-A040-89F0DCEED27C}" name="amped_knob62_dizl">
-        <FILE id="vMJGvW" name="amped_knob62_dizl_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0000.png"/>
-        <FILE id="PVVYuN" name="amped_knob62_dizl_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0001.png"/>
-        <FILE id="dkrHIh" name="amped_knob62_dizl_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0002.png"/>
-        <FILE id="gnwMJa" name="amped_knob62_dizl_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0003.png"/>
-        <FILE id="DvhTrh" name="amped_knob62_dizl_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0004.png"/>
-        <FILE id="A69Hvh" name="amped_knob62_dizl_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0005.png"/>
-        <FILE id="XfB1KB" name="amped_knob62_dizl_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0006.png"/>
-        <FILE id="XRn2v3" name="amped_knob62_dizl_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0007.png"/>
-        <FILE id="EYp4iM" name="amped_knob62_dizl_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0008.png"/>
-        <FILE id="kMCLmT" name="amped_knob62_dizl_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0009.png"/>
-        <FILE id="J9geaF" name="amped_knob62_dizl_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0010.png"/>
-        <FILE id="rIHzGG" name="amped_knob62_dizl_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0011.png"/>
-        <FILE id="tYfvpF" name="amped_knob62_dizl_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0012.png"/>
-        <FILE id="RZYpo3" name="amped_knob62_dizl_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0013.png"/>
-        <FILE id="tk1pPG" name="amped_knob62_dizl_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0014.png"/>
-        <FILE id="aB0K5j" name="amped_knob62_dizl_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0015.png"/>
-        <FILE id="g7DSkh" name="amped_knob62_dizl_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0016.png"/>
-        <FILE id="tDw7zh" name="amped_knob62_dizl_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0017.png"/>
-        <FILE id="q5C45R" name="amped_knob62_dizl_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0018.png"/>
-        <FILE id="Sv41AQ" name="amped_knob62_dizl_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0019.png"/>
-        <FILE id="d0Dfw5" name="amped_knob62_dizl_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0020.png"/>
-        <FILE id="U6oD32" name="amped_knob62_dizl_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0021.png"/>
-        <FILE id="RvnGqT" name="amped_knob62_dizl_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0022.png"/>
-        <FILE id="eA1WEC" name="amped_knob62_dizl_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0023.png"/>
-        <FILE id="Mm13BF" name="amped_knob62_dizl_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0024.png"/>
-        <FILE id="k959bl" name="amped_knob62_dizl_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0025.png"/>
-        <FILE id="s7JSBH" name="amped_knob62_dizl_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0026.png"/>
-        <FILE id="jBFJsy" name="amped_knob62_dizl_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0027.png"/>
-        <FILE id="ZnCz79" name="amped_knob62_dizl_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0028.png"/>
-        <FILE id="hm7Zhc" name="amped_knob62_dizl_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0029.png"/>
-        <FILE id="qjtiEM" name="amped_knob62_dizl_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0030.png"/>
-        <FILE id="ZcZqHQ" name="amped_knob62_dizl_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0031.png"/>
-        <FILE id="JHpNe3" name="amped_knob62_dizl_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0032.png"/>
-        <FILE id="rIvUN5" name="amped_knob62_dizl_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0033.png"/>
-        <FILE id="yV9U31" name="amped_knob62_dizl_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0034.png"/>
-        <FILE id="vrF2BD" name="amped_knob62_dizl_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0035.png"/>
-        <FILE id="ZVT8DO" name="amped_knob62_dizl_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0036.png"/>
-        <FILE id="mvyTue" name="amped_knob62_dizl_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0037.png"/>
-        <FILE id="Ac89dG" name="amped_knob62_dizl_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0038.png"/>
-        <FILE id="YG3H3w" name="amped_knob62_dizl_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0039.png"/>
-        <FILE id="fQfrFG" name="amped_knob62_dizl_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0040.png"/>
-        <FILE id="W23CYX" name="amped_knob62_dizl_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0041.png"/>
-        <FILE id="zyENUU" name="amped_knob62_dizl_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0042.png"/>
-        <FILE id="P44DHI" name="amped_knob62_dizl_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0043.png"/>
-        <FILE id="elk6Wa" name="amped_knob62_dizl_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0044.png"/>
-        <FILE id="quMp0p" name="amped_knob62_dizl_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0045.png"/>
-        <FILE id="GFILch" name="amped_knob62_dizl_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0046.png"/>
-        <FILE id="X5fmqn" name="amped_knob62_dizl_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0047.png"/>
-        <FILE id="ZgwgyB" name="amped_knob62_dizl_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0048.png"/>
-        <FILE id="Iq1U3O" name="amped_knob62_dizl_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0049.png"/>
-        <FILE id="oT4xor" name="amped_knob62_dizl_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0050.png"/>
-        <FILE id="dKwaIT" name="amped_knob62_dizl_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0051.png"/>
-        <FILE id="nDVVgB" name="amped_knob62_dizl_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0052.png"/>
-        <FILE id="icHiuH" name="amped_knob62_dizl_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0053.png"/>
-        <FILE id="nZ0XQU" name="amped_knob62_dizl_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0054.png"/>
-        <FILE id="KmIh7z" name="amped_knob62_dizl_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0055.png"/>
-        <FILE id="ttiLf3" name="amped_knob62_dizl_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0056.png"/>
-        <FILE id="n2l3NW" name="amped_knob62_dizl_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0057.png"/>
-        <FILE id="PG77qu" name="amped_knob62_dizl_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0058.png"/>
-        <FILE id="vmzw54" name="amped_knob62_dizl_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_dizl/amped_knob62_dizl_0059.png"/>
-      </GROUP>
-      <GROUP id="{4EDD4D79-B7BE-51FE-4403-B7A3E64E11ED}" name="amped_knob62_frmn">
-        <FILE id="Fis4h8" name="amped_knob62_frmn_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0000.png"/>
-        <FILE id="RFMhWC" name="amped_knob62_frmn_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0001.png"/>
-        <FILE id="dq4qpk" name="amped_knob62_frmn_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0002.png"/>
-        <FILE id="FC6f3M" name="amped_knob62_frmn_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0003.png"/>
-        <FILE id="C7OR1C" name="amped_knob62_frmn_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0004.png"/>
-        <FILE id="pdOMVW" name="amped_knob62_frmn_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0005.png"/>
-        <FILE id="UJ3DBC" name="amped_knob62_frmn_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0006.png"/>
-        <FILE id="wGdpog" name="amped_knob62_frmn_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0007.png"/>
-        <FILE id="CKbTkX" name="amped_knob62_frmn_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0008.png"/>
-        <FILE id="IavtlP" name="amped_knob62_frmn_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0009.png"/>
-        <FILE id="tROv1s" name="amped_knob62_frmn_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0010.png"/>
-        <FILE id="vS24fm" name="amped_knob62_frmn_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0011.png"/>
-        <FILE id="h95Z1X" name="amped_knob62_frmn_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0012.png"/>
-        <FILE id="IBBUzx" name="amped_knob62_frmn_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0013.png"/>
-        <FILE id="jsxlkC" name="amped_knob62_frmn_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0014.png"/>
-        <FILE id="DWi5Av" name="amped_knob62_frmn_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0015.png"/>
-        <FILE id="oCBeYV" name="amped_knob62_frmn_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0016.png"/>
-        <FILE id="hyiLPY" name="amped_knob62_frmn_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0017.png"/>
-        <FILE id="HdZdzV" name="amped_knob62_frmn_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0018.png"/>
-        <FILE id="aicsE4" name="amped_knob62_frmn_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0019.png"/>
-        <FILE id="R5Yigf" name="amped_knob62_frmn_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0020.png"/>
-        <FILE id="pCKRWy" name="amped_knob62_frmn_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0021.png"/>
-        <FILE id="O42y6j" name="amped_knob62_frmn_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0022.png"/>
-        <FILE id="Wit0da" name="amped_knob62_frmn_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0023.png"/>
-        <FILE id="EoNHSA" name="amped_knob62_frmn_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0024.png"/>
-        <FILE id="MGklDp" name="amped_knob62_frmn_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0025.png"/>
-        <FILE id="W0Yqkp" name="amped_knob62_frmn_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0026.png"/>
-        <FILE id="Heuzhq" name="amped_knob62_frmn_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0027.png"/>
-        <FILE id="oKiTV4" name="amped_knob62_frmn_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0028.png"/>
-        <FILE id="w3OkCe" name="amped_knob62_frmn_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0029.png"/>
-        <FILE id="KPJgpo" name="amped_knob62_frmn_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0030.png"/>
-        <FILE id="tNsyDr" name="amped_knob62_frmn_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0031.png"/>
-        <FILE id="VUGUx7" name="amped_knob62_frmn_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0032.png"/>
-        <FILE id="kWI2s1" name="amped_knob62_frmn_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0033.png"/>
-        <FILE id="JJO4BL" name="amped_knob62_frmn_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0034.png"/>
-        <FILE id="pIrAa7" name="amped_knob62_frmn_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0035.png"/>
-        <FILE id="Pzd3kl" name="amped_knob62_frmn_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0036.png"/>
-        <FILE id="rpJ4F0" name="amped_knob62_frmn_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0037.png"/>
-        <FILE id="PsjKgg" name="amped_knob62_frmn_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0038.png"/>
-        <FILE id="roGhZ9" name="amped_knob62_frmn_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0039.png"/>
-        <FILE id="nb2nf5" name="amped_knob62_frmn_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0040.png"/>
-        <FILE id="iPV7wM" name="amped_knob62_frmn_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0041.png"/>
-        <FILE id="VPHrjX" name="amped_knob62_frmn_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0042.png"/>
-        <FILE id="M0iLqr" name="amped_knob62_frmn_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0043.png"/>
-        <FILE id="SiaMIE" name="amped_knob62_frmn_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0044.png"/>
-        <FILE id="vfTb5S" name="amped_knob62_frmn_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0045.png"/>
-        <FILE id="SuwmTd" name="amped_knob62_frmn_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0046.png"/>
-        <FILE id="dFi3dO" name="amped_knob62_frmn_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0047.png"/>
-        <FILE id="hWSd3A" name="amped_knob62_frmn_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0048.png"/>
-        <FILE id="x3jTTb" name="amped_knob62_frmn_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0049.png"/>
-        <FILE id="zTuuGn" name="amped_knob62_frmn_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0050.png"/>
-        <FILE id="rQs6T2" name="amped_knob62_frmn_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0051.png"/>
-        <FILE id="T0ssZc" name="amped_knob62_frmn_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0052.png"/>
-        <FILE id="ghsKeH" name="amped_knob62_frmn_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0053.png"/>
-        <FILE id="ruP0XB" name="amped_knob62_frmn_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0054.png"/>
-        <FILE id="YmrTUI" name="amped_knob62_frmn_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0055.png"/>
-        <FILE id="Offavz" name="amped_knob62_frmn_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0056.png"/>
-        <FILE id="A5vY4r" name="amped_knob62_frmn_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0057.png"/>
-        <FILE id="kknkt0" name="amped_knob62_frmn_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0058.png"/>
-        <FILE id="Zh7T6k" name="amped_knob62_frmn_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_frmn/amped_knob62_frmn_0059.png"/>
-      </GROUP>
-      <GROUP id="{AF020183-7C2C-2E7E-F03E-29A543212C85}" name="amped_knob62_mars">
-        <FILE id="MSLzJQ" name="amped_knob62_mars_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0000.png"/>
-        <FILE id="cxSGtK" name="amped_knob62_mars_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0001.png"/>
-        <FILE id="LvL7GW" name="amped_knob62_mars_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0002.png"/>
-        <FILE id="XhdWgZ" name="amped_knob62_mars_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0003.png"/>
-        <FILE id="vhH1cW" name="amped_knob62_mars_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0004.png"/>
-        <FILE id="McIB4Y" name="amped_knob62_mars_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0005.png"/>
-        <FILE id="agSKFq" name="amped_knob62_mars_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0006.png"/>
-        <FILE id="Em3W36" name="amped_knob62_mars_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0007.png"/>
-        <FILE id="jzekFp" name="amped_knob62_mars_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0008.png"/>
-        <FILE id="HY96nz" name="amped_knob62_mars_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0009.png"/>
-        <FILE id="G7Azlh" name="amped_knob62_mars_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0010.png"/>
-        <FILE id="DfdbjX" name="amped_knob62_mars_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0011.png"/>
-        <FILE id="Bh4ct8" name="amped_knob62_mars_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0012.png"/>
-        <FILE id="ri4TH3" name="amped_knob62_mars_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0013.png"/>
-        <FILE id="kKeoLU" name="amped_knob62_mars_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0014.png"/>
-        <FILE id="gvFoHj" name="amped_knob62_mars_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0015.png"/>
-        <FILE id="x0YbZe" name="amped_knob62_mars_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0016.png"/>
-        <FILE id="hBZ9zV" name="amped_knob62_mars_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0017.png"/>
-        <FILE id="txWQo9" name="amped_knob62_mars_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0018.png"/>
-        <FILE id="iz1YE4" name="amped_knob62_mars_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0019.png"/>
-        <FILE id="ucpJRl" name="amped_knob62_mars_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0020.png"/>
-        <FILE id="WfggFX" name="amped_knob62_mars_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0021.png"/>
-        <FILE id="djHloc" name="amped_knob62_mars_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0022.png"/>
-        <FILE id="zBH48q" name="amped_knob62_mars_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0023.png"/>
-        <FILE id="thkAXs" name="amped_knob62_mars_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0024.png"/>
-        <FILE id="Jd8jA5" name="amped_knob62_mars_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0025.png"/>
-        <FILE id="ZjXnc5" name="amped_knob62_mars_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0026.png"/>
-        <FILE id="WcPl1f" name="amped_knob62_mars_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0027.png"/>
-        <FILE id="PvGLn0" name="amped_knob62_mars_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0028.png"/>
-        <FILE id="eV4CB1" name="amped_knob62_mars_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0029.png"/>
-        <FILE id="DZai3n" name="amped_knob62_mars_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0030.png"/>
-        <FILE id="yBRDSz" name="amped_knob62_mars_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0031.png"/>
-        <FILE id="Csglm8" name="amped_knob62_mars_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0032.png"/>
-        <FILE id="KGyhB0" name="amped_knob62_mars_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0033.png"/>
-        <FILE id="d7oKJq" name="amped_knob62_mars_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0034.png"/>
-        <FILE id="dwxOH2" name="amped_knob62_mars_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0035.png"/>
-        <FILE id="djq5gt" name="amped_knob62_mars_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0036.png"/>
-        <FILE id="JQ8FHh" name="amped_knob62_mars_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0037.png"/>
-        <FILE id="f6et1X" name="amped_knob62_mars_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0038.png"/>
-        <FILE id="Cq7z7X" name="amped_knob62_mars_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0039.png"/>
-        <FILE id="ZeJN1O" name="amped_knob62_mars_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0040.png"/>
-        <FILE id="XMnA21" name="amped_knob62_mars_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0041.png"/>
-        <FILE id="byKcKS" name="amped_knob62_mars_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0042.png"/>
-        <FILE id="TzFkdb" name="amped_knob62_mars_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0043.png"/>
-        <FILE id="HcANY1" name="amped_knob62_mars_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0044.png"/>
-        <FILE id="V7L3Cu" name="amped_knob62_mars_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0045.png"/>
-        <FILE id="hCToFO" name="amped_knob62_mars_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0046.png"/>
-        <FILE id="RTy2c1" name="amped_knob62_mars_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0047.png"/>
-        <FILE id="NWj4N5" name="amped_knob62_mars_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0048.png"/>
-        <FILE id="mKC2hJ" name="amped_knob62_mars_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0049.png"/>
-        <FILE id="Vtxjwa" name="amped_knob62_mars_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0050.png"/>
-        <FILE id="YMZgMF" name="amped_knob62_mars_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0051.png"/>
-        <FILE id="hU6HVF" name="amped_knob62_mars_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0052.png"/>
-        <FILE id="XCEio1" name="amped_knob62_mars_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0053.png"/>
-        <FILE id="KGyna6" name="amped_knob62_mars_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0054.png"/>
-        <FILE id="KxD8qI" name="amped_knob62_mars_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0055.png"/>
-        <FILE id="tchvNU" name="amped_knob62_mars_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0056.png"/>
-        <FILE id="XVzKm1" name="amped_knob62_mars_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0057.png"/>
-        <FILE id="jQZVh5" name="amped_knob62_mars_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0058.png"/>
-        <FILE id="JVFyHX" name="amped_knob62_mars_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_mars/amped_knob62_mars_0059.png"/>
-      </GROUP>
-      <GROUP id="{A1204C76-61F0-A576-F21A-3F6DD39412DF}" name="amped_knob62_marss">
-        <FILE id="OBCCZg" name="amped_knob62_marss_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0000.png"/>
-        <FILE id="k3Z4kp" name="amped_knob62_marss_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0001.png"/>
-        <FILE id="YXPafm" name="amped_knob62_marss_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0002.png"/>
-        <FILE id="DRII4l" name="amped_knob62_marss_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0003.png"/>
-        <FILE id="r8davX" name="amped_knob62_marss_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0004.png"/>
-        <FILE id="m072pK" name="amped_knob62_marss_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0005.png"/>
-        <FILE id="QAuS2h" name="amped_knob62_marss_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0006.png"/>
-        <FILE id="DEuYTC" name="amped_knob62_marss_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0007.png"/>
-        <FILE id="dnWu5T" name="amped_knob62_marss_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0008.png"/>
-        <FILE id="vzOMsk" name="amped_knob62_marss_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0009.png"/>
-        <FILE id="Efj8sW" name="amped_knob62_marss_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0010.png"/>
-        <FILE id="PLI4uh" name="amped_knob62_marss_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0011.png"/>
-        <FILE id="dmyxcY" name="amped_knob62_marss_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0012.png"/>
-        <FILE id="cZhdQb" name="amped_knob62_marss_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0013.png"/>
-        <FILE id="zsAKLe" name="amped_knob62_marss_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0014.png"/>
-        <FILE id="oZjoiL" name="amped_knob62_marss_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0015.png"/>
-        <FILE id="rAaIim" name="amped_knob62_marss_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0016.png"/>
-        <FILE id="hraFZ3" name="amped_knob62_marss_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0017.png"/>
-        <FILE id="lXmSV9" name="amped_knob62_marss_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0018.png"/>
-        <FILE id="cytS5A" name="amped_knob62_marss_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0019.png"/>
-        <FILE id="dI8ywl" name="amped_knob62_marss_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0020.png"/>
-        <FILE id="kM1VVL" name="amped_knob62_marss_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0021.png"/>
-        <FILE id="H01kpm" name="amped_knob62_marss_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0022.png"/>
-        <FILE id="L8YUzO" name="amped_knob62_marss_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0023.png"/>
-        <FILE id="r17vY7" name="amped_knob62_marss_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0024.png"/>
-        <FILE id="UPSbVJ" name="amped_knob62_marss_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0025.png"/>
-        <FILE id="aDVWec" name="amped_knob62_marss_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0026.png"/>
-        <FILE id="iHSWXA" name="amped_knob62_marss_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0027.png"/>
-        <FILE id="VcMvuD" name="amped_knob62_marss_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0028.png"/>
-        <FILE id="CB25IR" name="amped_knob62_marss_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0029.png"/>
-        <FILE id="Rodu0Z" name="amped_knob62_marss_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0030.png"/>
-        <FILE id="E652yK" name="amped_knob62_marss_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0031.png"/>
-        <FILE id="IsHngu" name="amped_knob62_marss_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0032.png"/>
-        <FILE id="v3zvs2" name="amped_knob62_marss_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0033.png"/>
-        <FILE id="ObDmLw" name="amped_knob62_marss_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0034.png"/>
-        <FILE id="DC9lpd" name="amped_knob62_marss_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0035.png"/>
-        <FILE id="On7BMg" name="amped_knob62_marss_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0036.png"/>
-        <FILE id="smUl6s" name="amped_knob62_marss_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0037.png"/>
-        <FILE id="fAAoua" name="amped_knob62_marss_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0038.png"/>
-        <FILE id="U00dKA" name="amped_knob62_marss_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0039.png"/>
-        <FILE id="DeydBP" name="amped_knob62_marss_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0040.png"/>
-        <FILE id="IyG7c3" name="amped_knob62_marss_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0041.png"/>
-        <FILE id="PZLDT8" name="amped_knob62_marss_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0042.png"/>
-        <FILE id="t7ofdW" name="amped_knob62_marss_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0043.png"/>
-        <FILE id="Zoxspi" name="amped_knob62_marss_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0044.png"/>
-        <FILE id="ltD6Hp" name="amped_knob62_marss_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0045.png"/>
-        <FILE id="jzqQq3" name="amped_knob62_marss_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0046.png"/>
-        <FILE id="rrW0f3" name="amped_knob62_marss_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0047.png"/>
-        <FILE id="ZqbswM" name="amped_knob62_marss_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0048.png"/>
-        <FILE id="bkvBdl" name="amped_knob62_marss_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0049.png"/>
-        <FILE id="EEYjbC" name="amped_knob62_marss_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0050.png"/>
-        <FILE id="aYdC3O" name="amped_knob62_marss_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0051.png"/>
-        <FILE id="nbMrSB" name="amped_knob62_marss_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0052.png"/>
-        <FILE id="LVbz9u" name="amped_knob62_marss_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0053.png"/>
-        <FILE id="YeKHU4" name="amped_knob62_marss_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0054.png"/>
-        <FILE id="hvXwea" name="amped_knob62_marss_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0055.png"/>
-        <FILE id="J0B828" name="amped_knob62_marss_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0056.png"/>
-        <FILE id="dHPnCO" name="amped_knob62_marss_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0057.png"/>
-        <FILE id="DRcfWm" name="amped_knob62_marss_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0058.png"/>
-        <FILE id="LOqHF8" name="amped_knob62_marss_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_marss/amped_knob62_marss_0059.png"/>
-      </GROUP>
-      <GROUP id="{F0DF8D26-0B31-E932-1337-F4E007F8C73D}" name="amped_knob62_mega">
-        <FILE id="ZKOc6W" name="amped_knob62_mega_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0000.png"/>
-        <FILE id="BqkMOf" name="amped_knob62_mega_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0001.png"/>
-        <FILE id="JBDTxv" name="amped_knob62_mega_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0002.png"/>
-        <FILE id="plFeOY" name="amped_knob62_mega_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0003.png"/>
-        <FILE id="FpUP60" name="amped_knob62_mega_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0004.png"/>
-        <FILE id="FTVMnE" name="amped_knob62_mega_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0005.png"/>
-        <FILE id="xYjRti" name="amped_knob62_mega_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0006.png"/>
-        <FILE id="lJ43tO" name="amped_knob62_mega_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0007.png"/>
-        <FILE id="d2t3zO" name="amped_knob62_mega_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0008.png"/>
-        <FILE id="TgyrfK" name="amped_knob62_mega_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0009.png"/>
-        <FILE id="bwaTbj" name="amped_knob62_mega_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0010.png"/>
-        <FILE id="R0x7rs" name="amped_knob62_mega_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0011.png"/>
-        <FILE id="sYL4Up" name="amped_knob62_mega_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0012.png"/>
-        <FILE id="HZ15Up" name="amped_knob62_mega_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0013.png"/>
-        <FILE id="pXdzcS" name="amped_knob62_mega_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0014.png"/>
-        <FILE id="T0JlIR" name="amped_knob62_mega_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0015.png"/>
-        <FILE id="VAcLmV" name="amped_knob62_mega_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0016.png"/>
-        <FILE id="juB02L" name="amped_knob62_mega_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0017.png"/>
-        <FILE id="yl1Fcl" name="amped_knob62_mega_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0018.png"/>
-        <FILE id="Imknb5" name="amped_knob62_mega_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0019.png"/>
-        <FILE id="YFLu9m" name="amped_knob62_mega_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0020.png"/>
-        <FILE id="uN7C6q" name="amped_knob62_mega_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0021.png"/>
-        <FILE id="HrUWYu" name="amped_knob62_mega_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0022.png"/>
-        <FILE id="JmZMoo" name="amped_knob62_mega_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0023.png"/>
-        <FILE id="bV3hjh" name="amped_knob62_mega_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0024.png"/>
-        <FILE id="p62hAv" name="amped_knob62_mega_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0025.png"/>
-        <FILE id="zwACEE" name="amped_knob62_mega_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0026.png"/>
-        <FILE id="fpXCZ0" name="amped_knob62_mega_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0027.png"/>
-        <FILE id="KfqAto" name="amped_knob62_mega_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0028.png"/>
-        <FILE id="wKvTFb" name="amped_knob62_mega_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0029.png"/>
-        <FILE id="Fg1oWM" name="amped_knob62_mega_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0030.png"/>
-        <FILE id="B6GncK" name="amped_knob62_mega_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0031.png"/>
-        <FILE id="UpY1YA" name="amped_knob62_mega_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0032.png"/>
-        <FILE id="ie3V2c" name="amped_knob62_mega_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0033.png"/>
-        <FILE id="YA5alr" name="amped_knob62_mega_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0034.png"/>
-        <FILE id="QM3bGw" name="amped_knob62_mega_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0035.png"/>
-        <FILE id="r8tdnH" name="amped_knob62_mega_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0036.png"/>
-        <FILE id="NOLYU6" name="amped_knob62_mega_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0037.png"/>
-        <FILE id="uT9en3" name="amped_knob62_mega_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0038.png"/>
-        <FILE id="h5Wdoj" name="amped_knob62_mega_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0039.png"/>
-        <FILE id="AdELXR" name="amped_knob62_mega_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0040.png"/>
-        <FILE id="Sl9iz6" name="amped_knob62_mega_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0041.png"/>
-        <FILE id="HRnfAX" name="amped_knob62_mega_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0042.png"/>
-        <FILE id="LVlvxT" name="amped_knob62_mega_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0043.png"/>
-        <FILE id="eeW7eo" name="amped_knob62_mega_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0044.png"/>
-        <FILE id="pYERD7" name="amped_knob62_mega_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0045.png"/>
-        <FILE id="BozY0z" name="amped_knob62_mega_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0046.png"/>
-        <FILE id="GOpgn5" name="amped_knob62_mega_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0047.png"/>
-        <FILE id="AgutXD" name="amped_knob62_mega_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0048.png"/>
-        <FILE id="jgsmb3" name="amped_knob62_mega_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0049.png"/>
-        <FILE id="HgFUCZ" name="amped_knob62_mega_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0050.png"/>
-        <FILE id="JEWM47" name="amped_knob62_mega_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0051.png"/>
-        <FILE id="SMaMEL" name="amped_knob62_mega_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0052.png"/>
-        <FILE id="laXatC" name="amped_knob62_mega_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0053.png"/>
-        <FILE id="YpaliV" name="amped_knob62_mega_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0054.png"/>
-        <FILE id="aCvZEY" name="amped_knob62_mega_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0055.png"/>
-        <FILE id="LdLsvx" name="amped_knob62_mega_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0056.png"/>
-        <FILE id="R5Xz8U" name="amped_knob62_mega_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0057.png"/>
-        <FILE id="gM33Wq" name="amped_knob62_mega_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0058.png"/>
-        <FILE id="E1vDqr" name="amped_knob62_mega_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_mega/amped_knob62_mega_0059.png"/>
-      </GROUP>
-      <GROUP id="{32181695-85D6-BAAB-63B9-A71A413C3892}" name="amped_knob62_recto">
-        <FILE id="vyYVis" name="amped_knob62_recto_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0000.png"/>
-        <FILE id="pdiYQu" name="amped_knob62_recto_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0001.png"/>
-        <FILE id="Rb4jOk" name="amped_knob62_recto_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0002.png"/>
-        <FILE id="qGQCSe" name="amped_knob62_recto_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0003.png"/>
-        <FILE id="bFJ5Je" name="amped_knob62_recto_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0004.png"/>
-        <FILE id="QJ9AZr" name="amped_knob62_recto_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0005.png"/>
-        <FILE id="jHVzmN" name="amped_knob62_recto_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0006.png"/>
-        <FILE id="alhCBg" name="amped_knob62_recto_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0007.png"/>
-        <FILE id="pJwMnO" name="amped_knob62_recto_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0008.png"/>
-        <FILE id="Hmlqeb" name="amped_knob62_recto_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0009.png"/>
-        <FILE id="CWXCU2" name="amped_knob62_recto_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0010.png"/>
-        <FILE id="tlCwJm" name="amped_knob62_recto_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0011.png"/>
-        <FILE id="n5giSb" name="amped_knob62_recto_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0012.png"/>
-        <FILE id="d1RUeY" name="amped_knob62_recto_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0013.png"/>
-        <FILE id="ns2gl5" name="amped_knob62_recto_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0014.png"/>
-        <FILE id="j2Hh7w" name="amped_knob62_recto_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0015.png"/>
-        <FILE id="WSiNTS" name="amped_knob62_recto_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0016.png"/>
-        <FILE id="RVjnjW" name="amped_knob62_recto_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0017.png"/>
-        <FILE id="loxOd3" name="amped_knob62_recto_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0018.png"/>
-        <FILE id="wfGe8d" name="amped_knob62_recto_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0019.png"/>
-        <FILE id="CPpfcW" name="amped_knob62_recto_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0020.png"/>
-        <FILE id="wivLg6" name="amped_knob62_recto_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0021.png"/>
-        <FILE id="gEWXj5" name="amped_knob62_recto_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0022.png"/>
-        <FILE id="r5Y2na" name="amped_knob62_recto_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0023.png"/>
-        <FILE id="wgDPbv" name="amped_knob62_recto_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0024.png"/>
-        <FILE id="BXZja6" name="amped_knob62_recto_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0025.png"/>
-        <FILE id="Ys7PBH" name="amped_knob62_recto_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0026.png"/>
-        <FILE id="QmKxt6" name="amped_knob62_recto_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0027.png"/>
-        <FILE id="UtvQSH" name="amped_knob62_recto_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0028.png"/>
-        <FILE id="biuJXT" name="amped_knob62_recto_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0029.png"/>
-        <FILE id="BNCx28" name="amped_knob62_recto_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0030.png"/>
-        <FILE id="lLre6y" name="amped_knob62_recto_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0031.png"/>
-        <FILE id="ynTjyt" name="amped_knob62_recto_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0032.png"/>
-        <FILE id="KRAp43" name="amped_knob62_recto_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0033.png"/>
-        <FILE id="beml4g" name="amped_knob62_recto_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0034.png"/>
-        <FILE id="GWzeFA" name="amped_knob62_recto_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0035.png"/>
-        <FILE id="JtTuqh" name="amped_knob62_recto_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0036.png"/>
-        <FILE id="UXW0O6" name="amped_knob62_recto_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0037.png"/>
-        <FILE id="dhnf5w" name="amped_knob62_recto_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0038.png"/>
-        <FILE id="kvGYYv" name="amped_knob62_recto_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0039.png"/>
-        <FILE id="fVDBjR" name="amped_knob62_recto_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0040.png"/>
-        <FILE id="GTneN5" name="amped_knob62_recto_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0041.png"/>
-        <FILE id="R5Eaed" name="amped_knob62_recto_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0042.png"/>
-        <FILE id="fR8vzW" name="amped_knob62_recto_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0043.png"/>
-        <FILE id="Y5Cb01" name="amped_knob62_recto_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0044.png"/>
-        <FILE id="fUqYVj" name="amped_knob62_recto_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0045.png"/>
-        <FILE id="nYfGr3" name="amped_knob62_recto_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0046.png"/>
-        <FILE id="viptwS" name="amped_knob62_recto_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0047.png"/>
-        <FILE id="mUcSza" name="amped_knob62_recto_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0048.png"/>
-        <FILE id="TbKfGx" name="amped_knob62_recto_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0049.png"/>
-        <FILE id="l29rTJ" name="amped_knob62_recto_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0050.png"/>
-        <FILE id="vmM2S3" name="amped_knob62_recto_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0051.png"/>
-        <FILE id="KKCmAJ" name="amped_knob62_recto_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0052.png"/>
-        <FILE id="PwoMwO" name="amped_knob62_recto_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0053.png"/>
-        <FILE id="TPom4Y" name="amped_knob62_recto_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0054.png"/>
-        <FILE id="QkygO9" name="amped_knob62_recto_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0055.png"/>
-        <FILE id="WSpuDB" name="amped_knob62_recto_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0056.png"/>
-        <FILE id="DxPJdU" name="amped_knob62_recto_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0057.png"/>
-        <FILE id="wESdDs" name="amped_knob62_recto_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0058.png"/>
-        <FILE id="R0xF3Z" name="amped_knob62_recto_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_recto/amped_knob62_recto_0059.png"/>
-      </GROUP>
-      <GROUP id="{98015E9E-A43A-D59D-0AC3-17B6F90578CD}" name="amped_knob62_rectob">
-        <FILE id="v1AZv9" name="amped_knob62_rectob_0000.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0000.png"/>
-        <FILE id="CC9foD" name="amped_knob62_rectob_0001.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0001.png"/>
-        <FILE id="TH2czu" name="amped_knob62_rectob_0002.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0002.png"/>
-        <FILE id="J8c32m" name="amped_knob62_rectob_0003.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0003.png"/>
-        <FILE id="rs8P5R" name="amped_knob62_rectob_0004.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0004.png"/>
-        <FILE id="sQLKrQ" name="amped_knob62_rectob_0005.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0005.png"/>
-        <FILE id="OWnfpV" name="amped_knob62_rectob_0006.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0006.png"/>
-        <FILE id="ZowKf7" name="amped_knob62_rectob_0007.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0007.png"/>
-        <FILE id="vGBWFE" name="amped_knob62_rectob_0008.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0008.png"/>
-        <FILE id="W5LlhB" name="amped_knob62_rectob_0009.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0009.png"/>
-        <FILE id="tZOmqB" name="amped_knob62_rectob_0010.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0010.png"/>
-        <FILE id="QdIBo3" name="amped_knob62_rectob_0011.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0011.png"/>
-        <FILE id="LYsi79" name="amped_knob62_rectob_0012.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0012.png"/>
-        <FILE id="Gmze2I" name="amped_knob62_rectob_0013.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0013.png"/>
-        <FILE id="DUBd0L" name="amped_knob62_rectob_0014.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0014.png"/>
-        <FILE id="xeWHMy" name="amped_knob62_rectob_0015.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0015.png"/>
-        <FILE id="bfZitn" name="amped_knob62_rectob_0016.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0016.png"/>
-        <FILE id="M2bOcM" name="amped_knob62_rectob_0017.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0017.png"/>
-        <FILE id="Y9d54R" name="amped_knob62_rectob_0018.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0018.png"/>
-        <FILE id="X9EhYG" name="amped_knob62_rectob_0019.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0019.png"/>
-        <FILE id="N3AcHz" name="amped_knob62_rectob_0020.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0020.png"/>
-        <FILE id="k6aKYm" name="amped_knob62_rectob_0021.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0021.png"/>
-        <FILE id="I7x5QG" name="amped_knob62_rectob_0022.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0022.png"/>
-        <FILE id="JrUBYK" name="amped_knob62_rectob_0023.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0023.png"/>
-        <FILE id="AogzD2" name="amped_knob62_rectob_0024.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0024.png"/>
-        <FILE id="LIKNJe" name="amped_knob62_rectob_0025.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0025.png"/>
-        <FILE id="EMKr1X" name="amped_knob62_rectob_0026.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0026.png"/>
-        <FILE id="V3bLbM" name="amped_knob62_rectob_0027.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0027.png"/>
-        <FILE id="oDRbU4" name="amped_knob62_rectob_0028.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0028.png"/>
-        <FILE id="rCNtp6" name="amped_knob62_rectob_0029.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0029.png"/>
-        <FILE id="AaLUFX" name="amped_knob62_rectob_0030.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0030.png"/>
-        <FILE id="fxRt6c" name="amped_knob62_rectob_0031.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0031.png"/>
-        <FILE id="Pyi8gf" name="amped_knob62_rectob_0032.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0032.png"/>
-        <FILE id="xnkYt8" name="amped_knob62_rectob_0033.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0033.png"/>
-        <FILE id="J9EXYX" name="amped_knob62_rectob_0034.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0034.png"/>
-        <FILE id="ROqdqv" name="amped_knob62_rectob_0035.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0035.png"/>
-        <FILE id="xzzamT" name="amped_knob62_rectob_0036.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0036.png"/>
-        <FILE id="gg4fx2" name="amped_knob62_rectob_0037.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0037.png"/>
-        <FILE id="N0LFzn" name="amped_knob62_rectob_0038.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0038.png"/>
-        <FILE id="m2guoB" name="amped_knob62_rectob_0039.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0039.png"/>
-        <FILE id="V26dIJ" name="amped_knob62_rectob_0040.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0040.png"/>
-        <FILE id="FOu9aK" name="amped_knob62_rectob_0041.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0041.png"/>
-        <FILE id="NzoTQO" name="amped_knob62_rectob_0042.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0042.png"/>
-        <FILE id="gHqaJO" name="amped_knob62_rectob_0043.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0043.png"/>
-        <FILE id="Mre3KF" name="amped_knob62_rectob_0044.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0044.png"/>
-        <FILE id="lux51i" name="amped_knob62_rectob_0045.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0045.png"/>
-        <FILE id="gd57rk" name="amped_knob62_rectob_0046.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0046.png"/>
-        <FILE id="MDVRGU" name="amped_knob62_rectob_0047.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0047.png"/>
-        <FILE id="W8fTyM" name="amped_knob62_rectob_0048.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0048.png"/>
-        <FILE id="qTJ3T3" name="amped_knob62_rectob_0049.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0049.png"/>
-        <FILE id="CfFVRm" name="amped_knob62_rectob_0050.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0050.png"/>
-        <FILE id="cUA3gp" name="amped_knob62_rectob_0051.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0051.png"/>
-        <FILE id="PebXVk" name="amped_knob62_rectob_0052.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0052.png"/>
-        <FILE id="vAhBv2" name="amped_knob62_rectob_0053.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0053.png"/>
-        <FILE id="iZc3Kp" name="amped_knob62_rectob_0054.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0054.png"/>
-        <FILE id="E24gEn" name="amped_knob62_rectob_0055.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0055.png"/>
-        <FILE id="K6RAe8" name="amped_knob62_rectob_0056.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0056.png"/>
-        <FILE id="R4rtNz" name="amped_knob62_rectob_0057.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0057.png"/>
-        <FILE id="A5AEQQ" name="amped_knob62_rectob_0058.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0058.png"/>
-        <FILE id="J5PGI4" name="amped_knob62_rectob_0059.png" compile="0" resource="1"
-              file="res/amped_knob62_rectob/amped_knob62_rectob_0059.png"/>
-      </GROUP>
-      <GROUP id="{617C9610-C747-E287-40C7-83A23A14D300}" name="amped_switch62">
-        <FILE id="mZlvvC" name="amped_switch62_0000.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0000.png"/>
-        <FILE id="S1lEdh" name="amped_switch62_0001.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0001.png"/>
-        <FILE id="xGYOMz" name="amped_switch62_0002.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0002.png"/>
-        <FILE id="WvgP5c" name="amped_switch62_0003.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0003.png"/>
-        <FILE id="pFb1Af" name="amped_switch62_0004.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0004.png"/>
-        <FILE id="jL17BS" name="amped_switch62_0005.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0005.png"/>
-        <FILE id="jCDTpm" name="amped_switch62_0006.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0006.png"/>
-        <FILE id="TH6xVs" name="amped_switch62_0007.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0007.png"/>
-        <FILE id="WmB3lH" name="amped_switch62_0008.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0008.png"/>
-        <FILE id="rDQpAM" name="amped_switch62_0009.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0009.png"/>
-        <FILE id="VRDoiw" name="amped_switch62_0010.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0010.png"/>
-        <FILE id="xvVIxY" name="amped_switch62_0011.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0011.png"/>
-        <FILE id="gMvLKs" name="amped_switch62_0012.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0012.png"/>
-        <FILE id="NQoAIY" name="amped_switch62_0013.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0013.png"/>
-        <FILE id="lmI5Br" name="amped_switch62_0014.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0014.png"/>
-        <FILE id="znQcZY" name="amped_switch62_0015.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0015.png"/>
-        <FILE id="TLOQCp" name="amped_switch62_0016.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0016.png"/>
-        <FILE id="dzoIYC" name="amped_switch62_0017.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0017.png"/>
-        <FILE id="a1xQiA" name="amped_switch62_0018.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0018.png"/>
-        <FILE id="t2k4zV" name="amped_switch62_0019.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0019.png"/>
-        <FILE id="XPQHws" name="amped_switch62_0020.png" compile="0" resource="1"
-              file="res/amped_switch62/amped_switch62_0020.png"/>
-      </GROUP>
-      <GROUP id="{ECFEE057-5F1B-D950-9912-AED5D9ACB82B}" name="EQ_IRs"/>
       <FILE id="YNaBDp" name="1200x289-pedals.png" compile="0" resource="1"
             file="res/1200x289-pedals.png"/>
     </GROUP>

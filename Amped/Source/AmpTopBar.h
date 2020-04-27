@@ -78,7 +78,6 @@ private:
     std::unique_ptr<ComboBox> presetComboBox;
     std::unique_ptr<Label> label;
     std::unique_ptr<Label> label2;
-    std::unique_ptr<Drawable> drawable1;
 
 
     //==============================================================================
