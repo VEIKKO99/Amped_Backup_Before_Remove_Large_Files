@@ -29,6 +29,7 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     initSliderComponent(trebleSlider,  VTS_TREBBLE, trebleAttachment);
     initSliderComponent(presenceSlider, VTS_PRESENCE, presenceAttachment);
     initSliderComponent(masterSlider, VTS_MASTER, masterAttachment);
+    initSliderComponent(depthSlider, VTS_DEPTH, depthAttachment);
 
     addAndMakeVisible(cabSimSwitch);
     cabSimSwitch.addListener(this);
@@ -117,6 +118,8 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(bassSlider, Constants::AmpCtrlBassX);
     setAmpComponentBounds(middleSlider, Constants::AmpCtrlMiddleX);
     setAmpComponentBounds(trebleSlider, Constants::AmpCtrlTrebbleX);
+    setAmpComponentBounds(depthSlider, Constants::AmpCtrlTrebbleX + 78);
+
     setAmpComponentBounds(presenceSlider, Constants::AmpCtrlPresenceX);
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);

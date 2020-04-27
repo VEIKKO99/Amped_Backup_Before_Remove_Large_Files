@@ -130,6 +130,7 @@ enum EQType {
     kMiddleEq,
     kTrebleEq,
     kPresence,
+    kDepthEq,
     kEQSize
 };
 

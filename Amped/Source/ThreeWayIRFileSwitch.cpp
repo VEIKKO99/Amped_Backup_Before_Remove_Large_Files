@@ -86,9 +86,9 @@ AudioProcessorValueTreeState::ButtonAttachment::~ButtonAttachment() {}
 ThreeWayIRFileSwitch::ThreeWayIRFileSwitch ()
 {
     //[Constructor_pre] You can add your own custom stuff here..
-    drawableButtonOff = Drawable::createFromImageData (BinaryData::archon_big3way_down_png, BinaryData::archon_big3way_down_pngSize);
+    drawableButtonOff = Drawable::createFromImageData (BinaryData::archon_big3way_up_png, BinaryData::archon_big3way_up_pngSize);
     drawableButtonMiddle = Drawable::createFromImageData (BinaryData::archon_big3way_middle_png, BinaryData::archon_big3way_middle_pngSize);
-    drawableButtonOn = Drawable::createFromImageData (BinaryData::archon_big3way_up_png, BinaryData::archon_big3way_up_pngSize);
+    drawableButtonOn = Drawable::createFromImageData (BinaryData::archon_big3way_down_png, BinaryData::archon_big3way_down_pngSize);
 
     PropertiesFile::Options options;
 

@@ -213,19 +213,19 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     bassEq.reset (new UIEQSettings());
     addAndMakeVisible (bassEq.get());
-    bassEq->setBounds (8, 535, 768, 40);
+    bassEq->setBounds (8, 516, 768, 40);
 
     middleEq.reset (new UIEQSettings());
     addAndMakeVisible (middleEq.get());
-    middleEq->setBounds (8, 575, 768, 40);
+    middleEq->setBounds (8, 556, 768, 40);
 
     component3.reset (new UIEQSettings());
     addAndMakeVisible (component3.get());
-    component3->setBounds (8, 614, 768, 40);
+    component3->setBounds (8, 595, 768, 40);
 
     trebleEq.reset (new UIEQSettings());
     addAndMakeVisible (trebleEq.get());
-    trebleEq->setBounds (8, 614, 768, 40);
+    trebleEq->setBounds (8, 595, 768, 40);
 
     label5.reset (new Label ("new label",
                              TRANS("Hornet Drive (0.0 - 1.0)")));
@@ -275,7 +275,7 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     presenceEq.reset (new UIEQSettings());
     addAndMakeVisible (presenceEq.get());
-    presenceEq->setBounds (8, 672, 768, 40);
+    presenceEq->setBounds (8, 684, 768, 40);
 
     updateButton2.reset (new TextButton ("new button"));
     addAndMakeVisible (updateButton2.get());
@@ -624,6 +624,17 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     label18->setBounds (272, 472, 32, 24);
 
+    depthEq.reset (new UIEQSettings());
+    addAndMakeVisible (depthEq.get());
+    depthEq->setBounds (8, 632, 768, 40);
+
+    brightIrBtn.reset (new TextButton ("new button"));
+    addAndMakeVisible (brightIrBtn.get());
+    brightIrBtn->setButtonText (TRANS("Bright IR"));
+    brightIrBtn->addListener (this);
+
+    brightIrBtn->setBounds (496, 472, 150, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -702,6 +713,8 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label16 = nullptr;
     label17 = nullptr;
     label18 = nullptr;
+    depthEq = nullptr;
+    brightIrBtn = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -817,6 +830,11 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
         encryptFile();
         //[/UserButtonCode_encryptFileBtn]
     }
+    else if (buttonThatWasClicked == brightIrBtn.get())
+    {
+        //[UserButtonCode_brightIrBtn] -- add your button handler code here..
+        //[/UserButtonCode_brightIrBtn]
+    }
 
     //[UserbuttonClicked_Post]
     //[/UserbuttonClicked_Post]
@@ -857,6 +875,8 @@ void AdminSettingsWindow::updateSettings() {
     bassEq->updateSettings(settings->ampSettings.eqs[kBassEq]);
     middleEq->updateSettings(settings->ampSettings.eqs[kMiddleEq]);
     trebleEq->updateSettings(settings->ampSettings.eqs[kTrebleEq]);
+    depthEq->updateSettings(settings->ampSettings.eqs[kDepthEq]);
+
     presenceEq->updateSettings(settings->ampSettings.eqs[kPresence]);
 
     settings->gainSettings[GainProcessorId::InputGain].min = inMin->getText().getFloatValue();
@@ -870,7 +890,7 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
     settings->ampSettings.overSample = overSample->getText().getIntValue();
     //settings->ampSettings.masterVolumeMultiplier = masterMultiplier->getText().getFloatValue();
-    
+
     settings->ampSettings.masterMultiplierOff = masterMultiplierOff->getText().getFloatValue();
     settings->ampSettings.masterMultiplier025 = masterMultiplier025->getText().getFloatValue();
     settings->ampSettings.masterMultiplier050 = masterMultiplier050->getText().getFloatValue();
@@ -920,13 +940,15 @@ void AdminSettingsWindow::setupUI(){
     this->bassEq->setupUI(settings->ampSettings.eqs[kBassEq], "Bass Eq");
     this->middleEq->setupUI(settings->ampSettings.eqs[kMiddleEq], "Middle Eq");
     this->trebleEq->setupUI(settings->ampSettings.eqs[kTrebleEq], "Treble Eq");
+    this->depthEq->setupUI(settings->ampSettings.eqs[kDepthEq], "Depth Eq");
+
     this->presenceEq->setupUI(settings->ampSettings.eqs[kPresence], "Presence");
 
     this->hornetDrive->setText(String(settings->ampSettings.hornetDrive), dontSendNotification);
     this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
 
     this->overSample->setText(String(settings->ampSettings.overSample));
-    
+
     this->masterMultiplierOff->setText(String(settings->ampSettings.masterMultiplierOff));
     this->masterMultiplier025->setText(String(settings->ampSettings.masterMultiplier025));
     this->masterMultiplier050->setText(String(settings->ampSettings.masterMultiplier050));
@@ -1202,16 +1224,16 @@ BEGIN_JUCER_METADATA
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
          fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <JUCERCOMP name="" id="f05f02aebf7cb86b" memberName="bassEq" virtualName=""
-             explicitFocusOrder="0" pos="8 535 768 40" sourceFile="UIEQSettings.cpp"
+             explicitFocusOrder="0" pos="8 516 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="7a92c9ed75d11d77" memberName="middleEq" virtualName=""
-             explicitFocusOrder="0" pos="8 575 768 40" sourceFile="UIEQSettings.cpp"
+             explicitFocusOrder="0" pos="8 556 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="bbe19eb4320544a" memberName="component3" virtualName=""
-             explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
+             explicitFocusOrder="0" pos="8 595 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <JUCERCOMP name="" id="c1dae00a7f289494" memberName="trebleEq" virtualName=""
-             explicitFocusOrder="0" pos="8 614 768 40" sourceFile="UIEQSettings.cpp"
+             explicitFocusOrder="0" pos="8 595 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <LABEL name="new label" id="3857fe40619377d4" memberName="label5" virtualName=""
          explicitFocusOrder="0" pos="808 269 168 24" edTextCol="ff000000"
@@ -1232,7 +1254,7 @@ BEGIN_JUCER_METADATA
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
               caret="1" popupmenu="1"/>
   <JUCERCOMP name="" id="4d5ec1ea5b478aaf" memberName="presenceEq" virtualName=""
-             explicitFocusOrder="0" pos="8 672 768 40" sourceFile="UIEQSettings.cpp"
+             explicitFocusOrder="0" pos="8 684 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <TEXTBUTTON name="new button" id="54f521d0b77f3c71" memberName="updateButton2"
               virtualName="" explicitFocusOrder="0" pos="824 616 150 24" buttonText="Save"
@@ -1373,6 +1395,12 @@ BEGIN_JUCER_METADATA
          edBkgCol="0" labelText="Full" editableSingleClick="0" editableDoubleClick="0"
          focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
          kerning="0.0" bold="0" italic="0" justification="33"/>
+  <JUCERCOMP name="" id="9760c2034b2ba29f" memberName="depthEq" virtualName=""
+             explicitFocusOrder="0" pos="8 632 768 40" sourceFile="UIEQSettings.cpp"
+             constructorParams=""/>
+  <TEXTBUTTON name="new button" id="34862aedb9c4aca8" memberName="brightIrBtn"
+              virtualName="" explicitFocusOrder="0" pos="496 472 150 24" buttonText="Bright IR"
+              connectedEdges="0" needsCallback="1" radioGroupId="0"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

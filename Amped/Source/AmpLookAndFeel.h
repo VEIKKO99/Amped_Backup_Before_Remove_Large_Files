@@ -316,10 +316,10 @@ public:
         std::string fileName = "";
         
         if (button.getToggleState()) {
-             fileName = "archon_big3way_down_png";
+             fileName = "archon_big3way_up_png";
         }
         else {
-            fileName = "archon_big3way_up_png";
+            fileName = "archon_big3way_down_png";
         }
         
         int dataSize;

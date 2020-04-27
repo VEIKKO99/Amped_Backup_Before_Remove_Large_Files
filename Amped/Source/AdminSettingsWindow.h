@@ -36,6 +36,7 @@
 #include "UIEQSettings.h"
 #include "UIEQSettings.h"
 #include "UIEQSettings.h"
+#include "UIEQSettings.h"
 
 
 //==============================================================================
@@ -148,6 +149,8 @@ private:
     std::unique_ptr<Label> label16;
     std::unique_ptr<Label> label17;
     std::unique_ptr<Label> label18;
+    std::unique_ptr<UIEQSettings> depthEq;
+    std::unique_ptr<TextButton> brightIrBtn;
 
 
     //==============================================================================

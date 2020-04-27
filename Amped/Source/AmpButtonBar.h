@@ -59,6 +59,10 @@ private:
 
     Slider trebleSlider;
     std::unique_ptr<SliderAttachment> trebleAttachment;
+    
+    Slider depthSlider;
+      std::unique_ptr<SliderAttachment> depthAttachment;
+
 
     Slider presenceSlider;
     std::unique_ptr<SliderAttachment> presenceAttachment;

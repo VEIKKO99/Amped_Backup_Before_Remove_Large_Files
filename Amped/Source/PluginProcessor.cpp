@@ -38,6 +38,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> (VTS_BASS,"Bass", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_MIDDLE, "Middle", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_TREBBLE, "Trebble", 0.0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_DEPTH, "Depth", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_PRESENCE, "Presence", 0.0f,  1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_MASTER, "Master", 0.0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_CAB_SIM_TYPE, "Cab Sim", 0.0, 2, (float)ThreeWayIRFileSwitch::SwitchStatus::IRDefault),
@@ -69,6 +70,7 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     bassParameter = parameters.getRawParameterValue (VTS_BASS);
     middleParameter = parameters.getRawParameterValue (VTS_MIDDLE);
     trebleParameter = parameters.getRawParameterValue (VTS_TREBBLE);
+    depthParameter = parameters.getRawParameterValue (VTS_DEPTH);
     presenceParameter = parameters.getRawParameterValue (VTS_PRESENCE);
     masterParameter = parameters.getRawParameterValue (VTS_MASTER);
     cabSimSwitch = parameters.getRawParameterValue(VTS_CAB_SIM_TYPE);
@@ -359,6 +361,11 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     initEq(trebleEq, curSetting->ampSettings.eqs[EQType::kTrebleEq].lowIrFileName,
             curSetting->ampSettings.eqs[EQType::kTrebleEq].highIrFileName,
             trebleParameter, 6.5f, EQType::kTrebleEq);
+    
+    // Depth eq:
+   initEq(depthEq, curSetting->ampSettings.eqs[EQType::kDepthEq].lowIrFileName,
+               curSetting->ampSettings.eqs[EQType::kDepthEq].highIrFileName,
+               trebleParameter, 6.5f, EQType::kDepthEq);
 
     // Presence eq:
     initEq(presenceEq,curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
@@ -420,9 +427,11 @@ void AmpedAudioProcessor::connectMainAudioNodes()
         mainProcessor->addConnection ({ { middleEq->nodeID,  channel },
             { trebleEq->nodeID, channel } });
         mainProcessor->addConnection ({ { trebleEq->nodeID,  channel },
-            { presenceEq->nodeID, channel } });
+            { depthEq->nodeID, channel } });
+        mainProcessor->addConnection ({ { depthEq->nodeID,  channel },
+           { presenceEq->nodeID, channel } });
         mainProcessor->addConnection ({ { presenceEq->nodeID,  channel },
-                { cabSimIR->nodeID, channel } });
+            { cabSimIR->nodeID, channel } });
         mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
             { outputGainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { outputGainProcessor->nodeID,  channel },

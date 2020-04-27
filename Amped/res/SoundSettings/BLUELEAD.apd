@@ -47,6 +47,9 @@
       <EQSettings lowIrFileName="memory:192_ARCHON_EQ_LEAD_PRESENCE_OFF_10ms.wav"
                   highIrFileName="memory:192_ARCHON_EQ_LEAD_PRESENCE_FULL_10ms.wav"
                   gain="3.0" realisticGain="18.0"/>
+      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_LEAD_DEPTH_OFF_10ms.wav"
+                  highIrFileName="memory:192_ARCHON_EQ_LEAD_DEPTH_FULL_10ms.wav"
+                  gain="3.0" realisticGain="16.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>

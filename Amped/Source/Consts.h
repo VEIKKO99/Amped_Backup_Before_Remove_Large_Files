@@ -23,6 +23,8 @@ const std::string VTS_MIDDLE = "middle";
 const std::string VTS_TREBBLE = "trebble";
 const std::string VTS_PRESENCE = "presence";
 const std::string VTS_MASTER = "master";
+const std::string VTS_DEPTH = "depth";
+
 const std::string VTS_CAB_SIM_TYPE = "cabSim_type";
 const std::string VTS_OUTPUT = "output";
 const std::string VTS_LEFT_RIGHT_INPUT_SWITCH = "leftRightInputSwitch";

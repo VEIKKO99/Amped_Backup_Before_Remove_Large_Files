@@ -154,6 +154,7 @@ private:
     float* bassParameter = nullptr;
     float* middleParameter = nullptr;
     float* trebleParameter = nullptr;
+    float* depthParameter = nullptr;
     float* presenceParameter = nullptr;
     float* masterParameter = nullptr;
     float* cabSimSwitch = nullptr;
@@ -196,6 +197,7 @@ private:
     Node::Ptr bassEq;
     Node::Ptr middleEq;
     Node::Ptr trebleEq;
+    Node::Ptr depthEq;
 
     Node::Ptr presenceEq;
 
