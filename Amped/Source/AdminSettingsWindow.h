@@ -152,6 +152,7 @@ private:
     std::unique_ptr<UIEQSettings> depthEq;
     std::unique_ptr<TextButton> brightIrBtn;
 
+    String brightIrFilename;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)

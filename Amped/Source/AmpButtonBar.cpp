@@ -50,13 +50,20 @@ AmpButtonBar::AmpButtonBar(AudioProcessorValueTreeState& vts, AmpLookAndFeel& lo
     inputClipLed.setMeterSource(&processor.getMeterSource());
     addAndMakeVisible(inputClipLed);
     inputClipLed.setVisible(false);
+    
+    addAndMakeVisible(brightSwitch);
+    brightAttachment.reset (new ButtonAttachment (valueTreeState, VTS_BRIGHT, brightSwitch));
+    fxSwitch.setWantsKeyboardFocus(false);
+    
+    brightSwitch.setLookAndFeel(&smallToggleSwitchLnF);
 }
 
 AmpButtonBar::~AmpButtonBar()
 {
    // setLookAndFeel(nullptr);
-   cabSimSwitch.setLookAndFeel(nullptr);
-   valueTreeState.removeParameterListener(VTS_CAB_SIM_TYPE, this);
+    brightSwitch.setLookAndFeel(nullptr);
+    cabSimSwitch.setLookAndFeel(nullptr);
+    valueTreeState.removeParameterListener(VTS_CAB_SIM_TYPE, this);
 }
 
 void AmpButtonBar::initSliderComponent(Slider& slider, String vtsName, std::unique_ptr<SliderAttachment>& attachment)
@@ -121,6 +128,15 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(depthSlider, Constants::AmpCtrlTrebbleX + 78);
 
     setAmpComponentBounds(presenceSlider, Constants::AmpCtrlPresenceX);
+//    setAmpComponentBounds(brightSwitch, Constants::AmpCtrlPresenceX + 20);
+    brightSwitch.setBounds(Constants::AmpCtrlPresenceX + 60,
+                             0,
+                             20,
+                             40);
+    
+    
+    
+    
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
 #ifdef AMPED_DEBUG

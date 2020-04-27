@@ -198,6 +198,8 @@ public:
     float masterMultiplier075 = 1.0;
     float masterMultiplier100 = 1.0;
 
+    String brightIrFileName;
+    
 public:
     InternalAmpSettings() {
         /*
@@ -244,6 +246,7 @@ public:
 
         // Eq Settings:
         XmlElement* eqSettings = settings->createNewChildElement("EQSettings");
+        eqSettings->setAttribute("brightFileName", brightIrFileName);
         for (int i = 0; i < kEQSize; i++) {
             eqSettings->addChildElement(eqs[i].serializeToXml());
         }
@@ -285,6 +288,8 @@ public:
         ampIr.readFromXml(irElements->getChildByName("AmpIr"), rootFilePath);
 
         XmlElement* eqSettings = element->getChildByName("EQSettings");
+        brightIrFileName = eqSettings->getStringAttribute("brightFileName", "");
+        
         for (int i = 0; i < eqSettings->getNumChildElements(); i++) {
             if (i < kEQSize) {
                 eqs[i].readFromXml(eqSettings->getChildElement(i), rootFilePath);

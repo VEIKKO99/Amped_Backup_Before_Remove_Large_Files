@@ -165,6 +165,8 @@ private:
 
     // L/R Switch:
     float* leftRightInputSwitch = nullptr;
+    
+    float* bright = nullptr;
 
     // Reverb:
     float* reverbOnOffParameter = nullptr;
@@ -203,6 +205,7 @@ private:
 
     Node::Ptr ampSimIR;
     Node::Ptr cabSimIR;
+    Node::Ptr brightIR;;
 
     Node::Ptr outputGainProcessor;
 

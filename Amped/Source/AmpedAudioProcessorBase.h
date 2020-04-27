@@ -473,10 +473,10 @@ public:
     }
 };
 
-class AmpSimIr : public IRProcessor
+class AmpIr : public IRProcessor
 {
 public:
-    AmpSimIr(std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
+    AmpIr(std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
             IRProcessor(settings, makeupGain)
     {
         loadIRFile();
@@ -490,6 +490,25 @@ public:
         makeupGain = soundSettings->ampSettings.ampIr.gain;
     }
 };
+
+class BrightIR : public IRProcessor
+{
+public:
+    BrightIR(std::shared_ptr<SoundSettings> settings, float makeupGain = .0f):
+            IRProcessor(settings, makeupGain)
+    {
+        loadIRFile();
+    }
+
+    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        IRProcessor::updateInternalSettings(settings);
+        usedIR = soundSettings->ampSettings.brightIrFileName;
+        loadIRFile();
+       // loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
+        makeupGain = 0.0f;
+    }
+};
+
 
 
 

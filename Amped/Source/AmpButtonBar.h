@@ -47,6 +47,9 @@ private:
 
     ToggleButton fxSwitch;
     std::unique_ptr<ButtonAttachment> fxAttachment;
+    
+    ToggleButton brightSwitch;
+      std::unique_ptr<ButtonAttachment> brightAttachment;
 
     Slider driveSlider;
     std::unique_ptr<SliderAttachment> driveAttachment;
@@ -88,6 +91,8 @@ private:
 
     AudioProcessorValueTreeState& valueTreeState;
     ThreeWaySwitchSliderLookAndFeel threeWaySliderSwitchLnF;
+    SmallToggleSwitchLnF smallToggleSwitchLnF;
+    
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpButtonBar)
 
     void updateCabSimValueFromVTS(float newValue);

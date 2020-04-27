@@ -55,6 +55,37 @@ class EffectsLookAndFeel : public AmpLookAndFeelBase {
     }
 };
 
+class SmallToggleSwitchLnF : public AmpLookAndFeelBase {
+    
+    void drawToggleButton (Graphics& g,
+                              ToggleButton& button,
+                              bool isMouseOverButton,
+                              bool isButtonDown) override
+   {
+       if (button.hasKeyboardFocus (true))
+       {
+           g.setColour (button.findColour (TextEditor::focusedOutlineColourId));
+           g.drawRect (0, 0, button.getWidth(), button.getHeight());
+       }
+       
+       std::string fileName = "";
+       
+       if (button.getToggleState()) {
+            fileName = "archon_small3way_up_png";
+       }
+       else {
+           fileName = "archon_small3way_down_png";
+       }
+       
+       int dataSize;
+       auto* data = BinaryData::getNamedResource (fileName.c_str(), dataSize);
+       
+       Image myStrip = ImageCache::getFromMemory (data, dataSize);
+       g.drawImageAt (myStrip, 0, 0);
+    }
+};
+
+
 class LeftRightSwitchLookAndFeel : public AmpLookAndFeelBase {
 
     void drawToggleButton (Graphics& g,

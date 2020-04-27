@@ -52,6 +52,8 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> (VTS_EF_REVB_ON, "Reverb On", false),
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_SIZE, "Reverb Time", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> (VTS_BRIGHT, "Bright", false),
+
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_TONE, "Reverb Tone", .0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_MIX, "Reverb Mix", .0f, 1.0f, 0.5f)
 
@@ -78,7 +80,8 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     effects_od_switch = parameters.getRawParameterValue(VTS_EF_OD_ON);
     effects_ng_switch = parameters.getRawParameterValue(VTS_EF_NG_ON);
     leftRightInputSwitch = parameters.getRawParameterValue(VTS_LEFT_RIGHT_INPUT_SWITCH);
-
+    bright = parameters.getRawParameterValue(VTS_BRIGHT);
+    
     reverbOnOffParameter = parameters.getRawParameterValue(VTS_EF_REVB_ON);
     reverbSizeParameter = parameters.getRawParameterValue(VTS_EF_REVB_SIZE);
     reverbToneParameter = parameters.getRawParameterValue(VTS_EF_REVB_TONE);
@@ -371,9 +374,12 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     initEq(presenceEq,curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
             curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
             presenceParameter, 6.5f, EQType::kPresence);
+    
+    brightIR = mainProcessor->addNode(std::make_unique<BrightIR>(soundSettingsModel.getCurrentSetting()));
+    mainAudioProcessors.add(brightIR);
 
     // Amp sim:
-    ampSimIR = mainProcessor->addNode(std::make_unique<AmpSimIr>(soundSettingsModel.getCurrentSetting(), soundSettingsModel.getCurrentSetting()->ampSettings.ampIr.gain));
+    ampSimIR = mainProcessor->addNode(std::make_unique<AmpIr>(soundSettingsModel.getCurrentSetting(), soundSettingsModel.getCurrentSetting()->ampSettings.ampIr.gain));
     mainAudioProcessors.add(ampSimIR);
 
     // Cab sim:
@@ -431,7 +437,9 @@ void AmpedAudioProcessor::connectMainAudioNodes()
         mainProcessor->addConnection ({ { depthEq->nodeID,  channel },
            { presenceEq->nodeID, channel } });
         mainProcessor->addConnection ({ { presenceEq->nodeID,  channel },
-            { cabSimIR->nodeID, channel } });
+            { brightIR->nodeID, channel } });
+        mainProcessor->addConnection ({ { brightIR->nodeID,  channel },
+              { cabSimIR->nodeID, channel } });
         mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
             { outputGainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { outputGainProcessor->nodeID,  channel },
@@ -700,6 +708,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     ampSimIR->setBypassed(*ampSimSwitch > .5);
 #endif
 
+    brightIR->setBypassed(*bright > .5);
+    
+    
     if (copyProtection) buffer.clear();
 
     if (*fxParameter < 0.5) {

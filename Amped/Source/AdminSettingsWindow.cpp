@@ -833,6 +833,16 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == brightIrBtn.get())
     {
         //[UserButtonCode_brightIrBtn] -- add your button handler code here..
+        
+        FileChooser myChooser ("Please select the IR file.",
+                       File::getSpecialLocation (File::userHomeDirectory),
+                       "*.wav");
+               if (myChooser.browseForFileToOpen())
+               {
+                   File irFile (myChooser.getResult());
+                   brightIrBtn->setButtonText(irFile.getFileName());
+                   brightIrFilename = irFile.getFullPathName();
+               }
         //[/UserButtonCode_brightIrBtn]
     }
 
@@ -899,7 +909,7 @@ void AdminSettingsWindow::updateSettings() {
 
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
-
+    settings->ampSettings.brightIrFileName = brightIrFilename;
 
 
   //  settings->ampSettings.ampIr.gain = ampIrGain->getText().getFloatValue();
@@ -954,8 +964,9 @@ void AdminSettingsWindow::setupUI(){
     this->masterMultiplier050->setText(String(settings->ampSettings.masterMultiplier050));
     this->masterMultiplier075->setText(String(settings->ampSettings.masterMultiplier075));
     this->masterMultiplier100->setText(String(settings->ampSettings.masterMultiplier100));
-
-
+    
+    this->brightIrFilename = settings->ampSettings.brightIrFileName;
+    this->brightIrBtn->setButtonText(brightIrFilename);
     updatePresetUI();
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
