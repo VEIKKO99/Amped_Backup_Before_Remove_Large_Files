@@ -199,7 +199,7 @@ void MainComponent::resized()
     }
 
 #ifdef AMPED_DEBUG
-    adminUIButton.setBounds(80, 480, 100, 40);
+    adminUIButton.setBounds(80, 350, 100, 40);
     adminUIButton.setButtonText("Admin");
     versionLabel.setBounds(620, 130, 200, 30);
     String date (__DATE__);
@@ -207,8 +207,8 @@ void MainComponent::resized()
     versionLabel.setText(date + " - " + time, dontSendNotification);
     versionLabel.setColour (Label::textColourId, Colours::lightgreen);
 
-    prevAmp.setBounds(1000, 480, 40,40);
-    nextAmp.setBounds(1050, 480, 40,40);
+    prevAmp.setBounds(1000, 350, 40,40);
+    nextAmp.setBounds(1050, 350, 40,40);
 
 #endif
     effectsBar.setBounds(0, 140, 1200, 289);

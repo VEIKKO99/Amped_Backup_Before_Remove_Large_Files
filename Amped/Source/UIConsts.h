@@ -21,12 +21,12 @@ class Constants
 #define AMPED_FREE
 
 public:
-    static const int AmpButtonBarX = 290;
-    static const int AmpButtonBarY = 453;
+    static const int AmpButtonBarX = 166;
+    static const int AmpButtonBarY = 430;
 #ifndef AMPED_DEBUG
-    static const int AmpButtonBarW = 620;
+    static const int AmpButtonBarW = 1000;
 #else
-    static const int AmpButtonBarW = 880;
+    static const int AmpButtonBarW = 1000;
 #endif
 
     static const Font& getAmpedFont()
@@ -48,14 +48,14 @@ public:
     static const int ampButtonsHeight = AmpButtonBarH;
     
     static const int ampCompInputX = 4;
-    static const int AmpCtrlSwitchX = ampCompInputX + ampButtonsWidth + 5;
-    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth - 1;
-    static const int AmpCtrlBassX = AmpCtrlDriveX + ampButtonsWidth;
-    static const int AmpCtrlMiddleX = AmpCtrlBassX + ampButtonsWidth -1;
-    static const int AmpCtrlTrebbleX = AmpCtrlMiddleX + ampButtonsWidth -1;
-    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth -4;
-    static const int AmpCtrlMasterX = AmpCtrlPresenceX + ampButtonsWidth;
-    static const int AmpCtrlCabSimX = AmpCtrlMasterX + ampButtonsWidth -2;
-    static const int AmpCtrlOutputX = AmpCtrlCabSimX + ampButtonsWidth +2;
+    static const int AmpCtrlSwitchX = ampCompInputX + ampButtonsWidth + 30;
+    static const int AmpCtrlDriveX = AmpCtrlSwitchX + ampButtonsWidth + 10;
+    static const int AmpCtrlBassX = AmpCtrlDriveX + ampButtonsWidth + 20;
+    static const int AmpCtrlMiddleX = AmpCtrlBassX + ampButtonsWidth + 20;
+    static const int AmpCtrlTrebbleX = AmpCtrlMiddleX + ampButtonsWidth + 20;
+    static const int AmpCtrlPresenceX = AmpCtrlTrebbleX + ampButtonsWidth + 96;
+    static const int AmpCtrlMasterX = AmpCtrlPresenceX + ampButtonsWidth +20;
+    static const int AmpCtrlCabSimX = AmpCtrlMasterX + ampButtonsWidth +30;
+    static const int AmpCtrlOutputX = AmpCtrlCabSimX + ampButtonsWidth +12;
 };
 
