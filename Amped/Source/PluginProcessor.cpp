@@ -365,7 +365,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     // Depth eq:
    initEq(depthEq, curSetting->ampSettings.eqs[EQType::kDepthEq].lowIrFileName,
                curSetting->ampSettings.eqs[EQType::kDepthEq].highIrFileName,
-               trebleParameter, 6.5f, EQType::kDepthEq);
+               depthParameter, 6.5f, EQType::kDepthEq);
 
     // Presence eq:
     initEq(presenceEq,curSetting->ampSettings.eqs[EQType::kPresence].lowIrFileName,
