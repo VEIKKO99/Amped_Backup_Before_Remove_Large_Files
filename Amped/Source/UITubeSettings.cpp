@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.5
+  Created with Projucer version: 5.4.3
 
   ------------------------------------------------------------------------------
 
@@ -311,7 +311,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="0 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Pre Tube 1&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="391ed3dcef9b05f" memberName="preTube1RK"
               virtualName="" explicitFocusOrder="0" pos="176 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -319,8 +319,8 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="ff9a0c8caa693e63" memberName="rkLabel" virtualName=""
          explicitFocusOrder="0" pos="168 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="RK&#10;" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="e2feaed7310a4598" memberName="preTube1RP"
               virtualName="" explicitFocusOrder="0" pos="344 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -328,8 +328,8 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="2880963b095d9a70" memberName="rpLabel" virtualName=""
          explicitFocusOrder="0" pos="336 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="RP&#10;" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="28b0c483c6d7f12d" memberName="preTube1VK0"
               virtualName="" explicitFocusOrder="0" pos="512 32 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -337,8 +337,8 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="87d87c9690b2d345" memberName="vK0Label"
          virtualName="" explicitFocusOrder="0" pos="504 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="VK0&#10;" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="fb5c672d97952e8" memberName="preTube1LowPassFbk"
               virtualName="" explicitFocusOrder="0" pos="176 104 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -347,7 +347,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="168 72 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="LowPassFbk&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="2dabbcc509be5690" memberName="preTube1VPlus"
               virtualName="" explicitFocusOrder="0" pos="344 104 150 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -355,8 +355,8 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="547aa1b4a7b34978" memberName="vPlusLabel"
          virtualName="" explicitFocusOrder="0" pos="336 72 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="VPlus&#10;" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         kerning="0" bold="0" italic="0" justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

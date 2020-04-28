@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.5
+  Created with Projucer version: 5.4.3
 
   ------------------------------------------------------------------------------
 
@@ -635,6 +635,64 @@ AdminSettingsWindow::AdminSettingsWindow ()
 
     brightIrBtn->setBounds (496, 472, 150, 24);
 
+    brightIrGain.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (brightIrGain.get());
+    brightIrGain->setMultiLine (false);
+    brightIrGain->setReturnKeyStartsNewLine (false);
+    brightIrGain->setReadOnly (false);
+    brightIrGain->setScrollbarsShown (true);
+    brightIrGain->setCaretVisible (true);
+    brightIrGain->setPopupMenuEnabled (true);
+    brightIrGain->setText (String());
+
+    brightIrGain->setBounds (440, 472, 47, 24);
+
+    label2.reset (new Label ("new label",
+                             TRANS("Bright IR\n")));
+    addAndMakeVisible (label2.get());
+    label2->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label2->setJustificationType (Justification::centredLeft);
+    label2->setEditable (false, false, false);
+    label2->setColour (TextEditor::textColourId, Colours::black);
+    label2->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label2->setBounds (552, 448, 48, 24);
+
+    label19.reset (new Label ("new label",
+                              TRANS("Bright IR Gain\n")));
+    addAndMakeVisible (label19.get());
+    label19->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    label19->setJustificationType (Justification::centredLeft);
+    label19->setEditable (false, false, false);
+    label19->setColour (TextEditor::textColourId, Colours::black);
+    label19->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    label19->setBounds (432, 448, 72, 24);
+
+    eqSampleIRLimitation.reset (new TextEditor ("new text editor"));
+    addAndMakeVisible (eqSampleIRLimitation.get());
+    eqSampleIRLimitation->setMultiLine (false);
+    eqSampleIRLimitation->setReturnKeyStartsNewLine (false);
+    eqSampleIRLimitation->setReadOnly (false);
+    eqSampleIRLimitation->setScrollbarsShown (true);
+    eqSampleIRLimitation->setCaretVisible (true);
+    eqSampleIRLimitation->setPopupMenuEnabled (true);
+    eqSampleIRLimitation->setText (String());
+
+    eqSampleIRLimitation->setBounds (368, 472, 47, 24);
+
+    eQIrSamples.reset (new Label ("new label",
+                                  TRANS("EQ Ir Samples\n"
+                                  "0 = Not limited\n")));
+    addAndMakeVisible (eQIrSamples.get());
+    eQIrSamples->setFont (Font (10.00f, Font::plain).withTypefaceStyle ("Regular"));
+    eQIrSamples->setJustificationType (Justification::centredLeft);
+    eQIrSamples->setEditable (false, false, false);
+    eQIrSamples->setColour (TextEditor::textColourId, Colours::black);
+    eQIrSamples->setColour (TextEditor::backgroundColourId, Colour (0x00000000));
+
+    eQIrSamples->setBounds (360, 448, 80, 24);
+
 
     //[UserPreSize]
     //[/UserPreSize]
@@ -715,6 +773,11 @@ AdminSettingsWindow::~AdminSettingsWindow()
     label18 = nullptr;
     depthEq = nullptr;
     brightIrBtn = nullptr;
+    brightIrGain = nullptr;
+    label2 = nullptr;
+    label19 = nullptr;
+    eqSampleIRLimitation = nullptr;
+    eQIrSamples = nullptr;
 
 
     //[Destructor]. You can add your own custom destruction code here..
@@ -833,7 +896,7 @@ void AdminSettingsWindow::buttonClicked (Button* buttonThatWasClicked)
     else if (buttonThatWasClicked == brightIrBtn.get())
     {
         //[UserButtonCode_brightIrBtn] -- add your button handler code here..
-        
+
         FileChooser myChooser ("Please select the IR file.",
                        File::getSpecialLocation (File::userHomeDirectory),
                        "*.wav");
@@ -907,6 +970,9 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.masterMultiplier075 = masterMultiplier075->getText().getFloatValue();
     settings->ampSettings.masterMultiplier100 = masterMultiplier100->getText().getFloatValue();
 
+    settings->ampSettings.eqSampleCountLimitation = eqSampleIRLimitation->getText().getFloatValue();
+    settings->ampSettings.brightEqGain = brightIrGain->getText().getFloatValue();
+
     //  settings->ampSettings.eqGain = eqGain->getText().getFloatValue();
     settings->uiSettings.selectedKnob = knobTypeComboBox->getSelectedItemIndex();
     settings->ampSettings.brightIrFileName = brightIrFilename;
@@ -964,9 +1030,12 @@ void AdminSettingsWindow::setupUI(){
     this->masterMultiplier050->setText(String(settings->ampSettings.masterMultiplier050));
     this->masterMultiplier075->setText(String(settings->ampSettings.masterMultiplier075));
     this->masterMultiplier100->setText(String(settings->ampSettings.masterMultiplier100));
-    
+
     this->brightIrFilename = settings->ampSettings.brightIrFileName;
     this->brightIrBtn->setButtonText(brightIrFilename);
+    this->brightIrGain->setText(String(settings->ampSettings.brightEqGain));
+    this->eqSampleIRLimitation->setText(String(settings->ampSettings.eqSampleCountLimitation));
+
     updatePresetUI();
     //this->cabIrGain->setText(String(settings->ampSettings.cabIr.gain), dontSendNotification);
     //this->ampIrGain->setText(String(settings->ampSettings.ampIr.gain), dontSendNotification);
@@ -1170,7 +1239,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="0 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="PRE Input Type&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="new button" id="3518e4a88f598a7" memberName="updateButton"
               virtualName="" explicitFocusOrder="0" pos="824 584 150 24" buttonText="Update"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1178,7 +1247,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="808 136 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Output Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="8e867a582e3c87dd" memberName="inMin"
               virtualName="" explicitFocusOrder="0" pos="816 48 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1198,13 +1267,13 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="78af7379fb9b0e54" memberName="label6" virtualName=""
          explicitFocusOrder="0" pos="792 415 40 24" edTextCol="ff000000"
          edBkgCol="0" labelText="&#10;Gain" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="a84735c2601cd71" memberName="fileNameLabel"
          virtualName="" explicitFocusOrder="0" pos="856 415 136 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Filename&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <JUCERCOMP name="" id="59790b7b05875a88" memberName="cabIrUi" virtualName=""
              explicitFocusOrder="0" pos="696 445 300 24" sourceFile="UIIRSettings.cpp"
              constructorParams=""/>
@@ -1225,7 +1294,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="176 0 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="KNOB type&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="new button" id="a7d6e983b84d83c6" memberName="bgButton"
               virtualName="" explicitFocusOrder="0" pos="352 32 128 24" buttonText="Background image"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1233,7 +1302,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="488 32 192 24" edTextCol="ff000000"
          edBkgCol="0" labelText="From memory" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <JUCERCOMP name="" id="f05f02aebf7cb86b" memberName="bassEq" virtualName=""
              explicitFocusOrder="0" pos="8 516 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
@@ -1250,7 +1319,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="808 269 168 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Drive (0.0 - 1.0)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="6da8bc166af565b8" memberName="hornetDrive"
               virtualName="" explicitFocusOrder="0" pos="816 301 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1259,7 +1328,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="808 341 184 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Hornet Presence (0.0 - 1.0)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="924bcf4c8fd15167" memberName="hornetPresence"
               virtualName="" explicitFocusOrder="0" pos="816 373 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1277,7 +1346,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="808 16 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Input Max / Min&#10;Dont Touch!" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="3e8959223324712" memberName="driveMin"
               virtualName="" explicitFocusOrder="0" pos="816 108 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1290,13 +1359,13 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="808 76 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Drive Max / Min" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="d7d196c447ee454c" memberName="overSampleLabel"
          virtualName="" explicitFocusOrder="0" pos="608 32 144 24" edTextCol="ff000000"
          edBkgCol="0" labelText="&#214;vers&#228;mple (Not Saved)&#10;1 / 2 / 4 / 8 / 16&#10;"
          editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
-         fontname="Default font" fontsize="12.0" kerning="0.0" bold="0"
-         italic="0" justification="33"/>
+         fontname="Default font" fontsize="12" kerning="0" bold="0" italic="0"
+         justification="33"/>
   <TEXTEDITOR name="new text editor" id="7681e36da5ce556c" memberName="overSample"
               virtualName="" explicitFocusOrder="0" pos="616 64 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1305,7 +1374,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="8 64 216 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Amount of Preamp tubes (1-4)" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="550e03298bf4de1d" memberName="amountOfPreampTubes"
               virtualName="" explicitFocusOrder="0" pos="16 95 47 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1314,17 +1383,17 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="16 744 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Presets&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="20.1" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="20.1" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="7461a8b91adeeac9" memberName="label11" virtualName=""
          explicitFocusOrder="0" pos="24 768 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Current:&#10;&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="13.5" kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="59827e14d0d73c4e" memberName="presetNumber"
          virtualName="" explicitFocusOrder="0" pos="80 768 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="NR&#10;&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="13.5" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="7e8d3e0acd4bae9b" memberName="presetNameEditor"
               virtualName="" explicitFocusOrder="0" pos="80 800 216 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1333,7 +1402,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="32 800 48 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Name:&#10;&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="13.5" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="13.5" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="new button" id="d8a8cf602edaba9c" memberName="addNewPresetBtn"
               virtualName="" explicitFocusOrder="0" pos="152 768 72 24" buttonText="Add new"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -1360,7 +1429,7 @@ BEGIN_JUCER_METADATA
          explicitFocusOrder="0" pos="8 424 150 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Master multiplier&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
+         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="new text editor" id="a74a924c1c05a549" memberName="masterMultiplierOff"
               virtualName="" explicitFocusOrder="0" pos="16 448 48 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -1384,34 +1453,58 @@ BEGIN_JUCER_METADATA
   <LABEL name="new label" id="9d50855d2327dc0e" memberName="label14" virtualName=""
          explicitFocusOrder="0" pos="16 472 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Off&#10;" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="d33a252f3c7f81e2" memberName="label15" virtualName=""
          explicitFocusOrder="0" pos="80 472 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Klo 09" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="dbc1f15c98940d6d" memberName="label16" virtualName=""
          explicitFocusOrder="0" pos="144 472 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Klo 12" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="baa6b6509b402b12" memberName="label17" virtualName=""
          explicitFocusOrder="0" pos="208 472 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Klo 15" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="ca97b5ce248c0e2c" memberName="label18" virtualName=""
          explicitFocusOrder="0" pos="272 472 32 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Full" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="10.0"
-         kerning="0.0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="10"
+         kerning="0" bold="0" italic="0" justification="33"/>
   <JUCERCOMP name="" id="9760c2034b2ba29f" memberName="depthEq" virtualName=""
              explicitFocusOrder="0" pos="8 632 768 40" sourceFile="UIEQSettings.cpp"
              constructorParams=""/>
   <TEXTBUTTON name="new button" id="34862aedb9c4aca8" memberName="brightIrBtn"
               virtualName="" explicitFocusOrder="0" pos="496 472 150 24" buttonText="Bright IR"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
+  <TEXTEDITOR name="new text editor" id="dc62d33baba48439" memberName="brightIrGain"
+              virtualName="" explicitFocusOrder="0" pos="440 472 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="18a7793039b40d29" memberName="label2" virtualName=""
+         explicitFocusOrder="0" pos="552 448 48 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Bright IR&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" kerning="0" bold="0" italic="0" justification="33"/>
+  <LABEL name="new label" id="80caffd6f43f378d" memberName="label19" virtualName=""
+         explicitFocusOrder="0" pos="432 448 72 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="Bright IR Gain&#10;" editableSingleClick="0"
+         editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
+         fontsize="10" kerning="0" bold="0" italic="0" justification="33"/>
+  <TEXTEDITOR name="new text editor" id="f213de0983aba482" memberName="eqSampleIRLimitation"
+              virtualName="" explicitFocusOrder="0" pos="368 472 47 24" initialText=""
+              multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
+              caret="1" popupmenu="1"/>
+  <LABEL name="new label" id="ae6c6b9dd469f1ff" memberName="eQIrSamples"
+         virtualName="" explicitFocusOrder="0" pos="360 448 80 24" edTextCol="ff000000"
+         edBkgCol="0" labelText="EQ Ir Samples&#10;0 = Not limited&#10;"
+         editableSingleClick="0" editableDoubleClick="0" focusDiscardsChanges="0"
+         fontname="Default font" fontsize="10" kerning="0" bold="0" italic="0"
+         justification="33"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

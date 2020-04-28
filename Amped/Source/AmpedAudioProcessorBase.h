@@ -505,7 +505,7 @@ public:
         usedIR = soundSettings->ampSettings.brightIrFileName;
         loadIRFile();
        // loadIRFile(soundSettings->ampSettings.ampIr.irFileName);
-        makeupGain = 0.0f;
+        makeupGain = soundSettings->ampSettings.brightEqGain;
     }
 };
 
@@ -695,7 +695,7 @@ public:
             auto data = getBinaryDataWithOriginalFileName(irFile, dataSize);
             //auto data = getBinaryDataWithOriginalFileName(irFile, dataSize, lastKnownSampleRate);
             if (data != nullptr) {
-                convolution.loadImpulseResponse(data, dataSize, false, false, 0);
+                convolution.loadImpulseResponse(data, dataSize, false, false, soundSettings->ampSettings.eqSampleCountLimitation);
             }
             else {
      //            Logger::getCurrentLogger()->writeToLog("ERROR in EQ settings");

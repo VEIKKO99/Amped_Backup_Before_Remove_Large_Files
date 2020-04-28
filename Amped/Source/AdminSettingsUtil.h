@@ -199,6 +199,10 @@ public:
     float masterMultiplier100 = 1.0;
 
     String brightIrFileName;
+    float brightEqGain = 0.0;
+    
+    // 0 == no limitation
+    int eqSampleCountLimitation = 0;
     
 public:
     InternalAmpSettings() {
@@ -247,6 +251,9 @@ public:
         // Eq Settings:
         XmlElement* eqSettings = settings->createNewChildElement("EQSettings");
         eqSettings->setAttribute("brightFileName", brightIrFileName);
+        eqSettings->setAttribute("brightEQGain", brightEqGain);
+        eqSettings->setAttribute("eqSampleLimit", eqSampleCountLimitation);
+
         for (int i = 0; i < kEQSize; i++) {
             eqSettings->addChildElement(eqs[i].serializeToXml());
         }
@@ -289,7 +296,9 @@ public:
 
         XmlElement* eqSettings = element->getChildByName("EQSettings");
         brightIrFileName = eqSettings->getStringAttribute("brightFileName", "");
-        
+        brightEqGain = static_cast<float>(eqSettings->getDoubleAttribute("brightEQGain", 0.0));
+        eqSampleCountLimitation = eqSettings->getIntAttribute("eqSampleLimit", 0);
+
         for (int i = 0; i < eqSettings->getNumChildElements(); i++) {
             if (i < kEQSize) {
                 eqs[i].readFromXml(eqSettings->getChildElement(i), rootFilePath);

@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.5
+  Created with Projucer version: 5.4.3
 
   ------------------------------------------------------------------------------
 
@@ -86,6 +86,7 @@ private:
     void savePresetBtnPressed();
     void deletePresetBtnPressed();
     void encryptFile();
+    String brightIrFilename;
     //[/UserVariables]
 
     //==============================================================================
@@ -151,8 +152,12 @@ private:
     std::unique_ptr<Label> label18;
     std::unique_ptr<UIEQSettings> depthEq;
     std::unique_ptr<TextButton> brightIrBtn;
+    std::unique_ptr<TextEditor> brightIrGain;
+    std::unique_ptr<Label> label2;
+    std::unique_ptr<Label> label19;
+    std::unique_ptr<TextEditor> eqSampleIRLimitation;
+    std::unique_ptr<Label> eQIrSamples;
 
-    String brightIrFilename;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AdminSettingsWindow)

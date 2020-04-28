@@ -32,7 +32,7 @@
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
-    <EQSettings brightFileName="memory:192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms">
+    <EQSettings brightFileName="memory:192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms brightEQGain="1.0" eqSampleLimit="128"">
       <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav"
                   highIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav"
                   gain="7.0" realisticGain="0.0"/>

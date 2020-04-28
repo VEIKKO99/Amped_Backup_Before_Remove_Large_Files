@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pllKDb" name="Amped - Ark" projectType="audioplug" jucerVersion="5.4.5"
+<JUCERPROJECT id="pllKDb" name="Amped - Ark" projectType="audioplug" jucerVersion="5.4.3"
               pluginFormats="buildAU,buildStandalone,buildVST3" version="0.1.0"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
