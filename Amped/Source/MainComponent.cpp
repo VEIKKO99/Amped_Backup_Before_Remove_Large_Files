@@ -114,7 +114,9 @@ void MainComponent::stopA()
 
 void MainComponent::timerCallback()
 {
+#ifndef AMPED_DEBUG
     doCheck();
+#endif
 }
 
 void MainComponent::initInputClipMeter() {
