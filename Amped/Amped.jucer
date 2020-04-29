@@ -159,59 +159,41 @@
             file="res/amped_license_background.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
-          <FILE id="oAAhV5" name="192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav"/>
-          <FILE id="ZwhnAp" name="192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav"/>
-          <FILE id="pD2Fne" name="192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms.wav"/>
-          <FILE id="aM0wsi" name="192_ARCHON_EQ_CLEAN_DEPTH_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_DEPTH_FULL_10ms.wav"/>
-          <FILE id="QyZln3" name="192_ARCHON_EQ_CLEAN_DEPTH_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_DEPTH_OFF_10ms.wav"/>
-          <FILE id="BRvz7l" name="192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav"/>
-          <FILE id="xLRfvl" name="192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav"/>
-          <FILE id="NFxp1l" name="192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"
-                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"/>
-          <FILE id="Kpc1ur" name="192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"
-                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"/>
-          <FILE id="ThQSZJ" name="192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav"/>
-          <FILE id="iM3ySp" name="192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav"/>
-          <FILE id="hru9UJ" name="192_ARCHON_EQ_LEAD_BASS_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BASS_FULL_10ms.wav"/>
-          <FILE id="WXWU14" name="192_ARCHON_EQ_LEAD_BASS_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BASS_OFF_10ms.wav"/>
-          <FILE id="Uhbwql" name="192_ARCHON_EQ_LEAD_BRIGHT_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_BRIGHT_OFF_10ms.wav"/>
-          <FILE id="QJjrKO" name="192_ARCHON_EQ_LEAD_DEPTH_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_DEPTH_FULL_10ms.wav"/>
-          <FILE id="BNua7V" name="192_ARCHON_EQ_LEAD_DEPTH_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_DEPTH_OFF_10ms.wav"/>
-          <FILE id="tsbnB6" name="192_ARCHON_EQ_LEAD_MIDDLE_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_MIDDLE_FULL_10ms.wav"/>
-          <FILE id="TQsKSG" name="192_ARCHON_EQ_LEAD_MIDDLE_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_MIDDLE_OFF_10ms.wav"/>
-          <FILE id="nNIVcH" name="192_ARCHON_EQ_LEAD_PRESENCE_FULL_10ms.wav"
-                compile="0" resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_PRESENCE_FULL_10ms.wav"/>
-          <FILE id="l1t5ss" name="192_ARCHON_EQ_LEAD_PRESENCE_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_PRESENCE_OFF_10ms.wav"/>
-          <FILE id="tcDgW9" name="192_ARCHON_EQ_LEAD_TREBLE_FULL_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_TREBLE_FULL_10ms.wav"/>
-          <FILE id="fMDoyx" name="192_ARCHON_EQ_LEAD_TREBLE_OFF_10ms.wav" compile="0"
-                resource="1" file="res/SoundSettings/files/192_ARCHON_EQ_LEAD_TREBLE_OFF_10ms.wav"/>
-          <FILE id="UBQ9wp" name="archon_blue.png" compile="0" resource="1" file="res/SoundSettings/files/archon_blue.png"/>
-          <FILE id="Qhljed" name="archon_camo.png" compile="0" resource="1" file="res/SoundSettings/files/archon_camo.png"/>
-          <FILE id="ScNZ99" name="ARCHON_CLEAN.wav" compile="0" resource="1"
+          <FILE id="DXfclB" name="archon_blue_Q.png" compile="0" resource="1"
+                file="res/SoundSettings/files/archon_blue_Q.png"/>
+          <FILE id="EMQP8t" name="archon_camo_Q.png" compile="0" resource="1"
+                file="res/SoundSettings/files/archon_camo_Q.png"/>
+          <FILE id="yCjvf1" name="ARCHON_CLEAN.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ARCHON_CLEAN.wav"/>
-          <FILE id="yHB9Ka" name="ARCHON_LEAD.wav" compile="0" resource="1" file="res/SoundSettings/files/ARCHON_LEAD.wav"/>
-          <FILE id="Q4IWV6" name="ML-MARS-PR-M75-MIX-A.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/ML-MARS-PR-M75-MIX-A.wav"/>
-          <FILE id="KCxiAs" name="ML-MEGA-DJENT-MIX-GRIND.wav" compile="0" resource="1"
-                file="res/SoundSettings/files/ML-MEGA-DJENT-MIX-GRIND.wav"/>
+          <FILE id="pk0ZGF" name="ARCHON_LEAD.wav" compile="0" resource="1" file="res/SoundSettings/files/ARCHON_LEAD.wav"/>
+          <FILE id="OfFM7Q" name="ARK_BLUE_CAB_IR_Q.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ARK_BLUE_CAB_IR_Q.wav"/>
+          <FILE id="CKVXK7" name="ARK_CAMO_CAB_IR_Q.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ARK_CAMO_CAB_IR_Q.wav"/>
+          <FILE id="xUwNXU" name="ARK_CB_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CB_00_Q.wav"/>
+          <FILE id="aFykhr" name="ARK_CB_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CB_10_Q.wav"/>
+          <FILE id="YbfkoW" name="ARK_CBRIGHT_OFF_Q.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ARK_CBRIGHT_OFF_Q.wav"/>
+          <FILE id="hJoxGf" name="ARK_CD_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CD_00_Q.wav"/>
+          <FILE id="V7UPWs" name="ARK_CD_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CD_10_Q.wav"/>
+          <FILE id="mlUurk" name="ARK_CM_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CM_00_Q.wav"/>
+          <FILE id="ZOK6lh" name="ARK_CM_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CM_10_Q.wav"/>
+          <FILE id="SRc76E" name="ARK_CP_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CP_00_Q.wav"/>
+          <FILE id="KolCjW" name="ARK_CP_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CP_10_Q.wav"/>
+          <FILE id="PkrB7m" name="ARK_CT_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CT_00_Q.wav"/>
+          <FILE id="zye7bh" name="ARK_CT_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CT_10_Q.wav"/>
+          <FILE id="cmod8I" name="ARK_LB_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LB_00_Q.wav"/>
+          <FILE id="PK89L0" name="ARK_LB_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LB_10_Q.wav"/>
+          <FILE id="ka1euw" name="ARK_LBRIGHT_OFF_Q.wav" compile="0" resource="1"
+                file="res/SoundSettings/files/ARK_LBRIGHT_OFF_Q.wav"/>
+          <FILE id="HEj6kt" name="ARK_LD_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LD_00_Q.wav"/>
+          <FILE id="sdafUs" name="ARK_LD_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LD_10_Q.wav"/>
+          <FILE id="uYVPK2" name="ARK_LM_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LM_00_Q.wav"/>
+          <FILE id="UfutcU" name="ARK_LM_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LM_10_Q.wav"/>
+          <FILE id="jCZW1C" name="ARK_LP_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LP_00_Q.wav"/>
+          <FILE id="aOpOxA" name="ARK_LP_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LP_10_Q.wav"/>
+          <FILE id="vRy87Y" name="ARK_LT_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LT_00_Q.wav"/>
+          <FILE id="YIL6Yd" name="ARK_LT_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_LT_10_Q.wav"/>
         </GROUP>
       </GROUP>
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"

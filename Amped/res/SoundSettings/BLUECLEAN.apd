@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SoundSettings name="BLUE CLEAN">
-  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_blue.png"
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_blue_Q.png"
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
-    <MaxMin min="-24.0" max="0.0"/>
+    <MaxMin min="-12.0" max="12.0"/>
     <MaxMin min="0.0" max="0.0"/>
   </MaxMinSettings>
   <Presets/>
@@ -24,7 +24,7 @@
     </TubeSettings>
     <IRSettings>
       <CabIr>
-        <IRSetting irFileName="memory:ML-MEGA-DJENT-MIX-GRIND.wav"
+        <IRSetting irFileName="memory:ARK_BLUE_CAB_IR_Q.wav"
                    overridingIrFileName="" gain="6.0"/>
       </CabIr>
       <AmpIr>
@@ -32,22 +32,23 @@
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
-    <EQSettings brightFileName="memory:192_ARCHON_EQ_CLEAN_BRIGHT_OFF_10ms brightEQGain="1.0" eqSampleLimit="128"">
-      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_OFF_10ms.wav"
-                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_BASS_FULL_10ms.wav"
-                  gain="7.0" realisticGain="0.0"/>
-      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_MIDDLE_OFF_10ms.wav"
-                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_MIDDLE_FULL_10ms.wav"
+    <EQSettings brightFileName="memory:ARK_CBRIGHT_OFF_Q.wav"
+                brightEQGain="4.0" eqSampleLimit="0">
+      <EQSettings lowIrFileName="memory:ARK_CB_00_Q.wav"
+                  highIrFileName="memory:ARK_CB_10_Q.wav"
                   gain="6.0" realisticGain="0.5"/>
-      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_TREBLE_OFF_10ms.wav"
-                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_TREBLE_FULL_10ms.wav"
-                  gain="3.0" realisticGain="6.0"/>
-      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_PRESENCE_OFF_10ms.wav"
-                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_PRESENCE_FULL_10ms.wav"
-                  gain="3.0" realisticGain="16.0"/>
-      <EQSettings lowIrFileName="memory:192_ARCHON_EQ_CLEAN_DEPTH_OFF_10ms.wav"
-                  highIrFileName="memory:192_ARCHON_EQ_CLEAN_DEPTH_FULL_10ms.wav"
-                  gain="3.0" realisticGain="16.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CM_00_Q.wav"
+                  highIrFileName="memory:ARK_CM_10_Q.wav"
+                  gain="4.0" realisticGain="4.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CT_00_Q.wav"
+                  highIrFileName="memory:ARK_CT_10_Q.wav"
+                  gain="5.0" realisticGain="12.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CP_00_Q.wav"
+                  highIrFileName="memory:ARK_CP_10_Q.wav"
+                  gain="5.0" realisticGain="12.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CD_00_Q.wav"
+                  highIrFileName="memory:ARK_CD_10_Q.wav"
+                  gain="7.0" realisticGain="0.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>

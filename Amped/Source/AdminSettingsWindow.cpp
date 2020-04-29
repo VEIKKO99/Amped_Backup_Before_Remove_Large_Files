@@ -1112,6 +1112,7 @@ void AdminSettingsWindow::saveSettings() {
             settings->uiSettings.mainBackgroundImageFileName = copyFile(withTrailingSeparator, settings->uiSettings.mainBackgroundImageFileName);
             settings->ampSettings.cabIr.irFileName = copyFile(withTrailingSeparator, settings->ampSettings.cabIr.irFileName);
             settings->ampSettings.ampIr.irFileName = copyFile(withTrailingSeparator, settings->ampSettings.ampIr.irFileName);
+            brightIrFilename = copyFile(withTrailingSeparator, settings->ampSettings.brightIrFileName);
 
             for (int i = 0; i < EQType::kEQSize; i++) {
                 settings->ampSettings.eqs[i].lowIrFileName = copyFile(withTrailingSeparator,  settings->ampSettings.eqs[i].lowIrFileName);
