@@ -1407,6 +1407,14 @@
           <FILE id="ct01BX" name="envelopeFollower.h" compile="0" resource="0"
                 file="Source/Effects/CompExp/envelopeFollower.h"/>
         </GROUP>
+        <GROUP id="{7B6B2B3E-F655-A15B-C042-8D853C46FBEF}" name="HDD1">
+          <FILE id="YG4a0w" name="AudioProcessor.h" compile="0" resource="0"
+                file="Source/Effects/HDD1/AudioProcessor.h"/>
+          <FILE id="TQFSu5" name="CheapDelay.h" compile="0" resource="0" file="Source/Effects/HDD1/CheapDelay.h"/>
+          <FILE id="bIB1L9" name="DD3.h" compile="0" resource="0" file="Source/Effects/HDD1/DD3.h"/>
+          <FILE id="t3MXd2" name="DspFilter.cpp" compile="1" resource="0" file="Source/Effects/HDD1/DspFilter.cpp"/>
+          <FILE id="EZOLMj" name="DspFilter.h" compile="0" resource="0" file="Source/Effects/HDD1/DspFilter.h"/>
+        </GROUP>
         <GROUP id="{9B59BF53-11D0-7944-7709-6ADDBF418CEB}" name="HTS9">
           <FILE id="JbRRzb" name="AudioProcessor.h" compile="0" resource="0"
                 file="Source/Effects/HTS9/AudioProcessor.h"/>
