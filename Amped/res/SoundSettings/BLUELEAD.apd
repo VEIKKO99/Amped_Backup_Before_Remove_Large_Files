@@ -37,15 +37,15 @@
     <EQSettings brightFileName="memory:ARK_LBRIGHT_OFF_Q.wav"
                 brightEQGain="4.0" eqSampleLimit="0">
       <EQSettings lowIrFileName="memory:ARK_LB_00_Q.wav" highIrFileName="memory:ARK_LB_10_Q.wav"
-                  gain="6.5" realisticGain="0.5"/>
+                  gain="6.0" realisticGain="0.5"/>
       <EQSettings lowIrFileName="memory:ARK_LM_00_Q.wav" highIrFileName="memory:ARK_LM_10_Q.wav"
                   gain="5.0" realisticGain="4.0"/>
       <EQSettings lowIrFileName="memory:ARK_LT_00_Q.wav" highIrFileName="memory:ARK_LT_10_Q.wav"
-                  gain="5.0" realisticGain="6.0"/>
+                  gain="4.0" realisticGain="9.0"/>
       <EQSettings lowIrFileName="memory:ARK_LP_00_Q.wav" highIrFileName="memory:ARK_LP_10_Q.wav"
-                  gain="5.0" realisticGain="15.0"/>
+                  gain="4.0" realisticGain="16.0"/>
       <EQSettings lowIrFileName="memory:ARK_LD_00_Q.wav" highIrFileName="memory:ARK_LD_10_Q.wav"
-                  gain="7.0" realisticGain="0.0"/>
+                  gain="30.0" realisticGain="-19.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>

@@ -5,7 +5,7 @@
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
-    <MaxMin min="-12.0" max="12.0"/>
+    <MaxMin min="8.0" max="32.0"/>
     <MaxMin min="0.0" max="0.0"/>
   </MaxMinSettings>
   <Presets/>
@@ -32,22 +32,17 @@
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
-    <EQSettings brightFileName="memory:ARK_CBRIGHT_OFF_Q.wav"
-                brightEQGain="4.0" eqSampleLimit="0">
-      <EQSettings lowIrFileName="memory:ARK_CB_00_Q.wav"
-                  highIrFileName="memory:ARK_CB_10_Q.wav"
-                  gain="6.0" realisticGain="0.5"/>
-      <EQSettings lowIrFileName="memory:ARK_CM_00_Q.wav"
-                  highIrFileName="memory:ARK_CM_10_Q.wav"
-                  gain="4.0" realisticGain="4.0"/>
-      <EQSettings lowIrFileName="memory:ARK_CT_00_Q.wav"
-                  highIrFileName="memory:ARK_CT_10_Q.wav"
-                  gain="5.0" realisticGain="12.0"/>
-      <EQSettings lowIrFileName="memory:ARK_CP_00_Q.wav"
-                  highIrFileName="memory:ARK_CP_10_Q.wav"
-                  gain="5.0" realisticGain="12.0"/>
-      <EQSettings lowIrFileName="memory:ARK_CD_00_Q.wav"
-                  highIrFileName="memory:ARK_CD_10_Q.wav"
+    <EQSettings brightFileName="memory:ARK_CBRIGHT_OFF_Q.wav" brightEQGain="4.0"
+                eqSampleLimit="0">
+      <EQSettings lowIrFileName="memory:ARK_CB_00_Q.wav" highIrFileName="memory:ARK_CB_10_Q.wav"
+                  gain="6.0" realisticGain="1.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CM_00_Q.wav" highIrFileName="memory:ARK_CM_10_Q.wav"
+                  gain="6.0" realisticGain="1.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CT_00_Q.wav" highIrFileName="memory:ARK_CT_10_Q.wav"
+                  gain="3.0" realisticGain="12.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CP_00_Q.wav" highIrFileName="memory:ARK_CP_10_Q.wav"
+                  gain="5.0" realisticGain="9.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CD_00_Q.wav" highIrFileName="memory:ARK_CD_10_Q.wav"
                   gain="7.0" realisticGain="0.0"/>
     </EQSettings>
   </InternalAmpSettings>
