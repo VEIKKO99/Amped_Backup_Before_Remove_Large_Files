@@ -36,7 +36,7 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     odLed.setOn(onOffButton.getToggleState());
     ngLed.setOn(ngOnOffButton.getToggleState());
 
-    // Reverb Demo:
+    // Reverb:
 
     initSliderComponent(reverbSizeSlider,VTS_EF_REVB_SIZE, reverbSizeAttachment);
     initSliderComponent(reverbToneSlider,VTS_EF_REVB_TONE, reverbToneAttachment);
@@ -47,6 +47,17 @@ EffectsBar::EffectsBar(AudioProcessorValueTreeState& vts) : valueTreeState(vts)
     addAndMakeVisible(revbOnOffButton);
     addAndMakeVisible(reverbLed);
     reverbLed.setOn(revbOnOffButton.getToggleState());
+    
+    // Delay:
+    initSliderComponent(dlyMixSlider,VTS_EF_DLY_MIX, dlyMixAttachment);
+    initSliderComponent(dlyFeedbackSlider,VTS_EF_DLY_FEEDBACK, dlyFeedBackttachment);
+    initSliderComponent(dlyTimeSlider,VTS_EF_DLY_TIME, dlyTimeAttachment);
+    dlyOnOffButton.addListener(this);
+    dlyOnOffButtonAttachment.reset (new ButtonAttachment (valueTreeState,VTS_EF_DLY_ON, dlyOnOffButton));
+    addAndMakeVisible(dlyOnOffButton);
+    addAndMakeVisible(delayLed);
+    delayLed.setOn(dlyOnOffButton.getToggleState());
+
 }
 
 void EffectsBar::buttonClicked (Button* button)
@@ -62,6 +73,10 @@ void EffectsBar::buttonClicked (Button* button)
     else if(button == &revbOnOffButton)
     {
         reverbLed.setOn(button->getToggleState());
+    }
+    else if (button == &dlyOnOffButton)
+    {
+        delayLed.setOn(button->getToggleState());
     }
 }
 
@@ -116,4 +131,13 @@ void EffectsBar::resized()
     reverbToneSlider.setBounds(revbXOffset + 40, revYOffset + 8, 60, 60);
     reverbMixSlider.setBounds(revbXOffset + 80, revYOffset + 8, 60, 60);
     reverbLed.setBounds(revbXOffset + 58, revYOffset, 22,22);
+    
+    // Reverb:
+    int dlyXOffset = 838;
+    int dlyYOffset = 96;
+    dlyOnOffButton.setBounds(dlyXOffset + 10, dlyYOffset + 100, 120, 80);
+    dlyTimeSlider.setBounds(dlyXOffset -2, dlyYOffset + 8, 60, 60);
+    dlyFeedbackSlider.setBounds(dlyXOffset + 40, dlyYOffset + 8, 60, 60);
+    dlyMixSlider.setBounds(dlyXOffset + 80, dlyYOffset + 8, 60, 60);
+    delayLed.setBounds(dlyXOffset + 58, dlyYOffset - 40, 22,22);
 }

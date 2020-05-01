@@ -870,7 +870,7 @@ void AdminSettingsWindow::updateSettings() {
     settings->ampSettings.hornetDrive = hornetDrive->getText().getFloatValue();
     settings->ampSettings.overSample = overSample->getText().getIntValue();
     //settings->ampSettings.masterVolumeMultiplier = masterMultiplier->getText().getFloatValue();
-    
+
     settings->ampSettings.masterMultiplierOff = masterMultiplierOff->getText().getFloatValue();
     settings->ampSettings.masterMultiplier025 = masterMultiplier025->getText().getFloatValue();
     settings->ampSettings.masterMultiplier050 = masterMultiplier050->getText().getFloatValue();
@@ -926,7 +926,7 @@ void AdminSettingsWindow::setupUI(){
     this->hornetPresence->setText(String(settings->ampSettings.hornetPresence), dontSendNotification);
 
     this->overSample->setText(String(settings->ampSettings.overSample));
-    
+
     this->masterMultiplierOff->setText(String(settings->ampSettings.masterMultiplierOff));
     this->masterMultiplier025->setText(String(settings->ampSettings.masterMultiplier025));
     this->masterMultiplier050->setText(String(settings->ampSettings.masterMultiplier050));
