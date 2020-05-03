@@ -13,7 +13,6 @@
 #include "Consts.h"
 #include "Effects/HTS9/TS9.h"
 #include "Effects/CompExp/CompExp.h"
-#include "Effects/HDD1/DD3.h"
 
 #pragma once
 
@@ -64,8 +63,6 @@ public:
     {
         this->soundSettings = settings;
     }
-    
-    AmpedAudioProcessorBase() : AudioProcessor (BusesProperties().withInput("Input", AudioChannelSet::mono(), false).withOutput ("Output", AudioChannelSet::mono(), true))  {}
     
 //==============================================================================
     void prepareToPlay (double, int) override {}
@@ -145,8 +142,6 @@ protected:
                                                                 interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
     {
     }
-
-    AmpSimWrapperBase(): interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE]) {}
     
     void interleaveAndConvertSamples (float** source, double* dest, int numSamples, int numChannels)
     {
@@ -184,66 +179,6 @@ protected:
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpSimWrapperBase)
 
-};
-
-class EffectsDelayProcessor  : public AmpSimWrapperBase {
-
-public:
-    EffectsDelayProcessor(std::shared_ptr<SoundSettings> settings) : AmpSimWrapperBase(settings) {
-    }
-    
-    void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
-        AmpSimWrapperBase::updateInternalSettings(settings);
-    }
-
-    void prepareToPlay (double sampleRate, int samplesPerBlock) override
-    {
-        int numOfChannels = getTotalNumInputChannels();
-
-        // If 8192 *"  samples are not enough, re-init the buffer.
-        // Todo: This might not be thread safe.
-        if (samplesPerBlock * getTotalNumInputChannels() > INTERLEAVED_DEFAULT_SIZE)
-        {
-            interleavedBuffer.reset(new double[samplesPerBlock * getTotalNumInputChannels()]);
-        }
-        effect.setNumChans(numOfChannels);
-        effect.setSampleRate(samplesPerBlock);
-        effect.setActive(true);
-        effect.init();
-        effect.setOversample(1);
-        effect.setDryWet(0.5);
-        effect.setDelayTime(40.0);
-     //   effect.init(sampleRate);
-     //   effect.SetMode(CompExp::ECompMode::kExp);
-     //   effect.SetAttack(1.0);
-     //   effect.SetRelease(50.0);
-    }
-
-    void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
-    {
-        int numOfSamples = buffer.getNumSamples();
-        int numOfChannels = buffer.getNumChannels();
-
-        interleaveAndConvertSamples(buffer.getArrayOfWritePointers(), interleavedBuffer.get(), numOfSamples, numOfChannels);
-
-        effect.process(interleavedBuffer.get(), numOfSamples);
-        
-        // Values from 1 to 5
-     //   effect.SetRatio(1 + (*thresholdParam * 4));
-     //   effect.Process(interleavedBuffer.get(), numOfSamples);
-        //  tubeAmp.process(interleavedBuffer.get(), numOfSamples);
-
-        deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
-                numOfSamples, numOfChannels);
-    }
-
-public:
-    float* thresholdParam = nullptr;
-
-private:
-    DD3 effect;
-
-    JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (EffectsDelayProcessor)
 };
 
 class EffectsNGProcessor  : public AmpSimWrapperBase {

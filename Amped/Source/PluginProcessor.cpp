@@ -381,10 +381,6 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     mainAudioProcessors.add(outputGainProcessor);
     
-    delayProcessor = mainProcessor->addNode(std::make_unique<EffectsDelayProcessor>(soundSettingsModel.getCurrentSetting()));
-    mainAudioProcessors.add(delayProcessor);
-
-
     for (auto node : mainAudioProcessors)
     {
         initProcessor(node);
@@ -434,9 +430,7 @@ void AmpedAudioProcessor::connectMainAudioNodes()
         mainProcessor->addConnection ({ { cabSimIR->nodeID,  channel },
             { outputGainProcessor->nodeID, channel } });
         mainProcessor->addConnection ({ { outputGainProcessor->nodeID,  channel },
-            { delayProcessor->nodeID, channel } });
-        mainProcessor->addConnection ({ { delayProcessor->nodeID,  channel },
-        { audioOutputNode->nodeID, channel } });
+            { audioOutputNode->nodeID, channel } });
     }
 }
 

@@ -207,9 +207,7 @@ private:
     Node::Ptr cabSimIR;
 
     Node::Ptr outputGainProcessor;
-    
-    Node::Ptr delayProcessor;
-    
+        
     ReferenceCountedArray<Node> mainAudioProcessors;
     ReferenceCountedArray<Node> preEffectsAudioProcessors;
 
