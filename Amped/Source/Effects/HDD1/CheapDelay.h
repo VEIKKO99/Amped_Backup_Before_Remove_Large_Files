@@ -27,7 +27,8 @@ public:
 	}
 	
 	~CheapDelay() {
-		_aligned_free(mMemoryBank);
+        if (mBankCreated)
+            _aligned_free(mMemoryBank);
 	}
 	
 	double processDelay(double inSample) {

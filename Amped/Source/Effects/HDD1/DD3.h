@@ -22,7 +22,12 @@ enum eDD3DelayMode {
 	kNumDD3DlyModes
 };
 
-class DD3 : public AudioProcessor {
+inline double FromNormalizedParam(double normalizedValue, double min, double max, double shape)
+{
+  return min + pow((double) normalizedValue, shape) * (max - min);
+}
+  
+class DD3 : public Effects_DD::AudioProcessor {
 
 public:
 	
@@ -104,6 +109,16 @@ public:
 	
 	double mDrySample;
 	
+    inline double AmpToDB(double amp)
+    {
+      return AMP_DB * log(fabs(amp));
+    }
+    
+    inline double DBToAmp(double dB)
+    {
+      return exp(IAMP_DB * dB);
+    }
+    
 	void processDsp(double* samples, int samplesCount) {
 		
 		long int m = 1 << (12-1);
