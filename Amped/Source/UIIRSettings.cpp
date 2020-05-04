@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.3
+  Created with Projucer version: 5.4.5
 
   ------------------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="153 0 200 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="15" kerning="0" bold="0" italic="0" justification="33"/>
+         fontsize="15.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="cabSimGain" id="bdf3c9eff0364d86" memberName="irGain" virtualName=""
               explicitFocusOrder="0" pos="96 0 47 24" initialText="" multiline="0"
               retKeyStartsLine="0" readonly="0" scrollbars="1" caret="1" popupmenu="1"/>

@@ -59,7 +59,9 @@ private:
     OnOffLed odLed;
 
     OnOffLed reverbLed;
+    OnOffLed delayLed;
 
+    
     ToggleButton revbOnOffButton;
     std::unique_ptr<ButtonAttachment> revbOnOffButtonAttachment;
 
@@ -72,6 +74,19 @@ private:
     Slider reverbMixSlider;
     std::unique_ptr<SliderAttachment> reverbMixAttachment;
 
+    ToggleButton dlyOnOffButton;
+    std::unique_ptr<ButtonAttachment> dlyOnOffButtonAttachment;
+
+    Slider dlyTimeSlider;
+    std::unique_ptr<SliderAttachment> dlyTimeAttachment;
+
+    Slider dlyFeedbackSlider;
+    std::unique_ptr<SliderAttachment> dlyFeedBackttachment;
+
+    Slider dlyMixSlider;
+    std::unique_ptr<SliderAttachment> dlyMixAttachment;
+    
+    
     AudioProcessorValueTreeState& valueTreeState;
 
     EffectsLookAndFeel effectsLookAndFeel;

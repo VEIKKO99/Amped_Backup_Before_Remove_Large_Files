@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="pllKDb" name="Amped - Ark" projectType="audioplug" jucerVersion="5.4.3"
+<JUCERPROJECT id="pllKDb" name="Amped - Ark" projectType="audioplug" jucerVersion="5.4.5"
               pluginFormats="buildAU,buildStandalone,buildVST3" version="0.1.0"
               companyName="ML Sound Lab" companyCopyright="Copyright 2020 ML Sound Lab, Veikon Internet ja ATK Oy"
               companyWebsite="https://ml-sound-lab.com/" pluginManufacturerCode="MLSL"
@@ -334,6 +334,9 @@
       <FILE id="AdMBg3" name="SoundSettingsModel.h" compile="0" resource="0"
             file="Source/SoundSettingsModel.h"/>
       <GROUP id="{C67AA057-3832-6F7E-B262-88E29E976998}" name="Effects">
+        <GROUP id="{EBC4CED2-D20B-F1C4-C79B-0EDF2E1358F5}" name="Delay">
+          <FILE id="sABooX" name="Delay.h" compile="0" resource="0" file="Source/Effects/Delay/Delay.h"/>
+        </GROUP>
         <GROUP id="{F1583737-B0E0-12A4-D63A-C6890A4FDAFE}" name="CompExp">
           <FILE id="sgF71l" name="CompExp.cpp" compile="1" resource="0" file="Source/Effects/CompExp/CompExp.cpp"/>
           <FILE id="sLosF0" name="CompExp.h" compile="0" resource="0" file="Source/Effects/CompExp/CompExp.h"/>

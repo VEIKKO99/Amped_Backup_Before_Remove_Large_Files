@@ -50,6 +50,10 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                         std::make_unique<AudioParameterBool> (VTS_EF_NG_ON, "NG on", false),
                         std::make_unique<AudioParameterBool> (VTS_LEFT_RIGHT_INPUT_SWITCH, "Input L/R", false),
                         std::make_unique<AudioParameterFloat> (VTS_EF_NG_THRESHOLD, "NG Threshold", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterBool> (VTS_EF_DLY_ON, "Delay On", false),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_DLY_TIME, "Delay Time", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_DLY_FEEDBACK, "Delay Feedback", .0f, 1.0f, 0.5f),
+                        std::make_unique<AudioParameterFloat> (VTS_EF_DLY_MIX, "Delay Mix", .0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> (VTS_EF_REVB_ON, "Reverb On", false),
                         std::make_unique<AudioParameterFloat> (VTS_EF_REVB_SIZE, "Reverb Time", .0f, 1.0f, 0.5f),
                         std::make_unique<AudioParameterBool> (VTS_BRIGHT, "Bright", false),
@@ -86,6 +90,11 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     reverbSizeParameter = parameters.getRawParameterValue(VTS_EF_REVB_SIZE);
     reverbToneParameter = parameters.getRawParameterValue(VTS_EF_REVB_TONE);
     reverbMixParameter = parameters.getRawParameterValue(VTS_EF_REVB_MIX);
+    
+    dlyMixParameter = parameters.getRawParameterValue(VTS_EF_DLY_MIX);
+    dlyFeedbackParameter = parameters.getRawParameterValue(VTS_EF_DLY_FEEDBACK);
+    dlyTimeParameter = parameters.getRawParameterValue(VTS_EF_DLY_TIME);
+    dlyOnOffParameter = parameters.getRawParameterValue(VTS_EF_DLY_ON);
 
     presetChanged();
 #ifdef AMPED_DEBUG
@@ -389,7 +398,7 @@ void AmpedAudioProcessor::initialiseMainGraph() {
     outputGainProcessor = mainProcessor->addNode (std::make_unique<GainProcessor>(soundSettingsModel.getCurrentSetting(), GainProcessorId::OutputGain));
     ((GainProcessor*)outputGainProcessor->getProcessor())->gainValue = outputParameter;
     mainAudioProcessors.add(outputGainProcessor);
-
+    
     for (auto node : mainAudioProcessors)
     {
         initProcessor(node);
@@ -498,6 +507,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
         }
     }
     initReverb(sampleRate);
+    delay.prepareToPlay(sampleRate, samplesPerBlock, getTotalNumInputChannels(), getTotalNumOutputChannels());
 }
 
 void AmpedAudioProcessor::initReverb(const double sampleRate)
@@ -506,6 +516,7 @@ void AmpedAudioProcessor::initReverb(const double sampleRate)
     reverb.setSampleRate(sampleRate);
     reverbParams.width = 1.0;
 }
+
 
 
 //==============================================================================
@@ -726,7 +737,15 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         }
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
+    
+    if (*dlyOnOffParameter < 0.5) {
+        delay.mMix = dlyMixParameter;
+        delay.mFeedback = dlyFeedbackParameter;
+        delay.mTime = dlyTimeParameter;
 
+        delay.processBlock(buffer);
+    }
+    
     if (*fxParameter < 0.5) {
         processReverb(buffer);
     }

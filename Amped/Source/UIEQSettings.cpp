@@ -7,7 +7,7 @@
   the "//[xyz]" and "//[/xyz]" sections will be retained when the file is loaded
   and re-saved.
 
-  Created with Projucer version: 5.4.3
+  Created with Projucer version: 5.4.5
 
   ------------------------------------------------------------------------------
 
@@ -267,15 +267,15 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="168 0 124 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" kerning="0" bold="0" italic="0" justification="33"/>
+         fontsize="12.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTEDITOR name="cabSimGain" id="bdf3c9eff0364d86" memberName="irGain" virtualName=""
               explicitFocusOrder="0" pos="584 0 47 24" initialText="" multiline="0"
               retKeyStartsLine="0" readonly="0" scrollbars="1" caret="1" popupmenu="1"/>
   <LABEL name="new label" id="974a79e2ee9f8dfa" memberName="eqName" virtualName=""
          explicitFocusOrder="0" pos="0 0 80 24" edTextCol="ff000000" edBkgCol="0"
          labelText="EQ Name" editableSingleClick="0" editableDoubleClick="0"
-         focusDiscardsChanges="0" fontname="Default font" fontsize="15"
-         kerning="0" bold="0" italic="0" justification="33"/>
+         focusDiscardsChanges="0" fontname="Default font" fontsize="15.0"
+         kerning="0.0" bold="0" italic="0" justification="33"/>
   <TEXTBUTTON name="new button" id="8357a76bc6329f0d" memberName="highPotBtn"
               virtualName="" explicitFocusOrder="0" pos="296 0 88 24" buttonText="High Pot IR"
               connectedEdges="0" needsCallback="1" radioGroupId="0"/>
@@ -283,12 +283,12 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="392 0 146 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Default (from memory)&#10;" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" kerning="0" bold="0" italic="0" justification="33"/>
+         fontsize="12.0" kerning="0.0" bold="0" italic="0" justification="33"/>
   <LABEL name="new label" id="a983b873cea0c0c2" memberName="irgainLabel"
          virtualName="" explicitFocusOrder="0" pos="544 0 36 24" edTextCol="ff000000"
          edBkgCol="0" labelText="IR&#10;Gain" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" kerning="0" bold="0" italic="0" justification="34"/>
+         fontsize="12.0" kerning="0.0" bold="0" italic="0" justification="34"/>
   <TEXTEDITOR name="cabSimGain" id="d12b9578ab38b2d2" memberName="realisticGain"
               virtualName="" explicitFocusOrder="0" pos="696 0 63 24" initialText=""
               multiline="0" retKeyStartsLine="0" readonly="0" scrollbars="1"
@@ -297,7 +297,7 @@ BEGIN_JUCER_METADATA
          virtualName="" explicitFocusOrder="0" pos="640 0 56 24" edTextCol="ff000000"
          edBkgCol="0" labelText="Realistic&#10;Gain" editableSingleClick="0"
          editableDoubleClick="0" focusDiscardsChanges="0" fontname="Default font"
-         fontsize="12" kerning="0" bold="0" italic="0" justification="34"/>
+         fontsize="12.0" kerning="0.0" bold="0" italic="0" justification="34"/>
 </JUCER_COMPONENT>
 
 END_JUCER_METADATA

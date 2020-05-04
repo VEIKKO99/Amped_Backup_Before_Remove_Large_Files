@@ -16,6 +16,7 @@
 #include "AdminSettingsUtil.h"
 #include "AmpedAudioProcessorBase.h"
 #include "SoundSettingsModel.h"
+#include "Effects/Delay/Delay.h"
 
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
@@ -173,6 +174,11 @@ private:
     float* reverbSizeParameter = nullptr;
     float* reverbToneParameter = nullptr;
     float* reverbMixParameter = nullptr;
+    
+    float* dlyOnOffParameter = nullptr;
+    float* dlyTimeParameter = nullptr;
+    float* dlyFeedbackParameter = nullptr;
+    float* dlyMixParameter = nullptr;
 
 #ifdef AMPED_DEBUG
     float* ampSimSwitch = nullptr;
@@ -184,7 +190,6 @@ private:
     Node::Ptr preEffectsMidiOutputNode;
     Node::Ptr overdriveNode;
     Node::Ptr noiseGateNode;
-
 
     Node::Ptr audioInputNode;
     Node::Ptr audioOutputNode;
@@ -208,7 +213,7 @@ private:
     Node::Ptr brightIR;;
 
     Node::Ptr outputGainProcessor;
-
+        
     ReferenceCountedArray<Node> mainAudioProcessors;
     ReferenceCountedArray<Node> preEffectsAudioProcessors;
 
@@ -224,6 +229,8 @@ private:
     Reverb reverb;
     Reverb::Parameters reverbParams;
 
+    Delay delay;
+    
     int previousPrepareSampleRate;
     int previousPrepareSamplesPerBlock;
 };

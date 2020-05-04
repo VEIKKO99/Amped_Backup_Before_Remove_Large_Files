@@ -46,6 +46,13 @@ const std::string VTS_EF_REVB_SIZE = "effects_reverb_time";
 const std::string VTS_EF_REVB_TONE = "effects_reverb_tone";
 const std::string VTS_EF_REVB_MIX = "effects_reverb_mix";
 
+// Delay:
+const std::string VTS_EF_DLY_ON = "effects_dly_on";
+const std::string VTS_EF_DLY_TIME = "effects_dly_time";
+const std::string VTS_EF_DLY_FEEDBACK = "effects_dly_fb";
+const std::string VTS_EF_DLY_MIX = "effects_dly_mix";
+
+
 
 inline const char* getBinaryDataWithOriginalFileName(String originalFileName, int& dataSizeInBytes) {
     // THis doesn't work with names starting with number

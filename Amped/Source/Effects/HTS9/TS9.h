@@ -9,7 +9,7 @@
 #define HTS9_h
 
 #include "AudioProcessor.h"
-#include "rcfilter.h"
+#include "rcFilter.h"
 #include <ctime>
 #include <cstdlib>
 

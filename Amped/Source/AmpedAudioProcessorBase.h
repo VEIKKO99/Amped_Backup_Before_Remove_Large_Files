@@ -142,7 +142,7 @@ protected:
                                                                 interleavedBuffer(new double[INTERLEAVED_DEFAULT_SIZE])
     {
     }
-
+    
     void interleaveAndConvertSamples (float** source, double* dest, int numSamples, int numChannels)
     {
         for (int chan = 0; chan < numChannels; ++chan)
@@ -180,7 +180,6 @@ protected:
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpSimWrapperBase)
 
 };
-
 
 class EffectsNGProcessor  : public AmpSimWrapperBase {
 
