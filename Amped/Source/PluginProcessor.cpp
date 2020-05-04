@@ -85,6 +85,11 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
     reverbSizeParameter = parameters.getRawParameterValue(VTS_EF_REVB_SIZE);
     reverbToneParameter = parameters.getRawParameterValue(VTS_EF_REVB_TONE);
     reverbMixParameter = parameters.getRawParameterValue(VTS_EF_REVB_MIX);
+    
+    dlyMixParameter = parameters.getRawParameterValue(VTS_EF_DLY_MIX);
+    dlyFeedbackParameter = parameters.getRawParameterValue(VTS_EF_DLY_FEEDBACK);
+    dlyTimeParameter = parameters.getRawParameterValue(VTS_EF_DLY_TIME);
+    dlyOnOffParameter = parameters.getRawParameterValue(VTS_EF_DLY_ON);
 
     presetChanged();
 #ifdef AMPED_DEBUG
@@ -485,6 +490,7 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
         }
     }
     initReverb(sampleRate);
+    delay.prepareToPlay(sampleRate, samplesPerBlock, getTotalNumInputChannels(), getTotalNumOutputChannels());
 }
 
 void AmpedAudioProcessor::initReverb(const double sampleRate)
@@ -711,7 +717,13 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         }
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
     }
+    
+    delay.mMix = dlyMixParameter;
+    delay.mFeedback = dlyFeedbackParameter;
+    delay.mTime = dlyTimeParameter;
 
+    delay.processBlock(buffer);
+    
     if (*fxParameter < 0.5) {
         processReverb(buffer);
     }

@@ -16,6 +16,7 @@
 #include "AdminSettingsUtil.h"
 #include "AmpedAudioProcessorBase.h"
 #include "SoundSettingsModel.h"
+#include "Effects/Delay/Delay.h"
 
 using AudioGraphIOProcessor = AudioProcessorGraph::AudioGraphIOProcessor;
 using Node = AudioProcessorGraph::Node;
@@ -223,6 +224,8 @@ private:
     Reverb reverb;
     Reverb::Parameters reverbParams;
 
+    Delay delay;
+    
     int previousPrepareSampleRate;
     int previousPrepareSamplesPerBlock;
 };
