@@ -23,26 +23,29 @@ public:
 
         mDelayBuffer.setSize (mNumOfInputChannels, MAX_DELAY_TIME_IN_MS / 1000 * (samplesPerBlock + sampleRate), false, false);
         mDelayBuffer.clear();
+        mWorkBuffer.setSize (mNumOfInputChannels, samplesPerBlock, false, false);
+        mWorkBuffer.clear();
 
         mExpectedReadPos = -1;
     }
     
     void processBlock (AudioBuffer<float>& buffer)
     {
-        const float gain = 1.0f;  // *mMix; //Decibels::decibelsToGain (mGain.get());
         const float time = *mTime * MAX_DELAY_TIME_IN_MS;
-        const float feedback = *mFeedback; //Decibels::decibelsToGain (*mFeedback);
+        const float feedback = *mFeedback * 0.95f; //Decibels::decibelsToGain (*mFeedback);
 
+        for (int i = 0; i < buffer.getNumChannels(); i++) {
+            if (i < mWorkBuffer.getNumChannels()) {
+                mWorkBuffer.copyFrom(i, 0, buffer, i, 0, buffer.getNumSamples());
+            }
+        }
+        
         // write original to delay
         for (int i=0; i < mDelayBuffer.getNumChannels(); ++i)
         {
             const int inputChannelNum = i; //inputBus->getChannelIndexInProcessBlockBuffer (std::min (i, inputBus->getNumberOfChannels()));
-            writeToDelayBuffer (buffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
+            writeToDelayBuffer (mWorkBuffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
         }
-
-        // adapt dry gain
-        buffer.applyGainRamp (0, buffer.getNumSamples(), mLastInputGain, gain);
-        mLastInputGain = gain;
 
         // read delayed signal
         auto readPos = roundToInt (mWritePos - (mSampleRate * time / 1000.0));
@@ -57,7 +60,7 @@ public:
             for (int i=0; i < mNumOfOutputChannels; ++i)
             {
                 const int outputChannelNum = i; //outputBus->getChannelIndexInProcessBlockBuffer (i);
-                readFromDelayBuffer (buffer, i, outputChannelNum, mExpectedReadPos, 1.0, endGain, false);
+                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, mExpectedReadPos, 1.0, endGain, false);
             }
         }
 
@@ -67,7 +70,7 @@ public:
             for (int i=0; i < mNumOfOutputChannels; ++i)
             {
                 const int outputChannelNum = i; //outputBus->getChannelIndexInProcessBlockBuffer (i);
-                readFromDelayBuffer (buffer, i, outputChannelNum, readPos, 0.0, 1.0, false);
+                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, readPos, 0.0, 1.0, false);
             }
         }
     
@@ -76,18 +79,22 @@ public:
         for (int i=0; i < mNumOfInputChannels; ++i)
         {
             const int outputChannelNum = i; //inputBus->getChannelIndexInProcessBlockBuffer (i);
-            writeToDelayBuffer (buffer, outputChannelNum, i, mWritePos, mLastFeedbackGain, feedback, false);
+            writeToDelayBuffer (mWorkBuffer, outputChannelNum, i, mWritePos, mLastFeedbackGain, feedback, false);
         }
         mLastFeedbackGain = feedback;
 
         // advance positions
-        mWritePos += buffer.getNumSamples();
+        mWritePos += mWorkBuffer.getNumSamples();
         if (mWritePos >= mDelayBuffer.getNumSamples())
             mWritePos -= mDelayBuffer.getNumSamples();
 
-        mExpectedReadPos = readPos + buffer.getNumSamples();
+        mExpectedReadPos = readPos + mWorkBuffer.getNumSamples();
         if (mExpectedReadPos >= mDelayBuffer.getNumSamples())
             mExpectedReadPos -= mDelayBuffer.getNumSamples();
+        
+        for (int i = 0 ; i < mNumOfInputChannels; ++i) {
+            buffer.addFrom(i, 0, mWorkBuffer, i, 0, buffer.getNumSamples(), *mMix);
+        }
     }
 
     void writeToDelayBuffer (AudioSampleBuffer& buffer,
@@ -131,7 +138,7 @@ public:
             if (replacing)
                 buffer.copyFromWithRamp (channelOut, 0, mDelayBuffer.getReadPointer (channelIn, readPos), buffer.getNumSamples(), startGain, endGain);
             else
-                buffer.addFromWithRamp (channelOut, 0, mDelayBuffer.getReadPointer (channelIn, readPos), buffer.getNumSamples(), startGain * *mMix, endGain * *mMix);
+                buffer.addFromWithRamp (channelOut, 0, mDelayBuffer.getReadPointer (channelIn, readPos), buffer.getNumSamples(), startGain, endGain);
         }
         else
         {
@@ -144,8 +151,8 @@ public:
             }
             else
             {
-                buffer.addFromWithRamp (channelOut, 0,      mDelayBuffer.getReadPointer (channelIn, readPos), midPos, startGain * *mMix, midGain * *mMix);
-                buffer.addFromWithRamp (channelOut, midPos, mDelayBuffer.getReadPointer (channelIn), buffer.getNumSamples() - midPos, midGain * *mMix, endGain * *mMix);
+                buffer.addFromWithRamp (channelOut, 0,      mDelayBuffer.getReadPointer (channelIn, readPos), midPos, startGain, midGain * *mMix);
+                buffer.addFromWithRamp (channelOut, midPos, mDelayBuffer.getReadPointer (channelIn), buffer.getNumSamples() - midPos, midGain, endGain);
             }
         }
     }
@@ -160,6 +167,8 @@ private:
     int mExpectedReadPos{-1};
     double mSampleRate{44100};
     AudioBuffer<float> mDelayBuffer;
+    AudioBuffer<float> mWorkBuffer;
+
     int mNumOfInputChannels{0};
     int mNumOfOutputChannels{0};
     float mLastInputGain{0.0f};
