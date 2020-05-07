@@ -136,6 +136,9 @@ private:
     void initReverb(const double sampleRate);
     void processReverb(AudioBuffer<float> &buffer);
 
+    void initDelay(const double sampleRate, int samplesPerBlock);
+    void processDelay(AudioBuffer<float>& buffer);
+
 private:
     //==============================================================================
 

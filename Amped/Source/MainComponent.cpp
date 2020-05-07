@@ -213,7 +213,7 @@ void MainComponent::resized()
     nextAmp.setBounds(1050, 350, 40,40);
 
 #endif
-    effectsBar.setBounds(0, 140, 1200, 289);
+    effectsBar.setBounds(312, 162, 575, 275);
 
     versionNumberLabel.setBounds(1135, 580, 60,20);
     // This method is where you should set the bounds of any child

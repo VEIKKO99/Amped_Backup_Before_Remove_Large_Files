@@ -507,7 +507,12 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
         }
     }
     initReverb(sampleRate);
-    delay.prepareToPlay(sampleRate, samplesPerBlock, getTotalNumInputChannels(), getTotalNumOutputChannels());
+    initDelay(sampleRate, samplesPerBlock);
+}
+
+void AmpedAudioProcessor::initDelay(const double sampleRate, int samplesPerBlock)
+{
+    delay.prepareToPlay(sampleRate, samplesPerBlock, AMPED_MONO_CHANNEL, AMPED_MONO_CHANNEL);
 }
 
 void AmpedAudioProcessor::initReverb(const double sampleRate)
@@ -729,21 +734,16 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         if (copyProtection) buffer.clear();
     }
     mainProcessor->processBlock (monoBuffer, midiMessages);
-
+    if (*fxParameter < 0.5) {
+        processDelay(monoBuffer);
+    }
+    
     // We copy the mono (left) channel to right channel also:
     if (buffer.getNumChannels() > 1) {
         if (switchToRightInput) {
             buffer.copyFrom (0, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
         }
         buffer.copyFrom (1, 0, monoBuffer.getReadPointer(0), monoBuffer.getNumSamples());
-    }
-    
-    if (*dlyOnOffParameter < 0.5) {
-        delay.mMix = dlyMixParameter;
-        delay.mFeedback = dlyFeedbackParameter;
-        delay.mTime = dlyTimeParameter;
-
-        delay.processBlock(buffer);
     }
     
     if (*fxParameter < 0.5) {
@@ -839,11 +839,16 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         buffer.clear (channel, 0, numSamples);
 
      */
+}
 
-
-
-
-
+void AmpedAudioProcessor::processDelay(AudioBuffer<float>& buffer)
+{
+    if (*dlyOnOffParameter > .5) {
+        delay.mMix = dlyMixParameter;
+        delay.mFeedback = dlyFeedbackParameter;
+        delay.mTime = dlyTimeParameter;
+        delay.processBlock(buffer);
+    }
 }
 
 void AmpedAudioProcessor::processReverb(AudioBuffer<float>& buffer)

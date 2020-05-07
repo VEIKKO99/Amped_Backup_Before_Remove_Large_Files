@@ -101,43 +101,44 @@ EffectsBar::~EffectsBar()
 void EffectsBar::paint (Graphics& g)
 {
     Image background;
-    background = ImageCache::getFromMemory (BinaryData::_1200x289pedals_png, BinaryData::_1200x289pedals_pngSize);
+    background = ImageCache::getFromMemory (BinaryData::_2020_4_pedals_png, BinaryData::_2020_4_pedals_pngSize);
     g.drawImageAt(background, 0, 0);
 }
 
 void EffectsBar::resized()
 {
-    // Overdrive:
-    int driveXOffset = 238;
-    int driveYOffset = 26;
-    onOffButton.setBounds(driveXOffset + 10, driveYOffset + 143, 120, 80);
-    driveSlider.setBounds(driveXOffset, driveYOffset + 8, 60, 60);
-    toneSlider.setBounds(driveXOffset + 40, driveYOffset +8, 60, 60);
-    levelSlider.setBounds(driveXOffset + 80, driveYOffset +8, 60, 60);
-    odLed.setBounds(driveXOffset + 59, driveYOffset, 22, 22);
-
     // Noise gate:
-    int ngXOffset = 49;
-    int ngYOffset = 26;
-    ngOnOffButton.setBounds(ngXOffset,  ngYOffset + 143, 120, 80);
-    ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 60, 60);
-    ngLed.setBounds(ngXOffset + 48, ngYOffset ,22, 22);
+    int driveYOffset = 48;
+    int ngXOffset = 42;
+    int ngYOffset = driveYOffset;
+    
+    ngOnOffButton.setBounds(ngXOffset -10,  ngYOffset + 135, 120, 75);
+    ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 40, 40);
+    ngLed.setBounds(ngXOffset + 32, ngYOffset + 78 ,22, 22);
 
-    // Reverb:
-    int revbXOffset = 1032;
-    int revYOffset = 26;
-    revbOnOffButton.setBounds(revbXOffset + 10, revYOffset + 143, 120, 80);
-    reverbSizeSlider.setBounds(revbXOffset -2, revYOffset + 8, 60, 60);
-    reverbToneSlider.setBounds(revbXOffset + 40, revYOffset + 8, 60, 60);
-    reverbMixSlider.setBounds(revbXOffset + 80, revYOffset + 8, 60, 60);
-    reverbLed.setBounds(revbXOffset + 58, revYOffset, 22,22);
+    // Overdrive:
+    int driveXOffset = 160;
+    onOffButton.setBounds(driveXOffset, driveYOffset + 135, 120, 75);
+    driveSlider.setBounds(driveXOffset, driveYOffset + 8, 40, 40);
+    toneSlider.setBounds(driveXOffset + 40, driveYOffset +8, 40, 40);
+    levelSlider.setBounds(driveXOffset + 78, driveYOffset +8, 40, 40);
+    odLed.setBounds(driveXOffset + 44, driveYOffset + 78, 22, 22);
+
+    // Delay:
+    int dlyXOffset = 290;
+    int dlyYOffset = driveYOffset;
+    dlyOnOffButton.setBounds(dlyXOffset, dlyYOffset + 135, 120, 75);
+    dlyTimeSlider.setBounds(dlyXOffset , dlyYOffset + 8, 40, 40);
+    dlyFeedbackSlider.setBounds(dlyXOffset + 40, dlyYOffset + 8, 40, 40);
+    dlyMixSlider.setBounds(dlyXOffset + 78, dlyYOffset + 8, 40, 40);
+    delayLed.setBounds(dlyXOffset + 44, dlyYOffset + 78, 22,22);
     
     // Reverb:
-    int dlyXOffset = 838;
-    int dlyYOffset = 96;
-    dlyOnOffButton.setBounds(dlyXOffset + 10, dlyYOffset + 100, 120, 80);
-    dlyTimeSlider.setBounds(dlyXOffset -2, dlyYOffset + 8, 60, 60);
-    dlyFeedbackSlider.setBounds(dlyXOffset + 40, dlyYOffset + 8, 60, 60);
-    dlyMixSlider.setBounds(dlyXOffset + 80, dlyYOffset + 8, 60, 60);
-    delayLed.setBounds(dlyXOffset + 58, dlyYOffset - 40, 22,22);
+    int revbXOffset = 420;
+    int revYOffset = driveYOffset;
+    revbOnOffButton.setBounds(revbXOffset, revYOffset + 135, 120, 75);
+    reverbSizeSlider.setBounds(revbXOffset, revYOffset + 8, 40, 40);
+    reverbToneSlider.setBounds(revbXOffset + 40, revYOffset + 8, 40, 40);
+    reverbMixSlider.setBounds(revbXOffset + 80, revYOffset + 8, 40, 40);
+    reverbLed.setBounds(revbXOffset + 46, revYOffset + 78, 22,22);
 }
