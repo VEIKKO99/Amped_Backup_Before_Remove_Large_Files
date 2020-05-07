@@ -32,7 +32,7 @@ public:
     void processBlock (AudioBuffer<float>& buffer)
     {
         const float time = *mTime * MAX_DELAY_TIME_IN_MS;
-        const float feedback = *mFeedback * 0.95f; //Decibels::decibelsToGain (*mFeedback);
+        const float feedback = *mFeedback * 0.95f; //Decibels::decibelsTo    (*mFeedback);
 
         for (int i = 0; i < buffer.getNumChannels(); i++) {
             if (i < mWorkBuffer.getNumChannels()) {
@@ -44,7 +44,7 @@ public:
         for (int i=0; i < mDelayBuffer.getNumChannels(); ++i)
         {
             const int inputChannelNum = i; //inputBus->getChannelIndexInProcessBlockBuffer (std::min (i, inputBus->getNumberOfChannels()));
-            writeToDelayBuffer (mWorkBuffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
+           writeToDelayBuffer (mWorkBuffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
         }
 
         // read delayed signal
