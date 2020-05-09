@@ -12,6 +12,8 @@
 
 #define MAX_DELAY_TIME_IN_MS 1000
 
+using Convolution = juce::dsp::Convolution;
+
 class Delay
 {
 public:
@@ -25,7 +27,18 @@ public:
         mDelayBuffer.clear();
         mWorkBuffer.setSize (mNumOfInputChannels, samplesPerBlock, false, false);
         mWorkBuffer.clear();
-
+        mLofiBuffer.setSize (mNumOfInputChannels, samplesPerBlock, false, false);
+        mLofiBuffer.clear();
+        
+        dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), 1};
+        convolutionDspFirst.prepare(spec);
+        convolutionDspFirst.loadImpulseResponse(BinaryData::ARK_LB_10_Q_wav, BinaryData::ARK_LB_10_Q_wavSize, false, false, 0);
+        convolutionDspFirst.reset();
+        
+        convolutionDspFeedback.prepare(spec);
+        convolutionDspFeedback.loadImpulseResponse(BinaryData::ARK_LB_10_Q_wav, BinaryData::ARK_LB_10_Q_wavSize, false, false, 0);
+        convolutionDspFeedback.reset();
+        
         mExpectedReadPos = -1;
     }
     
@@ -39,12 +52,12 @@ public:
                 mWorkBuffer.copyFrom(i, 0, buffer, i, 0, buffer.getNumSamples());
             }
         }
-        
+  
         // write original to delay
         for (int i=0; i < mDelayBuffer.getNumChannels(); ++i)
         {
             const int inputChannelNum = i; //inputBus->getChannelIndexInProcessBlockBuffer (std::min (i, inputBus->getNumberOfChannels()));
-           writeToDelayBuffer (mWorkBuffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
+            writeToDelayBuffer (mWorkBuffer, inputChannelNum, i, mWritePos, 1.0f, 1.0f, true);
         }
 
         // read delayed signal
@@ -60,7 +73,7 @@ public:
             for (int i=0; i < mNumOfOutputChannels; ++i)
             {
                 const int outputChannelNum = i; //outputBus->getChannelIndexInProcessBlockBuffer (i);
-                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, mExpectedReadPos, 1.0, endGain, false);
+                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, mExpectedReadPos, 1.0, endGain, true);
             }
         }
 
@@ -70,11 +83,10 @@ public:
             for (int i=0; i < mNumOfOutputChannels; ++i)
             {
                 const int outputChannelNum = i; //outputBus->getChannelIndexInProcessBlockBuffer (i);
-                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, readPos, 0.0, 1.0, false);
+                readFromDelayBuffer (mWorkBuffer, i, outputChannelNum, readPos, 0.0, 1.0, true);
             }
         }
     
-
         // add feedback to delay
         for (int i=0; i < mNumOfInputChannels; ++i)
         {
@@ -91,7 +103,7 @@ public:
         mExpectedReadPos = readPos + mWorkBuffer.getNumSamples();
         if (mExpectedReadPos >= mDelayBuffer.getNumSamples())
             mExpectedReadPos -= mDelayBuffer.getNumSamples();
-        
+  
         for (int i = 0 ; i < mNumOfInputChannels; ++i) {
             buffer.addFrom(i, 0, mWorkBuffer, i, 0, buffer.getNumSamples(), *mMix);
         }
@@ -103,26 +115,41 @@ public:
                              float startGain, float endGain,
                              bool replacing)
     {
-        if (writePos + buffer.getNumSamples() <= mDelayBuffer.getNumSamples())
+        mLofiBuffer.clear();
+        dsp::AudioBlock<float> block(mLofiBuffer);
+        dsp::AudioBlock<float> block2(buffer);
+
+        dsp::ProcessContextNonReplacing<float> context (block2, block);
+
+        if (replacing) {
+            convolutionDspFirst.process(context);
+        }
+        else {
+            convolutionDspFeedback.process(context);
+        }
+        
+        mLofiBuffer.applyGain(Decibels::decibelsToGain(9.0f));
+        
+        if (writePos + mLofiBuffer.getNumSamples() <= mDelayBuffer.getNumSamples())
         {
             if (replacing)
-                mDelayBuffer.copyFromWithRamp (channelOut, writePos, buffer.getReadPointer (channelIn), buffer.getNumSamples(), startGain, endGain);
+                mDelayBuffer.copyFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn), mLofiBuffer.getNumSamples(), startGain, endGain);
             else
-                mDelayBuffer.addFromWithRamp (channelOut, writePos, buffer.getReadPointer (channelIn), buffer.getNumSamples(), startGain, endGain);
+                mDelayBuffer.addFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn), mLofiBuffer.getNumSamples(), startGain, endGain);
         }
         else
         {
             const auto midPos  = mDelayBuffer.getNumSamples() - writePos;
-            const auto midGain = jmap (float (midPos) / buffer.getNumSamples(), startGain, endGain);
+            const auto midGain = jmap (float (midPos) / mLofiBuffer.getNumSamples(), startGain, endGain);
             if (replacing)
             {
-                mDelayBuffer.copyFromWithRamp (channelOut, writePos, buffer.getReadPointer (channelIn),         midPos, startGain, midGain);
-                mDelayBuffer.copyFromWithRamp (channelOut, 0,        buffer.getReadPointer (channelIn, midPos), buffer.getNumSamples() - midPos, midGain, endGain);
+                mDelayBuffer.copyFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn),         midPos, startGain, midGain);
+                mDelayBuffer.copyFromWithRamp (channelOut, 0,        mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
             }
             else
             {
-                mDelayBuffer.addFromWithRamp (channelOut, writePos, buffer.getReadPointer (channelIn),         midPos, mLastInputGain, midGain);
-                mDelayBuffer.addFromWithRamp (channelOut, 0,        buffer.getReadPointer (channelIn, midPos), buffer.getNumSamples() - midPos, midGain, endGain);
+                mDelayBuffer.addFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn),         midPos, mLastInputGain, midGain);
+                mDelayBuffer.addFromWithRamp (channelOut, 0,        mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
             }
         }
     }
@@ -168,9 +195,13 @@ private:
     double mSampleRate{44100};
     AudioBuffer<float> mDelayBuffer;
     AudioBuffer<float> mWorkBuffer;
+    AudioBuffer<float> mLofiBuffer;
 
     int mNumOfInputChannels{0};
     int mNumOfOutputChannels{0};
     float mLastInputGain{0.0f};
     float mLastFeedbackGain{0.0f};
+    
+    Convolution convolutionDspFirst;
+    Convolution convolutionDspFeedback;
 };
