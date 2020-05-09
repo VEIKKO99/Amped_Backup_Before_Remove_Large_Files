@@ -163,6 +163,8 @@
             file="res/amped_license_background.png"/>
       <GROUP id="{2E36724B-5029-E47C-61B9-61DAB48FF7EA}" name="SoundSettings">
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
+          <FILE id="TMuk2d" name="amped_delay_lofi_ir_100ms.wav" compile="0"
+                resource="1" file="res/amped_delay_lofi_ir_100ms.wav"/>
           <FILE id="N76S4j" name="archon_blue_Q.png" compile="0" resource="1"
                 file="res/SoundSettings/files/archon_blue_Q.png"/>
           <FILE id="Rlh6Nq" name="archon_camo_Q.png" compile="0" resource="1"

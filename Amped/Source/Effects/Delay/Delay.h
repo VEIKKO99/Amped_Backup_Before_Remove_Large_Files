@@ -32,11 +32,11 @@ public:
         
         dsp::ProcessSpec spec { sampleRate, static_cast<uint32> (samplesPerBlock), 1};
         convolutionDspFirst.prepare(spec);
-        convolutionDspFirst.loadImpulseResponse(BinaryData::ARK_LB_10_Q_wav, BinaryData::ARK_LB_10_Q_wavSize, false, false, 0);
+        convolutionDspFirst.loadImpulseResponse(BinaryData::amped_delay_lofi_ir_10ms_wav, BinaryData::amped_delay_lofi_ir_10ms_wavSize, false, false, 0);
         convolutionDspFirst.reset();
         
         convolutionDspFeedback.prepare(spec);
-        convolutionDspFeedback.loadImpulseResponse(BinaryData::ARK_LB_10_Q_wav, BinaryData::ARK_LB_10_Q_wavSize, false, false, 0);
+        convolutionDspFeedback.loadImpulseResponse(BinaryData::amped_delay_lofi_ir_10ms_wav, BinaryData::amped_delay_lofi_ir_10ms_wavSize, false, false, 0);
         convolutionDspFeedback.reset();
         
         mExpectedReadPos = -1;
