@@ -144,12 +144,12 @@ public:
             if (replacing)
             {
                 mDelayBuffer.copyFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn),         midPos, startGain, midGain);
-                mDelayBuffer.copyFromWithRamp (channelOut, 0,        mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
+                mDelayBuffer.copyFromWithRamp (channelOut, 0, mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
             }
             else
             {
-                mDelayBuffer.addFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn),         midPos, mLastInputGain, midGain);
-                mDelayBuffer.addFromWithRamp (channelOut, 0,        mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
+                mDelayBuffer.addFromWithRamp (channelOut, writePos, mLofiBuffer.getReadPointer (channelIn),         midPos, startGain /*mLastInputGain Tähän mLastGainin tilalle startGain */, midGain);
+                mDelayBuffer.addFromWithRamp (channelOut, 0, mLofiBuffer.getReadPointer (channelIn, midPos), mLofiBuffer.getNumSamples() - midPos, midGain, endGain);
             }
         }
     }

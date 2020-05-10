@@ -67,6 +67,18 @@ AmpedAudioProcessor::AmpedAudioProcessor() :
                     })
 #endif
 {
+    String date (__DATE__);
+    String time (__TIME__);
+    
+    String versionString = "Amped v:";
+    versionString += JucePlugin_VersionString;
+    versionString += " - ";
+    versionString += date;
+    versionString += " - ";
+    versionString += time;
+    
+    Logger::getCurrentLogger()->writeToLog(versionString);
+    
     mainProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
     preEffectsProcessor->setProcessingPrecision(ProcessingPrecision::singlePrecision);
 
@@ -124,31 +136,33 @@ void AmpedAudioProcessor::settingChanged(bool dontUpdatePreset)
 
 void AmpedAudioProcessor::presetChanged()
 {
-   auto preset = soundSettingsModel.getCurrentSetting()->getCurrentPreset();
-   auto copyCurrent = parameters.copyState();
-   if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType())) {
-       auto presetState = ValueTree::fromXml(*preset->xml);
-       if (presetState.isValid()) {
-          // Copy existing input and output values to new setup:
-           auto inputParamElement = presetState.getChildWithProperty("id", String(VTS_INPUT));
-           if (inputParamElement.isValid()) {
-               inputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_INPUT), nullptr);
+    auto preset = soundSettingsModel.getCurrentSetting()->getCurrentPreset();
+    if (preset != nullptr) {
+       auto copyCurrent = parameters.copyState();
+       if (preset != nullptr && preset->xml->hasTagName (parameters.state.getType())) {
+           auto presetState = ValueTree::fromXml(*preset->xml);
+           if (presetState.isValid()) {
+              // Copy existing input and output values to new setup:
+               auto inputParamElement = presetState.getChildWithProperty("id", String(VTS_INPUT));
+               if (inputParamElement.isValid()) {
+                   inputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_INPUT), nullptr);
+               }
+               auto outputParamElement = presetState.getChildWithProperty("id", String(VTS_OUTPUT));
+               if (outputParamElement.isValid()) {
+                   outputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_OUTPUT), nullptr);
+               }
+               auto leftRightElement = presetState.getChildWithProperty("id", String(VTS_LEFT_RIGHT_INPUT_SWITCH));
+               if (leftRightElement.isValid()) {
+                   leftRightElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_LEFT_RIGHT_INPUT_SWITCH), nullptr);
+               }
            }
-           auto outputParamElement = presetState.getChildWithProperty("id", String(VTS_OUTPUT));
-           if (outputParamElement.isValid()) {
-               outputParamElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_OUTPUT), nullptr);
-           }
-           auto leftRightElement = presetState.getChildWithProperty("id", String(VTS_LEFT_RIGHT_INPUT_SWITCH));
-           if (leftRightElement.isValid()) {
-               leftRightElement.setProperty(Identifier("value"), *parameters.getRawParameterValue (VTS_LEFT_RIGHT_INPUT_SWITCH), nullptr);
-           }
+           parameters.replaceState(presetState);
        }
-       parameters.replaceState(presetState);
-   }
-    auto editor = getActiveEditor();
-    if (editor != nullptr)
-    {
-        ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
+        auto editor = getActiveEditor();
+        if (editor != nullptr)
+        {
+            ((AmpedAudioProcessorEditor*)editor)->updateAmpPresetUi();
+        }
     }
 }
 
