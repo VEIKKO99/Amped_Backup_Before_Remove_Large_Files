@@ -220,11 +220,11 @@ void AmpTopBar::ampChanged()
     if (processor != nullptr )
     {
         auto selectedIndex = ampComboBox->getSelectedItemIndex();
-        if (!LicenceTools::getInstance()->isValidLicence() && selectedIndex > 0) {
-            openLicenseDialog();
-            selectedIndex = 0;
-            ampComboBox->setSelectedItemIndex(0, dontSendNotification);
-        }
+    //    if (!LicenceTools::getInstance()->isValidLicence() && selectedIndex > 0) {
+    //        openLicenseDialog();
+    //        selectedIndex = 0;
+    //        ampComboBox->setSelectedItemIndex(0, dontSendNotification);
+    //    }
         processor->selectSettingWithId(selectedIndex);
     }
 }

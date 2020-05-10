@@ -65,7 +65,7 @@ public:
     {
         if (settingIndex >=0 && settingIndex < settings.size())
         {
-            if (settingIndex > 0 && !LicenceTools::getInstance()->isValidLicence()) settingIndex = 0;
+           // if (settingIndex > 0 && !LicenceTools::getInstance()->isValidLicence()) settingIndex = 0;
             currentSound = settingIndex;
         }
     }

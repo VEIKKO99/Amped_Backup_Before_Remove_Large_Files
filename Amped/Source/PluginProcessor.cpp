@@ -951,10 +951,10 @@ void AmpedAudioProcessor::setStateInformation (const void* data, int sizeInBytes
     {
         if (xmlState->hasAttribute("AmpNr")) {
             int ampIndex = xmlState->getIntAttribute("AmpNr", 0);
-            if (! LicenceTools::getInstance()->isValidLicence())
-            {
-                ampIndex = 0;
-            }
+         //   if (! LicenceTools::getInstance()->isValidLicence())
+         //   {
+         //       ampIndex = 0;
+         //   }
 
             int presetIndex = -1;
             if (xmlState->hasAttribute("presetNr")) {
