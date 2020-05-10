@@ -490,9 +490,9 @@ void AmpedAudioProcessor::connectPreEffectsMidiNodes()
 void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 {
   //  Logger::getCurrentLogger()->writeToLog("prepareToPlay in  UPDATE:  " + String(getTotalNumInputChannels()) + " out:" + String(getTotalNumOutputChannels()));
-
-
-
+    
+    isValidLincense = LicenceTools::getInstance()->isValidLicence();
+    
     if (previousPrepareSampleRate != (int) sampleRate ||
         previousPrepareSamplesPerBlock != samplesPerBlock)
     {
@@ -512,6 +512,8 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
 
         preEffectsProcessor->prepareToPlay (sampleRate, samplesPerBlock);
         mainProcessor->prepareToPlay (sampleRate, samplesPerBlock);
+
+        processBlockCounter = INT_MAX;
 
         initialisePreEffectsGraph();
         initialiseMainGraph();
@@ -688,6 +690,23 @@ bool AmpedAudioProcessor::isBusesLayoutSupported (const BusesLayout& layouts) co
 }
 #endif
 
+inline bool AmpedAudioProcessor::muteBecauseOfCopyprotection() {
+    if (!isValidLincense) {
+        // Calculate how max calls we should  can for the copy protection before mute.
+        int limit = previousPrepareSampleRate / previousPrepareSamplesPerBlock * 30;
+        if (processBlockCounter < INT_MAX - limit) {
+            showLicenseDialog = true;
+            // After 30 seconds, mute for 2 secs every 10 secs.
+            int blocksPerSec = previousPrepareSampleRate / previousPrepareSamplesPerBlock;
+            int secsElapsed = (INT_MAX - processBlockCounter) / blocksPerSec;
+            int remainder = secsElapsed % 5;
+            if (remainder == 0 || remainder == 1)
+                return true;
+        }
+    }
+    return false;
+}
+
 inline void AmpedAudioProcessor::processInputGain(AudioBuffer<float>& buffer) {
 
     MaxMin maxMin = soundSettingsModel.getCurrentSetting()->gainSettings[InputGain];
@@ -699,6 +718,12 @@ inline void AmpedAudioProcessor::processInputGain(AudioBuffer<float>& buffer) {
 
 void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& midiMessages)
 {
+    
+    //Logger::getCurrentLogger()->writeToLog(String(processBlockCounter));
+    
+    
+    
+    
    // Logger::getCurrentLogger()->writeToLog("EQ: B:" +  String(*bassParameter) + " M: "+String(*middleParameter) + " T:"+String(*trebleParameter) + " PR:" + String(*presenceParameter));
 
     // If we have more outputchannels than input channels we must clear them, they might contain garbage.
@@ -752,6 +777,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         processDelay(monoBuffer);
     }
     
+    processBlockCounter--;
+    if (muteBecauseOfCopyprotection()) buffer.clear();
+    
     // We copy the mono (left) channel to right channel also:
     if (buffer.getNumChannels() > 1) {
         if (switchToRightInput) {
@@ -765,6 +793,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
     }
 
     if (copyProtection) buffer.clear();
+    if (muteBecauseOfCopyprotection()) buffer.clear();
+
+    if (processBlockCounter <= 0 ) processBlockCounter = INT_MAX - 200000;
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 

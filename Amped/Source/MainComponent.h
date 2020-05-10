@@ -26,7 +26,7 @@
 #include "PluginProcessor.h"
 class AmpTopBar;
 
-class MainComponent    : public Component, public Button::Listener, private Timer
+class MainComponent    : public Component, public Button::Listener, private MultiTimer
 {
 public:
     MainComponent(AudioProcessorValueTreeState& vts, AmpedAudioProcessor& p);
@@ -46,7 +46,7 @@ public:
 private:
 
     void initInputClipMeter();
-    long getTimerTime();
+    int getCopyProtectionCheckTimerTime();
 
     AudioProcessorValueTreeState& valueTreeState;
     AmpButtonBar ampButtonBar;
@@ -61,7 +61,7 @@ private:
     ToggleButton leftRightSwitch;
     std::unique_ptr<ButtonAttachment> leftRightAttachment;
 
-    void timerCallback() override;
+    void timerCallback(int timerId) override;
 
     Label versionNumberLabel;
 

@@ -16,6 +16,9 @@
 #include "Consts.h"
 #include "LicenceTools.h"
 
+const int COPY_PROTECTION_CHECK_TIMER_ID = 3;
+const int COPY_PROTECTION_SHOW_LICENSE_DIALOG_TIMER_ID = 4;
+
 //==============================================================================
 MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
                              AmpedAudioProcessor& p) : ampLookAndFeel(&p), valueTreeState(vts), ampButtonBar(vts, ampLookAndFeel, p), processor(p), effectsBar(vts)
@@ -59,8 +62,8 @@ MainComponent::MainComponent(AudioProcessorValueTreeState& vts,
         addChildComponent(licenceDialog.get());
     }
 
-    startTimer(getTimerTime());
-
+    startTimer(COPY_PROTECTION_CHECK_TIMER_ID, getCopyProtectionCheckTimerTime());
+    startTimer(COPY_PROTECTION_SHOW_LICENSE_DIALOG_TIMER_ID, 1000);
 
     auto font = Constants::getAmpedFont();
     font.setHeight(12.0);
@@ -79,14 +82,15 @@ MainComponent::~MainComponent()
         leftRightSwitch.setLookAndFeel(nullptr);
     }
     setLookAndFeel(nullptr);
-    stopTimer();
+    stopTimer(COPY_PROTECTION_CHECK_TIMER_ID);
+    stopTimer(COPY_PROTECTION_SHOW_LICENSE_DIALOG_TIMER_ID);
 }
 
-long MainComponent::getTimerTime()
+int MainComponent::getCopyProtectionCheckTimerTime()
 {
     auto currentTimeInMs = Time::getCurrentTime().currentTimeMillis();
   //  auto time = (currentTimeInMs % 5 + 5) * 1000;
-    auto time = (currentTimeInMs % 60 + 90) * 1000;
+    auto time = (int)(currentTimeInMs % 60 + 90) * 1000;
 
     return time; // time between 90 - 149 seconds
 }
@@ -108,15 +112,25 @@ void MainComponent::doCheck()
 
 void MainComponent::stopA()
 {
-    stopTimer();
-    callAfterDelay(7241,[this] {processor.copyProtection = true;});
+    stopTimer(COPY_PROTECTION_CHECK_TIMER_ID);
+    juce::Timer::callAfterDelay(7241,[this] {processor.copyProtection = true;});
 }
 
-void MainComponent::timerCallback()
+void MainComponent::timerCallback(int timerId)
 {
+    if (timerId == COPY_PROTECTION_CHECK_TIMER_ID)
+    {
 #ifndef AMPED_DEBUG
-    doCheck();
+        doCheck();
 #endif
+    }
+    else if (timerId == COPY_PROTECTION_SHOW_LICENSE_DIALOG_TIMER_ID)
+    {
+        if (processor.showLicenseDialog && !licenceDialog->isVisible()) {
+            licenceDialog->setVisible(true);
+            licenceDialog->setWantsKeyboardFocus(true);
+        }
+    }
 }
 
 void MainComponent::initInputClipMeter() {
@@ -131,7 +145,6 @@ void MainComponent::initInputClipMeter() {
 }
 
 void MainComponent::toggleEffectsBar() {
-    if (isTimerRunning() == false || getTimerInterval() > 150000) startTimer(getTimerTime());
     effectsBar.setVisible(!effectsBar.isVisible());
 }
 

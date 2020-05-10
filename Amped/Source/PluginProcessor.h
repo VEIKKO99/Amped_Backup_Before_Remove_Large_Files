@@ -111,6 +111,9 @@ public:
     void selectSettingWithId(int ampIndex);
 
     void selectPresetWithId(int index);
+    
+    bool showLicenseDialog = false;
+
 
 private:
 
@@ -138,6 +141,9 @@ private:
 
     void initDelay(const double sampleRate, int samplesPerBlock);
     void processDelay(AudioBuffer<float>& buffer);
+    
+    std::atomic_int processBlockCounter;
+    std::atomic_bool isValidLincense;
 
 private:
     //==============================================================================
@@ -147,6 +153,7 @@ private:
     std::unique_ptr<AmpedMonoAudioGraph> preEffectsProcessor;
     std::unique_ptr<AmpedMonoAudioGraph> mainProcessor;
     void initProcessor(Node::Ptr processor);
+    inline bool muteBecauseOfCopyprotection();
 
     //TubeAmp tubeAmp;
     AudioProcessorValueTreeState parameters;
@@ -236,4 +243,5 @@ private:
     
     int previousPrepareSampleRate;
     int previousPrepareSamplesPerBlock;
+    
 };
