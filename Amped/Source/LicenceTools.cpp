@@ -44,11 +44,11 @@ LicenceTools::~LicenceTools()
 }
 
 bool LicenceTools::isValidLicence() {
-#ifdef AMPED_DEBUG
-	return true;
-#else
+//#ifdef AMPED_DEBUG
+//	return true;
+//#else
     return licenceFile->hasValidLicense();
-#endif
+//#endif
 }
 
 JUCE_IMPLEMENT_SINGLETON(LicenceTools)
