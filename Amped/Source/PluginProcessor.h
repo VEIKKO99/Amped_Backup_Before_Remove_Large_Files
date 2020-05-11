@@ -243,5 +243,5 @@ private:
     
     int previousPrepareSampleRate;
     int previousPrepareSamplesPerBlock;
-    
+    int startupMuteBlockCounter = 0;
 };
