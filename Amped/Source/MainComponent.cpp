@@ -97,9 +97,8 @@ int MainComponent::getCopyProtectionCheckTimerTime()
 
 void MainComponent::doCheck()
 {
-    if (processor.getSoundSettingsModel().currentSettingIndex() > 0) {
+    if (processor.isValidLincense) {
         auto&& licenceTools = LicenceTools::getInstance();
-
         auto license = licenceTools->getLicence();
         if (license == nullptr) stopA();
         else
@@ -130,6 +129,7 @@ void MainComponent::timerCallback(int timerId)
             licenceDialog->setVisible(true);
             licenceDialog->setWantsKeyboardFocus(true);
         }
+        processor.showLicenseDialog = false;
     }
 }
 

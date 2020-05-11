@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<SoundSettings name="BLUE CLEAN">
+<SoundSettings name="Blue Clean">
   <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_blue_Q.png"
               selectedKnob="1"/>
   <MaxMinSettings>

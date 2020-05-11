@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<SoundSettings name="CAMO CLEAN">
+<SoundSettings name="Camo Clean">
   <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_camo_Q.png"
               selectedKnob="1"/>
   <MaxMinSettings>

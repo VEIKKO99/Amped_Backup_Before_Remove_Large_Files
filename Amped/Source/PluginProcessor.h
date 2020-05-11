@@ -113,6 +113,7 @@ public:
     void selectPresetWithId(int index);
     
     bool showLicenseDialog = false;
+    std::atomic_bool isValidLincense;
 
 
 private:
@@ -143,7 +144,6 @@ private:
     void processDelay(AudioBuffer<float>& buffer);
     
     std::atomic_int processBlockCounter;
-    std::atomic_bool isValidLincense;
 
 private:
     //==============================================================================

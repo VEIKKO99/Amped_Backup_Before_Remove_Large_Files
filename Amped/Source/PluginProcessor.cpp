@@ -700,13 +700,15 @@ inline bool AmpedAudioProcessor::muteBecauseOfCopyprotection() {
         // Calculate how max calls we should  can for the copy protection before mute.
         int limit = previousPrepareSampleRate / previousPrepareSamplesPerBlock * 30;
         if (processBlockCounter < INT_MAX - limit) {
-            showLicenseDialog = true;
-            // After 30 seconds, mute for 2 secs every 10 secs.
+            // After 30 seconds, mute for 1 sec every 30 secs.
             int blocksPerSec = previousPrepareSampleRate / previousPrepareSamplesPerBlock;
             int secsElapsed = (INT_MAX - processBlockCounter) / blocksPerSec;
-            int remainder = secsElapsed % 5;
-            if (remainder == 0 || remainder == 1)
+            int remainder = secsElapsed % 30;
+            if (remainder == 0)
+            {
+                showLicenseDialog = true;
                 return true;
+            }
         }
     }
     return false;
