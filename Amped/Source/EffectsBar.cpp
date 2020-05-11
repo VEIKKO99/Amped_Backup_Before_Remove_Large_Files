@@ -114,7 +114,7 @@ void EffectsBar::resized()
     
     ngOnOffButton.setBounds(ngXOffset -10,  ngYOffset + 135, 120, 75);
     ngThreshold.setBounds(ngXOffset + 28, ngYOffset + 8, 40, 40);
-    ngLed.setBounds(ngXOffset + 32, ngYOffset + 78 ,22, 22);
+    ngLed.setBounds(ngXOffset + 35, ngYOffset + 81 ,22, 22);
 
     // Overdrive:
     int driveXOffset = 160;
@@ -122,7 +122,7 @@ void EffectsBar::resized()
     driveSlider.setBounds(driveXOffset, driveYOffset + 8, 40, 40);
     toneSlider.setBounds(driveXOffset + 40, driveYOffset +8, 40, 40);
     levelSlider.setBounds(driveXOffset + 78, driveYOffset +8, 40, 40);
-    odLed.setBounds(driveXOffset + 44, driveYOffset + 78, 22, 22);
+    odLed.setBounds(driveXOffset + 47, driveYOffset + 81, 22, 22);
 
     // Delay:
     int dlyXOffset = 290;
@@ -131,7 +131,7 @@ void EffectsBar::resized()
     dlyTimeSlider.setBounds(dlyXOffset , dlyYOffset + 8, 40, 40);
     dlyFeedbackSlider.setBounds(dlyXOffset + 40, dlyYOffset + 8, 40, 40);
     dlyMixSlider.setBounds(dlyXOffset + 78, dlyYOffset + 8, 40, 40);
-    delayLed.setBounds(dlyXOffset + 44, dlyYOffset + 78, 22,22);
+    delayLed.setBounds(dlyXOffset + 48, dlyYOffset + 81, 22,22);
     
     // Reverb:
     int revbXOffset = 420;
@@ -140,5 +140,5 @@ void EffectsBar::resized()
     reverbSizeSlider.setBounds(revbXOffset, revYOffset + 8, 40, 40);
     reverbToneSlider.setBounds(revbXOffset + 40, revYOffset + 8, 40, 40);
     reverbMixSlider.setBounds(revbXOffset + 80, revYOffset + 8, 40, 40);
-    reverbLed.setBounds(revbXOffset + 46, revYOffset + 78, 22,22);
+    reverbLed.setBounds(revbXOffset + 50, revYOffset + 81, 22,22);
 }

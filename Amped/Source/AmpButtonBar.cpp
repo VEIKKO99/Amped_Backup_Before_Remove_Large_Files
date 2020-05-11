@@ -120,7 +120,7 @@ void AmpButtonBar::setAmpComponentBounds(Component& component, int xCoord) {
 void AmpButtonBar::resized()
 {
     setAmpComponentBounds(inputSlider, Constants::ampCompInputX);
-    setAmpComponentBounds(fxSwitch, Constants::AmpCtrlSwitchX);
+    setAmpComponentBounds(fxSwitch, Constants::AmpCtrlSwitchX -2);
     setAmpComponentBounds(driveSlider, Constants::AmpCtrlDriveX);
     setAmpComponentBounds(bassSlider, Constants::AmpCtrlBassX);
     setAmpComponentBounds(middleSlider, Constants::AmpCtrlMiddleX);
@@ -137,7 +137,7 @@ void AmpButtonBar::resized()
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
 #endif
     inputClipLed.setBounds(50,18, 22, 22);
-    cabSimSwitch.setBounds(Constants::AmpCtrlCabSimX, Constants::ampButtonsY, 90, Constants::ampButtonsHeight);
+    cabSimSwitch.setBounds(Constants::AmpCtrlCabSimX +3, Constants::ampButtonsY, 90, Constants::ampButtonsHeight);
 }
 
 void AmpButtonBar::updateCabSimValueFromVTS(float newValue) {
