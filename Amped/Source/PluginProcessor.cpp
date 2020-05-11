@@ -779,10 +779,9 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
         if (copyProtection) buffer.clear();
     }
     mainProcessor->processBlock (monoBuffer, midiMessages);
-    if (*fxParameter < 0.5) {
-        processDelay(monoBuffer);
-    }
-    
+    processDelay(monoBuffer);
+
+ 
     processBlockCounter--;
     if (muteBecauseOfCopyprotection()) buffer.clear();
     
@@ -900,11 +899,14 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
 void AmpedAudioProcessor::processDelay(AudioBuffer<float>& buffer)
 {
-    if (*dlyOnOffParameter > .5) {
+    if (*fxParameter < 0.5 && *dlyOnOffParameter > .5) {
         delay.mMix = dlyMixParameter;
         delay.mFeedback = dlyFeedbackParameter;
         delay.mTime = dlyTimeParameter;
         delay.processBlock(buffer);
+    }
+    else {
+        delay.clearBuffers();
     }
 }
 

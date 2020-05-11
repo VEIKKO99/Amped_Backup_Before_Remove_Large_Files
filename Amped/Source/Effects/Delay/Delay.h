@@ -40,10 +40,21 @@ public:
         convolutionDspFeedback.reset();
         
         mExpectedReadPos = -1;
+        cleared = true;
+    }
+    
+    void clearBuffers() {
+        if (!cleared) {
+            cleared = true;
+            convolutionDspFirst.reset();
+            convolutionDspFeedback.reset();
+            mDelayBuffer.clear();
+        }
     }
     
     void processBlock (AudioBuffer<float>& buffer)
     {
+        cleared = false;
         const float time = *mTime * MAX_DELAY_TIME_IN_MS;
         const float feedback = *mFeedback * 0.95f; //Decibels::decibelsTo    (*mFeedback);
 
@@ -80,6 +91,8 @@ public:
         // fade in at new position
         if (readPos != mExpectedReadPos)
         {
+            convolutionDspFirst.reset();
+            convolutionDspFeedback.reset();
             for (int i=0; i < mNumOfOutputChannels; ++i)
             {
                 const int outputChannelNum = i; //outputBus->getChannelIndexInProcessBlockBuffer (i);
@@ -204,4 +217,6 @@ private:
     
     Convolution convolutionDspFirst;
     Convolution convolutionDspFeedback;
+    
+    bool cleared = false;
 };
