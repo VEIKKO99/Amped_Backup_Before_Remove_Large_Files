@@ -129,20 +129,14 @@ void AmpButtonBar::resized()
 
     setAmpComponentBounds(presenceSlider, Constants::AmpCtrlPresenceX);
 //    setAmpComponentBounds(brightSwitch, Constants::AmpCtrlPresenceX + 20);
-    brightSwitch.setBounds(Constants::AmpCtrlPresenceX + 60,
-                             0,
-                             20,
-                             40);
-    
-    
-    
+    brightSwitch.setBounds(Constants::AmpCtrlPresenceX + 63, 0, 20, 40);
     
     setAmpComponentBounds(masterSlider, Constants::AmpCtrlMasterX);
     setAmpComponentBounds(outputSlider, Constants::AmpCtrlOutputX);
 #ifdef AMPED_DEBUG
     setAmpComponentBounds(matchIRSwitch, Constants::AmpCtrlOutputX + 65);
 #endif
-    inputClipLed.setBounds(50,6, 22, 22);
+    inputClipLed.setBounds(50,18, 22, 22);
     cabSimSwitch.setBounds(Constants::AmpCtrlCabSimX, Constants::ampButtonsY, 90, Constants::ampButtonsHeight);
 }
 

@@ -61,13 +61,7 @@ class SmallToggleSwitchLnF : public AmpLookAndFeelBase {
                               ToggleButton& button,
                               bool isMouseOverButton,
                               bool isButtonDown) override
-   {
-       if (button.hasKeyboardFocus (true))
-       {
-           g.setColour (button.findColour (TextEditor::focusedOutlineColourId));
-           g.drawRect (0, 0, button.getWidth(), button.getHeight());
-       }
-       
+   {       
        std::string fileName = "";
        
        if (button.getToggleState()) {

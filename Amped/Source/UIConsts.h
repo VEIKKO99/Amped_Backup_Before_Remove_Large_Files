@@ -22,7 +22,7 @@ class Constants
 
 public:
     static const int AmpButtonBarX = 166;
-    static const int AmpButtonBarY = 430;
+    static const int AmpButtonBarY = 418;
 #ifndef AMPED_DEBUG
     static const int AmpButtonBarW = 1000;
 #else
@@ -36,13 +36,13 @@ public:
         return font;
     }
 
-    static const int AmpButtonBarH = 90;
+    static const int AmpButtonBarH = 102;
 
     constexpr static const double AmpButtonMax = 59.0;
     constexpr static const double AmpButtonMin = 0.0;
     constexpr static const double AmpButtonInterval = 1.0;
 
-    static const int ampButtonsY = 8;
+    static const int ampButtonsY = 20;
     
     static const int ampButtonsWidth = 60;//AmpButtonBarW / 10; // 10 = Amount of buttons
     static const int ampButtonsHeight = AmpButtonBarH;
