@@ -233,9 +233,12 @@ void LicenceDialog::modalStateFinished(int returnValue) {
     setVisible(false);
 }
 
-void LicenceDialog::showLicenseValidDialog(String email, Component* parent) {
-    NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licensed for " + email,
-            parent);
+void LicenceDialog::showLicenseValidDialog(String email, Component* parent, bool showRestartNote) {
+    
+    String descriptionText = "This product is licensed for " + email +".";
+    if (showRestartNote) descriptionText += "\n\nIMPORTANT: You need to restart Amped to install the license.";
+    
+    NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", descriptionText, parent);
 }
 
 void LicenceDialog::licenceCodeTextChanged()
@@ -245,9 +248,7 @@ void LicenceDialog::licenceCodeTextChanged()
     auto valid = LicenceTools::getInstance()->installLicense(enteredText);
     if (valid == true) {
         auto licence = LicenceTools::getInstance()->getLicence();
-        showLicenseValidDialog(licence->getUserEmail(), this);
-        //NativeMessageBox::showMessageBoxAsync(AlertWindow::InfoIcon, "Thanks a lot!", "This product is licenced for " + licence->getUserEmail(),
-         //       this);
+        showLicenseValidDialog(licence->getUserEmail(), this, true);
         setVisible(false);
     }
     else {

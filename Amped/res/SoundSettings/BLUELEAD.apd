@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SoundSettings name="Blue Lead">
-  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_blue_Q.png"
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:ark_blue_lead.png"
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>

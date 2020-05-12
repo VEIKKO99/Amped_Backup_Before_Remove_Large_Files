@@ -44,7 +44,7 @@ public:
 
     //==============================================================================
     //[UserMethods]     -- You can add your own custom methods in this section.
-    static void showLicenseValidDialog(String email, Component* parent);
+    static void showLicenseValidDialog(String email, Component* parent, bool showRestartNote = false);
     //[/UserMethods]
 
     void paint (Graphics& g) override;

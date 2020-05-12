@@ -12,7 +12,7 @@
 
 enum GainProcessorId { InputGain = 0, OutputGain, DriveGain, SIZE};
 
-const std::string AMPED_STORE_FULL_LICENCE_LINK = "https://ml-sound-lab.com/amped-roots";
+const std::string AMPED_STORE_FULL_LICENCE_LINK = "https://ml-sound-lab.com/amped-ark";
 const int AMPED_MONO_CHANNEL = 1;
 
 const std::string VTS_INPUT = "input";
@@ -25,7 +25,6 @@ const std::string VTS_PRESENCE = "presence";
 const std::string VTS_MASTER = "master";
 const std::string VTS_DEPTH = "depth";
 const std::string VTS_BRIGHT = "bright";
-
 
 const std::string VTS_CAB_SIM_TYPE = "cabSim_type";
 const std::string VTS_OUTPUT = "output";

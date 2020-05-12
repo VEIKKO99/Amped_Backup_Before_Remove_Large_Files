@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SoundSettings name="Blue Clean">
-  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_blue_Q.png"
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:ark_blue_clean.png"
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
-    <MaxMin min="8.0" max="32.0"/>
+    <MaxMin min="13.0" max="37.0"/>
     <MaxMin min="0.0" max="0.0"/>
   </MaxMinSettings>
   <Presets/>
