@@ -162,7 +162,7 @@ void ThreeWayIRFileSwitch::mouseDown (const MouseEvent& e)
 {
     //[UserCode_mouseDown] -- Add your code here...
     auto mousePos = e.getPosition();
-    if (mousePos.getX() < 50) {
+    if (mousePos.getX() < 40) {
         toggleSwitch();
     }
     else {

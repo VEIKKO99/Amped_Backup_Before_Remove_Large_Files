@@ -165,17 +165,21 @@
         <GROUP id="{B8621770-CD80-AA7C-EDD3-95117A3A13D5}" name="files">
           <FILE id="TMuk2d" name="amped_delay_lofi_ir_100ms.wav" compile="0"
                 resource="1" file="res/amped_delay_lofi_ir_100ms.wav"/>
-          <FILE id="N76S4j" name="archon_blue_Q.png" compile="0" resource="1"
-                file="res/SoundSettings/files/archon_blue_Q.png"/>
-          <FILE id="Rlh6Nq" name="archon_camo_Q.png" compile="0" resource="1"
-                file="res/SoundSettings/files/archon_camo_Q.png"/>
           <FILE id="bxduuc" name="ARCHON_CLEAN.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ARCHON_CLEAN.wav"/>
           <FILE id="bsZ380" name="ARCHON_LEAD.wav" compile="0" resource="1" file="res/SoundSettings/files/ARCHON_LEAD.wav"/>
           <FILE id="uiZLAS" name="ARK_BLUE_CAB_IR_Q.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ARK_BLUE_CAB_IR_Q.wav"/>
+          <FILE id="xhSHSK" name="ark_blue_clean.png" compile="0" resource="1"
+                file="res/SoundSettings/files/ark_blue_clean.png"/>
+          <FILE id="atBcSM" name="ark_blue_lead.png" compile="0" resource="1"
+                file="res/SoundSettings/files/ark_blue_lead.png"/>
           <FILE id="NbSYSd" name="ARK_CAMO_CAB_IR_Q.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ARK_CAMO_CAB_IR_Q.wav"/>
+          <FILE id="bahHyY" name="ark_camo_clean.png" compile="0" resource="1"
+                file="res/SoundSettings/files/ark_camo_clean.png"/>
+          <FILE id="WI3pIw" name="ark_camo_lead.png" compile="0" resource="1"
+                file="res/SoundSettings/files/ark_camo_lead.png"/>
           <FILE id="nz02aH" name="ARK_CB_00_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CB_00_Q.wav"/>
           <FILE id="MWDQZA" name="ARK_CB_10_Q.wav" compile="0" resource="1" file="res/SoundSettings/files/ARK_CB_10_Q.wav"/>
           <FILE id="tAA3iF" name="ARK_CBRIGHT_OFF_Q.wav" compile="0" resource="1"

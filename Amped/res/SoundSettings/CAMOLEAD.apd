@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <SoundSettings name="Camo Lead">
-  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:archon_camo_Q.png"
+  <UISettings konbFilename="amped_knob62_chknb_00" mainBackgroundImageFileName="memory:ark_camo_lead.png"
               selectedKnob="1"/>
   <MaxMinSettings>
     <MaxMin min="-24.0" max="24.0"/>
