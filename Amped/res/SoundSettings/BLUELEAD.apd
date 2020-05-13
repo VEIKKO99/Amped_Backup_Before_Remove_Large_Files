@@ -50,7 +50,7 @@
                   gain="5.0" realisticGain="10.0"/>
       <EQSettings lowIrFileName="memory:ARK_LD_00_Q.wav"
                   highIrFileName="memory:ARK_LD_10_Q.wav"
-                  gain="6.0" realisticGain="1.0"/>
+                  gain="22.0" realisticGain="-13.0"/>
     </EQSettings>
   </InternalAmpSettings>
 </SoundSettings>
