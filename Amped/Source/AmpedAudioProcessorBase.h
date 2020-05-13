@@ -529,6 +529,13 @@ public:
     }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
+        
+        if (muteStatus == kNormalNotMuted) {
+            muteStatus = kStartMuting;
+            
+        }
+        
+        Logger::getCurrentLogger()->writeToLog("updateInternalSettings:");
         AmpSimWrapperBase::updateInternalSettings(settings);
         // Input type (mesa, marshall etc)
         tubeAmp.setInputType(soundSettings->ampSettings.inputType);
@@ -670,6 +677,10 @@ public:
 private:
     
     TubeAmp tubeAmp;
+    int muteblockCounter = 0;
+    
+    enum MuteStatus{ kNormalNotMuted, kStartMuting, kMuted, kEndMuting };
+    MuteStatus muteStatus = kNormalNotMuted;
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpProcessor)
 

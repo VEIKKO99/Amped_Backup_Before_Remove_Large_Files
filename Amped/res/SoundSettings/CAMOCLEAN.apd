@@ -32,7 +32,7 @@
                    overridingIrFileName="" gain="6.0"/>
       </AmpIr>
     </IRSettings>
-    <EQSettings brightFileName="memory:ARK_CBRIGHT_OFF_Q.wav"
+    <EQSettings brightFileName="memory:ark_tom_cbright_off_20ms.wav"
                 brightEQGain="4.0" eqSampleLimit="0">
       <EQSettings lowIrFileName="memory:ARK_CB_00_Q.wav"
                   highIrFileName="memory:ARK_CB_10_Q.wav"

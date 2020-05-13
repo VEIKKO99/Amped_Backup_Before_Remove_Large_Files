@@ -34,20 +34,20 @@
     </IRSettings>
     <EQSettings brightFileName="memory:ark_tom_cbright_off_20ms.wav"
                 brightEQGain="4.0" eqSampleLimit="0">
-      <EQSettings lowIrFileName="memory:ark_tom_cb_00_20ms.wav"
-                  highIrFileName="memory:ark_tom_cb_10_20ms.wav"
+      <EQSettings lowIrFileName="memory:ARK_CB_00_Q.wav"
+                  highIrFileName="memory:ARK_CB_10_Q.wav"
                   gain="7.0" realisticGain="0.5"/>
-      <EQSettings lowIrFileName="memory:ark_tom_cm_00_20ms.wav"
-                  highIrFileName="memory:ark_tom_cm_10_20ms.wav"
+      <EQSettings lowIrFileName="memory:ARK_CM_00_Q.wav"
+                  highIrFileName="memory:ARK_CM_10_Q.wav"
                   gain="6.5" realisticGain="2.0"/>
-      <EQSettings lowIrFileName="memory:ark_tom_ct_00_20ms.wav"
-                  highIrFileName="memory:ark_tom_ct_10_20ms.wav"
+      <EQSettings lowIrFileName="memory:ARK_CT_00_Q.wav"
+                  highIrFileName="memory:ARK_CT_10_Q.wav"
                   gain="4.0" realisticGain="8.0"/>
-      <EQSettings lowIrFileName="memory:ark_tom_cp_00_20ms.wav"
-                  highIrFileName="memory:ark_tom_cp_10_20ms.wav"
-                  gain="5.0" realisticGain="16.0"/>
-      <EQSettings lowIrFileName="memory:ark_tom_cd_00_20ms.wav"
-                  highIrFileName="memory:ark_tom_cd_10_20ms.wav"
+      <EQSettings lowIrFileName="memory:ARK_CP_00_Q.wav"
+                  highIrFileName="memory:ARK_CP_10_Q.wav"
+                  gain="5.0" realisticGain="8.0"/>
+      <EQSettings lowIrFileName="memory:ARK_CD_00_Q.wav"
+                  highIrFileName="memory:ARK_CD_10_Q.wav"
                   gain="7.0" realisticGain="0.5"/>
     </EQSettings>
   </InternalAmpSettings>
