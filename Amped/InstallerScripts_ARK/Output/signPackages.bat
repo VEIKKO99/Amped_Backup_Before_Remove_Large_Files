@@ -1,0 +1,2 @@
+signtool.exe sign /f "C:\Users\vetapani\Documents\Windows_Installer_Signing_Sertifikaatti.pfx" /t http://timestamp.comodoca.com/authenticode /p OvejFh4Gm5ywr8 Amped-Ark-Win32Bit.exe
+signtool.exe sign /f "C:\Users\vetapani\Documents\Windows_Installer_Signing_Sertifikaatti.pfx" /t http://timestamp.comodoca.com/authenticode /p OvejFh4Gm5ywr8 Amped-Ark-Win64Bit.exe

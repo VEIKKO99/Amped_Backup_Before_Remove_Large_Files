@@ -1,0 +1,36 @@
+End User License Agreement
+End-User License Agreement (EULA) of ML Sound Lab products
+This End-User License Agreement ("EULA") is a legal agreement between you and ML Sound Lab Ltd.
+
+This EULA agreement governs your acquisition and use of ML Sound Lab products directly from ML Sound Lab Ltd or indirectly through a ML Sound Lab Ltd authorized reseller or distributor.
+
+Please read this EULA agreement carefully before using ML Sound Lab products. It provides a license to use the ML Sound Lab products you've purchased and contains warranty information and liability disclaimers. By purchasing ML Sound Lab products, you are confirming your acceptance of said products and agreeing to become bound by the terms of this EULA agreement.
+
+If you are entering into this EULA agreement on behalf of a company or other legal entity, you represent that you have the authority to bind such entity and its affiliates to these terms and conditions. If you do not have such authority or if you do not agree with the terms and conditions of this EULA agreement, do not use the products, and you must not accept this EULA agreement.
+
+This EULA agreement shall apply only to the products supplied by ML Sound Lab Ltd herewith regardless of whether other software is referred to or described herein. The terms also apply to any ML Sound Lab Ltd updates, supplements, Internet-based services, and support services for the products, unless other terms accompany those items on delivery. If so, those terms apply.
+
+License Grant
+ML Sound Lab Ltd hereby grants you a personal, non-transferable, non-exclusive licence to use the ML Sound Lab products that you've purchased on your devices in accordance with the terms of this EULA agreement.
+
+You are permitted to use the ML Sound Lab products that you've purchased under your control. You are responsible for ensuring your device meets the requirements of the ML Sound Lab products.
+
+You are not permitted to:
+
+Edit, alter, modify, adapt, translate or otherwise change the whole or any part of the products nor permit the whole or any part of the products to be combined with or become incorporated in any other product, nor decompile, disassemble or reverse engineer the products or attempt to do any such things
+Reproduce, copy, distribute, resell or otherwise use the products for any commercial purpose
+Allow any third party to use the products on behalf of or for the benefit of any third party
+Use the products in any way which breaches any applicable local, national or international law
+Use the products for any purpose that ML Sound Lab Ltd considers is a breach of this EULA agreement
+Intellectual Property and Ownership
+ML Sound Lab Ltd shall at all times retain ownership of the products as originally downloaded by you and all subsequent downloads of the products by you. The products (and the copyright, and other intellectual property rights of whatever nature in the product, including any modifications made thereto) are and shall remain the property of ML Sound Lab Ltd.
+
+ML Sound Lab Ltd reserves the right to grant licences to use the products to third parties.
+
+Termination
+This EULA agreement is effective from the date you first use the products and shall continue until terminated. You may terminate it at any time upon written notice to ML Sound Lab Ltd.
+
+It will also terminate immediately if you fail to comply with any term of this EULA agreement. Upon such termination, the licenses granted by this EULA agreement will immediately terminate and you agree to stop all access and use of the product. ML Sound Lab Ltd products are non-tangible digital goods that can not be returned, therefore ML Sound Lab Ltd does not offer any refunds after purchase is completed. All purchases are final.
+
+Governing Law
+This EULA agreement, and any dispute arising out of or in connection with this EULA agreement, shall be governed by and construed in accordance with the laws of Finland.
