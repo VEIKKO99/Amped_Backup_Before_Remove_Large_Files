@@ -501,9 +501,6 @@ void AmpedAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBlock)
         previousPrepareSampleRate = (int) sampleRate;
         previousPrepareSamplesPerBlock = samplesPerBlock;
         
-     //   startupMuteBlockCounter = (sampleRate / samplesPerBlock) * startUpMuteTimeInSec;
-        
-      //  Logger::getCurrentLogger()->writeToLog("prepareToPlay   ");
         if (getTotalNumInputChannels() < 1) {
             return;
         }
@@ -802,11 +799,6 @@ void AmpedAudioProcessor::processBlock (AudioBuffer<float>& buffer, MidiBuffer& 
 
     if (processBlockCounter <= 0 ) processBlockCounter = INT_MAX - 200000;
     
-  //  if (startupMuteBlockCounter > 0) {
-   //        Logger::getCurrentLogger()->writeToLog("Muting... " +  String(startupMuteBlockCounter));
-   //        startupMuteBlockCounter--;
-   //        buffer.clear();
-   //    }
     /*
     Logger::getCurrentLogger()->writeToLog("float process block");
 

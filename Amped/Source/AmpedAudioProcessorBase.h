@@ -527,15 +527,21 @@ public:
         destination.setLowPassFbk(source.lowPassFbk);
         destination.setRP(source.rp);
     }
+    
+    void handleMuting() {
+        
+        const double muteLengthInSec = 0.1;
+        if (lastKnownSampleRate > 1.0 && lastKnownSamplesPerBlock > 0 &&
+            (muteStatus == kNormalNotMuted || muteStatus == kMuted)) {
+             muteStatus = kStartMuting;
+             muteBlockCounter = (lastKnownSampleRate / lastKnownSamplesPerBlock) * muteLengthInSec;
+         }
+    }
 
     void updateInternalSettings(std::shared_ptr<SoundSettings> settings) override {
         
-        if (muteStatus == kNormalNotMuted) {
-            muteStatus = kStartMuting;
-            
-        }
+        handleMuting();
         
-        Logger::getCurrentLogger()->writeToLog("updateInternalSettings:");
         AmpSimWrapperBase::updateInternalSettings(settings);
         // Input type (mesa, marshall etc)
         tubeAmp.setInputType(soundSettings->ampSettings.inputType);
@@ -616,6 +622,9 @@ public:
     
     void prepareToPlay (double sampleRate, int samplesPerBlock) override
     {
+        lastKnownSampleRate = sampleRate;
+        lastKnownSamplesPerBlock = samplesPerBlock;
+        
         int numOfChannels = getTotalNumInputChannels();
         
         // If 8192 *"  samples are not enough, re-init the buffer.
@@ -644,7 +653,31 @@ public:
       //  tubeAmp.setOversample(8);
     }
     
-    void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
+    inline void processMuting(juce::AudioSampleBuffer &buffer, int numOfSamples) {
+        if (muteStatus == kStartMuting)
+        {
+            // Todo: the actual sound change should happen after this gain ramp.
+            // Currently this doesn't remove the EXPLOSION.
+            // buffer.applyGainRamp(0, numOfSamples, 1.0, 0.0);
+            buffer.clear();
+            muteStatus = kMuted;
+        }
+        else if (muteStatus == kMuted)
+        {
+            if (muteBlockCounter > 0)
+            {
+                muteBlockCounter--;
+                buffer.clear();
+            }
+            else
+            {
+                buffer.applyGainRamp(0, numOfSamples, 0.0, 0.1);
+                muteStatus = kNormalNotMuted;
+            }
+        }
+    }
+
+void processBlock (AudioSampleBuffer& buffer, MidiBuffer&) override
     {
         int numOfSamples = buffer.getNumSamples();
         int numOfChannels = buffer.getNumChannels();
@@ -656,8 +689,9 @@ public:
         
         deinterleaveAndConvertSamples(interleavedBuffer.get(), buffer.getArrayOfWritePointers(),
                                                  numOfSamples, numOfChannels);
+        
+        processMuting(buffer, numOfSamples);
     }
-
     
     void reset() override
     {
@@ -677,11 +711,15 @@ public:
 private:
     
     TubeAmp tubeAmp;
-    int muteblockCounter = 0;
     
-    enum MuteStatus{ kNormalNotMuted, kStartMuting, kMuted, kEndMuting };
-    MuteStatus muteStatus = kNormalNotMuted;
+    // This muting this is needed because the tube amp sim
+    // produces loud explosion when changing sounds.
+    enum MuteStatus{ kNormalNotMuted, kStartMuting, kMuted};
+    MuteStatus muteStatus = kMuted; // Initial value
+    int muteBlockCounter = 100; // Initial value
 
+    double lastKnownSampleRate = 0.0;
+    double lastKnownSamplesPerBlock = 0;
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (AmpProcessor)
 
 };
