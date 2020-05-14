@@ -15,10 +15,6 @@
             file="res/amped_delay_lofi_ir_10ms.wav"/>
       <FILE id="Upqz1w" name="2020_4_pedals.png" compile="0" resource="1"
             file="res/2020_4_pedals.png"/>
-      <FILE id="QgwXcs" name="CAMOLEAD.apd" compile="0" resource="1" file="res/SoundSettings/CAMOLEAD.apd"/>
-      <FILE id="hCzhVG" name="CAMOCLEAN.apd" compile="0" resource="1" file="res/SoundSettings/CAMOCLEAN.apd"/>
-      <FILE id="e1hrkz" name="BLUECLEAN.apd" compile="0" resource="1" file="res/SoundSettings/BLUECLEAN.apd"/>
-      <FILE id="z6F84B" name="BLUELEAD.apd" compile="0" resource="1" file="res/SoundSettings/BLUELEAD.apd"/>
       <GROUP id="{FE4DE425-A788-D542-1762-40158DDEA2A1}" name="Ark_Knobs_Switches">
         <FILE id="Krhxp9" name="archon_big3way_down.png" compile="0" resource="1"
               file="res/Ark_Knobs_Switches/archon_big3way_down.png"/>
@@ -231,6 +227,10 @@
           <FILE id="gxkJM2" name="ark_tom_lead_amp_20ms.wav" compile="0" resource="1"
                 file="res/SoundSettings/files/ark_tom_lead_amp_20ms.wav"/>
         </GROUP>
+        <FILE id="ZTGTYu" name="BLUECLEAN.apdx" compile="0" resource="1" file="res/SoundSettings/BLUECLEAN.apdx"/>
+        <FILE id="D2lWxf" name="BLUELEAD.apdx" compile="0" resource="1" file="res/SoundSettings/BLUELEAD.apdx"/>
+        <FILE id="heqKGr" name="CAMOCLEAN.apdx" compile="0" resource="1" file="res/SoundSettings/CAMOCLEAN.apdx"/>
+        <FILE id="Y9IURm" name="CAMOLEAD.apdx" compile="0" resource="1" file="res/SoundSettings/CAMOLEAD.apdx"/>
       </GROUP>
       <FILE id="DJVdAa" name="WorkSans-Regular.ttf" compile="0" resource="1"
             file="res/WorkSans-Regular.ttf"/>

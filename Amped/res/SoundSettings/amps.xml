@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Amps>
-  <Amp fileName="BLUECLEAN.apd"/>
-  <Amp fileName="BLUELEAD.apd"/>
-  <Amp fileName="CAMOCLEAN.apd"/>
-  <Amp fileName="CAMOLEAD.apd"/>
+  <Amp fileName="BLUECLEAN.apdx"/>
+  <Amp fileName="BLUELEAD.apdx"/>
+  <Amp fileName="CAMOCLEAN.apdx"/>
+  <Amp fileName="CAMOLEAD.apdx"/>
 </Amps>

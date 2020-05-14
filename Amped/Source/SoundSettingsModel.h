@@ -91,7 +91,7 @@ private:
                int oneAmpDataSize = 0;
                auto oneAmpData = getBinaryDataWithOriginalFileName(oneAmpFileName, oneAmpDataSize);
 // Only use ecrypted files with non debug version
-#ifndef AMPED_DEBUG
+//#ifndef AMPED_DEBUG
                auto s = String::createStringFromData(oneAmpData, oneAmpDataSize);
                String key = "<color=\"white\"/>";
                BlowFish blowFish (key.toUTF8(), (int) key.getNumBytesAsUTF8());
@@ -99,9 +99,9 @@ private:
                memoryBlock.fromBase64Encoding (s);
                auto decoded = decodeString(blowFish, memoryBlock);
                XmlDocument xmlDocument(decoded);
-#else
-               XmlDocument xmlDocument(oneAmpData);
-#endif
+//#else
+//               XmlDocument xmlDocument(oneAmpData);
+//#endif
                auto xmlElement = xmlDocument.getDocumentElement();
                if (xmlElement != nullptr) {
                    auto oneSound = std::make_shared<SoundSettings>();
