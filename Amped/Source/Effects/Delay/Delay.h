@@ -56,7 +56,7 @@ public:
     {
         cleared = false;
         const float time = *mTime * MAX_DELAY_TIME_IN_MS;
-        const float feedback = *mFeedback * 0.95f; //Decibels::decibelsTo    (*mFeedback);
+        const float feedback = *mFeedback /* * 0.95f*/; //Decibels::decibelsTo    (*mFeedback);
 
         for (int i = 0; i < buffer.getNumChannels(); i++) {
             if (i < mWorkBuffer.getNumChannels()) {
@@ -141,7 +141,7 @@ public:
             convolutionDspFeedback.process(context);
         }
         
-        mLofiBuffer.applyGain(Decibels::decibelsToGain(9.0f));
+        mLofiBuffer.applyGain(Decibels::decibelsToGain(4.0f));
         
         if (writePos + mLofiBuffer.getNumSamples() <= mDelayBuffer.getNumSamples())
         {
